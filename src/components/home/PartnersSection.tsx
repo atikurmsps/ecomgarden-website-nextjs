@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 
 const partners = [
@@ -15,33 +17,74 @@ const partners = [
 
 export default function PartnersSection() {
   return (
-    <section style={{ padding: "70px 0 50px" }} className="bg-white">
+    <section style={{ padding: "24px 0", backgroundColor: "var(--color-light-gray)", fontFamily: "var(--font-roboto)" }}>
       <div className="container-main">
-        <h2
-          className="font-bold text-center text-black mb-10"
-          style={{ fontSize: "32px" }}
+        <div style={{ textAlign: "center", marginBottom: "16px" }}>
+          <span
+            style={{
+              fontSize: "13px",
+              fontWeight: 700,
+              textTransform: "uppercase" as const,
+              letterSpacing: "1.5px",
+              color: "var(--color-primary)",
+            }}
+          >
+            Trusted By
+          </span>
+          <h2
+            style={{
+              fontSize: "24px",
+              fontWeight: 700,
+              color: "var(--color-text)",
+              marginTop: "4px",
+              lineHeight: "28px",
+            }}
+          >
+            Our Partners
+          </h2>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "24px 32px",
+          }}
         >
-          Our Partners
-        </h2>
-        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-10">
           {partners.map((partner) => (
             <div
               key={partner.name}
-              className="grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
-              style={{ width: "140px", height: "60px", position: "relative" }}
+              className="partner-logo"
+              style={{
+                width: "110px",
+                height: "44px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                opacity: 0.55,
+                filter: "grayscale(100%)",
+                transition: "all 0.3s ease",
+                cursor: "default",
+              }}
             >
-              <div className="flex items-center justify-center h-full">
-                <Image
-                  src={partner.img}
-                  alt={partner.name}
-                  width={partner.w}
-                  height={partner.h}
-                  className="max-w-[130px] max-h-[50px] w-auto h-auto object-contain"
-                />
-              </div>
+              <Image
+                src={partner.img}
+                alt={partner.name}
+                width={partner.w}
+                height={partner.h}
+                style={{ maxWidth: "100px", maxHeight: "38px", width: "auto", height: "auto", objectFit: "contain" }}
+              />
             </div>
           ))}
         </div>
+
+        <style jsx>{`
+          .partner-logo:hover {
+            opacity: 1 !important;
+            filter: grayscale(0%) !important;
+          }
+        `}</style>
       </div>
     </section>
   );

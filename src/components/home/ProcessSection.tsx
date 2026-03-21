@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 
 const steps = [
@@ -35,52 +37,150 @@ const steps = [
 
 export default function ProcessSection() {
   return (
-    <section style={{ padding: "30px 0 25px" }} className="bg-white">
+    <section style={{ padding: "40px 0", backgroundColor: "white", fontFamily: "var(--font-roboto)" }}>
       <div className="container-main">
+        <div style={{ textAlign: "center", marginBottom: "6px" }}>
+          <span
+            style={{
+              fontSize: "13px",
+              fontWeight: 700,
+              textTransform: "uppercase" as const,
+              letterSpacing: "1.5px",
+              color: "var(--color-primary)",
+            }}
+          >
+            Our Process
+          </span>
+        </div>
         <h2
-          className="font-bold text-center text-black mb-12"
-          style={{ fontSize: "32px", lineHeight: "32px" }}
+          style={{
+            fontSize: "25px",
+            fontWeight: 700,
+            textAlign: "center",
+            color: "var(--color-text)",
+            marginBottom: "28px",
+            lineHeight: "30px",
+          }}
         >
           How Our Management Service Works
         </h2>
 
-        <div className="flex flex-col lg:flex-row items-start justify-between">
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(5, 1fr)",
+            gap: "0",
+            position: "relative",
+          }}
+          className="process-grid"
+        >
           {steps.map((step, index) => (
-            <div key={step.title} className="flex items-start flex-1">
-              {/* Step content */}
-              <div className="text-center flex-shrink-0 w-full">
-                <div className="flex justify-center mb-4">
-                  <Image
-                    src={step.img}
-                    alt={step.title}
-                    width={90}
-                    height={90}
-                    className="w-[80px] h-[80px] object-contain"
-                  />
-                </div>
-                <h3 className="text-[20px] font-bold text-[#333] mb-2">
-                  {step.title}
-                </h3>
-                <p className="text-[#2b2e37] text-[15px] leading-[22px] px-2">
-                  {step.description}
-                </p>
+            <div
+              key={step.title}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                textAlign: "center",
+                position: "relative",
+                padding: "0 8px",
+              }}
+            >
+              {/* Numbered circle with icon */}
+              <div
+                style={{
+                  width: "56px",
+                  height: "56px",
+                  borderRadius: "50%",
+                  backgroundColor: "var(--color-primary-light)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginBottom: "12px",
+                  position: "relative",
+                }}
+              >
+                <Image
+                  src={step.img}
+                  alt={step.title}
+                  width={90}
+                  height={90}
+                  style={{ width: "34px", height: "34px", objectFit: "contain" }}
+                />
+                <span
+                  style={{
+                    position: "absolute",
+                    top: "-4px",
+                    right: "-4px",
+                    width: "20px",
+                    height: "20px",
+                    borderRadius: "50%",
+                    backgroundColor: "var(--color-primary)",
+                    color: "white",
+                    fontSize: "13px",
+                    fontWeight: 700,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  {index + 1}
+                </span>
               </div>
 
-              {/* Arrow between steps */}
+              {/* Connector line */}
               {index < steps.length - 1 && (
-                <div className="hidden lg:flex items-center flex-shrink-0 pt-8 px-1">
-                  <Image
-                    src="/images/process/arrow.webp"
-                    alt="arrow"
-                    width={35}
-                    height={35}
-                    className="w-[30px] h-auto opacity-50"
-                  />
-                </div>
+                <div
+                  className="hidden lg:block"
+                  style={{
+                    position: "absolute",
+                    top: "28px",
+                    left: "calc(50% + 34px)",
+                    width: "calc(100% - 68px)",
+                    height: "2px",
+                    background: "linear-gradient(90deg, var(--color-primary), var(--color-primary-light))",
+                    opacity: 0.4,
+                  }}
+                />
               )}
+
+              <h3
+                style={{
+                  fontSize: "16px",
+                  fontWeight: 700,
+                  color: "var(--color-text)",
+                  marginBottom: "4px",
+                }}
+              >
+                {step.title}
+              </h3>
+              <p
+                style={{
+                  fontSize: "15px",
+                  lineHeight: "18px",
+                  color: "var(--color-text-light)",
+                }}
+              >
+                {step.description}
+              </p>
             </div>
           ))}
         </div>
+
+        <style jsx>{`
+          @media (max-width: 1023px) {
+            .process-grid {
+              grid-template-columns: repeat(3, 1fr) !important;
+              gap: 20px !important;
+            }
+          }
+          @media (max-width: 639px) {
+            .process-grid {
+              grid-template-columns: repeat(2, 1fr) !important;
+              gap: 16px !important;
+            }
+          }
+        `}</style>
       </div>
     </section>
   );

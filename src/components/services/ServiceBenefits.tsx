@@ -36,17 +36,37 @@ export default function ServiceBenefits() {
   const [openIndex, setOpenIndex] = useState<number>(0);
 
   return (
-    <section style={{ padding: "40px 0" }} className="bg-white">
+    <section
+      style={{
+        padding: "44px 0",
+        backgroundColor: "#fff",
+        fontFamily: "var(--font-roboto)",
+      }}
+    >
       <div className="container-main">
         <h2
-          className="font-bold text-center mb-4"
-          style={{ fontSize: "32px", color: "#2b2e37" }}
+          style={{
+            fontSize: "27px",
+            fontWeight: 700,
+            textAlign: "center",
+            color: "var(--color-dark)",
+            marginBottom: "8px",
+            fontFamily: "var(--font-roboto)",
+          }}
         >
           Benefits of getting our service
         </h2>
         <p
-          className="text-center text-[#333] mb-10 max-w-4xl mx-auto leading-relaxed"
-          style={{ fontSize: "16px", textAlign: "justify" }}
+          style={{
+            textAlign: "center",
+            color: "var(--color-text)",
+            marginBottom: "32px",
+            maxWidth: "780px",
+            margin: "0 auto 32px",
+            fontSize: "15px",
+            lineHeight: "24px",
+            fontFamily: "var(--font-roboto)",
+          }}
         >
           Our Amazon Virtual Assistant at EcomGarden efficiently launches and
           manages your Amazon Business worldwide, saving you time and ensuring
@@ -58,61 +78,133 @@ export default function ServiceBenefits() {
           key advantages:
         </p>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr",
+            gap: "32px",
+            alignItems: "center",
+          }}
+          className="lg:!grid-cols-2"
+        >
           {/* Left - Image */}
-          <div className="flex justify-center">
+          <div style={{ display: "flex", justifyContent: "center" }}>
             <Image
               src="/images/benefits/benefits-illustration.webp"
               alt="Benefits of our service"
               width={524}
               height={400}
-              className="w-full max-w-[524px] h-auto rounded-lg"
+              style={{
+                width: "100%",
+                maxWidth: "524px",
+                height: "auto",
+                borderRadius: "12px",
+              }}
             />
           </div>
 
           {/* Right - Accordion */}
-          <div className="space-y-[10px]">
-            {benefitItems.map((item, index) => (
-              <div
-                key={item.title}
-                className="bg-white rounded-[5px] overflow-hidden"
-                style={{ borderBottom: "1px solid #e0e0e0" }}
-              >
-                <button
-                  className="w-full flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
-                  style={{ padding: "15px 20px" }}
-                  onClick={() =>
-                    setOpenIndex(openIndex === index ? -1 : index)
-                  }
+          <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+            {benefitItems.map((item, index) => {
+              const isOpen = openIndex === index;
+              return (
+                <div
+                  key={item.title}
+                  style={{
+                    borderRadius: "10px",
+                    overflow: "hidden",
+                    backgroundColor: isOpen
+                      ? "var(--color-primary-light)"
+                      : "#fff",
+                    border: isOpen
+                      ? "1px solid color-mix(in srgb, var(--color-primary) 20%, transparent)"
+                      : "1px solid #eee",
+                    boxShadow: isOpen
+                      ? "0 4px 16px color-mix(in srgb, var(--color-primary) 8%, transparent)"
+                      : "0 1px 4px rgba(0,0,0,0.03)",
+                    transition: "all 0.3s ease",
+                  }}
                 >
-                  <span
-                    className="font-semibold"
+                  <button
+                    onClick={() =>
+                      setOpenIndex(openIndex === index ? -1 : index)
+                    }
                     style={{
-                      fontSize: "16px",
-                      lineHeight: "16px",
-                      color: openIndex === index ? "#e5a24e" : "#333",
+                      width: "100%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      padding: "16px 20px",
+                      background: "none",
+                      border: "none",
+                      cursor: "pointer",
+                      textAlign: "left",
+                      gap: "12px",
+                      transition: "background 0.2s",
                     }}
                   >
-                    {item.title}
-                  </span>
-                  <FaChevronDown
-                    className={`text-[12px] text-gray-400 transition-transform duration-300 flex-shrink-0 ml-3 ${
-                      openIndex === index ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
-                {openIndex === index && (
-                  <div style={{ padding: "0 20px 15px" }}>
-                    <p
-                      className="text-[#333]"
-                      style={{ fontSize: "14px", lineHeight: "24px" }}
+                    <span
+                      style={{
+                        fontSize: "15px",
+                        fontWeight: 600,
+                        color: isOpen
+                          ? "var(--color-primary)"
+                          : "var(--color-text)",
+                        fontFamily: "var(--font-roboto)",
+                        transition: "color 0.2s",
+                      }}
                     >
-                      {item.content}
-                    </p>
+                      {item.title}
+                    </span>
+                    <span
+                      style={{
+                        width: "26px",
+                        height: "26px",
+                        borderRadius: "50%",
+                        background: isOpen
+                          ? "color-mix(in srgb, var(--color-primary) 15%, transparent)"
+                          : "#f5f5f5",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        flexShrink: 0,
+                        transition: "all 0.3s",
+                      }}
+                    >
+                      <FaChevronDown
+                        style={{
+                          fontSize: "10px",
+                          color: isOpen ? "var(--color-primary)" : "#999",
+                          transition: "transform 0.3s",
+                          transform: isOpen ? "rotate(180deg)" : "rotate(0)",
+                        }}
+                      />
+                    </span>
+                  </button>
+                  <div
+                    style={{
+                      maxHeight: isOpen ? "300px" : "0",
+                      overflow: "hidden",
+                      transition: "max-height 0.35s ease",
+                    }}
+                  >
+                    <div style={{ padding: "0 20px 16px" }}>
+                      <p
+                        style={{
+                          fontSize: "15px",
+                          lineHeight: "24px",
+                          color: "var(--color-text-light)",
+                          fontFamily: "var(--font-roboto)",
+                          margin: 0,
+                        }}
+                      >
+                        {item.content}
+                      </p>
+                    </div>
                   </div>
-                )}
-              </div>
-            ))}
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

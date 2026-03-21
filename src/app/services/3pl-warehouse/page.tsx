@@ -72,34 +72,124 @@ const boxPrices = [
 export default function ThreePLWarehousePage() {
   return (
     <>
-      {/* Hero Section */}
-      <section style={{ padding: "50px 0" }} className="bg-white">
+      {/* Dark Hero Section */}
+      <section
+        style={{
+          padding: "44px 0 36px",
+          backgroundColor: "var(--color-dark)",
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        {/* Decorative circles */}
+        <div
+          style={{
+            position: "absolute",
+            top: "-80px",
+            right: "-80px",
+            width: "250px",
+            height: "250px",
+            borderRadius: "50%",
+            border: "1px solid rgba(22, 163, 74, 0.15)",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            bottom: "-60px",
+            left: "-60px",
+            width: "200px",
+            height: "200px",
+            borderRadius: "50%",
+            border: "1px solid rgba(22, 163, 74, 0.1)",
+          }}
+        />
+        <div className="container-main" style={{ position: "relative" }}>
+          {/* Green badge pill */}
+          <div
+            style={{
+              display: "inline-block",
+              backgroundColor: "rgba(22, 163, 74, 0.15)",
+              color: "var(--color-primary)",
+              padding: "6px 18px",
+              borderRadius: "50px",
+              fontSize: "13px",
+              fontWeight: 600,
+              fontFamily: "var(--font-roboto)",
+              marginBottom: "16px",
+              letterSpacing: "0.5px",
+            }}
+          >
+            3PL Warehouse
+          </div>
+          <h1
+            style={{
+              fontSize: "30px",
+              lineHeight: "40px",
+              color: "#fff",
+              fontFamily: "var(--font-roboto)",
+              fontWeight: 800,
+              marginBottom: "12px",
+            }}
+          >
+            Get Warehouse For Your Business
+          </h1>
+          <p
+            style={{
+              fontSize: "15px",
+              lineHeight: "24px",
+              color: "#9494ac",
+              fontFamily: "var(--font-roboto)",
+              maxWidth: "600px",
+              marginBottom: "24px",
+            }}
+          >
+            Operating dedicated warehouses in NY, FL, CT. FBA prep, WFS prep,
+            storage, 2-step dropshipping, and direct-to-customer shipping
+            with flat rate pricing.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <a
+              href="https://wa.link/m2ac6m"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-orange flex items-center gap-2"
+            >
+              <FaWhatsapp className="text-lg" />
+              Contact Us
+            </a>
+            <Link href="/services" className="btn-primary">
+              Browse More Services
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Intro Section */}
+      <section style={{ padding: "44px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             {/* Left - Text */}
             <div>
-              <h1
-                className="font-extrabold mb-5"
-                style={{
-                  fontSize: "32px",
-                  lineHeight: "40px",
-                  color: "#e5a24e",
-                }}
-              >
-                Get Warehouse For Your Business
-              </h1>
               <h2
-                className="font-bold mb-4"
                 style={{
-                  fontSize: "20px",
-                  color: "#2b2e37",
+                  fontSize: "28px",
+                  fontWeight: 700,
+                  color: "var(--color-text)",
+                  fontFamily: "var(--font-roboto)",
+                  marginBottom: "16px",
                 }}
               >
                 Operating Dedicated Warehouses in NY, FL, CT
               </h2>
               <p
-                className="text-[#333] mb-4 leading-relaxed"
-                style={{ fontSize: "16px", textAlign: "justify" }}
+                style={{
+                  fontSize: "15px",
+                  lineHeight: "26px",
+                  color: "var(--color-text-light)",
+                  fontFamily: "var(--font-roboto)",
+                  marginBottom: "20px",
+                }}
               >
                 No matter which method you use to sell, we&apos;ve got you
                 covered. Our 3PL warehouses can do FBA prep, WFS prep,
@@ -108,13 +198,26 @@ export default function ThreePLWarehousePage() {
               </p>
 
               {/* Feature Bullets */}
-              <ul className="space-y-3 mb-6">
+              <ul style={{ listStyle: "none", padding: 0, margin: "0 0 20px" }}>
                 {features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-3">
-                    <FaCheck className="text-[#86af51] mt-1 flex-shrink-0" />
+                  <li
+                    key={feature}
+                    className="flex items-start gap-3"
+                    style={{ marginBottom: "12px" }}
+                  >
+                    <FaCheck
+                      style={{
+                        color: "var(--color-primary)",
+                        marginTop: "4px",
+                        flexShrink: 0,
+                      }}
+                    />
                     <span
-                      className="text-[#333]"
-                      style={{ fontSize: "16px" }}
+                      style={{
+                        fontSize: "15px",
+                        color: "var(--color-text-light)",
+                        fontFamily: "var(--font-roboto)",
+                      }}
                     >
                       {feature}
                     </span>
@@ -122,21 +225,15 @@ export default function ThreePLWarehousePage() {
                 ))}
               </ul>
 
-              <div className="flex flex-wrap items-center gap-4 mb-3">
-                <a
-                  href="https://wa.link/m2ac6m"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-orange flex items-center gap-2"
-                >
-                  <FaWhatsapp className="text-lg" />
-                  Contact Us
-                </a>
-              </div>
               <Link
                 href="/services/3pl-warehouse"
-                className="text-[#e5a24e] font-semibold hover:underline"
-                style={{ fontSize: "16px" }}
+                style={{
+                  fontSize: "15px",
+                  fontWeight: 600,
+                  color: "var(--color-primary)",
+                  fontFamily: "var(--font-roboto)",
+                }}
+                className="hover:underline"
               >
                 Get only warehouse service
               </Link>
@@ -149,6 +246,7 @@ export default function ThreePLWarehousePage() {
                 alt="3PL Warehouse Locations Map"
                 width={550}
                 height={400}
+                style={{ borderRadius: "12px" }}
                 className="w-full max-w-[550px] h-auto"
               />
             </div>
@@ -157,17 +255,49 @@ export default function ThreePLWarehousePage() {
       </section>
 
       {/* Pricing Section */}
-      <section style={{ padding: "50px 0" }} className="bg-[#f8f9f9]">
+      <section
+        style={{
+          padding: "44px 0",
+          backgroundColor: "var(--color-light-gray)",
+        }}
+      >
         <div className="container-main">
+          <div
+            style={{
+              display: "inline-block",
+              backgroundColor: "rgba(22, 163, 74, 0.15)",
+              color: "var(--color-primary)",
+              padding: "4px 14px",
+              borderRadius: "50px",
+              fontSize: "12px",
+              fontWeight: 600,
+              fontFamily: "var(--font-roboto)",
+              marginBottom: "12px",
+              letterSpacing: "0.5px",
+            }}
+          >
+            Pricing
+          </div>
           <h2
-            className="font-bold text-center mb-4"
-            style={{ fontSize: "32px", color: "#e5a24e" }}
+            style={{
+              fontSize: "28px",
+              fontWeight: 700,
+              color: "var(--color-text)",
+              fontFamily: "var(--font-roboto)",
+              marginBottom: "12px",
+            }}
           >
             Flat Rate Pricing
           </h2>
           <p
-            className="text-[#333] max-w-3xl mx-auto mb-10 leading-relaxed text-center"
-            style={{ fontSize: "16px", textAlign: "justify" }}
+            style={{
+              fontSize: "15px",
+              lineHeight: "26px",
+              color: "var(--color-text-light)",
+              fontFamily: "var(--font-roboto)",
+              maxWidth: "720px",
+              marginBottom: "32px",
+            }}
           >
             We believe in transparency. Our pricing is flat rate and no
             hidden charge. There are no monthly fees in our warehouse
@@ -176,32 +306,58 @@ export default function ThreePLWarehousePage() {
           </p>
 
           {/* General Services Table */}
-          <div className="max-w-3xl mx-auto mb-10">
+          <div className="max-w-3xl mx-auto" style={{ marginBottom: "32px" }}>
             <h3
-              className="font-bold mb-4"
-              style={{ fontSize: "24px", color: "#2b2e37" }}
+              style={{
+                fontSize: "22px",
+                fontWeight: 700,
+                color: "var(--color-text)",
+                fontFamily: "var(--font-roboto)",
+                marginBottom: "16px",
+              }}
             >
               General Services
             </h3>
-            <div className="bg-white rounded-lg shadow overflow-hidden">
-              <table className="w-full">
+            <div
+              style={{
+                borderRadius: "12px",
+                overflow: "hidden",
+                boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
+              }}
+            >
+              <table className="w-full" style={{ borderCollapse: "collapse" }}>
                 <thead>
-                  <tr className="bg-[#2b2e37] text-white">
+                  <tr style={{ backgroundColor: "var(--color-dark)" }}>
                     <th
-                      className="text-left px-5 py-3"
-                      style={{ fontSize: "15px" }}
+                      className="text-left"
+                      style={{
+                        fontSize: "14px",
+                        fontFamily: "var(--font-roboto)",
+                        color: "#fff",
+                        padding: "12px 20px",
+                      }}
                     >
                       Service
                     </th>
                     <th
-                      className="text-left px-5 py-3"
-                      style={{ fontSize: "15px" }}
+                      className="text-left"
+                      style={{
+                        fontSize: "14px",
+                        fontFamily: "var(--font-roboto)",
+                        color: "#fff",
+                        padding: "12px 20px",
+                      }}
                     >
                       Price
                     </th>
                     <th
-                      className="text-left px-5 py-3"
-                      style={{ fontSize: "15px" }}
+                      className="text-left"
+                      style={{
+                        fontSize: "14px",
+                        fontFamily: "var(--font-roboto)",
+                        color: "#fff",
+                        padding: "12px 20px",
+                      }}
                     >
                       Description
                     </th>
@@ -211,28 +367,40 @@ export default function ThreePLWarehousePage() {
                   {generalServices.map((item, index) => (
                     <tr
                       key={item.service}
-                      className={
-                        index % 2 === 0 ? "bg-white" : "bg-[#f8f9f9]"
-                      }
+                      style={{
+                        backgroundColor:
+                          index % 2 === 0 ? "#fff" : "var(--color-light-gray)",
+                      }}
                     >
                       <td
-                        className="px-5 py-3 text-[#333] font-medium"
-                        style={{ fontSize: "15px" }}
+                        style={{
+                          fontSize: "15px",
+                          fontFamily: "var(--font-roboto)",
+                          color: "var(--color-text)",
+                          fontWeight: 500,
+                          padding: "12px 20px",
+                        }}
                       >
                         {item.service}
                       </td>
                       <td
-                        className="px-5 py-3 font-bold"
                         style={{
                           fontSize: "15px",
-                          color: "#86af51",
+                          fontFamily: "var(--font-roboto)",
+                          color: "var(--color-primary)",
+                          fontWeight: 700,
+                          padding: "12px 20px",
                         }}
                       >
                         {item.price}
                       </td>
                       <td
-                        className="px-5 py-3 text-[#333]"
-                        style={{ fontSize: "15px" }}
+                        style={{
+                          fontSize: "15px",
+                          fontFamily: "var(--font-roboto)",
+                          color: "var(--color-text-light)",
+                          padding: "12px 20px",
+                        }}
                       >
                         {item.description}
                       </td>
@@ -244,32 +412,58 @@ export default function ThreePLWarehousePage() {
           </div>
 
           {/* Box Price Table */}
-          <div className="max-w-3xl mx-auto mb-10">
+          <div className="max-w-3xl mx-auto" style={{ marginBottom: "32px" }}>
             <h3
-              className="font-bold mb-4"
-              style={{ fontSize: "24px", color: "#2b2e37" }}
+              style={{
+                fontSize: "22px",
+                fontWeight: 700,
+                color: "var(--color-text)",
+                fontFamily: "var(--font-roboto)",
+                marginBottom: "16px",
+              }}
             >
               Box Price
             </h3>
-            <div className="bg-white rounded-lg shadow overflow-hidden">
-              <table className="w-full">
+            <div
+              style={{
+                borderRadius: "12px",
+                overflow: "hidden",
+                boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
+              }}
+            >
+              <table className="w-full" style={{ borderCollapse: "collapse" }}>
                 <thead>
-                  <tr className="bg-[#2b2e37] text-white">
+                  <tr style={{ backgroundColor: "var(--color-dark)" }}>
                     <th
-                      className="text-left px-5 py-3"
-                      style={{ fontSize: "15px" }}
+                      className="text-left"
+                      style={{
+                        fontSize: "14px",
+                        fontFamily: "var(--font-roboto)",
+                        color: "#fff",
+                        padding: "12px 20px",
+                      }}
                     >
                       Box Type
                     </th>
                     <th
-                      className="text-left px-5 py-3"
-                      style={{ fontSize: "15px" }}
+                      className="text-left"
+                      style={{
+                        fontSize: "14px",
+                        fontFamily: "var(--font-roboto)",
+                        color: "#fff",
+                        padding: "12px 20px",
+                      }}
                     >
                       Price
                     </th>
                     <th
-                      className="text-left px-5 py-3"
-                      style={{ fontSize: "15px" }}
+                      className="text-left"
+                      style={{
+                        fontSize: "14px",
+                        fontFamily: "var(--font-roboto)",
+                        color: "#fff",
+                        padding: "12px 20px",
+                      }}
                     >
                       Dimensions
                     </th>
@@ -279,28 +473,40 @@ export default function ThreePLWarehousePage() {
                   {boxPrices.map((item, index) => (
                     <tr
                       key={item.boxType}
-                      className={
-                        index % 2 === 0 ? "bg-white" : "bg-[#f8f9f9]"
-                      }
+                      style={{
+                        backgroundColor:
+                          index % 2 === 0 ? "#fff" : "var(--color-light-gray)",
+                      }}
                     >
                       <td
-                        className="px-5 py-3 text-[#333] font-medium"
-                        style={{ fontSize: "15px" }}
+                        style={{
+                          fontSize: "15px",
+                          fontFamily: "var(--font-roboto)",
+                          color: "var(--color-text)",
+                          fontWeight: 500,
+                          padding: "12px 20px",
+                        }}
                       >
                         {item.boxType}
                       </td>
                       <td
-                        className="px-5 py-3 font-bold"
                         style={{
                           fontSize: "15px",
-                          color: "#86af51",
+                          fontFamily: "var(--font-roboto)",
+                          color: "var(--color-primary)",
+                          fontWeight: 700,
+                          padding: "12px 20px",
                         }}
                       >
                         {item.price}
                       </td>
                       <td
-                        className="px-5 py-3 text-[#333]"
-                        style={{ fontSize: "15px" }}
+                        style={{
+                          fontSize: "15px",
+                          fontFamily: "var(--font-roboto)",
+                          color: "var(--color-text-light)",
+                          padding: "12px 20px",
+                        }}
                       >
                         {item.dimensions}
                       </td>
@@ -312,8 +518,13 @@ export default function ThreePLWarehousePage() {
           </div>
 
           <p
-            className="text-[#333] max-w-3xl mx-auto leading-relaxed"
-            style={{ fontSize: "16px", textAlign: "justify" }}
+            style={{
+              fontSize: "15px",
+              lineHeight: "26px",
+              color: "var(--color-text-light)",
+              fontFamily: "var(--font-roboto)",
+              maxWidth: "720px",
+            }}
           >
             We also offer on demand service. For more informations, please
             contact with us with your requirements. Our support agent happy

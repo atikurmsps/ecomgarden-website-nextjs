@@ -12,30 +12,100 @@ export default function ServiceProsCons({
   cons,
 }: ServiceProsConsProps) {
   return (
-    <section style={{ padding: "40px 0" }} className="bg-white">
+    <section style={{ padding: "44px 0", backgroundColor: "#fff", fontFamily: "var(--font-roboto)" }}>
       <div className="container-main">
+        {/* Section Label */}
+        <div style={{ textAlign: "center", marginBottom: "10px" }}>
+          <span
+            style={{
+              fontSize: "12px",
+              fontWeight: 700,
+              letterSpacing: "1.5px",
+              textTransform: "uppercase" as const,
+              color: "var(--color-primary)",
+            }}
+          >
+            PROS &amp; CONS
+          </span>
+        </div>
+
         <h2
-          className="font-bold text-center mb-10"
-          style={{ fontSize: "32px", color: "#2b2e37" }}
+          style={{
+            fontSize: "27px",
+            fontWeight: 700,
+            textAlign: "center",
+            color: "var(--color-dark)",
+            marginBottom: "32px",
+            fontFamily: "var(--font-roboto)",
+          }}
         >
           {heading}
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {/* Pros */}
-          <div>
+
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr",
+            gap: "20px",
+            maxWidth: "900px",
+            margin: "0 auto",
+          }}
+          className="md:!grid-cols-2"
+        >
+          {/* Pros Card */}
+          <div
+            style={{
+              backgroundColor: "#fff",
+              borderRadius: "12px",
+              padding: "24px",
+              borderLeft: "4px solid var(--color-primary)",
+              boxShadow: "0 2px 16px rgba(0,0,0,0.06)",
+            }}
+          >
             <h3
-              className="font-bold text-[#86af51] mb-4"
-              style={{ fontSize: "24px" }}
+              style={{
+                fontSize: "19px",
+                fontWeight: 700,
+                color: "var(--color-primary)",
+                marginBottom: "16px",
+                fontFamily: "var(--font-roboto)",
+              }}
             >
               Pros
             </h3>
-            <ul className="space-y-3">
+            <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
               {pros.map((pro) => (
-                <li key={pro} className="flex items-start gap-3">
-                  <FaCheck className="text-[#86af51] mt-1 flex-shrink-0" />
+                <li
+                  key={pro}
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: "12px",
+                    marginBottom: "12px",
+                  }}
+                >
                   <span
-                    className="text-[#333]"
-                    style={{ fontSize: "16px", lineHeight: "24px" }}
+                    style={{
+                      width: "20px",
+                      height: "20px",
+                      borderRadius: "50%",
+                      background: "color-mix(in srgb, var(--color-primary) 12%, transparent)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0,
+                      marginTop: "2px",
+                    }}
+                  >
+                    <FaCheck style={{ fontSize: "10px", color: "var(--color-primary)" }} />
+                  </span>
+                  <span
+                    style={{
+                      fontSize: "15px",
+                      lineHeight: "24px",
+                      color: "var(--color-text)",
+                      fontFamily: "var(--font-roboto)",
+                    }}
                   >
                     {pro}
                   </span>
@@ -44,21 +114,60 @@ export default function ServiceProsCons({
             </ul>
           </div>
 
-          {/* Cons */}
-          <div>
+          {/* Cons Card */}
+          <div
+            style={{
+              backgroundColor: "#fff",
+              borderRadius: "12px",
+              padding: "24px",
+              borderLeft: "4px solid #e74c3c",
+              boxShadow: "0 2px 16px rgba(0,0,0,0.06)",
+            }}
+          >
             <h3
-              className="font-bold text-[#e74c3c] mb-4"
-              style={{ fontSize: "24px" }}
+              style={{
+                fontSize: "19px",
+                fontWeight: 700,
+                color: "#e74c3c",
+                marginBottom: "16px",
+                fontFamily: "var(--font-roboto)",
+              }}
             >
               Cons
             </h3>
-            <ul className="space-y-3">
+            <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
               {cons.map((con) => (
-                <li key={con} className="flex items-start gap-3">
-                  <FaTimes className="text-[#e74c3c] mt-1 flex-shrink-0" />
+                <li
+                  key={con}
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: "12px",
+                    marginBottom: "12px",
+                  }}
+                >
                   <span
-                    className="text-[#333]"
-                    style={{ fontSize: "16px", lineHeight: "24px" }}
+                    style={{
+                      width: "20px",
+                      height: "20px",
+                      borderRadius: "50%",
+                      background: "rgba(231, 76, 60, 0.1)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0,
+                      marginTop: "2px",
+                    }}
+                  >
+                    <FaTimes style={{ fontSize: "10px", color: "#e74c3c" }} />
+                  </span>
+                  <span
+                    style={{
+                      fontSize: "15px",
+                      lineHeight: "24px",
+                      color: "var(--color-text)",
+                      fontFamily: "var(--font-roboto)",
+                    }}
                   >
                     {con}
                   </span>

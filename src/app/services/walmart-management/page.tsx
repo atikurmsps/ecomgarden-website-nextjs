@@ -95,32 +95,125 @@ const processSteps = [
 export default function WalmartManagementPage() {
   return (
     <>
-      {/* Hero Section */}
-      <section style={{ padding: "50px 0" }} className="bg-white">
+      {/* Dark Hero Section */}
+      <section
+        style={{
+          padding: "44px 0 36px",
+          backgroundColor: "var(--color-dark)",
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        {/* Decorative circles */}
+        <div
+          style={{
+            position: "absolute",
+            top: "-80px",
+            right: "-80px",
+            width: "250px",
+            height: "250px",
+            borderRadius: "50%",
+            border: "1px solid rgba(22, 163, 74, 0.15)",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            bottom: "-60px",
+            left: "-60px",
+            width: "200px",
+            height: "200px",
+            borderRadius: "50%",
+            border: "1px solid rgba(22, 163, 74, 0.1)",
+          }}
+        />
+        <div className="container-main" style={{ position: "relative" }}>
+          {/* Green badge pill */}
+          <div
+            style={{
+              display: "inline-block",
+              backgroundColor: "rgba(22, 163, 74, 0.15)",
+              color: "var(--color-primary)",
+              padding: "6px 18px",
+              borderRadius: "50px",
+              fontSize: "13px",
+              fontWeight: 600,
+              fontFamily: "var(--font-roboto)",
+              marginBottom: "16px",
+              letterSpacing: "0.5px",
+            }}
+          >
+            Walmart Management
+          </div>
+          <h1
+            style={{
+              fontSize: "30px",
+              lineHeight: "40px",
+              color: "#fff",
+              fontFamily: "var(--font-roboto)",
+              fontWeight: 800,
+              marginBottom: "12px",
+            }}
+          >
+            Walmart 2 Step Dropshipping
+          </h1>
+          <p
+            style={{
+              fontSize: "15px",
+              lineHeight: "24px",
+              color: "#9494ac",
+              fontFamily: "var(--font-roboto)",
+              maxWidth: "600px",
+              marginBottom: "24px",
+            }}
+          >
+            No upfront inventory required. A zero-risk, quickly profitable
+            business model where stores start generating profit within a week
+            on average.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <a
+              href="https://wa.link/m2ac6m"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-orange flex items-center gap-2"
+            >
+              <FaWhatsapp className="text-lg" />
+              Quick Whatsapp
+            </a>
+            <Link href="/services" className="btn-primary">
+              Browse More Services
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Intro Section */}
+      <section style={{ padding: "44px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             {/* Left - Text */}
             <div>
-              <h1
-                className="font-extrabold mb-5"
-                style={{
-                  fontSize: "32px",
-                  lineHeight: "40px",
-                  color: "#e5a24e",
-                }}
-              >
-                Walmart 2 Step Dropshipping
-              </h1>
               <p
-                className="text-[#333] mb-4 leading-relaxed"
-                style={{ fontSize: "16px", textAlign: "justify" }}
+                style={{
+                  fontSize: "15px",
+                  lineHeight: "26px",
+                  color: "var(--color-text-light)",
+                  fontFamily: "var(--font-roboto)",
+                  marginBottom: "16px",
+                }}
               >
                 Walmart 2-step dropshipping, is the most popular business
                 model. In this model, no upfront inventory is required.
               </p>
               <p
-                className="text-[#333] mb-4 leading-relaxed"
-                style={{ fontSize: "16px", textAlign: "justify" }}
+                style={{
+                  fontSize: "15px",
+                  lineHeight: "26px",
+                  color: "var(--color-text-light)",
+                  fontFamily: "var(--font-roboto)",
+                  marginBottom: "16px",
+                }}
               >
                 The inventory is acquired only when a customer places an
                 order. This is a zero-risk and quickly profitable business
@@ -128,8 +221,12 @@ export default function WalmartManagementPage() {
                 week.
               </p>
               <p
-                className="text-[#333] mb-6 leading-relaxed"
-                style={{ fontSize: "16px", textAlign: "justify" }}
+                style={{
+                  fontSize: "15px",
+                  lineHeight: "26px",
+                  color: "var(--color-text-light)",
+                  fontFamily: "var(--font-roboto)",
+                }}
               >
                 We purchase a product from supplier for $10 and sell it on
                 Walmart for $30. However, there are $4 warehouse fees for
@@ -138,20 +235,6 @@ export default function WalmartManagementPage() {
                 sells 30 units a day. OMG, it creates $300 in profit per day
                 and $9,000 in profit in a month!
               </p>
-              <div className="flex flex-wrap gap-4">
-                <a
-                  href="https://wa.link/m2ac6m"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-orange flex items-center gap-2"
-                >
-                  <FaWhatsapp className="text-lg" />
-                  Quick Whatsapp
-                </a>
-                <Link href="/services" className="btn-primary">
-                  Browse More Services
-                </Link>
-              </div>
             </div>
 
             {/* Right - Image */}
@@ -161,6 +244,7 @@ export default function WalmartManagementPage() {
                 alt="Walmart 2 Step Dropshipping"
                 width={500}
                 height={306}
+                style={{ borderRadius: "12px" }}
                 className="w-full max-w-[500px] h-auto"
               />
             </div>
@@ -169,11 +253,37 @@ export default function WalmartManagementPage() {
       </section>
 
       {/* How It Works */}
-      <section style={{ padding: "40px 0" }} className="bg-[#f8f9f9]">
+      <section
+        style={{
+          padding: "44px 0",
+          backgroundColor: "var(--color-light-gray)",
+        }}
+      >
         <div className="container-main">
+          <div
+            style={{
+              display: "inline-block",
+              backgroundColor: "rgba(22, 163, 74, 0.15)",
+              color: "var(--color-primary)",
+              padding: "4px 14px",
+              borderRadius: "50px",
+              fontSize: "12px",
+              fontWeight: 600,
+              fontFamily: "var(--font-roboto)",
+              marginBottom: "12px",
+              letterSpacing: "0.5px",
+            }}
+          >
+            Process
+          </div>
           <h2
-            className="font-bold text-center mb-10"
-            style={{ fontSize: "32px", color: "#2b2e37" }}
+            style={{
+              fontSize: "28px",
+              fontWeight: 700,
+              color: "var(--color-text)",
+              fontFamily: "var(--font-roboto)",
+              marginBottom: "32px",
+            }}
           >
             How 2 Step Dropshipping Works
           </h2>
@@ -190,22 +300,34 @@ export default function WalmartManagementPage() {
                       className="w-[80px] h-[80px] object-contain"
                     />
                     <div
-                      className="absolute -top-2 -right-2 w-7 h-7 bg-[#86af51] rounded-full flex items-center justify-center text-white font-bold"
-                      style={{ fontSize: "14px" }}
+                      className="absolute -top-2 -right-2 w-7 h-7 rounded-full flex items-center justify-center text-white font-bold"
+                      style={{
+                        fontSize: "14px",
+                        backgroundColor: "var(--color-primary)",
+                      }}
                     >
                       {index + 1}
                     </div>
                   </div>
                 </div>
                 <h3
-                  className="font-bold text-[#333] mb-2"
-                  style={{ fontSize: "18px" }}
+                  style={{
+                    fontSize: "16px",
+                    fontWeight: 700,
+                    color: "var(--color-text)",
+                    fontFamily: "var(--font-roboto)",
+                    marginBottom: "6px",
+                  }}
                 >
                   {step.title}
                 </h3>
                 <p
-                  className="text-[#333]"
-                  style={{ fontSize: "14px", lineHeight: "22px" }}
+                  style={{
+                    fontSize: "14px",
+                    lineHeight: "22px",
+                    color: "var(--color-text-light)",
+                    fontFamily: "var(--font-roboto)",
+                  }}
                 >
                   {step.description}
                 </p>
@@ -216,7 +338,7 @@ export default function WalmartManagementPage() {
       </section>
 
       {/* Management Section */}
-      <section style={{ padding: "50px 0" }} className="bg-[#f8f9f9]">
+      <section style={{ padding: "44px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             {/* Left - Image */}
@@ -226,25 +348,33 @@ export default function WalmartManagementPage() {
                 alt="Manage Walmart Seller Account With EcomGarden"
                 width={570}
                 height={380}
-                className="w-full rounded-lg shadow-[0px_0px_20px_rgba(0,0,0,0.15)]"
+                style={{ borderRadius: "12px" }}
+                className="w-full shadow-[0px_0px_20px_rgba(0,0,0,0.1)]"
               />
             </div>
 
             {/* Right - Text */}
             <div>
               <h2
-                className="font-bold mb-5"
                 style={{
-                  fontSize: "32px",
-                  lineHeight: "40px",
-                  color: "#2b2e37",
+                  fontSize: "28px",
+                  fontWeight: 700,
+                  lineHeight: "36px",
+                  color: "var(--color-text)",
+                  fontFamily: "var(--font-roboto)",
+                  marginBottom: "16px",
                 }}
               >
                 Manage Walmart Seller Account With EcomGarden
               </h2>
               <p
-                className="text-[#333] mb-4 leading-relaxed"
-                style={{ fontSize: "16px", textAlign: "justify" }}
+                style={{
+                  fontSize: "15px",
+                  lineHeight: "26px",
+                  color: "var(--color-text-light)",
+                  fontFamily: "var(--font-roboto)",
+                  marginBottom: "14px",
+                }}
               >
                 At EcomGarden, you will get complete service of fully account
                 management. Our automation tools will ensure 100% accuracy and
@@ -253,8 +383,13 @@ export default function WalmartManagementPage() {
                 inquire.
               </p>
               <p
-                className="text-[#333] mb-4 leading-relaxed"
-                style={{ fontSize: "16px", textAlign: "justify" }}
+                style={{
+                  fontSize: "15px",
+                  lineHeight: "26px",
+                  color: "var(--color-text-light)",
+                  fontFamily: "var(--font-roboto)",
+                  marginBottom: "14px",
+                }}
               >
                 Get experienced highly skilled Walmart 2 step dropshipping
                 virtual assistant for your store and get cost-effective and
@@ -265,8 +400,12 @@ export default function WalmartManagementPage() {
                 return handling, inventory management, PPC and marketing.
               </p>
               <p
-                className="text-[#333] leading-relaxed"
-                style={{ fontSize: "16px", textAlign: "justify" }}
+                style={{
+                  fontSize: "15px",
+                  lineHeight: "26px",
+                  color: "var(--color-text-light)",
+                  fontFamily: "var(--font-roboto)",
+                }}
               >
                 Our service is 100% transparent and we do not have any hidden
                 charge and do not have any hidden terms &amp; conditions. Get

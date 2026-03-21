@@ -32,34 +32,123 @@ const pricingCards = [
 export default function FlatRateShippingPage() {
   return (
     <>
-      {/* Hero Section */}
-      <section style={{ padding: "50px 0" }} className="bg-white">
+      {/* Dark Hero Section */}
+      <section
+        style={{
+          padding: "44px 0 36px",
+          backgroundColor: "var(--color-dark)",
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        {/* Decorative circles */}
+        <div
+          style={{
+            position: "absolute",
+            top: "-80px",
+            right: "-80px",
+            width: "250px",
+            height: "250px",
+            borderRadius: "50%",
+            border: "1px solid rgba(22, 163, 74, 0.15)",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            bottom: "-60px",
+            left: "-60px",
+            width: "200px",
+            height: "200px",
+            borderRadius: "50%",
+            border: "1px solid rgba(22, 163, 74, 0.1)",
+          }}
+        />
+        <div className="container-main" style={{ position: "relative" }}>
+          {/* Green badge pill */}
+          <div
+            style={{
+              display: "inline-block",
+              backgroundColor: "rgba(22, 163, 74, 0.15)",
+              color: "var(--color-primary)",
+              padding: "6px 18px",
+              borderRadius: "50px",
+              fontSize: "13px",
+              fontWeight: 600,
+              fontFamily: "var(--font-roboto)",
+              marginBottom: "16px",
+              letterSpacing: "0.5px",
+            }}
+          >
+            Flat Rate Shipping
+          </div>
+          <h1
+            style={{
+              fontSize: "30px",
+              lineHeight: "40px",
+              color: "#fff",
+              fontFamily: "var(--font-roboto)",
+              fontWeight: 800,
+              marginBottom: "12px",
+            }}
+          >
+            Flat Rate Cheap USPS &amp; UPS Shipping Label
+          </h1>
+          <p
+            style={{
+              fontSize: "15px",
+              lineHeight: "24px",
+              color: "#9494ac",
+              fontFamily: "var(--font-roboto)",
+              maxWidth: "600px",
+              marginBottom: "24px",
+            }}
+          >
+            Stop overpaying shipping label and increase profit. Forget your
+            shipping calculator and get flat rate labels to 2X your ROI.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <a
+              href="https://wa.link/m2ac6m"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-orange flex items-center gap-2"
+            >
+              <FaWhatsapp className="text-lg" />
+              Quick Whatsapp
+            </a>
+            <Link href="/contact" className="btn-primary">
+              Contact Us
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Intro Section */}
+      <section style={{ padding: "44px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             {/* Left - Text */}
             <div>
-              <h1
-                className="font-extrabold mb-5"
-                style={{
-                  fontSize: "32px",
-                  lineHeight: "40px",
-                  color: "#e5a24e",
-                }}
-              >
-                Flat Rate Cheap USPS &amp; UPS Shipping Label
-              </h1>
               <h2
-                className="font-bold mb-4"
                 style={{
-                  fontSize: "20px",
-                  color: "#2b2e37",
+                  fontSize: "28px",
+                  fontWeight: 700,
+                  color: "var(--color-text)",
+                  fontFamily: "var(--font-roboto)",
+                  marginBottom: "16px",
                 }}
               >
                 Stop overpaying shipping label and increase profit
               </h2>
               <p
-                className="text-[#333] mb-4 leading-relaxed"
-                style={{ fontSize: "16px", textAlign: "justify" }}
+                style={{
+                  fontSize: "15px",
+                  lineHeight: "26px",
+                  color: "var(--color-text-light)",
+                  fontFamily: "var(--font-roboto)",
+                  marginBottom: "20px",
+                }}
               >
                 Stop paying extra dollar to your current shipping provider
                 anymore. Forget your shipping calculator. Get our flat rate
@@ -67,34 +156,32 @@ export default function FlatRateShippingPage() {
               </p>
 
               {/* Feature Bullets */}
-              <ul className="space-y-3 mb-6">
+              <ul style={{ listStyle: "none", padding: 0, margin: "0 0 20px" }}>
                 {features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-3">
-                    <FaCheck className="text-[#86af51] mt-1 flex-shrink-0" />
+                  <li
+                    key={feature}
+                    className="flex items-start gap-3"
+                    style={{ marginBottom: "12px" }}
+                  >
+                    <FaCheck
+                      style={{
+                        color: "var(--color-primary)",
+                        marginTop: "4px",
+                        flexShrink: 0,
+                      }}
+                    />
                     <span
-                      className="text-[#333]"
-                      style={{ fontSize: "16px" }}
+                      style={{
+                        fontSize: "15px",
+                        color: "var(--color-text-light)",
+                        fontFamily: "var(--font-roboto)",
+                      }}
                     >
                       {feature}
                     </span>
                   </li>
                 ))}
               </ul>
-
-              <div className="flex flex-wrap gap-4">
-                <a
-                  href="https://wa.link/m2ac6m"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-orange flex items-center gap-2"
-                >
-                  <FaWhatsapp className="text-lg" />
-                  Quick Whatsapp
-                </a>
-                <Link href="/contact" className="btn-primary">
-                  Contact Us
-                </Link>
-              </div>
             </div>
 
             {/* Right - Image */}
@@ -104,6 +191,7 @@ export default function FlatRateShippingPage() {
                 alt="Flat Rate Cheap USPS & UPS Shipping Label"
                 width={500}
                 height={334}
+                style={{ borderRadius: "12px" }}
                 className="w-full max-w-[500px] h-auto"
               />
             </div>
@@ -112,17 +200,49 @@ export default function FlatRateShippingPage() {
       </section>
 
       {/* No Box Size Limit Section */}
-      <section style={{ padding: "40px 0" }} className="bg-[#f8f9f9]">
+      <section
+        style={{
+          padding: "44px 0",
+          backgroundColor: "var(--color-light-gray)",
+        }}
+      >
         <div className="container-main text-center">
+          <div
+            style={{
+              display: "inline-block",
+              backgroundColor: "rgba(22, 163, 74, 0.15)",
+              color: "var(--color-primary)",
+              padding: "4px 14px",
+              borderRadius: "50px",
+              fontSize: "12px",
+              fontWeight: 600,
+              fontFamily: "var(--font-roboto)",
+              marginBottom: "12px",
+              letterSpacing: "0.5px",
+            }}
+          >
+            No Limits
+          </div>
           <h2
-            className="font-bold mb-4"
-            style={{ fontSize: "32px", color: "#e5a24e" }}
+            style={{
+              fontSize: "28px",
+              fontWeight: 700,
+              color: "var(--color-text)",
+              fontFamily: "var(--font-roboto)",
+              marginBottom: "12px",
+            }}
           >
             No Box Size Limit Flat Rate
           </h2>
           <p
-            className="text-[#333] max-w-3xl mx-auto leading-relaxed"
-            style={{ fontSize: "16px", textAlign: "justify" }}
+            style={{
+              fontSize: "15px",
+              lineHeight: "26px",
+              color: "var(--color-text-light)",
+              fontFamily: "var(--font-roboto)",
+              maxWidth: "720px",
+              margin: "0 auto",
+            }}
           >
             It doesn&apos;t matter where your warehouse located and where
             your customer address. Your will get flat rate shipping label
@@ -131,12 +251,33 @@ export default function FlatRateShippingPage() {
         </div>
       </section>
 
-      {/* Pricing Table Section */}
-      <section style={{ padding: "50px 0" }} className="bg-white">
+      {/* Pricing Cards Section */}
+      <section style={{ padding: "44px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
+          <div
+            style={{
+              display: "inline-block",
+              backgroundColor: "rgba(22, 163, 74, 0.15)",
+              color: "var(--color-primary)",
+              padding: "4px 14px",
+              borderRadius: "50px",
+              fontSize: "12px",
+              fontWeight: 600,
+              fontFamily: "var(--font-roboto)",
+              marginBottom: "12px",
+              letterSpacing: "0.5px",
+            }}
+          >
+            Pricing
+          </div>
           <h2
-            className="font-bold text-center mb-10"
-            style={{ fontSize: "32px", color: "#e5a24e" }}
+            style={{
+              fontSize: "28px",
+              fontWeight: 700,
+              color: "var(--color-text)",
+              fontFamily: "var(--font-roboto)",
+              marginBottom: "32px",
+            }}
           >
             Label Price
           </h2>
@@ -144,27 +285,42 @@ export default function FlatRateShippingPage() {
             {pricingCards.map((card) => (
               <div
                 key={card.title}
-                className="bg-[#f8f9f9] rounded-lg shadow text-center"
-                style={{ padding: "40px 20px" }}
+                style={{
+                  backgroundColor: "var(--color-light-gray)",
+                  borderRadius: "12px",
+                  padding: "36px 20px",
+                  textAlign: "center",
+                  boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
+                }}
               >
                 <h3
-                  className="font-bold text-[#2b2e37] mb-4"
-                  style={{ fontSize: "20px" }}
+                  style={{
+                    fontSize: "18px",
+                    fontWeight: 700,
+                    color: "var(--color-text)",
+                    fontFamily: "var(--font-roboto)",
+                    marginBottom: "16px",
+                  }}
                 >
                   {card.title}
                 </h3>
                 <p
-                  className="font-extrabold mb-4"
                   style={{
                     fontSize: "36px",
-                    color: "#86af51",
+                    fontWeight: 800,
+                    color: "var(--color-primary)",
+                    fontFamily: "var(--font-roboto)",
+                    marginBottom: "12px",
                   }}
                 >
                   {card.price}
                 </p>
                 <p
-                  className="text-[#333]"
-                  style={{ fontSize: "15px" }}
+                  style={{
+                    fontSize: "15px",
+                    color: "var(--color-text-light)",
+                    fontFamily: "var(--font-roboto)",
+                  }}
                 >
                   {card.description}
                 </p>
@@ -175,17 +331,32 @@ export default function FlatRateShippingPage() {
       </section>
 
       {/* Comparison Section */}
-      <section style={{ padding: "40px 0" }} className="bg-[#f8f9f9]">
+      <section
+        style={{
+          padding: "44px 0",
+          backgroundColor: "var(--color-light-gray)",
+        }}
+      >
         <div className="container-main">
           <h2
-            className="font-bold mb-4"
-            style={{ fontSize: "28px", color: "#2b2e37" }}
+            style={{
+              fontSize: "28px",
+              fontWeight: 700,
+              color: "var(--color-text)",
+              fontFamily: "var(--font-roboto)",
+              marginBottom: "12px",
+            }}
           >
             No one can offer more cheaper!
           </h2>
           <p
-            className="text-[#333] max-w-4xl leading-relaxed"
-            style={{ fontSize: "16px", textAlign: "justify" }}
+            style={{
+              fontSize: "15px",
+              lineHeight: "26px",
+              color: "var(--color-text-light)",
+              fontFamily: "var(--font-roboto)",
+              maxWidth: "800px",
+            }}
           >
             Having plan to shipping a Mainstays Flexible Round Laundry
             Hamper, its weight 4lbs but dimension 28x18x18 in. Ohh no.
@@ -199,17 +370,28 @@ export default function FlatRateShippingPage() {
       </section>
 
       {/* Contact Section */}
-      <section style={{ padding: "30px 0" }} className="bg-white">
+      <section style={{ padding: "44px 0", backgroundColor: "#fff" }}>
         <div className="container-main text-center">
           <h2
-            className="font-bold mb-4"
-            style={{ fontSize: "28px", color: "#2b2e37" }}
+            style={{
+              fontSize: "28px",
+              fontWeight: 700,
+              color: "var(--color-text)",
+              fontFamily: "var(--font-roboto)",
+              marginBottom: "12px",
+            }}
           >
             Contact with us for your discount flat rate shipping label
           </h2>
           <p
-            className="text-[#333] max-w-3xl mx-auto mb-6 leading-relaxed"
-            style={{ fontSize: "16px", textAlign: "justify" }}
+            style={{
+              fontSize: "15px",
+              lineHeight: "26px",
+              color: "var(--color-text-light)",
+              fontFamily: "var(--font-roboto)",
+              maxWidth: "720px",
+              margin: "0 auto 24px",
+            }}
           >
             We believe in transparency. Our pricing is flat rate and no
             hidden charge. There are no monthly fees in our flat rate cheap

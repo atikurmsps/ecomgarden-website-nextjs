@@ -57,33 +57,89 @@ function AnimatedCounter({
   }, [isVisible, target, duration]);
 
   return (
-    <div ref={ref} className="text-center py-4">
+    <div
+      ref={ref}
+      style={{
+        textAlign: "center",
+        padding: "0 16px",
+        fontFamily: "var(--font-roboto)",
+      }}
+    >
       <div
-        className="text-[#86af51] font-extrabold leading-none mb-2"
-        style={{ fontSize: "40px", lineHeight: "40px" }}
+        style={{
+          fontSize: "28px",
+          lineHeight: "1",
+          fontWeight: 800,
+          color: "#fff",
+          marginBottom: "4px",
+          letterSpacing: "-0.5px",
+        }}
       >
         {prefix}
         {count}
         {suffix}
       </div>
-      <p className="text-[#ee6c4e] text-[14px] font-bold" style={{ lineHeight: "35px", letterSpacing: "-0.1px" }}>{label}</p>
+      <p
+        style={{
+          fontSize: "13px",
+          fontWeight: 600,
+          color: "var(--color-primary)",
+          letterSpacing: "0.5px",
+          lineHeight: "1.4",
+          textTransform: "uppercase",
+          margin: 0,
+        }}
+      >
+        {label}
+      </p>
     </div>
   );
 }
 
 export default function StatsSection() {
   return (
-    <section style={{ padding: "0px 0px 0px" }} className="bg-white">
+    <section
+      style={{
+        padding: "20px 0",
+        backgroundColor: "var(--color-dark)",
+        fontFamily: "var(--font-roboto)",
+      }}
+    >
       <div className="container-main">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {stats.map((stat) => (
-            <AnimatedCounter
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "8px",
+            flexWrap: "wrap",
+          }}
+        >
+          {stats.map((stat, index) => (
+            <div
               key={stat.label}
-              target={stat.value}
-              prefix={stat.prefix}
-              suffix={stat.suffix}
-              label={stat.label}
-            />
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+              }}
+            >
+              <AnimatedCounter
+                target={stat.value}
+                prefix={stat.prefix}
+                suffix={stat.suffix}
+                label={stat.label}
+              />
+              {index < stats.length - 1 && (
+                <div
+                  style={{
+                    width: "1px",
+                    height: "36px",
+                    backgroundColor: "rgba(255,255,255,0.15)",
+                  }}
+                />
+              )}
+            </div>
           ))}
         </div>
       </div>

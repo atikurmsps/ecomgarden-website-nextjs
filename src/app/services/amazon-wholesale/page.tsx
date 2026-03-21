@@ -89,33 +89,125 @@ const processSteps = [
 export default function AmazonWholesalePage() {
   return (
     <>
-      {/* Hero Section */}
-      <section style={{ padding: "50px 0" }} className="bg-white">
+      {/* Dark Hero Section */}
+      <section
+        style={{
+          padding: "44px 0 36px",
+          backgroundColor: "var(--color-dark)",
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        {/* Decorative circles */}
+        <div
+          style={{
+            position: "absolute",
+            top: "-80px",
+            right: "-80px",
+            width: "250px",
+            height: "250px",
+            borderRadius: "50%",
+            border: "1px solid rgba(22, 163, 74, 0.15)",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            bottom: "-60px",
+            left: "-60px",
+            width: "200px",
+            height: "200px",
+            borderRadius: "50%",
+            border: "1px solid rgba(22, 163, 74, 0.1)",
+          }}
+        />
+        <div className="container-main" style={{ position: "relative" }}>
+          {/* Green badge pill */}
+          <div
+            style={{
+              display: "inline-block",
+              backgroundColor: "rgba(22, 163, 74, 0.15)",
+              color: "var(--color-primary)",
+              padding: "6px 18px",
+              borderRadius: "50px",
+              fontSize: "13px",
+              fontWeight: 600,
+              fontFamily: "var(--font-roboto)",
+              marginBottom: "16px",
+              letterSpacing: "0.5px",
+            }}
+          >
+            Amazon Wholesale
+          </div>
+          <h1
+            style={{
+              fontSize: "30px",
+              lineHeight: "40px",
+              color: "#fff",
+              fontFamily: "var(--font-roboto)",
+              fontWeight: 800,
+              marginBottom: "12px",
+            }}
+          >
+            Build Your Dream with Amazon Wholesale
+          </h1>
+          <p
+            style={{
+              fontSize: "15px",
+              lineHeight: "24px",
+              color: "#9494ac",
+              fontFamily: "var(--font-roboto)",
+              maxWidth: "600px",
+              marginBottom: "24px",
+            }}
+          >
+            Authentic branded products purchased directly from authorized
+            distributors. A 100% suspension risk-free model suitable for
+            long-term operations with scalable growth.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <a
+              href="https://wa.link/m2ac6m"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-orange flex items-center gap-2"
+            >
+              <FaWhatsapp className="text-lg" />
+              Quick Whatsapp
+            </a>
+            <Link href="/services" className="btn-primary">
+              Browse More Services
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Intro Section */}
+      <section style={{ padding: "44px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             {/* Left - Text */}
             <div>
-              <h1
-                className="font-extrabold mb-5"
-                style={{
-                  fontSize: "32px",
-                  lineHeight: "40px",
-                  color: "#e5a24e",
-                }}
-              >
-                Build Your Dream with Amazon Wholesale
-              </h1>
               <p
-                className="text-[#333] mb-4 leading-relaxed"
-                style={{ fontSize: "16px", textAlign: "justify" }}
+                style={{
+                  fontSize: "15px",
+                  lineHeight: "26px",
+                  color: "var(--color-text-light)",
+                  fontFamily: "var(--font-roboto)",
+                  marginBottom: "16px",
+                }}
               >
                 Amazon Wholesale, is a popular business model. In this model,
                 upfront inventory is required. There are some brand approval
                 process before purchase inventory and selling on Amazon.
               </p>
               <p
-                className="text-[#333] mb-6 leading-relaxed"
-                style={{ fontSize: "16px", textAlign: "justify" }}
+                style={{
+                  fontSize: "15px",
+                  lineHeight: "26px",
+                  color: "var(--color-text-light)",
+                  fontFamily: "var(--font-roboto)",
+                }}
               >
                 After brand approval, sellers get a wholesale account for
                 official authenticated products with an approval letter to
@@ -123,20 +215,6 @@ export default function AmazonWholesalePage() {
                 risk free and suitable for long-term operations with adequate
                 budgets.
               </p>
-              <div className="flex flex-wrap gap-4">
-                <a
-                  href="https://wa.link/m2ac6m"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-orange flex items-center gap-2"
-                >
-                  <FaWhatsapp className="text-lg" />
-                  Quick Whatsapp
-                </a>
-                <Link href="/services" className="btn-primary">
-                  Browse More Services
-                </Link>
-              </div>
             </div>
 
             {/* Right - Image */}
@@ -146,6 +224,7 @@ export default function AmazonWholesalePage() {
                 alt="Build Your Dream with Amazon Wholesale"
                 width={500}
                 height={357}
+                style={{ borderRadius: "12px" }}
                 className="w-full max-w-[500px] h-auto"
               />
             </div>
@@ -154,11 +233,37 @@ export default function AmazonWholesalePage() {
       </section>
 
       {/* How It Works */}
-      <section style={{ padding: "40px 0" }} className="bg-[#f8f9f9]">
+      <section
+        style={{
+          padding: "44px 0",
+          backgroundColor: "var(--color-light-gray)",
+        }}
+      >
         <div className="container-main">
+          <div
+            style={{
+              display: "inline-block",
+              backgroundColor: "rgba(22, 163, 74, 0.15)",
+              color: "var(--color-primary)",
+              padding: "4px 14px",
+              borderRadius: "50px",
+              fontSize: "12px",
+              fontWeight: 600,
+              fontFamily: "var(--font-roboto)",
+              marginBottom: "12px",
+              letterSpacing: "0.5px",
+            }}
+          >
+            Process
+          </div>
           <h2
-            className="font-bold text-center mb-10"
-            style={{ fontSize: "32px", color: "#2b2e37" }}
+            style={{
+              fontSize: "28px",
+              fontWeight: 700,
+              color: "var(--color-text)",
+              fontFamily: "var(--font-roboto)",
+              marginBottom: "32px",
+            }}
           >
             How Amazon Wholesale Works
           </h2>
@@ -175,22 +280,34 @@ export default function AmazonWholesalePage() {
                       className="w-[80px] h-[80px] object-contain"
                     />
                     <div
-                      className="absolute -top-2 -right-2 w-7 h-7 bg-[#86af51] rounded-full flex items-center justify-center text-white font-bold"
-                      style={{ fontSize: "14px" }}
+                      className="absolute -top-2 -right-2 w-7 h-7 rounded-full flex items-center justify-center text-white font-bold"
+                      style={{
+                        fontSize: "14px",
+                        backgroundColor: "var(--color-primary)",
+                      }}
                     >
                       {index + 1}
                     </div>
                   </div>
                 </div>
                 <h3
-                  className="font-bold text-[#333] mb-2"
-                  style={{ fontSize: "18px" }}
+                  style={{
+                    fontSize: "16px",
+                    fontWeight: 700,
+                    color: "var(--color-text)",
+                    fontFamily: "var(--font-roboto)",
+                    marginBottom: "6px",
+                  }}
                 >
                   {step.title}
                 </h3>
                 <p
-                  className="text-[#333]"
-                  style={{ fontSize: "14px", lineHeight: "22px" }}
+                  style={{
+                    fontSize: "14px",
+                    lineHeight: "22px",
+                    color: "var(--color-text-light)",
+                    fontFamily: "var(--font-roboto)",
+                  }}
                 >
                   {step.description}
                 </p>
@@ -201,7 +318,7 @@ export default function AmazonWholesalePage() {
       </section>
 
       {/* Management Section */}
-      <section style={{ padding: "50px 0" }} className="bg-[#f8f9f9]">
+      <section style={{ padding: "44px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             {/* Left - Image */}
@@ -211,25 +328,33 @@ export default function AmazonWholesalePage() {
                 alt="Manage Amazon Seller Account With EcomGarden"
                 width={570}
                 height={380}
-                className="w-full rounded-lg shadow-[0px_0px_20px_rgba(0,0,0,0.15)]"
+                style={{ borderRadius: "12px" }}
+                className="w-full shadow-[0px_0px_20px_rgba(0,0,0,0.1)]"
               />
             </div>
 
             {/* Right - Text */}
             <div>
               <h2
-                className="font-bold mb-5"
                 style={{
-                  fontSize: "32px",
-                  lineHeight: "40px",
-                  color: "#2b2e37",
+                  fontSize: "28px",
+                  fontWeight: 700,
+                  lineHeight: "36px",
+                  color: "var(--color-text)",
+                  fontFamily: "var(--font-roboto)",
+                  marginBottom: "16px",
                 }}
               >
                 Manage Amazon Seller Account With EcomGarden
               </h2>
               <p
-                className="text-[#333] mb-4 leading-relaxed"
-                style={{ fontSize: "16px", textAlign: "justify" }}
+                style={{
+                  fontSize: "15px",
+                  lineHeight: "26px",
+                  color: "var(--color-text-light)",
+                  fontFamily: "var(--font-roboto)",
+                  marginBottom: "14px",
+                }}
               >
                 At EcomGarden, you will get complete service of fully account
                 management. Our automation tools will ensure 100% accuracy and
@@ -238,8 +363,13 @@ export default function AmazonWholesalePage() {
                 inquire.
               </p>
               <p
-                className="text-[#333] mb-4 leading-relaxed"
-                style={{ fontSize: "16px", textAlign: "justify" }}
+                style={{
+                  fontSize: "15px",
+                  lineHeight: "26px",
+                  color: "var(--color-text-light)",
+                  fontFamily: "var(--font-roboto)",
+                  marginBottom: "14px",
+                }}
               >
                 Get experienced highly skilled Amazon wholesale virtual
                 assistant for your store and get cost-effective and seamless
@@ -251,8 +381,12 @@ export default function AmazonWholesalePage() {
                 PPC and marketing.
               </p>
               <p
-                className="text-[#333] leading-relaxed"
-                style={{ fontSize: "16px", textAlign: "justify" }}
+                style={{
+                  fontSize: "15px",
+                  lineHeight: "26px",
+                  color: "var(--color-text-light)",
+                  fontFamily: "var(--font-roboto)",
+                }}
               >
                 Our service is 100% transparent and we do not have any hidden
                 charge and do not have any hidden terms &amp; conditions. Get

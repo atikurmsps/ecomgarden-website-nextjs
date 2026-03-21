@@ -1,15 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #86af51;
-  --color-primary-dark: #6d9340;
-  --color-dark: #272f3d;
-  --color-dark-light: #3a3d47;
-  --color-orange: #da8040;
-  --color-orange-dark: #c06e30;
-  --color-light-gray: #f8f9f9;
-  --color-medium-gray: #f4f3f3;
-  --color-footer-dark: #130f40;
+  --color-primary: #16a34a;
+  --color-primary-dark: #15803d;
+  --color-primary-light: #dcfce7;
+  --color-accent: #f59e0b;
+  --color-accent-dark: #d97706;
+  --color-dark: #1a1a2e;
+  --color-dark-light: #2d2d44;
+  --color-light-gray: #f8f9fa;
+  --color-medium-gray: #f1f3f5;
+  --color-text: #333;
+  --color-text-light: #666;
   --font-roboto: 'Roboto', sans-serif;
   --font-roboto-slab: 'Roboto Slab', serif;
 }
@@ -26,7 +28,7 @@ html {
 
 body {
   font-family: var(--font-roboto);
-  color: #333;
+  color: var(--color-text);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
@@ -41,14 +43,14 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0 15px;
 }
 
-/* Buttons matching original */
+/* Buttons */
 .btn-primary {
-  background-color: #86af51;
+  background-color: var(--color-primary);
   color: #fff;
-  padding: 16px 40px;
-  border-radius: 3px;
+  padding: 12px 28px;
+  border-radius: 6px;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 14px;
   transition: all 0.3s ease;
   display: inline-block;
   text-decoration: none;
@@ -58,18 +60,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary:hover {
-  background-color: #6d9340;
-  transform: translateY(-2px);
+  background-color: var(--color-primary-dark);
+  transform: translateY(-1px);
 }
 
 .btn-outline {
   background-color: transparent;
-  color: #000;
-  padding: 13px 20px;
-  border-radius: 3px;
+  color: var(--color-text);
+  padding: 11px 24px;
+  border-radius: 6px;
   font-weight: 600;
-  font-size: 16px;
-  border: 2px solid #86af51;
+  font-size: 14px;
+  border: 2px solid var(--color-primary);
   transition: all 0.3s ease;
   display: inline-block;
   text-decoration: none;
@@ -78,18 +80,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-outline:hover {
-  background-color: #86af51;
+  background-color: var(--color-primary);
   color: #fff;
 }
 
 .btn-outline-white {
   background-color: transparent;
   color: #fff;
-  padding: 13px 20px;
-  border-radius: 3px;
+  padding: 11px 24px;
+  border-radius: 6px;
   font-weight: 600;
-  font-size: 16px;
-  border: 2px solid #86af51;
+  font-size: 14px;
+  border: 2px solid var(--color-primary);
   transition: all 0.3s ease;
   display: inline-block;
   text-decoration: none;
@@ -98,17 +100,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-outline-white:hover {
-  background-color: #86af51;
+  background-color: var(--color-primary);
   color: #fff;
 }
 
-.btn-orange {
-  background-color: #da8040;
-  color: white;
-  padding: 16px 40px;
-  border-radius: 3px;
+.btn-accent {
+  background-color: var(--color-accent);
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 6px;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 14px;
   transition: all 0.3s ease;
   display: inline-block;
   text-decoration: none;
@@ -117,47 +119,47 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1;
 }
 
-.btn-orange:hover {
-  background-color: #c06e30;
-  transform: translateY(-2px);
+.btn-accent:hover {
+  background-color: var(--color-accent-dark);
+  transform: translateY(-1px);
 }
 
 /* Card hover effect */
 .card-hover {
   transition: all 0.3s ease;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.06);
 }
 
 .card-hover:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* WhatsApp floating button */
 .whatsapp-float {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
+  bottom: 24px;
+  right: 24px;
   z-index: 1000;
   background-color: #25d366;
   color: white;
-  width: 60px;
-  height: 60px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 30px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  font-size: 26px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
 }
 
 .whatsapp-float:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  transform: scale(1.08);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
 }
 
-/* Section spacing matching original */
+/* Section spacing */
 .section-padding {
-  padding: 50px 0 40px;
+  padding: 40px 0;
 }

@@ -215,25 +215,113 @@ const faqs = [
 export default function ShopifyDevelopmentPage() {
   return (
     <>
-      {/* Hero Section */}
-      <section style={{ padding: "50px 0" }} className="bg-white">
+      {/* Dark Hero Section */}
+      <section
+        style={{
+          padding: "44px 0 36px",
+          backgroundColor: "var(--color-dark)",
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        {/* Decorative circles */}
+        <div
+          style={{
+            position: "absolute",
+            top: "-80px",
+            right: "-80px",
+            width: "250px",
+            height: "250px",
+            borderRadius: "50%",
+            border: "1px solid rgba(22, 163, 74, 0.15)",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            bottom: "-60px",
+            left: "-60px",
+            width: "200px",
+            height: "200px",
+            borderRadius: "50%",
+            border: "1px solid rgba(22, 163, 74, 0.1)",
+          }}
+        />
+        <div className="container-main" style={{ position: "relative" }}>
+          {/* Green badge pill */}
+          <div
+            style={{
+              display: "inline-block",
+              backgroundColor: "rgba(22, 163, 74, 0.15)",
+              color: "var(--color-primary)",
+              padding: "6px 18px",
+              borderRadius: "50px",
+              fontSize: "13px",
+              fontWeight: 600,
+              fontFamily: "var(--font-roboto)",
+              marginBottom: "16px",
+              letterSpacing: "0.5px",
+            }}
+          >
+            Shopify Development
+          </div>
+          <h1
+            style={{
+              fontSize: "30px",
+              lineHeight: "40px",
+              color: "#fff",
+              fontFamily: "var(--font-roboto)",
+              fontWeight: 800,
+              marginBottom: "12px",
+            }}
+          >
+            Shopify Store Development &amp; Management
+          </h1>
+          <p
+            style={{
+              fontSize: "15px",
+              lineHeight: "24px",
+              color: "#9494ac",
+              fontFamily: "var(--font-roboto)",
+              maxWidth: "600px",
+              marginBottom: "24px",
+            }}
+          >
+            Complete Shopify solutions including store development, redesign,
+            custom theme and app development, speed optimization, and monthly
+            management with 50+ expert hands.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <a
+              href="https://wa.link/m2ac6m"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-orange flex items-center gap-2"
+            >
+              <FaWhatsapp className="text-lg" />
+              Quick Whatsapp
+            </a>
+            <Link href="/services" className="btn-primary">
+              Browse More Services
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Intro Section */}
+      <section style={{ padding: "44px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             {/* Left - Text */}
             <div>
-              <h1
-                className="font-extrabold mb-5"
-                style={{
-                  fontSize: "32px",
-                  lineHeight: "40px",
-                  color: "#e5a24e",
-                }}
-              >
-                Shopify Store Development &amp; Management
-              </h1>
               <p
-                className="text-[#333] mb-4 leading-relaxed"
-                style={{ fontSize: "16px", textAlign: "justify" }}
+                style={{
+                  fontSize: "15px",
+                  lineHeight: "26px",
+                  color: "var(--color-text-light)",
+                  fontFamily: "var(--font-roboto)",
+                  marginBottom: "16px",
+                }}
               >
                 Shopify, world largest cloud based eCommerce platform. Provide
                 complete solutions including millions of traffics handle and zero
@@ -242,8 +330,12 @@ export default function ShopifyDevelopmentPage() {
                 solution for Shopify development.
               </p>
               <p
-                className="text-[#333] mb-6 leading-relaxed"
-                style={{ fontSize: "16px", textAlign: "justify" }}
+                style={{
+                  fontSize: "15px",
+                  lineHeight: "26px",
+                  color: "var(--color-text-light)",
+                  fontFamily: "var(--font-roboto)",
+                }}
               >
                 Our service including store development, redesign, dropshipping
                 development, supplier finding, custom theme and application
@@ -253,20 +345,6 @@ export default function ShopifyDevelopmentPage() {
                 support. Our dedicated 50+ expert hand always available to make
                 your Shopify business success.
               </p>
-              <div className="flex flex-wrap gap-4">
-                <a
-                  href="https://wa.link/m2ac6m"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-orange flex items-center gap-2"
-                >
-                  <FaWhatsapp className="text-lg" />
-                  Quick Whatsapp
-                </a>
-                <Link href="/services" className="btn-primary">
-                  Browse More Services
-                </Link>
-              </div>
             </div>
 
             {/* Right - Image */}
@@ -276,6 +354,7 @@ export default function ShopifyDevelopmentPage() {
                 alt="Shopify Store Development & Management"
                 width={500}
                 height={400}
+                style={{ borderRadius: "12px" }}
                 className="w-full max-w-[500px] h-auto"
               />
             </div>
@@ -283,36 +362,79 @@ export default function ShopifyDevelopmentPage() {
         </div>
       </section>
 
-      {/* 16 Shopify Service Features */}
-      <section style={{ padding: "50px 0" }} className="bg-[#f8f9f9]">
+      {/* Shopify Service Features */}
+      <section
+        style={{
+          padding: "44px 0",
+          backgroundColor: "var(--color-light-gray)",
+        }}
+      >
         <div className="container-main">
+          <div
+            style={{
+              display: "inline-block",
+              backgroundColor: "rgba(22, 163, 74, 0.15)",
+              color: "var(--color-primary)",
+              padding: "4px 14px",
+              borderRadius: "50px",
+              fontSize: "12px",
+              fontWeight: 600,
+              fontFamily: "var(--font-roboto)",
+              marginBottom: "12px",
+              letterSpacing: "0.5px",
+            }}
+          >
+            Services
+          </div>
           <h2
-            className="font-bold text-center mb-10"
-            style={{ fontSize: "32px", color: "#2b2e37" }}
+            style={{
+              fontSize: "28px",
+              fontWeight: 700,
+              color: "var(--color-text)",
+              fontFamily: "var(--font-roboto)",
+              marginBottom: "32px",
+            }}
           >
             Our Shopify Services
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
             {shopifyFeatures.map((feature) => (
-              <div key={feature.title} className="text-center">
+              <div
+                key={feature.title}
+                className="text-center"
+                style={{
+                  backgroundColor: "#fff",
+                  borderRadius: "12px",
+                  padding: "24px 16px",
+                }}
+              >
                 <div className="flex justify-center mb-4">
                   <Image
                     src={feature.icon}
                     alt={feature.title}
-                    width={100}
-                    height={100}
-                    className="w-[100px] h-[100px] object-contain"
+                    width={80}
+                    height={80}
+                    className="w-[80px] h-[80px] object-contain"
                   />
                 </div>
                 <h3
-                  className="font-bold text-[#333] mb-2"
-                  style={{ fontSize: "22px" }}
+                  style={{
+                    fontSize: "16px",
+                    fontWeight: 700,
+                    color: "var(--color-text)",
+                    fontFamily: "var(--font-roboto)",
+                    marginBottom: "6px",
+                  }}
                 >
                   {feature.title}
                 </h3>
                 <p
-                  className="text-[#333]"
-                  style={{ fontSize: "15px", lineHeight: "22px" }}
+                  style={{
+                    fontSize: "14px",
+                    lineHeight: "22px",
+                    color: "var(--color-text-light)",
+                    fontFamily: "var(--font-roboto)",
+                  }}
                 >
                   {feature.description}
                 </p>
@@ -323,11 +445,32 @@ export default function ShopifyDevelopmentPage() {
       </section>
 
       {/* How We Work */}
-      <section style={{ padding: "40px 0" }} className="bg-white">
+      <section style={{ padding: "44px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
+          <div
+            style={{
+              display: "inline-block",
+              backgroundColor: "rgba(22, 163, 74, 0.15)",
+              color: "var(--color-primary)",
+              padding: "4px 14px",
+              borderRadius: "50px",
+              fontSize: "12px",
+              fontWeight: 600,
+              fontFamily: "var(--font-roboto)",
+              marginBottom: "12px",
+              letterSpacing: "0.5px",
+            }}
+          >
+            Process
+          </div>
           <h2
-            className="font-bold text-center mb-10"
-            style={{ fontSize: "32px", color: "#2b2e37" }}
+            style={{
+              fontSize: "28px",
+              fontWeight: 700,
+              color: "var(--color-text)",
+              fontFamily: "var(--font-roboto)",
+              marginBottom: "32px",
+            }}
           >
             How we work with Shopify project
           </h2>
@@ -344,22 +487,34 @@ export default function ShopifyDevelopmentPage() {
                       className="w-[80px] h-[80px] object-contain"
                     />
                     <div
-                      className="absolute -top-2 -right-2 w-7 h-7 bg-[#86af51] rounded-full flex items-center justify-center text-white font-bold"
-                      style={{ fontSize: "14px" }}
+                      className="absolute -top-2 -right-2 w-7 h-7 rounded-full flex items-center justify-center text-white font-bold"
+                      style={{
+                        fontSize: "14px",
+                        backgroundColor: "var(--color-primary)",
+                      }}
                     >
                       {index + 1}
                     </div>
                   </div>
                 </div>
                 <h3
-                  className="font-bold text-[#333] mb-2"
-                  style={{ fontSize: "18px" }}
+                  style={{
+                    fontSize: "16px",
+                    fontWeight: 700,
+                    color: "var(--color-text)",
+                    fontFamily: "var(--font-roboto)",
+                    marginBottom: "6px",
+                  }}
                 >
                   {step.title}
                 </h3>
                 <p
-                  className="text-[#333]"
-                  style={{ fontSize: "14px", lineHeight: "22px" }}
+                  style={{
+                    fontSize: "14px",
+                    lineHeight: "22px",
+                    color: "var(--color-text-light)",
+                    fontFamily: "var(--font-roboto)",
+                  }}
                 >
                   {step.description}
                 </p>
@@ -370,11 +525,37 @@ export default function ShopifyDevelopmentPage() {
       </section>
 
       {/* Portfolio */}
-      <section style={{ padding: "40px 0" }} className="bg-[#f8f9f9]">
+      <section
+        style={{
+          padding: "44px 0",
+          backgroundColor: "var(--color-light-gray)",
+        }}
+      >
         <div className="container-main">
+          <div
+            style={{
+              display: "inline-block",
+              backgroundColor: "rgba(22, 163, 74, 0.15)",
+              color: "var(--color-primary)",
+              padding: "4px 14px",
+              borderRadius: "50px",
+              fontSize: "12px",
+              fontWeight: 600,
+              fontFamily: "var(--font-roboto)",
+              marginBottom: "12px",
+              letterSpacing: "0.5px",
+            }}
+          >
+            Portfolio
+          </div>
           <h2
-            className="font-bold text-center mb-10"
-            style={{ fontSize: "32px", color: "#2b2e37" }}
+            style={{
+              fontSize: "28px",
+              fontWeight: 700,
+              color: "var(--color-text)",
+              fontFamily: "var(--font-roboto)",
+              marginBottom: "32px",
+            }}
           >
             Some recent work of our Shopify development
           </h2>
@@ -382,7 +563,8 @@ export default function ShopifyDevelopmentPage() {
             {portfolioItems.map((item, index) => (
               <div
                 key={index}
-                className="bg-white rounded-lg overflow-hidden shadow-md"
+                className="bg-white overflow-hidden"
+                style={{ borderRadius: "12px", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}
               >
                 <Image
                   src={item.img}
@@ -391,23 +573,38 @@ export default function ShopifyDevelopmentPage() {
                   height={300}
                   className="w-full h-auto object-cover"
                 />
-                <div className="p-4">
+                <div style={{ padding: "16px" }}>
                   <h3
-                    className="font-bold text-[#333] mb-2"
-                    style={{ fontSize: "18px" }}
+                    style={{
+                      fontSize: "16px",
+                      fontWeight: 700,
+                      color: "var(--color-text)",
+                      fontFamily: "var(--font-roboto)",
+                      marginBottom: "6px",
+                    }}
                   >
                     {item.title}
                   </h3>
                   <p
-                    className="text-[#333] mb-3"
-                    style={{ fontSize: "14px", lineHeight: "22px" }}
+                    style={{
+                      fontSize: "14px",
+                      lineHeight: "22px",
+                      color: "var(--color-text-light)",
+                      fontFamily: "var(--font-roboto)",
+                      marginBottom: "10px",
+                    }}
                   >
                     {item.description}
                   </p>
                   <Link
                     href="/contact"
-                    className="text-[#e5a24e] font-semibold hover:underline"
-                    style={{ fontSize: "14px" }}
+                    style={{
+                      fontSize: "14px",
+                      fontWeight: 600,
+                      color: "var(--color-primary)",
+                      fontFamily: "var(--font-roboto)",
+                    }}
+                    className="hover:underline"
                   >
                     View Details
                   </Link>
@@ -419,29 +616,50 @@ export default function ShopifyDevelopmentPage() {
       </section>
 
       {/* Vacation / Risk Free Section */}
-      <section style={{ padding: "40px 0" }} className="bg-white">
+      <section style={{ padding: "44px 0", backgroundColor: "#fff" }}>
         <div className="container-main text-center">
           <h2
-            className="font-bold mb-2"
-            style={{ fontSize: "32px", color: "#2b2e37" }}
+            style={{
+              fontSize: "28px",
+              fontWeight: 700,
+              color: "var(--color-text)",
+              fontFamily: "var(--font-roboto)",
+              marginBottom: "8px",
+            }}
           >
             Start Your Unlimited Vacation. Because
           </h2>
           <p
-            className="text-[#86af51] font-semibold mb-6"
-            style={{ fontSize: "20px" }}
+            style={{
+              fontSize: "18px",
+              fontWeight: 600,
+              color: "var(--color-primary)",
+              fontFamily: "var(--font-roboto)",
+              marginBottom: "20px",
+            }}
           >
             We provide service with profit sharing model
           </p>
           <h3
-            className="font-bold mb-4"
-            style={{ fontSize: "28px", color: "#e5a24e" }}
+            style={{
+              fontSize: "22px",
+              fontWeight: 700,
+              color: "var(--color-accent)",
+              fontFamily: "var(--font-roboto)",
+              marginBottom: "16px",
+            }}
           >
             100% Risk Free. Pay only once you see profit.
           </h3>
           <p
-            className="text-[#333] max-w-3xl mx-auto leading-relaxed"
-            style={{ fontSize: "16px", textAlign: "justify" }}
+            style={{
+              fontSize: "15px",
+              lineHeight: "26px",
+              color: "var(--color-text-light)",
+              fontFamily: "var(--font-roboto)",
+              maxWidth: "720px",
+              margin: "0 auto",
+            }}
           >
             No one will offer profit sharing model and no payment before you get
             profit. Because everyone can not handle risk and recover the dark

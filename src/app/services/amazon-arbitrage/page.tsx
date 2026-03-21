@@ -89,25 +89,163 @@ const processSteps = [
 export default function AmazonArbitragePage() {
   return (
     <>
-      {/* Hero Section */}
-      <section style={{ padding: "50px 0" }} className="bg-white">
+      {/* ── DARK HERO SECTION ── */}
+      <section
+        style={{
+          position: "relative",
+          backgroundColor: "var(--color-dark)",
+          padding: "44px 0 36px",
+          overflow: "hidden",
+          fontFamily: "var(--font-roboto)",
+        }}
+      >
+        {/* Decorative circles */}
+        <div
+          style={{
+            position: "absolute",
+            top: "-80px",
+            right: "-80px",
+            width: "260px",
+            height: "260px",
+            borderRadius: "50%",
+            border: "1px solid rgba(255,255,255,0.06)",
+            pointerEvents: "none",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            bottom: "-60px",
+            left: "-60px",
+            width: "200px",
+            height: "200px",
+            borderRadius: "50%",
+            border: "1px solid rgba(255,255,255,0.05)",
+            pointerEvents: "none",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: "40%",
+            left: "55%",
+            width: "140px",
+            height: "140px",
+            borderRadius: "50%",
+            background: "rgba(0,166,81,0.06)",
+            pointerEvents: "none",
+          }}
+        />
+
+        <div
+          className="container-main"
+          style={{ position: "relative", zIndex: 10, textAlign: "center" }}
+        >
+          {/* Green badge pill */}
+          <span
+            style={{
+              display: "inline-block",
+              padding: "6px 20px",
+              borderRadius: "50px",
+              backgroundColor: "rgba(0,166,81,0.15)",
+              color: "var(--color-primary)",
+              fontSize: "13px",
+              fontWeight: 600,
+              letterSpacing: "0.5px",
+              marginBottom: "18px",
+            }}
+          >
+            Amazon Arbitrage
+          </span>
+
+          <h1
+            style={{
+              fontSize: "30px",
+              fontWeight: 700,
+              color: "#ffffff",
+              lineHeight: "42px",
+              marginBottom: "12px",
+              fontFamily: "var(--font-roboto)",
+            }}
+          >
+            Amazon Arbitrage 2 Step Dropshipping
+          </h1>
+
+          <p
+            style={{
+              fontSize: "15px",
+              color: "#9494ac",
+              maxWidth: "560px",
+              margin: "0 auto 28px",
+              lineHeight: "24px",
+            }}
+          >
+            The most popular zero-inventory business model with profit within the first week and zero risk.
+          </p>
+
+          {/* CTA buttons */}
+          <div
+            style={{
+              display: "flex",
+              gap: "14px",
+              justifyContent: "center",
+              flexWrap: "wrap",
+            }}
+          >
+            <a
+              href="https://wa.link/m2ac6m"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
+              }}
+            >
+              <FaWhatsapp style={{ fontSize: "18px" }} />
+              Quick WhatsApp
+            </a>
+            <Link
+              href="/services"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                padding: "10px 24px",
+                borderRadius: "6px",
+                border: "1px solid rgba(255,255,255,0.3)",
+                color: "#ffffff",
+                fontSize: "15px",
+                fontWeight: 500,
+                textDecoration: "none",
+                transition: "border-color 0.2s",
+              }}
+            >
+              Browse Services
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── INTRO SECTION ── */}
+      <section
+        style={{
+          padding: "44px 0",
+          backgroundColor: "#ffffff",
+          fontFamily: "var(--font-roboto)",
+        }}
+      >
         <div className="container-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             {/* Left - Text */}
             <div>
-              <h1
-                className="font-extrabold mb-5"
-                style={{
-                  fontSize: "32px",
-                  lineHeight: "40px",
-                  color: "#e5a24e",
-                }}
-              >
-                Amazon Arbitrage 2 Step Dropshipping
-              </h1>
               <p
-                className="text-[#333] mb-4 leading-relaxed"
-                style={{ fontSize: "16px", textAlign: "justify" }}
+                style={{
+                  fontSize: "15px",
+                  color: "var(--color-text-light)",
+                  lineHeight: "26px",
+                  marginBottom: "16px",
+                }}
               >
                 Amazon Arbitrage, also known as 2-step dropshipping, is the most
                 popular business model. No upfront inventory is required and
@@ -116,8 +254,12 @@ export default function AmazonArbitragePage() {
                 Sounds amazing, right?
               </p>
               <p
-                className="text-[#333] mb-4 leading-relaxed"
-                style={{ fontSize: "16px", textAlign: "justify" }}
+                style={{
+                  fontSize: "15px",
+                  color: "var(--color-text-light)",
+                  lineHeight: "26px",
+                  marginBottom: "16px",
+                }}
               >
                 Let&apos;s illustrate with an example: We sold an item on
                 Amazon for $30 and purchase from Walmart for $30 and deliver to
@@ -127,26 +269,15 @@ export default function AmazonArbitragePage() {
                 per day and $15,000 in profit in a month!
               </p>
               <p
-                className="text-[#333] mb-6 leading-relaxed"
-                style={{ fontSize: "16px", textAlign: "justify" }}
+                style={{
+                  fontSize: "15px",
+                  color: "var(--color-text-light)",
+                  lineHeight: "26px",
+                }}
               >
                 If you are looking for quick growth on eCommerce market, then 2
                 step dropshipping will perfect fit for you.
               </p>
-              <div className="flex flex-wrap gap-4">
-                <a
-                  href="https://wa.link/m2ac6m"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-orange flex items-center gap-2"
-                >
-                  <FaWhatsapp className="text-lg" />
-                  Quick Whatsapp
-                </a>
-                <Link href="/services" className="btn-primary">
-                  Browse More Services
-                </Link>
-              </div>
             </div>
 
             {/* Right - Image */}
@@ -156,51 +287,120 @@ export default function AmazonArbitragePage() {
                 alt="Amazon Arbitrage 2 Step Dropshipping"
                 width={500}
                 height={476}
-                className="w-full max-w-[500px] h-auto"
+                style={{
+                  width: "100%",
+                  maxWidth: "500px",
+                  height: "auto",
+                  borderRadius: "12px",
+                  boxShadow: "0 4px 24px rgba(0,0,0,0.10)",
+                }}
               />
             </div>
           </div>
         </div>
       </section>
 
-      {/* How It Works */}
-      <section style={{ padding: "40px 0" }} className="bg-[#f8f9f9]">
+      {/* ── HOW IT WORKS ── */}
+      <section
+        style={{
+          padding: "44px 0",
+          backgroundColor: "var(--color-light-gray)",
+          fontFamily: "var(--font-roboto)",
+        }}
+      >
         <div className="container-main">
+          <p
+            style={{
+              fontSize: "12px",
+              fontWeight: 700,
+              letterSpacing: "1.5px",
+              textTransform: "uppercase",
+              color: "var(--color-primary)",
+              textAlign: "center",
+              marginBottom: "8px",
+            }}
+          >
+            HOW IT WORKS
+          </p>
           <h2
-            className="font-bold text-center mb-10"
-            style={{ fontSize: "32px", color: "#2b2e37" }}
+            style={{
+              fontSize: "24px",
+              fontWeight: 700,
+              color: "#2b2e37",
+              textAlign: "center",
+              marginBottom: "36px",
+            }}
           >
             How 2 Step Dropshipping Works
           </h2>
+
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {processSteps.map((step, index) => (
-              <div key={step.title} className="text-center">
-                <div className="flex justify-center mb-4">
-                  <div className="relative">
+              <div
+                key={step.title}
+                style={{
+                  backgroundColor: "#ffffff",
+                  borderRadius: "12px",
+                  padding: "20px",
+                  textAlign: "center",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    marginBottom: "14px",
+                  }}
+                >
+                  <div style={{ position: "relative" }}>
                     <Image
                       src={step.img}
                       alt={step.title}
-                      width={80}
-                      height={80}
-                      className="w-[80px] h-[80px] object-contain"
+                      width={70}
+                      height={70}
+                      style={{
+                        width: "70px",
+                        height: "70px",
+                        objectFit: "contain",
+                      }}
                     />
                     <div
-                      className="absolute -top-2 -right-2 w-7 h-7 bg-[#86af51] rounded-full flex items-center justify-center text-white font-bold"
-                      style={{ fontSize: "14px" }}
+                      style={{
+                        position: "absolute",
+                        top: "-6px",
+                        right: "-6px",
+                        width: "26px",
+                        height: "26px",
+                        borderRadius: "50%",
+                        backgroundColor: "var(--color-primary)",
+                        color: "#ffffff",
+                        fontSize: "13px",
+                        fontWeight: 700,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
                     >
                       {index + 1}
                     </div>
                   </div>
                 </div>
                 <h3
-                  className="font-bold text-[#333] mb-2"
-                  style={{ fontSize: "18px" }}
+                  style={{
+                    fontSize: "16px",
+                    fontWeight: 700,
+                    color: "#2b2e37",
+                    marginBottom: "6px",
+                  }}
                 >
                   {step.title}
                 </h3>
                 <p
-                  className="text-[#333]"
-                  style={{ fontSize: "14px", lineHeight: "22px" }}
+                  style={{
+                    fontSize: "14px",
+                    color: "var(--color-text-light)",
+                    lineHeight: "22px",
+                  }}
                 >
                   {step.description}
                 </p>
@@ -210,68 +410,104 @@ export default function AmazonArbitragePage() {
         </div>
       </section>
 
-      {/* Some Results */}
-      <section style={{ padding: "30px 0" }} className="bg-white">
-        <div className="container-main">
+      {/* ── RESULTS SECTION ── */}
+      <section
+        style={{
+          padding: "36px 0",
+          backgroundColor: "#ffffff",
+          fontFamily: "var(--font-roboto)",
+        }}
+      >
+        <div className="container-main" style={{ textAlign: "center" }}>
           <h2
-            className="font-bold text-center"
-            style={{ fontSize: "32px", color: "#e5a24e" }}
+            style={{
+              fontSize: "24px",
+              fontWeight: 700,
+              color: "#2b2e37",
+              lineHeight: "34px",
+            }}
           >
-            Some Results of 2 Step Dropshipping Store
+            Some Results of{" "}
+            <span style={{ color: "var(--color-primary)" }}>
+              2 Step Dropshipping
+            </span>{" "}
+            Store
           </h2>
         </div>
       </section>
 
-      {/* Vacation / Risk Free Section */}
-      <section style={{ padding: "40px 0" }} className="bg-[#f8f9f9]">
-        <div className="container-main text-center">
+      {/* ── PROFIT SHARING ── */}
+      <section
+        style={{
+          padding: "44px 0",
+          backgroundColor: "var(--color-light-gray)",
+          fontFamily: "var(--font-roboto)",
+        }}
+      >
+        <div
+          className="container-main"
+          style={{ textAlign: "center", maxWidth: "720px", margin: "0 auto" }}
+        >
           <h2
-            className="font-bold mb-2"
-            style={{ fontSize: "32px", color: "#2b2e37" }}
+            style={{
+              fontSize: "24px",
+              fontWeight: 700,
+              color: "#2b2e37",
+              marginBottom: "6px",
+            }}
           >
             Start Your Unlimited Vacation. Because
           </h2>
           <p
-            className="text-[#86af51] font-semibold mb-6"
-            style={{ fontSize: "20px" }}
+            style={{
+              fontSize: "18px",
+              fontWeight: 600,
+              color: "var(--color-primary)",
+              marginBottom: "20px",
+            }}
           >
             We provide service with profit sharing model
           </p>
           <h3
-            className="font-bold mb-4"
-            style={{ fontSize: "28px", color: "#e5a24e" }}
+            style={{
+              fontSize: "22px",
+              fontWeight: 700,
+              color: "var(--color-primary)",
+              marginBottom: "16px",
+            }}
           >
-            100% Risk Free. Pay only once you see profit.
+            100% Risk Free.{" "}
+            <span style={{ color: "#2b2e37" }}>
+              Pay only once you see profit.
+            </span>
           </h3>
           <p
-            className="text-[#333] max-w-3xl mx-auto leading-relaxed"
-            style={{ fontSize: "16px", textAlign: "justify" }}
+            style={{
+              fontSize: "15px",
+              color: "var(--color-text-light)",
+              lineHeight: "26px",
+              marginBottom: "28px",
+            }}
           >
             No one will offer profit sharing model and no payment before you get
             profit. Because everyone can not handle risk and recover the dark
             side of eCommerce. Our experienced and highly skilled team will
             start profit within a week.
           </p>
-        </div>
-      </section>
-
-      {/* Contact / Book Project */}
-      <section style={{ padding: "30px 0" }} className="bg-white">
-        <div className="container-main text-center">
-          <h2
-            className="font-bold mb-6"
-            style={{ fontSize: "28px", color: "#2b2e37" }}
-          >
-            Contact with us &amp; book your dream project
-          </h2>
           <Link href="/contact" className="btn-primary">
             Contact Us
           </Link>
         </div>
       </section>
 
-      {/* Management Section */}
-      <section style={{ padding: "50px 0" }} className="bg-[#f8f9f9]">
+      {/* ── MANAGEMENT SECTION ── */}
+      <section
+        style={{
+          padding: "44px 0",
+          backgroundColor: "#ffffff",
+          fontFamily: "var(--font-roboto)",
+        }}
+      >
         <div className="container-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             {/* Left - Image */}
@@ -281,25 +517,34 @@ export default function AmazonArbitragePage() {
                 alt="Manage Amazon Seller Account With EcomGarden"
                 width={570}
                 height={380}
-                className="w-full rounded-lg shadow-[0px_0px_20px_rgba(0,0,0,0.15)]"
+                style={{
+                  width: "100%",
+                  borderRadius: "12px",
+                  boxShadow: "0 4px 24px rgba(0,0,0,0.10)",
+                }}
               />
             </div>
 
             {/* Right - Text */}
             <div>
               <h2
-                className="font-bold mb-5"
                 style={{
-                  fontSize: "32px",
-                  lineHeight: "40px",
+                  fontSize: "24px",
+                  fontWeight: 700,
                   color: "#2b2e37",
+                  lineHeight: "34px",
+                  marginBottom: "16px",
                 }}
               >
                 Manage Amazon Seller Account With EcomGarden
               </h2>
               <p
-                className="text-[#333] mb-4 leading-relaxed"
-                style={{ fontSize: "16px", textAlign: "justify" }}
+                style={{
+                  fontSize: "15px",
+                  color: "var(--color-text-light)",
+                  lineHeight: "26px",
+                  marginBottom: "14px",
+                }}
               >
                 At EcomGarden, you will get complete service of fully account
                 management. Our automation tools will ensure 100% accuracy and
@@ -308,16 +553,24 @@ export default function AmazonArbitragePage() {
                 inquire.
               </p>
               <p
-                className="text-[#333] mb-4 leading-relaxed"
-                style={{ fontSize: "16px", textAlign: "justify" }}
+                style={{
+                  fontSize: "15px",
+                  color: "var(--color-text-light)",
+                  lineHeight: "26px",
+                  marginBottom: "14px",
+                }}
               >
                 Looking for a compete store management solutions and a trusted
                 partner? You are in the right place. EcomGarden will fullfill
                 your dream into reality.
               </p>
               <p
-                className="text-[#333] mb-4 leading-relaxed"
-                style={{ fontSize: "16px", textAlign: "justify" }}
+                style={{
+                  fontSize: "15px",
+                  color: "var(--color-text-light)",
+                  lineHeight: "26px",
+                  marginBottom: "14px",
+                }}
               >
                 Get experienced highly skilled Amazon 2 step dropshipping
                 virtual assistant for your store and get cost-effective and
@@ -328,8 +581,11 @@ export default function AmazonArbitragePage() {
                 return handling, inventory management, PPC and marketing.
               </p>
               <p
-                className="text-[#333] leading-relaxed"
-                style={{ fontSize: "16px", textAlign: "justify" }}
+                style={{
+                  fontSize: "15px",
+                  color: "var(--color-text-light)",
+                  lineHeight: "26px",
+                }}
               >
                 Our service is 100% tranparent and we do not have any hidden
                 charge and do not have any hidden terms &amp; conditions. Get

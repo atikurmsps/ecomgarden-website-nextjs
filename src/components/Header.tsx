@@ -1,18 +1,42 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { FaBars, FaTimes, FaChevronDown, FaWhatsapp } from "react-icons/fa";
 
 const services = [
-  { name: "Amazon Wholesale", href: "/services/amazon-wholesale" },
-  { name: "Amazon Arbitrage", href: "/services/amazon-arbitrage" },
-  { name: "Walmart Management", href: "/services/walmart-management" },
-  { name: "Shopify Development", href: "/services/shopify-development" },
-  { name: "3PL Warehouse", href: "/services/3pl-warehouse" },
-  { name: "Flat Rate Shipping", href: "/services/flat-rate-shipping" },
+  {
+    name: "Amazon Wholesale",
+    href: "/services/amazon-wholesale",
+    desc: "Full-service wholesale management",
+  },
+  {
+    name: "Amazon Arbitrage",
+    href: "/services/amazon-arbitrage",
+    desc: "2-step dropshipping solutions",
+  },
+  {
+    name: "Walmart Management",
+    href: "/services/walmart-management",
+    desc: "Complete store management",
+  },
+  {
+    name: "Shopify Development",
+    href: "/services/shopify-development",
+    desc: "Custom store building",
+  },
+  {
+    name: "3PL Warehouse",
+    href: "/services/3pl-warehouse",
+    desc: "Storage & fulfillment",
+  },
+  {
+    name: "Flat Rate Shipping",
+    href: "/services/flat-rate-shipping",
+    desc: "Affordable shipping rates",
+  },
 ];
 
 const navLinks = [
@@ -30,23 +54,38 @@ export default function Header() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+    setServicesOpen(false);
+  }, [pathname]);
+
   return (
     <header
-      className={`bg-white sticky top-0 z-50 transition-shadow duration-300 ${
-        scrolled ? "shadow-[0_2px_10px_rgba(0,0,0,0.08)]" : "shadow-[0_1px_4px_rgba(0,0,0,0.05)]"
-      }`}
+      style={{
+        backgroundColor: "#fff",
+        position: "sticky",
+        top: 0,
+        zIndex: 50,
+        transition: "box-shadow 0.3s",
+        boxShadow: scrolled
+          ? "0 2px 20px rgba(0,0,0,0.08)"
+          : "0 1px 3px rgba(0,0,0,0.04)",
+      }}
     >
       <div className="container-main">
-        <div className="flex items-center justify-between" style={{ minHeight: "80px" }}>
+        <div
+          className="flex items-center justify-between"
+          style={{ height: "64px" }}
+        >
           {/* Logo */}
           <Link href="/" className="flex items-center flex-shrink-0">
             <Image
@@ -55,46 +94,122 @@ export default function Header() {
               width={220}
               height={80}
               className="w-auto"
-              style={{ height: "60px" }}
+              style={{ height: "42px" }}
               priority
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center">
+          <nav
+            className="hidden lg:flex items-center"
+            style={{ height: "64px" }}
+          >
             {navLinks.map((link) => {
-              const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
+              const isActive =
+                pathname === link.href ||
+                (link.href !== "/" && pathname.startsWith(link.href));
               return (
-                <div key={link.name} className="relative group">
+                <div
+                  key={link.name}
+                  className="relative group"
+                  style={{ height: "100%" }}
+                  ref={link.hasDropdown ? dropdownRef : undefined}
+                >
                   <Link
                     href={link.href}
-                    className={`flex items-center gap-1.5 text-[15px] font-semibold transition-colors relative ${
-                      isActive ? "text-[#86af51]" : "text-[#020202] hover:text-[#86af51]"
-                    }`}
                     style={{
-                      padding: "28px 17px",
-                      lineHeight: "1",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "5px",
+                      padding: "0 16px",
+                      height: "100%",
+                      fontSize: "16px",
+                      fontWeight: 600,
+                      color: isActive
+                        ? "var(--color-primary)"
+                        : "var(--color-text)",
+                      textDecoration: "none",
+                      transition: "color 0.2s",
+                      position: "relative",
                     }}
+                    className="hover:!text-primary"
                   >
                     {link.name}
-                    {link.hasDropdown && <FaChevronDown className="text-[9px] ml-0.5" />}
-                    {/* Active underline */}
+                    {link.hasDropdown && (
+                      <FaChevronDown
+                        style={{
+                          fontSize: "8px",
+                          transition: "transform 0.2s",
+                        }}
+                      />
+                    )}
+                    {/* Active indicator */}
                     {isActive && (
                       <span
-                        className="absolute bottom-0 left-[17px] right-[17px] h-[3px] bg-[#86af51]"
+                        style={{
+                          position: "absolute",
+                          bottom: 0,
+                          left: "16px",
+                          right: "16px",
+                          height: "3px",
+                          backgroundColor: "var(--color-primary)",
+                          borderRadius: "3px 3px 0 0",
+                        }}
                       />
                     )}
                   </Link>
 
+                  {/* Mega Dropdown */}
                   {link.hasDropdown && (
-                    <div className="absolute top-full left-0 bg-white shadow-lg py-2 min-w-[220px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 border-t-[3px] border-[#86af51]">
+                    <div
+                      style={{
+                        position: "absolute",
+                        top: "100%",
+                        left: "-40px",
+                        backgroundColor: "#fff",
+                        boxShadow: "0 12px 40px rgba(0,0,0,0.12)",
+                        borderRadius: "0 0 12px 12px",
+                        padding: "8px 0",
+                        minWidth: "280px",
+                        opacity: 0,
+                        visibility: "hidden" as const,
+                        transition: "all 0.2s ease",
+                        borderTop: "3px solid var(--color-primary)",
+                        zIndex: 50,
+                      }}
+                      className="group-hover:!opacity-100 group-hover:!visible"
+                    >
                       {services.map((service) => (
                         <Link
                           key={service.name}
                           href={service.href}
-                          className="block px-5 py-2.5 text-[14px] text-[#333] hover:bg-[#86af51] hover:text-white transition-colors"
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            padding: "10px 20px",
+                            textDecoration: "none",
+                            transition: "background 0.15s",
+                          }}
+                          className="hover:!bg-gray-50"
                         >
-                          {service.name}
+                          <span
+                            style={{
+                              fontSize: "15px",
+                              fontWeight: 600,
+                              color: "var(--color-text)",
+                            }}
+                          >
+                            {service.name}
+                          </span>
+                          <span
+                            style={{
+                              fontSize: "13px",
+                              color: "#999",
+                              marginTop: "1px",
+                            }}
+                          >
+                            {service.desc}
+                          </span>
                         </Link>
                       ))}
                     </div>
@@ -104,90 +219,174 @@ export default function Header() {
             })}
           </nav>
 
-          {/* WhatsApp CTA Button */}
+          {/* CTA Button */}
           <a
             href="https://wa.link/m2ac6m"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden lg:inline-flex items-center gap-2 bg-[#da8040] text-white rounded-[4px] font-semibold hover:bg-[#c06e30] transition-colors text-[15px]"
-            style={{ padding: "12px 24px" }}
+            style={{
+              backgroundColor: "var(--color-accent)",
+              color: "#fff",
+              padding: "9px 20px",
+              borderRadius: "8px",
+              fontWeight: 600,
+              fontSize: "15px",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "8px",
+              textDecoration: "none",
+              transition: "all 0.3s",
+              boxShadow: "0 2px 10px rgba(245,158,11,0.25)",
+            }}
+            className="hidden lg:inline-flex hover:!shadow-lg"
           >
-            <FaWhatsapp className="text-lg" />
-            Quick Whatsapp
+            <FaWhatsapp style={{ fontSize: "16px" }} />
+            Quick WhatsApp
           </a>
 
           {/* Mobile Menu Toggle */}
           <button
-            className="lg:hidden text-[#2b2e37] text-2xl p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
+            style={{
+              display: "none",
+              padding: "8px",
+              fontSize: "22px",
+              color: "var(--color-text)",
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+            }}
+            className="!flex lg:!hidden items-center justify-center"
           >
             {mobileMenuOpen ? <FaTimes /> : <FaBars />}
           </button>
         </div>
+      </div>
 
-        {/* Mobile Navigation */}
-        {mobileMenuOpen && (
-          <div className="lg:hidden pb-4 border-t border-gray-100">
-            <nav className="flex flex-col">
-              {navLinks.map((link) => {
-                const isActive = pathname === link.href;
-                return (
-                  <div key={link.name}>
-                    {link.hasDropdown ? (
-                      <>
-                        <button
-                          className={`flex items-center justify-between w-full px-4 py-3 font-semibold transition-colors text-[16px] ${
-                            isActive ? "text-[#86af51]" : "text-[#020202] hover:text-[#86af51]"
-                          }`}
-                          onClick={() => setServicesOpen(!servicesOpen)}
+      {/* Mobile Navigation */}
+      <div
+        style={{
+          maxHeight: mobileMenuOpen ? "600px" : "0",
+          overflow: "hidden",
+          transition: "max-height 0.35s ease",
+          borderTop: mobileMenuOpen ? "1px solid #f0f0f0" : "none",
+        }}
+        className="lg:!hidden"
+      >
+        <div style={{ padding: "8px 0 16px" }}>
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <div key={link.name}>
+                {link.hasDropdown ? (
+                  <>
+                    <button
+                      onClick={() => setServicesOpen(!servicesOpen)}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        width: "100%",
+                        padding: "12px 20px",
+                        fontSize: "16px",
+                        fontWeight: 600,
+                        color: isActive
+                          ? "var(--color-primary)"
+                          : "var(--color-text)",
+                        background: "none",
+                        border: "none",
+                        cursor: "pointer",
+                        transition: "color 0.2s",
+                      }}
+                    >
+                      {link.name}
+                      <FaChevronDown
+                        style={{
+                          fontSize: "10px",
+                          transition: "transform 0.2s",
+                          transform: servicesOpen
+                            ? "rotate(180deg)"
+                            : "rotate(0)",
+                        }}
+                      />
+                    </button>
+                    <div
+                      style={{
+                        maxHeight: servicesOpen ? "400px" : "0",
+                        overflow: "hidden",
+                        transition: "max-height 0.3s ease",
+                        backgroundColor: "#f9f9f9",
+                      }}
+                    >
+                      {services.map((service) => (
+                        <Link
+                          key={service.name}
+                          href={service.href}
+                          style={{
+                            display: "block",
+                            padding: "10px 20px 10px 36px",
+                            fontSize: "16px",
+                            color: "#555",
+                            textDecoration: "none",
+                            transition: "color 0.2s",
+                          }}
+                          className="hover:!text-primary"
+                          onClick={() => setMobileMenuOpen(false)}
                         >
-                          {link.name}
-                          <FaChevronDown
-                            className={`text-[10px] transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`}
-                          />
-                        </button>
-                        {servicesOpen && (
-                          <div className="bg-gray-50 pl-8">
-                            {services.map((service) => (
-                              <Link
-                                key={service.name}
-                                href={service.href}
-                                className="block px-4 py-2.5 text-sm text-[#333] hover:text-[#86af51] transition-colors"
-                                onClick={() => setMobileMenuOpen(false)}
-                              >
-                                {service.name}
-                              </Link>
-                            ))}
-                          </div>
-                        )}
-                      </>
-                    ) : (
-                      <Link
-                        href={link.href}
-                        className={`block px-4 py-3 font-semibold transition-colors text-[16px] ${
-                          isActive ? "text-[#86af51]" : "text-[#020202] hover:text-[#86af51]"
-                        }`}
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        {link.name}
-                      </Link>
-                    )}
-                  </div>
-                );
-              })}
-              <a
-                href="https://wa.link/m2ac6m"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 mx-4 mt-3 bg-[#86af51] text-white px-5 py-3 rounded-[3px] font-semibold justify-center"
-              >
-                <FaWhatsapp className="text-lg" />
-                Quick Whatsapp
-              </a>
-            </nav>
+                          {service.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </>
+                ) : (
+                  <Link
+                    href={link.href}
+                    style={{
+                      display: "block",
+                      padding: "12px 20px",
+                      fontSize: "16px",
+                      fontWeight: 600,
+                      color: isActive
+                        ? "var(--color-primary)"
+                        : "var(--color-text)",
+                      textDecoration: "none",
+                      transition: "color 0.2s",
+                    }}
+                    className="hover:!text-primary"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {link.name}
+                  </Link>
+                )}
+              </div>
+            );
+          })}
+          {/* Mobile CTA */}
+          <div style={{ padding: "8px 16px 4px" }}>
+            <a
+              href="https://wa.link/m2ac6m"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "8px",
+                backgroundColor: "var(--color-accent)",
+                color: "#fff",
+                padding: "12px 20px",
+                borderRadius: "8px",
+                fontWeight: 600,
+                fontSize: "16px",
+                textDecoration: "none",
+              }}
+            >
+              <FaWhatsapp style={{ fontSize: "16px" }} />
+              Quick WhatsApp
+            </a>
           </div>
-        )}
+        </div>
       </div>
     </header>
   );

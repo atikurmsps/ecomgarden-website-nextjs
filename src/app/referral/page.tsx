@@ -34,7 +34,7 @@ export default function ReferralPage() {
         <div className="container mx-auto px-4 lg:px-8 max-w-3xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4" style={{ fontFamily: "var(--font-roboto-slab)" }}>
-              Why Join Our <span className="text-[#86af51]">Affiliate Program</span>?
+              Why Join Our <span className="text-primary">Affiliate Program</span>?
             </h2>
             <p className="text-gray-600 leading-relaxed">
               Partner with EcomGarden and earn generous commissions for every client you refer. Our affiliate program is designed to reward you for helping others discover our premium eCommerce management services.
@@ -45,7 +45,7 @@ export default function ReferralPage() {
             <ul className="space-y-4">
               {benefits.map((benefit) => (
                 <li key={benefit} className="flex items-center gap-3">
-                  <FaCheck className="text-[#86af51] flex-shrink-0" />
+                  <FaCheck className="text-primary flex-shrink-0" />
                   <span className="text-gray-700 font-medium">{benefit}</span>
                 </li>
               ))}

@@ -30,58 +30,189 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section style={{ padding: "35px 0 30px", backgroundColor: "#f8f9f9" }}>
+    <section
+      style={{
+        padding: "40px 0",
+        backgroundColor: "var(--color-light-gray)",
+        fontFamily: "var(--font-roboto)",
+      }}
+    >
       <div className="container-main">
-        <h2
-          className="font-bold text-center text-black mb-10"
-          style={{ fontSize: "32px", lineHeight: "32px" }}
-        >
-          Our Most Demanded Services
-        </h2>
+        {/* Section header */}
+        <div style={{ textAlign: "center", marginBottom: "28px" }}>
+          <span
+            style={{
+              fontSize: "13px",
+              fontWeight: 700,
+              color: "var(--color-primary)",
+              textTransform: "uppercase",
+              letterSpacing: "1.5px",
+              fontFamily: "var(--font-roboto)",
+              display: "block",
+              marginBottom: "6px",
+            }}
+          >
+            What We Offer
+          </span>
+          <h2
+            style={{
+              fontSize: "25px",
+              lineHeight: "1.3",
+              color: "var(--color-dark)",
+              fontWeight: 800,
+              fontFamily: "var(--font-roboto)",
+              margin: 0,
+            }}
+          >
+            Our Most Demanded Services
+          </h2>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+            gap: "20px",
+          }}
+        >
           {services.map((service) => (
             <div
               key={service.title}
-              className="bg-white rounded-[4px] text-center card-hover"
-              style={{ padding: "30px", boxShadow: "rgba(0,0,0,0.1) 8px 8px 20px 0px" }}
+              className="card-hover"
+              style={{
+                backgroundColor: "#fff",
+                borderRadius: "12px",
+                padding: "24px",
+                border: "1px solid rgba(0,0,0,0.06)",
+                boxShadow: "0 2px 12px rgba(0,0,0,0.05)",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                transition: "box-shadow 0.25s, transform 0.25s",
+              }}
             >
-              <div className="flex justify-center mb-5">
+              {/* Icon */}
+              <div
+                style={{
+                  marginBottom: "16px",
+                  width: "64px",
+                  height: "64px",
+                  borderRadius: "12px",
+                  backgroundColor: "rgba(40,167,69,0.06)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
                 <Image
                   src={service.img}
                   alt={service.title}
                   width={80}
                   height={80}
-                  className="w-[100px] h-[100px] object-contain"
+                  style={{
+                    width: "42px",
+                    height: "42px",
+                    objectFit: "contain",
+                  }}
                 />
               </div>
-              <h3 className="text-[20px] font-bold text-[#333] mb-1">
+
+              {/* Title */}
+              <h3
+                style={{
+                  fontSize: "17px",
+                  fontWeight: 700,
+                  color: "var(--color-dark)",
+                  marginBottom: "2px",
+                  fontFamily: "var(--font-roboto)",
+                }}
+              >
                 {service.title}
               </h3>
               {service.subtitle && (
-                <h4 className="text-[18px] text-[#333] mb-3 font-bold">
+                <p
+                  style={{
+                    fontSize: "14px",
+                    fontWeight: 600,
+                    color: "var(--color-primary)",
+                    marginBottom: "8px",
+                    fontFamily: "var(--font-roboto)",
+                  }}
+                >
                   {service.subtitle}
-                </h4>
+                </p>
               )}
-              <p className="text-[#333] text-[16px] leading-relaxed mb-6" style={{ textAlign: "justify", lineHeight: "24px" }}>
+
+              {/* Description */}
+              <p
+                style={{
+                  fontSize: "15px",
+                  lineHeight: "1.7",
+                  color: "var(--color-text-light)",
+                  marginBottom: "18px",
+                  fontFamily: "var(--font-roboto)",
+                  flex: 1,
+                }}
+              >
                 {service.description}
               </p>
+
+              {/* Link */}
               <Link
                 href={service.href}
-                className="inline-block bg-[#86af51] text-white font-bold rounded-[3px] hover:bg-[#6d9340] transition-colors text-[14px]"
-                style={{ padding: "12px 24px", letterSpacing: "1px" }}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "6px",
+                  fontSize: "14px",
+                  fontWeight: 700,
+                  color: "var(--color-primary)",
+                  textDecoration: "none",
+                  letterSpacing: "0.5px",
+                  textTransform: "uppercase",
+                  fontFamily: "var(--font-roboto)",
+                  padding: "8px 18px",
+                  borderRadius: "6px",
+                  backgroundColor: "rgba(40,167,69,0.08)",
+                  border: "1px solid rgba(40,167,69,0.15)",
+                  transition: "all 0.2s",
+                }}
               >
                 Read More
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
               </Link>
             </div>
           ))}
         </div>
 
-        <div className="text-center mt-10">
+        <div style={{ textAlign: "center", marginTop: "28px" }}>
           <Link
             href="/services"
-            className="inline-block bg-[#da8040] text-white font-bold rounded-[3px] hover:bg-[#c06e30] transition-colors text-[16px] uppercase tracking-wide"
-            style={{ padding: "16px 50px" }}
+            style={{
+              display: "inline-block",
+              color: "#fff",
+              fontWeight: 700,
+              borderRadius: "6px",
+              fontSize: "15px",
+              textTransform: "uppercase",
+              letterSpacing: "1px",
+              padding: "12px 36px",
+              backgroundColor: "var(--color-accent)",
+              textDecoration: "none",
+              fontFamily: "var(--font-roboto)",
+              transition: "background-color 0.2s",
+            }}
           >
             Browse All Services
           </Link>

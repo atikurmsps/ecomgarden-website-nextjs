@@ -1,22 +1,54 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 
 export default function WarehouseSection() {
   return (
-    <section style={{ padding: "50px 0 50px" }} className="bg-[#f8f9f9]">
+    <section style={{ padding: "40px 0", backgroundColor: "var(--color-light-gray)", fontFamily: "var(--font-roboto)" }}>
       <div className="container-main">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: "32px",
+            alignItems: "center",
+          }}
+          className="warehouse-grid"
+        >
           {/* Left - Text Content */}
           <div>
+            <span
+              style={{
+                fontSize: "13px",
+                fontWeight: 700,
+                textTransform: "uppercase" as const,
+                letterSpacing: "1.5px",
+                color: "var(--color-primary)",
+                display: "block",
+                marginBottom: "6px",
+              }}
+            >
+              Warehouses
+            </span>
             <h2
-              className="font-extrabold mb-5 leading-tight"
-              style={{ fontSize: "32px", color: "#e5a24e" }}
+              style={{
+                fontSize: "25px",
+                fontWeight: 800,
+                color: "var(--color-text)",
+                marginBottom: "12px",
+                lineHeight: "30px",
+              }}
             >
               Operating Dedicated Warehouses in NY, FL, CT
             </h2>
             <p
-              className="text-[#333] mb-6 leading-relaxed"
-              style={{ fontSize: "16px", textAlign: "justify" }}
+              style={{
+                fontSize: "15px",
+                lineHeight: "20px",
+                color: "var(--color-text-light)",
+                marginBottom: "20px",
+              }}
             >
               No matter which method you use to sell, we&apos;ve got you
               covered. Our 3PL warehouses can do FBA prep, WFS prep, storage,
@@ -29,16 +61,25 @@ export default function WarehouseSection() {
           </div>
 
           {/* Right - Map Image */}
-          <div className="flex justify-center">
+          <div style={{ display: "flex", justifyContent: "center" }}>
             <Image
               src="/images/warehouse/warehouse-map.webp"
               alt="Warehouse Locations Map"
               width={550}
               height={400}
-              className="w-full max-w-[500px] h-auto"
+              style={{ width: "100%", maxWidth: "440px", height: "auto", borderRadius: "12px" }}
             />
           </div>
         </div>
+
+        <style jsx>{`
+          @media (max-width: 767px) {
+            .warehouse-grid {
+              grid-template-columns: 1fr !important;
+              gap: 20px !important;
+            }
+          }
+        `}</style>
       </div>
     </section>
   );

@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 
 const features = [
   {
@@ -75,55 +78,133 @@ const features = [
   },
 ];
 
+function FeatureCard({ feature }: { feature: (typeof features)[0] }) {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <div
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        backgroundColor: "#fff",
+        borderRadius: "12px",
+        padding: "20px",
+        border: "1px solid #eee",
+        textAlign: "center",
+        transition: "all 0.3s ease",
+        transform: hovered ? "translateY(-2px)" : "translateY(0)",
+        boxShadow: hovered
+          ? "0 8px 30px rgba(0,0,0,0.1)"
+          : "0 2px 8px rgba(0,0,0,0.03)",
+        cursor: "default",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          marginBottom: "14px",
+        }}
+      >
+        <Image
+          src={feature.img}
+          alt={feature.title}
+          width={60}
+          height={60}
+          style={{ width: "60px", height: "60px", objectFit: "contain" }}
+        />
+      </div>
+      <h3
+        style={{
+          fontSize: "16px",
+          fontWeight: 700,
+          color: "var(--color-dark)",
+          marginBottom: "8px",
+          fontFamily: "var(--font-roboto)",
+        }}
+      >
+        {feature.title}
+      </h3>
+      <p
+        style={{
+          fontSize: "15px",
+          lineHeight: "22px",
+          color: "var(--color-text-light)",
+          fontFamily: "var(--font-roboto)",
+          margin: 0,
+        }}
+      >
+        {feature.description}
+      </p>
+    </div>
+  );
+}
+
 export default function ServiceFeaturesGrid() {
   return (
-    <section style={{ padding: "50px 0 30px" }} className="bg-white">
+    <section
+      style={{
+        padding: "44px 0",
+        backgroundColor: "#fff",
+        fontFamily: "var(--font-roboto)",
+      }}
+    >
       <div className="container-main">
+        {/* Section Label */}
+        <div style={{ textAlign: "center", marginBottom: "10px" }}>
+          <span
+            style={{
+              fontSize: "12px",
+              fontWeight: 700,
+              letterSpacing: "1.5px",
+              textTransform: "uppercase" as const,
+              color: "var(--color-primary)",
+            }}
+          >
+            OUR APPROACH
+          </span>
+        </div>
+
         <h2
-          className="font-extrabold text-center mb-6"
-          style={{ fontSize: "32px", lineHeight: "48px", color: "#e5a24e" }}
+          style={{
+            fontSize: "27px",
+            fontWeight: 800,
+            textAlign: "center",
+            color: "var(--color-dark)",
+            marginBottom: "8px",
+            fontFamily: "var(--font-roboto)",
+          }}
         >
           This is how you will achieve amazing results with our management
           service
         </h2>
         <p
-          className="text-center text-[#2b2e37] mb-12 max-w-3xl mx-auto"
-          style={{ fontSize: "15px", lineHeight: "20px" }}
+          style={{
+            textAlign: "center",
+            color: "var(--color-text)",
+            marginBottom: "36px",
+            maxWidth: "680px",
+            margin: "0 auto 36px",
+            fontSize: "15px",
+            lineHeight: "24px",
+            fontFamily: "var(--font-roboto)",
+          }}
         >
           No matter where you are on your e-commerce journey &ndash; whether
           you&apos;re just starting or managing a flourishing business &ndash;
           we have the tailored solution you&apos;ve been searching for!
         </p>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(2, 1fr)",
+            gap: "16px",
+          }}
+          className="sm:!grid-cols-3 lg:!grid-cols-4"
+        >
           {features.map((feature) => (
-            <div key={feature.title} className="text-center p-4">
-              <div className="flex justify-center mb-4">
-                <Image
-                  src={feature.img}
-                  alt={feature.title}
-                  width={100}
-                  height={100}
-                  className="w-[100px] h-[100px] object-contain"
-                />
-              </div>
-              <h3
-                className="font-bold text-black mb-2"
-                style={{ fontSize: "22px", lineHeight: "22px" }}
-              >
-                {feature.title}
-              </h3>
-              <p
-                className="text-[#333]"
-                style={{
-                  fontSize: "15px",
-                  lineHeight: "22.5px",
-                  letterSpacing: "-0.2px",
-                }}
-              >
-                {feature.description}
-              </p>
-            </div>
+            <FeatureCard key={feature.title} feature={feature} />
           ))}
         </div>
       </div>

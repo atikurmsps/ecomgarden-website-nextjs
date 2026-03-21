@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import CTASection from "@/components/home/CTASection";
@@ -56,62 +58,227 @@ const services = [
 export default function ServicesPage() {
   return (
     <>
-      {/* Services Section */}
-      <section style={{ padding: "50px 0 30px" }} className="bg-[#f8f9f9]">
-        <div className="container-main">
-          <h1
-            className="font-bold text-center text-black mb-4"
-            style={{ fontSize: "32px", lineHeight: "32px" }}
-          >
-            All Services
-          </h1>
-          <p
-            className="text-center text-[#333] mb-10 max-w-3xl mx-auto"
-            style={{ fontSize: "16px" }}
-          >
-            Comprehensive eCommerce management services to help you start, grow
-            and scale your business
-          </p>
+      {/* Dark Hero Section */}
+      <section
+        style={{
+          backgroundColor: "var(--color-dark)",
+          padding: "44px 0 36px",
+          position: "relative",
+          overflow: "hidden",
+          fontFamily: "Roboto, sans-serif",
+        }}
+      >
+        {/* Decorative circles */}
+        <div
+          style={{
+            position: "absolute",
+            top: "-60px",
+            right: "-60px",
+            width: "200px",
+            height: "200px",
+            borderRadius: "50%",
+            border: "1px solid rgba(255,255,255,0.06)",
+            pointerEvents: "none",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            bottom: "-40px",
+            left: "-40px",
+            width: "160px",
+            height: "160px",
+            borderRadius: "50%",
+            border: "1px solid rgba(255,255,255,0.05)",
+            pointerEvents: "none",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: "20px",
+            left: "30%",
+            width: "80px",
+            height: "80px",
+            borderRadius: "50%",
+            border: "1px solid rgba(255,255,255,0.04)",
+            pointerEvents: "none",
+          }}
+        />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="container-main" style={{ position: "relative", zIndex: 1 }}>
+          <div className="flex flex-col items-center text-center">
+            {/* Green badge pill */}
+            <span
+              style={{
+                display: "inline-block",
+                backgroundColor: "var(--color-primary)",
+                color: "#fff",
+                fontSize: "14px",
+                fontWeight: 600,
+                padding: "5px 16px",
+                borderRadius: "50px",
+                marginBottom: "14px",
+                letterSpacing: "0.5px",
+                fontFamily: "Roboto, sans-serif",
+              }}
+            >
+              What We Offer
+            </span>
+
+            <h1
+              style={{
+                fontSize: "30px",
+                fontWeight: 700,
+                color: "#fff",
+                marginBottom: "10px",
+                lineHeight: 1.2,
+                fontFamily: "Roboto, sans-serif",
+              }}
+            >
+              All Services
+            </h1>
+
+            <p
+              style={{
+                fontSize: "16px",
+                color: "#9494ac",
+                maxWidth: "520px",
+                lineHeight: 1.6,
+                fontFamily: "Roboto, sans-serif",
+              }}
+            >
+              Comprehensive eCommerce management services to help you start, grow
+              and scale your business
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Grid Section */}
+      <section
+        style={{
+          backgroundColor: "var(--color-light-gray)",
+          padding: "44px 0",
+          fontFamily: "Roboto, sans-serif",
+        }}
+      >
+        <div className="container-main">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {services.map((service) => (
               <div
                 key={service.title}
-                className="bg-white rounded-[4px] text-center card-hover"
+                className="group"
                 style={{
-                  padding: "30px",
-                  boxShadow: "rgba(0,0,0,0.1) 8px 8px 20px 0px",
+                  backgroundColor: "#fff",
+                  borderRadius: "12px",
+                  padding: "24px",
+                  border: "1px solid #eee",
+                  boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
+                  transition: "all 0.3s ease",
+                  borderTop: "3px solid transparent",
+                  cursor: "default",
+                }}
+                onMouseEnter={(e) => {
+                  const el = e.currentTarget as HTMLDivElement;
+                  el.style.boxShadow = "0 8px 24px rgba(0,0,0,0.1)";
+                  el.style.borderTopColor = "var(--color-primary)";
+                }}
+                onMouseLeave={(e) => {
+                  const el = e.currentTarget as HTMLDivElement;
+                  el.style.boxShadow = "0 1px 3px rgba(0,0,0,0.06)";
+                  el.style.borderTopColor = "transparent";
                 }}
               >
-                <div className="flex justify-center mb-5">
+                {/* Service icon */}
+                <div style={{ marginBottom: "16px" }}>
                   <Image
                     src={service.img}
                     alt={service.title}
-                    width={80}
-                    height={80}
-                    className="w-[100px] h-[100px] object-contain"
+                    width={60}
+                    height={60}
+                    className="object-contain"
+                    style={{ width: "60px", height: "60px" }}
                   />
                 </div>
-                <h3 className="text-[20px] font-bold text-[#333] mb-1">
+
+                {/* Title */}
+                <h3
+                  style={{
+                    fontSize: "16px",
+                    fontWeight: 700,
+                    color: "var(--color-text)",
+                    marginBottom: "4px",
+                    fontFamily: "Roboto, sans-serif",
+                  }}
+                >
                   {service.title}
                 </h3>
+
+                {/* Subtitle */}
                 {service.subtitle && (
-                  <h4 className="text-[18px] text-[#333] mb-3 font-bold">
+                  <p
+                    style={{
+                      fontSize: "15px",
+                      color: "var(--color-primary)",
+                      marginBottom: "10px",
+                      fontWeight: 500,
+                      fontFamily: "Roboto, sans-serif",
+                    }}
+                  >
                     {service.subtitle}
-                  </h4>
+                  </p>
                 )}
+
+                {/* Description */}
                 <p
-                  className="text-[#333] text-[16px] leading-relaxed mb-6"
-                  style={{ textAlign: "justify", lineHeight: "24px" }}
+                  style={{
+                    fontSize: "15px",
+                    color: "var(--color-text-light)",
+                    lineHeight: 1.7,
+                    marginBottom: "16px",
+                    marginTop: service.subtitle ? "0" : "10px",
+                    fontFamily: "Roboto, sans-serif",
+                  }}
                 >
                   {service.description}
                 </p>
+
+                {/* Read More link */}
                 <Link
                   href={service.href}
-                  className="inline-block bg-[#86af51] text-white font-bold rounded-[3px] hover:bg-[#6d9340] transition-colors text-[14px]"
-                  style={{ padding: "12px 24px", letterSpacing: "1px" }}
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "5px",
+                    fontSize: "15px",
+                    fontWeight: 600,
+                    color: "var(--color-primary)",
+                    textDecoration: "none",
+                    fontFamily: "Roboto, sans-serif",
+                    transition: "gap 0.2s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLAnchorElement).style.gap = "8px";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLAnchorElement).style.gap = "5px";
+                  }}
                 >
                   Read More
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
                 </Link>
               </div>
             ))}

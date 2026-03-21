@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { FaChevronDown } from "react-icons/fa";
+import { FaChevronDown, FaQuestionCircle } from "react-icons/fa";
 import CTASection from "@/components/home/CTASection";
 
 const faqs = [
@@ -59,58 +59,278 @@ export default function FAQPage() {
 
   return (
     <>
-      {/* FAQ Section */}
-      <section style={{ padding: "50px 0" }} className="bg-[#f8f9f9]">
-        <div className="container-main">
-          <h2
-            className="font-bold text-center mb-10"
-            style={{ fontSize: "32px", color: "#2b2e37" }}
-          >
-            Frequently Asked Questions FAQs
-          </h2>
+      {/* Hero */}
+      <section
+        style={{
+          background:
+            "linear-gradient(160deg, var(--color-dark) 0%, #1a1555 50%, var(--color-dark) 100%)",
+          padding: "40px 0 36px",
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: "-80px",
+            right: "-80px",
+            width: "250px",
+            height: "250px",
+            borderRadius: "50%",
+            background: "color-mix(in srgb, var(--color-primary) 5%, transparent)",
+          }}
+        />
+        <div className="container-main" style={{ position: "relative" }}>
+          <div className="text-center">
+            <div
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "6px",
+                background: "color-mix(in srgb, var(--color-primary) 12%, transparent)",
+                border: "1px solid color-mix(in srgb, var(--color-primary) 20%, transparent)",
+                borderRadius: "50px",
+                padding: "5px 16px",
+                marginBottom: "14px",
+                fontSize: "14px",
+                fontWeight: 600,
+                color: "var(--color-primary)",
+              }}
+            >
+              <FaQuestionCircle style={{ fontSize: "11px" }} />
+              Got Questions?
+            </div>
+            <h1
+              style={{
+                fontSize: "27px",
+                fontWeight: 700,
+                color: "#fff",
+                marginBottom: "8px",
+              }}
+            >
+              Frequently Asked Questions
+            </h1>
+            <p
+              style={{
+                fontSize: "16px",
+                color: "#9494ac",
+                maxWidth: "480px",
+                margin: "0 auto",
+                lineHeight: 1.7,
+              }}
+            >
+              Everything you need to know about our eCommerce management
+              services and business models.
+            </p>
+          </div>
+        </div>
+      </section>
 
-          <div className="max-w-3xl mx-auto space-y-[10px]">
-            {faqs.map((item, index) => (
-              <div
-                key={item.question}
-                className="bg-white rounded-[5px] overflow-hidden"
-                style={{ borderBottom: "1px solid #e0e0e0" }}
-              >
-                <button
-                  className="w-full flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
-                  style={{ padding: "15px 20px" }}
-                  onClick={() =>
-                    setOpenIndex(openIndex === index ? -1 : index)
-                  }
+      {/* FAQ Section */}
+      <section style={{ padding: "40px 0 48px", backgroundColor: "var(--color-light-gray)" }}>
+        <div className="container-main">
+          <div style={{ maxWidth: "780px", margin: "0 auto" }}>
+            {faqs.map((item, index) => {
+              const isOpen = openIndex === index;
+              return (
+                <div
+                  key={item.question}
+                  style={{
+                    marginBottom: "8px",
+                    borderRadius: "10px",
+                    overflow: "hidden",
+                    background: "#fff",
+                    border: isOpen
+                      ? "1px solid color-mix(in srgb, var(--color-primary) 25%, transparent)"
+                      : "1px solid #eee",
+                    boxShadow: isOpen
+                      ? "0 4px 20px color-mix(in srgb, var(--color-primary) 8%, transparent)"
+                      : "0 1px 4px rgba(0,0,0,0.02)",
+                    transition: "all 0.3s",
+                  }}
                 >
-                  <span
-                    className="font-semibold"
+                  <button
+                    onClick={() => setOpenIndex(isOpen ? -1 : index)}
                     style={{
-                      fontSize: "16px",
-                      lineHeight: "16px",
-                      color: openIndex === index ? "#e5a24e" : "#333",
+                      width: "100%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      padding: "14px 18px",
+                      background: "none",
+                      border: "none",
+                      cursor: "pointer",
+                      textAlign: "left",
+                      gap: "14px",
+                      transition: "background 0.2s",
                     }}
                   >
-                    {item.question}
-                  </span>
-                  <FaChevronDown
-                    className={`text-[12px] text-gray-400 transition-transform duration-300 flex-shrink-0 ml-3 ${
-                      openIndex === index ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
-                {openIndex === index && (
-                  <div style={{ padding: "0 20px 15px" }}>
-                    <p
-                      className="text-[#333]"
-                      style={{ fontSize: "14px", lineHeight: "24px" }}
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "12px",
+                      }}
                     >
-                      {item.answer}
-                    </p>
+                      <span
+                        style={{
+                          width: "28px",
+                          height: "28px",
+                          borderRadius: "7px",
+                          background: isOpen
+                            ? "var(--color-primary)"
+                            : "color-mix(in srgb, var(--color-primary) 10%, transparent)",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          flexShrink: 0,
+                          fontSize: "13px",
+                          fontWeight: 700,
+                          color: isOpen ? "#fff" : "var(--color-primary)",
+                          transition: "all 0.3s",
+                        }}
+                      >
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <span
+                        style={{
+                          fontSize: "16px",
+                          fontWeight: 600,
+                          color: isOpen ? "var(--color-primary)" : "var(--color-text)",
+                          transition: "color 0.2s",
+                        }}
+                      >
+                        {item.question}
+                      </span>
+                    </div>
+                    <span
+                      style={{
+                        width: "26px",
+                        height: "26px",
+                        borderRadius: "50%",
+                        background: isOpen
+                          ? "color-mix(in srgb, var(--color-primary) 10%, transparent)"
+                          : "#f5f5f5",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        flexShrink: 0,
+                        transition: "all 0.3s",
+                      }}
+                    >
+                      <FaChevronDown
+                        style={{
+                          fontSize: "10px",
+                          color: isOpen ? "var(--color-primary)" : "#999",
+                          transition: "transform 0.3s",
+                          transform: isOpen ? "rotate(180deg)" : "rotate(0)",
+                        }}
+                      />
+                    </span>
+                  </button>
+                  <div
+                    style={{
+                      maxHeight: isOpen ? "300px" : "0",
+                      overflow: "hidden",
+                      transition: "max-height 0.35s ease",
+                    }}
+                  >
+                    <div
+                      style={{
+                        padding: "0 18px 16px 58px",
+                      }}
+                    >
+                      <p
+                        style={{
+                          fontSize: "15px",
+                          color: "var(--color-text-light)",
+                          lineHeight: 1.7,
+                        }}
+                      >
+                        {item.answer}
+                      </p>
+                    </div>
                   </div>
-                )}
-              </div>
-            ))}
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Still have questions? */}
+          <div
+            style={{
+              maxWidth: "780px",
+              margin: "28px auto 0",
+              background: "#fff",
+              borderRadius: "14px",
+              padding: "24px",
+              textAlign: "center",
+              border: "1px solid #eee",
+              boxShadow: "0 2px 12px rgba(0,0,0,0.03)",
+            }}
+          >
+            <h3
+              style={{
+                fontSize: "18px",
+                fontWeight: 700,
+                color: "var(--color-text)",
+                marginBottom: "6px",
+              }}
+            >
+              Still have questions?
+            </h3>
+            <p
+              style={{
+                fontSize: "15px",
+                color: "var(--color-text-light)",
+                marginBottom: "14px",
+              }}
+            >
+              Can&apos;t find the answer you&apos;re looking for? Reach out to
+              our team.
+            </p>
+            <div
+              className="flex flex-wrap justify-center"
+              style={{ gap: "10px" }}
+            >
+              <a
+                href="https://wa.link/m2ac6m"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  background: "var(--color-primary)",
+                  color: "#fff",
+                  padding: "10px 24px",
+                  borderRadius: "8px",
+                  fontWeight: 600,
+                  fontSize: "15px",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  textDecoration: "none",
+                }}
+              >
+                Chat on WhatsApp
+              </a>
+              <a
+                href="/contact"
+                style={{
+                  background: "#f5f5f5",
+                  color: "var(--color-text)",
+                  padding: "10px 24px",
+                  borderRadius: "8px",
+                  fontWeight: 600,
+                  fontSize: "15px",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  textDecoration: "none",
+                  border: "1px solid #eee",
+                }}
+              >
+                Contact Us
+              </a>
+            </div>
           </div>
         </div>
       </section>

@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 
 const features = [
@@ -77,44 +79,119 @@ const features = [
 
 export default function FeaturesGrid() {
   return (
-    <section style={{ padding: "50px 0 30px" }} className="bg-white">
+    <section style={{ padding: "40px 0", backgroundColor: "white", fontFamily: "var(--font-roboto)" }}>
       <div className="container-main">
+        <div style={{ textAlign: "center", marginBottom: "6px" }}>
+          <span
+            style={{
+              fontSize: "13px",
+              fontWeight: 700,
+              textTransform: "uppercase" as const,
+              letterSpacing: "1.5px",
+              color: "var(--color-primary)",
+            }}
+          >
+            What We Offer
+          </span>
+        </div>
         <h2
-          className="font-extrabold text-center mb-6"
-          style={{ fontSize: "32px", lineHeight: "48px", color: "#e5a24e" }}
+          style={{
+            fontSize: "25px",
+            fontWeight: 800,
+            textAlign: "center",
+            color: "var(--color-text)",
+            marginBottom: "8px",
+            lineHeight: "30px",
+          }}
         >
-          This is how you will achieve amazing results with our management service
+          Achieve Amazing Results With Our Service
         </h2>
         <p
-          className="text-center text-[#2b2e37] mb-12 max-w-3xl mx-auto"
-          style={{ fontSize: "15px", lineHeight: "20px" }}
+          style={{
+            fontSize: "15px",
+            lineHeight: "20px",
+            color: "var(--color-text-light)",
+            textAlign: "center",
+            maxWidth: "600px",
+            margin: "0 auto 24px",
+          }}
         >
           No matter where you are on your e-commerce journey &ndash; whether
           you&apos;re just starting out or looking to scale &ndash; our team is
           here to help you achieve amazing results.
         </p>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(4, 1fr)",
+            gap: "14px",
+          }}
+          className="features-grid"
+        >
           {features.map((feature) => (
-            <div key={feature.title} className="text-center p-4">
-              <div className="flex justify-center mb-4">
+            <div
+              key={feature.title}
+              style={{
+                backgroundColor: "var(--color-light-gray)",
+                borderRadius: "12px",
+                padding: "20px 16px",
+                textAlign: "center",
+                transition: "transform 0.2s ease, box-shadow 0.2s ease",
+                cursor: "default",
+              }}
+              className="feature-card"
+            >
+              <div style={{ display: "flex", justifyContent: "center", marginBottom: "10px" }}>
                 <Image
                   src={feature.img}
                   alt={feature.title}
                   width={100}
                   height={100}
-                  className="w-[100px] h-[100px] object-contain"
+                  style={{ width: "48px", height: "48px", objectFit: "contain" }}
                 />
               </div>
-              <h3 className="font-bold text-black mb-2" style={{ fontSize: "22px", lineHeight: "22px" }}>
+              <h3
+                style={{
+                  fontSize: "16px",
+                  fontWeight: 700,
+                  color: "var(--color-text)",
+                  marginBottom: "4px",
+                  lineHeight: "18px",
+                }}
+              >
                 {feature.title}
               </h3>
-              <p className="text-[#333]" style={{ fontSize: "15px", lineHeight: "22.5px", letterSpacing: "-0.2px" }}>
+              <p
+                style={{
+                  fontSize: "12.5px",
+                  lineHeight: "17px",
+                  color: "var(--color-text-light)",
+                }}
+              >
                 {feature.description}
               </p>
             </div>
           ))}
         </div>
+
+        <style jsx>{`
+          .feature-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+          }
+          @media (max-width: 1023px) {
+            .features-grid {
+              grid-template-columns: repeat(3, 1fr) !important;
+            }
+          }
+          @media (max-width: 639px) {
+            .features-grid {
+              grid-template-columns: repeat(2, 1fr) !important;
+              gap: 10px !important;
+            }
+          }
+        `}</style>
       </div>
     </section>
   );

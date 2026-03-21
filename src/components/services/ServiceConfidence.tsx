@@ -32,20 +32,61 @@ export default function ServiceConfidence() {
   }, []);
 
   return (
-    <section style={{ padding: "40px 0" }} className="bg-[#f8f9f9]">
+    <section
+      style={{
+        padding: "36px 0",
+        backgroundColor: "var(--color-dark)",
+        fontFamily: "var(--font-roboto)",
+      }}
+    >
       <div className="container-main" ref={sectionRef}>
         <h2
-          className="font-bold text-center mb-10"
-          style={{ fontSize: "32px", color: "#2b2e37" }}
+          style={{
+            fontSize: "27px",
+            fontWeight: 700,
+            textAlign: "center",
+            color: "#fff",
+            marginBottom: "32px",
+            fontFamily: "var(--font-roboto)",
+          }}
         >
           Confidence with EcomGarden Service
         </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {stats.map((stat) => (
-            <div key={stat.label} className="text-center">
+
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexWrap: "wrap",
+            gap: "0",
+            maxWidth: "800px",
+            margin: "0 auto",
+          }}
+        >
+          {stats.map((stat, index) => (
+            <div
+              key={stat.label}
+              style={{
+                flex: "1 1 auto",
+                textAlign: "center",
+                padding: "16px 28px",
+                position: "relative",
+                minWidth: "140px",
+                borderRight:
+                  index < stats.length - 1
+                    ? "1px solid rgba(255,255,255,0.15)"
+                    : "none",
+              }}
+            >
               <div
-                className="font-extrabold text-[#86af51]"
-                style={{ fontSize: "40px", lineHeight: "40px" }}
+                style={{
+                  fontSize: "36px",
+                  fontWeight: 800,
+                  color: "#fff",
+                  lineHeight: "1.1",
+                  fontFamily: "var(--font-roboto)",
+                }}
               >
                 {isVisible ? (
                   <AnimatedCounter
@@ -58,11 +99,14 @@ export default function ServiceConfidence() {
                 )}
               </div>
               <p
-                className="font-bold text-[#333] mt-2"
                 style={{
-                  fontSize: "16px",
-                  lineHeight: "35px",
-                  letterSpacing: "-0.1px",
+                  fontSize: "13px",
+                  fontWeight: 600,
+                  color: "var(--color-primary)",
+                  textTransform: "uppercase" as const,
+                  letterSpacing: "1px",
+                  marginTop: "8px",
+                  fontFamily: "var(--font-roboto)",
                 }}
               >
                 {stat.label}

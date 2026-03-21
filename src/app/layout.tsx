@@ -32,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${roboto.variable} ${robotoSlab.variable} antialiased`}>
+      <body className={`${roboto.variable} ${robotoSlab.variable} antialiased`} style={{ fontFamily: "var(--font-roboto)" }}>
         <Header />
         <main>{children}</main>
         <Footer />
