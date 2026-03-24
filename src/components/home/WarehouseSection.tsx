@@ -2,10 +2,18 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { FaCheckCircle } from "react-icons/fa";
+
+const warehouseFeatures = [
+  "FBA Prep & WFS Prep",
+  "2-Step Dropshipping",
+  "Storage & Inventory",
+  "Direct-to-Customer Shipping",
+];
 
 export default function WarehouseSection() {
   return (
-    <section style={{ padding: "40px 0", backgroundColor: "var(--color-light-gray)", fontFamily: "var(--font-roboto)" }}>
+    <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
       <div className="container-main">
         <div
           style={{
@@ -18,45 +26,27 @@ export default function WarehouseSection() {
         >
           {/* Left - Text Content */}
           <div>
-            <span
-              style={{
-                fontSize: "13px",
-                fontWeight: 700,
-                textTransform: "uppercase" as const,
-                letterSpacing: "1.5px",
-                color: "var(--color-primary)",
-                display: "block",
-                marginBottom: "6px",
-              }}
-            >
-              Warehouses
+            <span className="typo-label" style={{ display: "block", marginBottom: "8px" }}>
+              Our Warehouses
             </span>
-            <h2
-              style={{
-                fontSize: "25px",
-                fontWeight: 800,
-                color: "var(--color-text)",
-                marginBottom: "12px",
-                lineHeight: "30px",
-              }}
-            >
-              Operating Dedicated Warehouses in NY, FL, CT
+            <h2 className="typo-h2" style={{ marginBottom: "12px" }}>
+              3 Dedicated Warehouses in NY, FL &amp; CT
             </h2>
-            <p
-              style={{
-                fontSize: "15px",
-                lineHeight: "20px",
-                color: "var(--color-text-light)",
-                marginBottom: "20px",
-              }}
-            >
-              No matter which method you use to sell, we&apos;ve got you
-              covered. Our 3PL warehouses can do FBA prep, WFS prep, storage,
-              2-step Dropshipping, or ship your orders directly to your
-              customers.
+            <p className="typo-body" style={{ marginBottom: "16px" }}>
+              No matter which selling method you use — FBA, WFS, dropshipping, or direct-to-customer — our
+              warehouses handle it all. We process thousands of orders monthly with same-day prep and
+              discounted flat-rate shipping labels to keep your costs low and margins high.
             </p>
+            <div style={{ display: "flex", flexDirection: "column", gap: "6px", marginBottom: "20px" }}>
+              {warehouseFeatures.map((f) => (
+                <div key={f} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                  <FaCheckCircle style={{ fontSize: "13px", color: "var(--color-primary)", flexShrink: 0 }} />
+                  <span className="typo-body" style={{ fontWeight: 500 }}>{f}</span>
+                </div>
+              ))}
+            </div>
             <Link href="/services/3pl-warehouse" className="btn-primary">
-              Get only warehouse service
+              Get Warehouse Service
             </Link>
           </div>
 
@@ -67,7 +57,7 @@ export default function WarehouseSection() {
               alt="Warehouse Locations Map"
               width={550}
               height={400}
-              style={{ width: "100%", maxWidth: "440px", height: "auto", borderRadius: "12px" }}
+              style={{ width: "100%", maxWidth: "440px", height: "auto", borderRadius: "10px" }}
             />
           </div>
         </div>

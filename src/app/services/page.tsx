@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
 import CTASection from "@/components/home/CTASection";
@@ -58,95 +56,21 @@ const services = [
 export default function ServicesPage() {
   return (
     <>
-      {/* Dark Hero Section */}
-      <section
-        style={{
-          backgroundColor: "var(--color-dark)",
-          padding: "44px 0 36px",
-          position: "relative",
-          overflow: "hidden",
-          fontFamily: "Roboto, sans-serif",
-        }}
-      >
-        {/* Decorative circles */}
-        <div
-          style={{
-            position: "absolute",
-            top: "-60px",
-            right: "-60px",
-            width: "200px",
-            height: "200px",
-            borderRadius: "50%",
-            border: "1px solid rgba(255,255,255,0.06)",
-            pointerEvents: "none",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            bottom: "-40px",
-            left: "-40px",
-            width: "160px",
-            height: "160px",
-            borderRadius: "50%",
-            border: "1px solid rgba(255,255,255,0.05)",
-            pointerEvents: "none",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            top: "20px",
-            left: "30%",
-            width: "80px",
-            height: "80px",
-            borderRadius: "50%",
-            border: "1px solid rgba(255,255,255,0.04)",
-            pointerEvents: "none",
-          }}
-        />
-
-        <div className="container-main" style={{ position: "relative", zIndex: 1 }}>
+      {/* Hero Section */}
+      <section style={{ backgroundColor: "#f6f7f9", padding: "55px 0" }}>
+        <div className="container-main">
           <div className="flex flex-col items-center text-center">
-            {/* Green badge pill */}
-            <span
-              style={{
-                display: "inline-block",
-                backgroundColor: "var(--color-primary)",
-                color: "#fff",
-                fontSize: "14px",
-                fontWeight: 600,
-                padding: "5px 16px",
-                borderRadius: "50px",
-                marginBottom: "14px",
-                letterSpacing: "0.5px",
-                fontFamily: "Roboto, sans-serif",
-              }}
-            >
+            <span className="typo-label" style={{ marginBottom: "14px" }}>
               What We Offer
             </span>
 
-            <h1
-              style={{
-                fontSize: "30px",
-                fontWeight: 700,
-                color: "#fff",
-                marginBottom: "10px",
-                lineHeight: 1.2,
-                fontFamily: "Roboto, sans-serif",
-              }}
-            >
+            <h1 className="typo-h1" style={{ marginBottom: "10px" }}>
               All Services
             </h1>
 
             <p
-              style={{
-                fontSize: "16px",
-                color: "#9494ac",
-                maxWidth: "520px",
-                lineHeight: 1.6,
-                fontFamily: "Roboto, sans-serif",
-              }}
+              className="typo-subtext"
+              style={{ maxWidth: "520px" }}
             >
               Comprehensive eCommerce management services to help you start, grow
               and scale your business
@@ -156,38 +80,18 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid Section */}
-      <section
-        style={{
-          backgroundColor: "var(--color-light-gray)",
-          padding: "44px 0",
-          fontFamily: "Roboto, sans-serif",
-        }}
-      >
+      <section style={{ backgroundColor: "#fff", padding: "55px 0" }}>
         <div className="container-main">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {services.map((service) => (
               <div
                 key={service.title}
-                className="group"
+                className="card-hover"
                 style={{
                   backgroundColor: "#fff",
-                  borderRadius: "12px",
+                  borderRadius: "10px",
                   padding: "24px",
-                  border: "1px solid #eee",
-                  boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
-                  transition: "all 0.3s ease",
-                  borderTop: "3px solid transparent",
-                  cursor: "default",
-                }}
-                onMouseEnter={(e) => {
-                  const el = e.currentTarget as HTMLDivElement;
-                  el.style.boxShadow = "0 8px 24px rgba(0,0,0,0.1)";
-                  el.style.borderTopColor = "var(--color-primary)";
-                }}
-                onMouseLeave={(e) => {
-                  const el = e.currentTarget as HTMLDivElement;
-                  el.style.boxShadow = "0 1px 3px rgba(0,0,0,0.06)";
-                  el.style.borderTopColor = "transparent";
+                  border: "1px solid rgba(0,0,0,0.06)",
                 }}
               >
                 {/* Service icon */}
@@ -203,15 +107,7 @@ export default function ServicesPage() {
                 </div>
 
                 {/* Title */}
-                <h3
-                  style={{
-                    fontSize: "16px",
-                    fontWeight: 700,
-                    color: "var(--color-text)",
-                    marginBottom: "4px",
-                    fontFamily: "Roboto, sans-serif",
-                  }}
-                >
+                <h3 className="typo-h3" style={{ marginBottom: "4px" }}>
                   {service.title}
                 </h3>
 
@@ -223,7 +119,6 @@ export default function ServicesPage() {
                       color: "var(--color-primary)",
                       marginBottom: "10px",
                       fontWeight: 500,
-                      fontFamily: "Roboto, sans-serif",
                     }}
                   >
                     {service.subtitle}
@@ -232,13 +127,10 @@ export default function ServicesPage() {
 
                 {/* Description */}
                 <p
+                  className="typo-body"
                   style={{
-                    fontSize: "15px",
-                    color: "var(--color-text-light)",
-                    lineHeight: 1.7,
                     marginBottom: "16px",
                     marginTop: service.subtitle ? "0" : "10px",
-                    fontFamily: "Roboto, sans-serif",
                   }}
                 >
                   {service.description}
@@ -255,14 +147,6 @@ export default function ServicesPage() {
                     fontWeight: 600,
                     color: "var(--color-primary)",
                     textDecoration: "none",
-                    fontFamily: "Roboto, sans-serif",
-                    transition: "gap 0.2s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLAnchorElement).style.gap = "8px";
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLAnchorElement).style.gap = "5px";
                   }}
                 >
                   Read More

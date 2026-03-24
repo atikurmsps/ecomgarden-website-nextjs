@@ -6,64 +6,42 @@ const steps = [
   {
     img: "/images/process/discussion.png",
     title: "Discussion",
-    description:
-      "Discuss your requirements with us. Make agreement for your needs and pricing",
+    description: "Discuss requirements, agree on needs & pricing",
   },
   {
     img: "/images/process/get-access.png",
     title: "Get Access",
-    description:
-      "Send your store access to us. As well others portal's access based on requirements",
+    description: "Share store access & required portal credentials",
   },
   {
     img: "/images/process/planning.png",
-    title: "Planing",
-    description:
-      "We will make plan to get maximum profit output and inform you everyting",
+    title: "Planning",
+    description: "We build a plan for maximum profit output",
   },
   {
     img: "/images/process/growth.png",
     title: "Growth",
-    description:
-      "We will implement plan into reality and get stating max profit as possible",
+    description: "We execute the plan & start generating profit",
   },
   {
     img: "/images/process/calculation.png",
     title: "Calculation",
-    description:
-      "We will calculate every sales and build a report. As well we will get paid from you",
+    description: "We report every sale & you pay from profits",
   },
 ];
 
 export default function ProcessSection() {
   return (
-    <section style={{ padding: "40px 0", backgroundColor: "white", fontFamily: "var(--font-roboto)" }}>
+    <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
       <div className="container-main">
-        <div style={{ textAlign: "center", marginBottom: "6px" }}>
-          <span
-            style={{
-              fontSize: "13px",
-              fontWeight: 700,
-              textTransform: "uppercase" as const,
-              letterSpacing: "1.5px",
-              color: "var(--color-primary)",
-            }}
-          >
-            Our Process
-          </span>
+        <div className="section-header">
+          <span className="typo-label">Our Process</span>
+          <h2 className="typo-h2">How It Works — 5 Simple Steps</h2>
+          <p className="typo-subtext">
+            Getting started is easy. We&apos;ve streamlined our onboarding to get your store
+            profitable as fast as possible — most clients see results within the first 30 days.
+          </p>
         </div>
-        <h2
-          style={{
-            fontSize: "25px",
-            fontWeight: 700,
-            textAlign: "center",
-            color: "var(--color-text)",
-            marginBottom: "28px",
-            lineHeight: "30px",
-          }}
-        >
-          How Our Management Service Works
-        </h2>
 
         <div
           style={{
@@ -86,46 +64,15 @@ export default function ProcessSection() {
                 padding: "0 8px",
               }}
             >
-              {/* Numbered circle with icon */}
-              <div
-                style={{
-                  width: "56px",
-                  height: "56px",
-                  borderRadius: "50%",
-                  backgroundColor: "var(--color-primary-light)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  marginBottom: "12px",
-                  position: "relative",
-                }}
-              >
+              {/* Icon — no bg circle, no step number */}
+              <div style={{ marginBottom: "12px" }}>
                 <Image
                   src={step.img}
                   alt={step.title}
                   width={90}
                   height={90}
-                  style={{ width: "34px", height: "34px", objectFit: "contain" }}
+                  style={{ width: "72px", height: "72px", objectFit: "contain" }}
                 />
-                <span
-                  style={{
-                    position: "absolute",
-                    top: "-4px",
-                    right: "-4px",
-                    width: "20px",
-                    height: "20px",
-                    borderRadius: "50%",
-                    backgroundColor: "var(--color-primary)",
-                    color: "white",
-                    fontSize: "13px",
-                    fontWeight: 700,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  {index + 1}
-                </span>
               </div>
 
               {/* Connector line */}
@@ -134,33 +81,20 @@ export default function ProcessSection() {
                   className="hidden lg:block"
                   style={{
                     position: "absolute",
-                    top: "28px",
-                    left: "calc(50% + 34px)",
-                    width: "calc(100% - 68px)",
+                    top: "36px",
+                    left: "calc(50% + 40px)",
+                    width: "calc(100% - 80px)",
                     height: "2px",
                     background: "linear-gradient(90deg, var(--color-primary), var(--color-primary-light))",
-                    opacity: 0.4,
+                    opacity: 0.3,
                   }}
                 />
               )}
 
-              <h3
-                style={{
-                  fontSize: "16px",
-                  fontWeight: 700,
-                  color: "var(--color-text)",
-                  marginBottom: "4px",
-                }}
-              >
+              <h3 className="typo-h3" style={{ marginBottom: "4px" }}>
                 {step.title}
               </h3>
-              <p
-                style={{
-                  fontSize: "15px",
-                  lineHeight: "18px",
-                  color: "var(--color-text-light)",
-                }}
-              >
+              <p className="typo-small">
                 {step.description}
               </p>
             </div>
@@ -171,13 +105,13 @@ export default function ProcessSection() {
           @media (max-width: 1023px) {
             .process-grid {
               grid-template-columns: repeat(3, 1fr) !important;
-              gap: 20px !important;
+              gap: 24px !important;
             }
           }
           @media (max-width: 639px) {
             .process-grid {
               grid-template-columns: repeat(2, 1fr) !important;
-              gap: 16px !important;
+              gap: 20px !important;
             }
           }
         `}</style>

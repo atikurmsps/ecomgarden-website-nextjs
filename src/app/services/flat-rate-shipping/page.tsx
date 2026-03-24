@@ -32,92 +32,29 @@ const pricingCards = [
 export default function FlatRateShippingPage() {
   return (
     <>
-      {/* Dark Hero Section */}
-      <section
-        style={{
-          padding: "44px 0 36px",
-          backgroundColor: "var(--color-dark)",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        {/* Decorative circles */}
-        <div
-          style={{
-            position: "absolute",
-            top: "-80px",
-            right: "-80px",
-            width: "250px",
-            height: "250px",
-            borderRadius: "50%",
-            border: "1px solid rgba(22, 163, 74, 0.15)",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            bottom: "-60px",
-            left: "-60px",
-            width: "200px",
-            height: "200px",
-            borderRadius: "50%",
-            border: "1px solid rgba(22, 163, 74, 0.1)",
-          }}
-        />
-        <div className="container-main" style={{ position: "relative" }}>
-          {/* Green badge pill */}
-          <div
-            style={{
-              display: "inline-block",
-              backgroundColor: "rgba(22, 163, 74, 0.15)",
-              color: "var(--color-primary)",
-              padding: "6px 18px",
-              borderRadius: "50px",
-              fontSize: "13px",
-              fontWeight: 600,
-              fontFamily: "var(--font-roboto)",
-              marginBottom: "16px",
-              letterSpacing: "0.5px",
-            }}
-          >
-            Flat Rate Shipping
-          </div>
-          <h1
-            style={{
-              fontSize: "30px",
-              lineHeight: "40px",
-              color: "#fff",
-              fontFamily: "var(--font-roboto)",
-              fontWeight: 800,
-              marginBottom: "12px",
-            }}
-          >
+      {/* Hero Section */}
+      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
+        <div className="container-main" style={{ textAlign: "center" }}>
+          <span className="typo-label">Flat Rate Shipping</span>
+          <h1 className="typo-h1" style={{ marginBottom: "10px" }}>
             Flat Rate Cheap USPS &amp; UPS Shipping Label
           </h1>
-          <p
-            style={{
-              fontSize: "15px",
-              lineHeight: "24px",
-              color: "#9494ac",
-              fontFamily: "var(--font-roboto)",
-              maxWidth: "600px",
-              marginBottom: "24px",
-            }}
-          >
+          <p className="typo-subtext" style={{ maxWidth: "560px", margin: "0 auto 24px" }}>
             Stop overpaying shipping label and increase profit. Forget your
             shipping calculator and get flat rate labels to 2X your ROI.
           </p>
-          <div className="flex flex-wrap gap-4">
+          <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
             <a
               href="https://wa.link/m2ac6m"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-orange flex items-center gap-2"
+              className="btn-primary"
+              style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
             >
-              <FaWhatsapp className="text-lg" />
+              <FaWhatsapp />
               Quick Whatsapp
             </a>
-            <Link href="/contact" className="btn-primary">
+            <Link href="/contact" className="btn-outline">
               Contact Us
             </Link>
           </div>
@@ -125,31 +62,15 @@ export default function FlatRateShippingPage() {
       </section>
 
       {/* Intro Section */}
-      <section style={{ padding: "44px 0", backgroundColor: "#fff" }}>
+      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "40px", alignItems: "center" }}>
             {/* Left - Text */}
             <div>
-              <h2
-                style={{
-                  fontSize: "28px",
-                  fontWeight: 700,
-                  color: "var(--color-text)",
-                  fontFamily: "var(--font-roboto)",
-                  marginBottom: "16px",
-                }}
-              >
+              <h2 className="typo-h2" style={{ marginBottom: "16px" }}>
                 Stop overpaying shipping label and increase profit
               </h2>
-              <p
-                style={{
-                  fontSize: "15px",
-                  lineHeight: "26px",
-                  color: "var(--color-text-light)",
-                  fontFamily: "var(--font-roboto)",
-                  marginBottom: "20px",
-                }}
-              >
+              <p className="typo-body" style={{ marginBottom: "20px" }}>
                 Stop paying extra dollar to your current shipping provider
                 anymore. Forget your shipping calculator. Get our flat rate
                 shipping label and increase your ROI to 2X more.
@@ -160,8 +81,7 @@ export default function FlatRateShippingPage() {
                 {features.map((feature) => (
                   <li
                     key={feature}
-                    className="flex items-start gap-3"
-                    style={{ marginBottom: "12px" }}
+                    style={{ display: "flex", alignItems: "flex-start", gap: "12px", marginBottom: "12px" }}
                   >
                     <FaCheck
                       style={{
@@ -170,13 +90,7 @@ export default function FlatRateShippingPage() {
                         flexShrink: 0,
                       }}
                     />
-                    <span
-                      style={{
-                        fontSize: "15px",
-                        color: "var(--color-text-light)",
-                        fontFamily: "var(--font-roboto)",
-                      }}
-                    >
+                    <span className="typo-body">
                       {feature}
                     </span>
                   </li>
@@ -185,14 +99,13 @@ export default function FlatRateShippingPage() {
             </div>
 
             {/* Right - Image */}
-            <div className="flex justify-center">
+            <div style={{ display: "flex", justifyContent: "center" }}>
               <Image
                 src="/images/services/hero/shipping-hero.jpg"
                 alt="Flat Rate Cheap USPS & UPS Shipping Label"
                 width={500}
                 height={334}
-                style={{ borderRadius: "12px" }}
-                className="w-full max-w-[500px] h-auto"
+                style={{ borderRadius: "12px", width: "100%", maxWidth: "500px", height: "auto" }}
               />
             </div>
           </div>
@@ -200,128 +113,46 @@ export default function FlatRateShippingPage() {
       </section>
 
       {/* No Box Size Limit Section */}
-      <section
-        style={{
-          padding: "44px 0",
-          backgroundColor: "var(--color-light-gray)",
-        }}
-      >
-        <div className="container-main text-center">
-          <div
-            style={{
-              display: "inline-block",
-              backgroundColor: "rgba(22, 163, 74, 0.15)",
-              color: "var(--color-primary)",
-              padding: "4px 14px",
-              borderRadius: "50px",
-              fontSize: "12px",
-              fontWeight: 600,
-              fontFamily: "var(--font-roboto)",
-              marginBottom: "12px",
-              letterSpacing: "0.5px",
-            }}
-          >
-            No Limits
+      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
+        <div className="container-main" style={{ textAlign: "center" }}>
+          <div className="section-header">
+            <span className="typo-label">No Limits</span>
+            <h2 className="typo-h2">No Box Size Limit Flat Rate</h2>
+            <p className="typo-subtext">
+              It doesn&apos;t matter where your warehouse located and where
+              your customer address. Your will get flat rate shipping label
+              from us. There are no limit of your box size.
+            </p>
           </div>
-          <h2
-            style={{
-              fontSize: "28px",
-              fontWeight: 700,
-              color: "var(--color-text)",
-              fontFamily: "var(--font-roboto)",
-              marginBottom: "12px",
-            }}
-          >
-            No Box Size Limit Flat Rate
-          </h2>
-          <p
-            style={{
-              fontSize: "15px",
-              lineHeight: "26px",
-              color: "var(--color-text-light)",
-              fontFamily: "var(--font-roboto)",
-              maxWidth: "720px",
-              margin: "0 auto",
-            }}
-          >
-            It doesn&apos;t matter where your warehouse located and where
-            your customer address. Your will get flat rate shipping label
-            from us. There are no limit of your box size.
-          </p>
         </div>
       </section>
 
       {/* Pricing Cards Section */}
-      <section style={{ padding: "44px 0", backgroundColor: "#fff" }}>
+      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
-          <div
-            style={{
-              display: "inline-block",
-              backgroundColor: "rgba(22, 163, 74, 0.15)",
-              color: "var(--color-primary)",
-              padding: "4px 14px",
-              borderRadius: "50px",
-              fontSize: "12px",
-              fontWeight: 600,
-              fontFamily: "var(--font-roboto)",
-              marginBottom: "12px",
-              letterSpacing: "0.5px",
-            }}
-          >
-            Pricing
+          <div className="section-header" style={{ textAlign: "left" }}>
+            <span className="typo-label">Pricing</span>
+            <h2 className="typo-h2" style={{ marginBottom: "32px" }}>Label Price</h2>
           </div>
-          <h2
-            style={{
-              fontSize: "28px",
-              fontWeight: 700,
-              color: "var(--color-text)",
-              fontFamily: "var(--font-roboto)",
-              marginBottom: "32px",
-            }}
-          >
-            Label Price
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "24px", maxWidth: "896px", margin: "0 auto" }}>
             {pricingCards.map((card) => (
               <div
                 key={card.title}
                 style={{
-                  backgroundColor: "var(--color-light-gray)",
+                  backgroundColor: "#f6f7f9",
                   borderRadius: "12px",
                   padding: "36px 20px",
                   textAlign: "center",
                   boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
                 }}
               >
-                <h3
-                  style={{
-                    fontSize: "18px",
-                    fontWeight: 700,
-                    color: "var(--color-text)",
-                    fontFamily: "var(--font-roboto)",
-                    marginBottom: "16px",
-                  }}
-                >
+                <h3 className="typo-h3" style={{ marginBottom: "16px" }}>
                   {card.title}
                 </h3>
-                <p
-                  style={{
-                    fontSize: "36px",
-                    fontWeight: 800,
-                    color: "var(--color-primary)",
-                    fontFamily: "var(--font-roboto)",
-                    marginBottom: "12px",
-                  }}
-                >
+                <p className="typo-h1" style={{ marginBottom: "12px", color: "var(--color-primary)" }}>
                   {card.price}
                 </p>
-                <p
-                  style={{
-                    fontSize: "15px",
-                    color: "var(--color-text-light)",
-                    fontFamily: "var(--font-roboto)",
-                  }}
-                >
+                <p className="typo-body">
                   {card.description}
                 </p>
               </div>
@@ -331,33 +162,12 @@ export default function FlatRateShippingPage() {
       </section>
 
       {/* Comparison Section */}
-      <section
-        style={{
-          padding: "44px 0",
-          backgroundColor: "var(--color-light-gray)",
-        }}
-      >
+      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
-          <h2
-            style={{
-              fontSize: "28px",
-              fontWeight: 700,
-              color: "var(--color-text)",
-              fontFamily: "var(--font-roboto)",
-              marginBottom: "12px",
-            }}
-          >
+          <h2 className="typo-h2" style={{ marginBottom: "12px" }}>
             No one can offer more cheaper!
           </h2>
-          <p
-            style={{
-              fontSize: "15px",
-              lineHeight: "26px",
-              color: "var(--color-text-light)",
-              fontFamily: "var(--font-roboto)",
-              maxWidth: "800px",
-            }}
-          >
+          <p className="typo-body" style={{ maxWidth: "800px" }}>
             Having plan to shipping a Mainstays Flexible Round Laundry
             Hamper, its weight 4lbs but dimension 28x18x18 in. Ohh no.
             Everywhere shipping cost $25+ including pirateship and easyship.
@@ -370,34 +180,17 @@ export default function FlatRateShippingPage() {
       </section>
 
       {/* Contact Section */}
-      <section style={{ padding: "44px 0", backgroundColor: "#fff" }}>
-        <div className="container-main text-center">
-          <h2
-            style={{
-              fontSize: "28px",
-              fontWeight: 700,
-              color: "var(--color-text)",
-              fontFamily: "var(--font-roboto)",
-              marginBottom: "12px",
-            }}
-          >
+      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
+        <div className="container-main" style={{ textAlign: "center" }}>
+          <h2 className="typo-h2" style={{ marginBottom: "12px" }}>
             Contact with us for your discount flat rate shipping label
           </h2>
-          <p
-            style={{
-              fontSize: "15px",
-              lineHeight: "26px",
-              color: "var(--color-text-light)",
-              fontFamily: "var(--font-roboto)",
-              maxWidth: "720px",
-              margin: "0 auto 24px",
-            }}
-          >
+          <p className="typo-subtext" style={{ maxWidth: "720px", margin: "0 auto 24px" }}>
             We believe in transparency. Our pricing is flat rate and no
             hidden charge. There are no monthly fees in our flat rate cheap
             shipping label services.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
             <Link href="/contact" className="btn-primary">
               Contact Us
             </Link>
@@ -405,9 +198,10 @@ export default function FlatRateShippingPage() {
               href="https://wa.link/m2ac6m"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-orange flex items-center gap-2"
+              className="btn-outline"
+              style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
             >
-              <FaWhatsapp className="text-lg" />
+              <FaWhatsapp />
               Quick Whatsapp
             </a>
           </div>

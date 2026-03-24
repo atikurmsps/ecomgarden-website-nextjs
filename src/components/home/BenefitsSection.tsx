@@ -7,28 +7,23 @@ import { FaChevronDown } from "react-icons/fa";
 const accordionItems = [
   {
     title: "Time and Resource Savings",
-    content:
-      "EcomGarden's virtual assistants work remotely, cutting out the need for physical office space and associated overhead costs. This enables businesses to save on resources while still getting high-quality work done.",
+    content: "Our VAs work remotely — no office overhead. Save resources while getting high-quality store management done.",
   },
   {
-    title: "Flexibility Work",
-    content:
-      "Hire virtual assistants on a part-time or project basis for flexible working hours and workload, ideal for businesses with varying demands throughout the year.",
+    title: "Flexible Working Model",
+    content: "Hire on a part-time or project basis with flexible workload — ideal for businesses with varying seasonal demands.",
   },
   {
-    title: "24/7 Availability Service",
-    content:
-      "Our virtual assistant will provide you 24/7 support. It doesn't matter weekend or holiday.",
+    title: "24/7 Availability",
+    content: "Round-the-clock support including weekends and holidays. Your store never sleeps, and neither do we.",
   },
   {
     title: "Focus on Your Main Business",
-    content:
-      "Our team will handle A-Z tasks on your store. Just get profit from your store and keep focus on your main business. Never worry about your ecommerce store again.",
+    content: "We handle A-Z store tasks. You collect profits and keep focus on your core business. Zero store worries.",
   },
   {
-    title: "Scalability, Efficiency and Productivity",
-    content:
-      "Our services are designed to grow with your business. As your needs expand, we scale our support to match, ensuring consistent quality and productivity at every stage.",
+    title: "Scalability & Productivity",
+    content: "As your business grows, we scale support to match — consistent quality and productivity at every stage.",
   },
 ];
 
@@ -36,46 +31,16 @@ export default function BenefitsSection() {
   const [openIndex, setOpenIndex] = useState<number>(0);
 
   return (
-    <section style={{ padding: "40px 0", backgroundColor: "white", fontFamily: "var(--font-roboto)" }}>
+    <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
       <div className="container-main">
-        <div style={{ textAlign: "center", marginBottom: "6px" }}>
-          <span
-            style={{
-              fontSize: "13px",
-              fontWeight: 700,
-              textTransform: "uppercase" as const,
-              letterSpacing: "1.5px",
-              color: "var(--color-primary)",
-            }}
-          >
-            Why Choose Us
-          </span>
+        <div className="section-header">
+          <span className="typo-label">Benefits</span>
+          <h2 className="typo-h2">Why 250+ Clients Trust Us With Their Stores</h2>
+          <p className="typo-subtext">
+            Our Amazon &amp; Walmart Virtual Assistants at EcomGarden efficiently launch and manage
+            your ecommerce business worldwide with expert precision — so you can focus on what matters most.
+          </p>
         </div>
-        <h2
-          style={{
-            fontSize: "25px",
-            fontWeight: 700,
-            textAlign: "center",
-            color: "var(--color-text)",
-            marginBottom: "8px",
-            lineHeight: "30px",
-          }}
-        >
-          Benefits of Getting Our Service
-        </h2>
-        <p
-          style={{
-            fontSize: "15px",
-            lineHeight: "20px",
-            color: "var(--color-text-light)",
-            textAlign: "center",
-            maxWidth: "600px",
-            margin: "0 auto 24px",
-          }}
-        >
-          Our Amazon Virtual Assistant at EcomGarden efficiently launches and
-          manages your Amazon Business worldwide with expert precision.
-        </p>
 
         <div
           style={{
@@ -93,7 +58,7 @@ export default function BenefitsSection() {
               alt="Benefits of our service"
               width={524}
               height={400}
-              style={{ width: "100%", maxWidth: "460px", height: "auto", borderRadius: "12px" }}
+              style={{ width: "100%", maxWidth: "460px", height: "auto", borderRadius: "10px" }}
             />
           </div>
 
@@ -103,7 +68,7 @@ export default function BenefitsSection() {
               <div
                 key={item.title}
                 style={{
-                  borderRadius: "10px",
+                  borderRadius: "8px",
                   marginBottom: "8px",
                   backgroundColor: openIndex === index ? "var(--color-primary-light)" : "var(--color-light-gray)",
                   overflow: "hidden",
@@ -117,23 +82,19 @@ export default function BenefitsSection() {
                     alignItems: "center",
                     justifyContent: "space-between",
                     textAlign: "left",
-                    padding: "12px 16px",
+                    padding: "14px 16px",
                     border: "none",
                     background: "none",
                     cursor: "pointer",
-                    fontFamily: "var(--font-roboto)",
                   }}
-                  onClick={() =>
-                    setOpenIndex(openIndex === index ? -1 : index)
-                  }
+                  onClick={() => setOpenIndex(openIndex === index ? -1 : index)}
                 >
                   <span
+                    className="typo-h3"
                     style={{
                       fontSize: "16px",
                       fontWeight: 600,
-                      lineHeight: "18px",
-                      color:
-                        openIndex === index ? "var(--color-primary-dark)" : "var(--color-text)",
+                      color: openIndex === index ? "var(--color-primary-dark)" : "var(--color-text)",
                     }}
                   >
                     {item.title}
@@ -143,21 +104,15 @@ export default function BenefitsSection() {
                       fontSize: "11px",
                       color: "var(--color-text-light)",
                       flexShrink: 0,
-                      marginLeft: "12px",
+                      marginLeft: "10px",
                       transition: "transform 0.3s ease",
                       transform: openIndex === index ? "rotate(180deg)" : "rotate(0deg)",
                     }}
                   />
                 </button>
                 {openIndex === index && (
-                  <div style={{ padding: "0 16px 12px" }}>
-                    <p
-                      style={{
-                        fontSize: "15px",
-                        lineHeight: "19px",
-                        color: "var(--color-text-light)",
-                      }}
-                    >
+                  <div style={{ padding: "0 16px 14px" }}>
+                    <p className="typo-body" style={{ margin: 0 }}>
                       {item.content}
                     </p>
                   </div>

@@ -17,31 +17,11 @@ const partners = [
 
 export default function PartnersSection() {
   return (
-    <section style={{ padding: "24px 0", backgroundColor: "var(--color-light-gray)", fontFamily: "var(--font-roboto)" }}>
+    <section style={{ padding: "50px 0", backgroundColor: "#f6f7f9" }}>
       <div className="container-main">
-        <div style={{ textAlign: "center", marginBottom: "16px" }}>
-          <span
-            style={{
-              fontSize: "13px",
-              fontWeight: 700,
-              textTransform: "uppercase" as const,
-              letterSpacing: "1.5px",
-              color: "var(--color-primary)",
-            }}
-          >
-            Trusted By
-          </span>
-          <h2
-            style={{
-              fontSize: "24px",
-              fontWeight: 700,
-              color: "var(--color-text)",
-              marginTop: "4px",
-              lineHeight: "28px",
-            }}
-          >
-            Our Partners
-          </h2>
+        <div className="section-header" style={{ marginBottom: "20px" }}>
+          <span className="typo-label">Trusted Partners</span>
+          <h2 className="typo-h2" style={{ fontSize: "22px" }}>Companies We Work With</h2>
         </div>
         <div
           style={{
@@ -49,7 +29,7 @@ export default function PartnersSection() {
             flexWrap: "wrap",
             justifyContent: "center",
             alignItems: "center",
-            gap: "24px 32px",
+            gap: "28px 40px",
           }}
         >
           {partners.map((partner) => (
@@ -57,12 +37,12 @@ export default function PartnersSection() {
               key={partner.name}
               className="partner-logo"
               style={{
-                width: "110px",
-                height: "44px",
+                width: "130px",
+                height: "55px",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                opacity: 0.55,
+                opacity: 0.5,
                 filter: "grayscale(100%)",
                 transition: "all 0.3s ease",
                 cursor: "default",
@@ -73,7 +53,7 @@ export default function PartnersSection() {
                 alt={partner.name}
                 width={partner.w}
                 height={partner.h}
-                style={{ maxWidth: "100px", maxHeight: "38px", width: "auto", height: "auto", objectFit: "contain" }}
+                style={{ maxWidth: "120px", maxHeight: "48px", width: "auto", height: "auto", objectFit: "contain" }}
               />
             </div>
           ))}

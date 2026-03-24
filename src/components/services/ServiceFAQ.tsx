@@ -16,26 +16,12 @@ export default function ServiceFAQ({ faqs }: ServiceFAQProps) {
   const [openIndex, setOpenIndex] = useState<number>(0);
 
   return (
-    <section
-      style={{
-        padding: "44px 0",
-        backgroundColor: "var(--color-light-gray)",
-        fontFamily: "var(--font-roboto)",
-      }}
-    >
+    <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
       <div className="container-main">
-        <h2
-          style={{
-            fontSize: "27px",
-            fontWeight: 700,
-            textAlign: "center",
-            color: "var(--color-dark)",
-            marginBottom: "32px",
-            fontFamily: "var(--font-roboto)",
-          }}
-        >
-          Frequently Asked Questions FAQs
-        </h2>
+        <div className="section-header">
+          <span className="typo-label">FAQ</span>
+          <h2 className="typo-h2">Frequently Asked Questions FAQs</h2>
+        </div>
 
         <div style={{ maxWidth: "780px", margin: "0 auto" }}>
           {faqs.map((item, index) => {
@@ -45,12 +31,12 @@ export default function ServiceFAQ({ faqs }: ServiceFAQProps) {
                 key={item.question}
                 style={{
                   marginBottom: "8px",
-                  borderRadius: "12px",
+                  borderRadius: "10px",
                   overflow: "hidden",
                   background: "#fff",
                   border: isOpen
                     ? "1px solid color-mix(in srgb, var(--color-primary) 25%, transparent)"
-                    : "1px solid #eee",
+                    : "1px solid rgba(0,0,0,0.06)",
                   boxShadow: isOpen
                     ? "0 4px 20px color-mix(in srgb, var(--color-primary) 8%, transparent)"
                     : "0 1px 4px rgba(0,0,0,0.02)",
@@ -108,7 +94,6 @@ export default function ServiceFAQ({ faqs }: ServiceFAQProps) {
                           ? "var(--color-primary)"
                           : "var(--color-text)",
                         transition: "color 0.2s",
-                        fontFamily: "var(--font-roboto)",
                       }}
                     >
                       {item.question}
@@ -151,15 +136,7 @@ export default function ServiceFAQ({ faqs }: ServiceFAQProps) {
                       padding: "0 18px 16px 58px",
                     }}
                   >
-                    <p
-                      style={{
-                        fontSize: "15px",
-                        color: "var(--color-text-light)",
-                        lineHeight: "24px",
-                        fontFamily: "var(--font-roboto)",
-                        margin: 0,
-                      }}
-                    >
+                    <p className="typo-body" style={{ margin: 0 }}>
                       {item.answer}
                     </p>
                   </div>

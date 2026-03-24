@@ -12,35 +12,12 @@ export default function ServiceProsCons({
   cons,
 }: ServiceProsConsProps) {
   return (
-    <section style={{ padding: "44px 0", backgroundColor: "#fff", fontFamily: "var(--font-roboto)" }}>
+    <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
       <div className="container-main">
-        {/* Section Label */}
-        <div style={{ textAlign: "center", marginBottom: "10px" }}>
-          <span
-            style={{
-              fontSize: "12px",
-              fontWeight: 700,
-              letterSpacing: "1.5px",
-              textTransform: "uppercase" as const,
-              color: "var(--color-primary)",
-            }}
-          >
-            PROS &amp; CONS
-          </span>
+        <div className="section-header">
+          <span className="typo-label">PROS &amp; CONS</span>
+          <h2 className="typo-h2">{heading}</h2>
         </div>
-
-        <h2
-          style={{
-            fontSize: "27px",
-            fontWeight: 700,
-            textAlign: "center",
-            color: "var(--color-dark)",
-            marginBottom: "32px",
-            fontFamily: "var(--font-roboto)",
-          }}
-        >
-          {heading}
-        </h2>
 
         <div
           style={{
@@ -56,21 +33,15 @@ export default function ServiceProsCons({
           <div
             style={{
               backgroundColor: "#fff",
-              borderRadius: "12px",
+              borderRadius: "10px",
               padding: "24px",
               borderLeft: "4px solid var(--color-primary)",
-              boxShadow: "0 2px 16px rgba(0,0,0,0.06)",
+              border: "1px solid rgba(0,0,0,0.06)",
+              borderLeftWidth: "4px",
+              borderLeftColor: "var(--color-primary)",
             }}
           >
-            <h3
-              style={{
-                fontSize: "19px",
-                fontWeight: 700,
-                color: "var(--color-primary)",
-                marginBottom: "16px",
-                fontFamily: "var(--font-roboto)",
-              }}
-            >
+            <h3 className="typo-h3" style={{ color: "var(--color-primary)", marginBottom: "16px" }}>
               Pros
             </h3>
             <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
@@ -99,14 +70,7 @@ export default function ServiceProsCons({
                   >
                     <FaCheck style={{ fontSize: "10px", color: "var(--color-primary)" }} />
                   </span>
-                  <span
-                    style={{
-                      fontSize: "15px",
-                      lineHeight: "24px",
-                      color: "var(--color-text)",
-                      fontFamily: "var(--font-roboto)",
-                    }}
-                  >
+                  <span className="typo-body" style={{ margin: 0 }}>
                     {pro}
                   </span>
                 </li>
@@ -118,21 +82,14 @@ export default function ServiceProsCons({
           <div
             style={{
               backgroundColor: "#fff",
-              borderRadius: "12px",
+              borderRadius: "10px",
               padding: "24px",
-              borderLeft: "4px solid #e74c3c",
-              boxShadow: "0 2px 16px rgba(0,0,0,0.06)",
+              border: "1px solid rgba(0,0,0,0.06)",
+              borderLeftWidth: "4px",
+              borderLeftColor: "#e74c3c",
             }}
           >
-            <h3
-              style={{
-                fontSize: "19px",
-                fontWeight: 700,
-                color: "#e74c3c",
-                marginBottom: "16px",
-                fontFamily: "var(--font-roboto)",
-              }}
-            >
+            <h3 className="typo-h3" style={{ color: "#e74c3c", marginBottom: "16px" }}>
               Cons
             </h3>
             <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
@@ -161,14 +118,7 @@ export default function ServiceProsCons({
                   >
                     <FaTimes style={{ fontSize: "10px", color: "#e74c3c" }} />
                   </span>
-                  <span
-                    style={{
-                      fontSize: "15px",
-                      lineHeight: "24px",
-                      color: "var(--color-text)",
-                      fontFamily: "var(--font-roboto)",
-                    }}
-                  >
+                  <span className="typo-body" style={{ margin: 0 }}>
                     {con}
                   </span>
                 </li>

@@ -1,24 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
-import { FaWhatsapp } from "react-icons/fa";
-import {
-  FaBoxOpen,
-  FaFlag,
-  FaCheckSquare,
-  FaHome,
-  FaTags,
-  FaClock,
-} from "react-icons/fa";
+import { FaWhatsapp, FaCheckCircle, FaPlayCircle } from "react-icons/fa";
 
 const highlights = [
-  { icon: FaBoxOpen, text: "70% cost saving & 80% ROI" },
-  { icon: FaFlag, text: "No more account suspend" },
-  { icon: FaCheckSquare, text: "Approved Brand" },
-  { icon: FaHome, text: "3 own warehouse in US" },
-  { icon: FaTags, text: "Flat rate discount shipping label" },
-  { icon: FaClock, text: "24/7 dedicated VA support" },
+  "70% cost saving & 80% ROI",
+  "No more account suspend",
+  "Approved Brand",
+  "3 own warehouse in US",
+  "Flat rate discount shipping",
+  "24/7 dedicated VA support",
 ];
 
 export default function HeroSection() {
@@ -30,207 +21,134 @@ export default function HeroSection() {
         backgroundImage: "url(/images/hero/hero-bg.webp)",
         backgroundSize: "cover",
         backgroundPosition: "center",
-        padding: "36px 0 60px",
-        fontFamily: "var(--font-roboto)",
+        padding: "60px 0 90px",
       }}
     >
-      {/* Light gradient overlay */}
+      {/* Light overlay */}
       <div
         style={{
           position: "absolute",
           inset: 0,
           zIndex: 1,
-          background:
-            "linear-gradient(135deg, rgba(250,250,250,0.95) 20%, rgba(243,243,243,0.92) 100%)",
+          background: "#f6f7f9",
         }}
       />
 
-      <div
-        className="container-main"
-        style={{ position: "relative", zIndex: 10 }}
-      >
+      <div className="container-main" style={{ position: "relative", zIndex: 10 }}>
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "1fr",
-            gap: "32px",
+            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+            gap: "28px",
             alignItems: "center",
           }}
         >
-          {/* Two-column layout via inline media-query-free approach: stacks on mobile */}
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-              gap: "32px",
-              alignItems: "center",
-            }}
-          >
-            {/* Left Content */}
-            <div>
-              <p
-                style={{
-                  fontSize: "16px",
-                  lineHeight: "1.6",
-                  color: "var(--color-text-light)",
-                  marginBottom: "4px",
-                  fontFamily: "var(--font-roboto)",
-                  fontWeight: 500,
-                }}
-              >
-                Start, Grow &amp; Scale Your eCommerce Businesses with our
-              </p>
-              <h1
-                style={{
-                  fontSize: "28px",
-                  lineHeight: "1.25",
-                  color: "var(--color-dark)",
-                  fontWeight: 800,
-                  marginBottom: "8px",
-                  fontFamily: "var(--font-roboto)",
-                  letterSpacing: "-0.3px",
-                }}
-              >
-                All-in-one Automated Ecommerce Management Services
-              </h1>
-              <p
-                style={{
-                  fontSize: "16px",
-                  lineHeight: "1.5",
-                  color: "var(--color-text)",
-                  fontWeight: 500,
-                  marginBottom: "16px",
-                  fontFamily: "var(--font-roboto)",
-                }}
-              >
-                Scale your Amazon Walmart eBay Etsy Meta &amp; Shopify store upto
-                80% ROI with us
-              </p>
+          {/* Left Content */}
+          <div>
+            <div
+              style={{
+                display: "inline-block",
+                backgroundColor: "rgba(22,163,74,0.1)",
+                border: "1px solid rgba(22,163,74,0.2)",
+                borderRadius: "4px",
+                padding: "3px 10px",
+                marginBottom: "12px",
+              }}
+            >
+              <span className="typo-small" style={{ color: "var(--color-primary)", fontWeight: 700, textTransform: "uppercase", letterSpacing: "1px" }}>
+                #1 Ecommerce Management Agency
+              </span>
+            </div>
 
-              {/* Highlight pills - compact inline badges */}
-              <div
-                style={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  gap: "6px",
-                  marginBottom: "16px",
-                }}
-              >
-                {highlights.map((item) => (
-                  <div
-                    key={item.text}
-                    style={{
-                      display: "inline-flex",
-                      alignItems: "center",
-                      gap: "6px",
-                      backgroundColor: "rgba(40,167,69,0.08)",
-                      border: "1px solid rgba(40,167,69,0.18)",
-                      borderRadius: "20px",
-                      padding: "4px 12px",
-                    }}
-                  >
-                    <item.icon
-                      style={{
-                        fontSize: "11px",
-                        color: "var(--color-primary)",
-                        flexShrink: 0,
-                      }}
-                    />
-                    <span
-                      style={{
-                        fontSize: "11.5px",
-                        lineHeight: "1.4",
-                        color: "var(--color-primary-dark)",
-                        fontWeight: 600,
-                        fontFamily: "var(--font-roboto)",
-                        whiteSpace: "nowrap",
-                      }}
-                    >
-                      {item.text}
-                    </span>
-                  </div>
-                ))}
-              </div>
+            <h1 className="typo-h1" style={{ marginBottom: "10px" }}>
+              All-in-one Automated Ecommerce Management Services
+            </h1>
 
-              <p
+            <p className="typo-body" style={{ color: "var(--color-text)", fontWeight: 500, marginBottom: "16px", fontSize: "16px" }}>
+              Start, Grow &amp; Scale your Amazon, Walmart, eBay, Etsy, Meta &amp; Shopify store up to <strong style={{ color: "var(--color-primary)" }}>80% ROI</strong> with our fully managed services.
+            </p>
+
+            {/* Trust checkmarks - 2 columns */}
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                gap: "6px 16px",
+                marginBottom: "16px",
+              }}
+            >
+              {highlights.map((text) => (
+                <div key={text} style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                  <FaCheckCircle style={{ fontSize: "12px", color: "var(--color-primary)", flexShrink: 0 }} />
+                  <span className="typo-small" style={{ fontWeight: 600, color: "var(--color-text)" }}>{text}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Highlight text */}
+            <p style={{ marginBottom: "20px" }}>
+              <span
                 style={{
-                  fontSize: "16px",
-                  lineHeight: "1",
-                  color: "var(--color-dark)",
                   fontWeight: 800,
-                  marginBottom: "18px",
-                  fontFamily: "var(--font-roboto)",
-                  letterSpacing: "0.5px",
+                  fontSize: "15px",
+                  color: "var(--color-primary-dark)",
+                  borderBottom: "2px solid var(--color-primary)",
+                  paddingBottom: "2px",
+                  letterSpacing: "0.3px",
                 }}
               >
                 PAY ONLY ONCE YOU SEE PROFIT*
-              </p>
+              </span>
+            </p>
 
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
-                <Link
-                  href="/success-story"
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    backgroundColor: "var(--color-primary)",
-                    color: "#fff",
-                    padding: "11px 28px",
-                    borderRadius: "6px",
-                    fontWeight: 700,
-                    fontSize: "15px",
-                    letterSpacing: "0.5px",
-                    lineHeight: "1",
-                    textDecoration: "none",
-                    fontFamily: "var(--font-roboto)",
-                    transition: "background-color 0.2s",
-                  }}
-                >
-                  Read More
-                </Link>
-                <a
-                  href="https://wa.link/m2ac6m"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    gap: "7px",
-                    backgroundColor: "transparent",
-                    color: "var(--color-dark)",
-                    padding: "9px 20px",
-                    borderRadius: "6px",
-                    fontWeight: 700,
-                    fontSize: "15px",
-                    letterSpacing: "0.5px",
-                    lineHeight: "1",
-                    textDecoration: "none",
-                    border: "2px solid var(--color-primary)",
-                    fontFamily: "var(--font-roboto)",
-                    transition: "all 0.2s",
-                  }}
-                >
-                  <FaWhatsapp style={{ fontSize: "16px" }} />
-                  Quick Whatsapp
-                </a>
-              </div>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", alignItems: "center" }}>
+              <Link
+                href="/success-story"
+                className="btn-primary btn-primary-pulse"
+                style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+              >
+                <FaPlayCircle style={{ fontSize: "14px" }} />
+                See Our Results
+              </Link>
+              <a
+                href="https://wa.link/m2ac6m"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-outline"
+                style={{ display: "inline-flex", alignItems: "center", gap: "7px" }}
+              >
+                <FaWhatsapp style={{ fontSize: "18px", color: "#25d366" }} />
+                Quick Whatsapp
+              </a>
             </div>
+          </div>
 
-            {/* Right - Illustration */}
+          {/* Right - Video */}
+          <div style={{ display: "flex", justifyContent: "center" }}>
             <div
               style={{
-                display: "flex",
-                justifyContent: "center",
+                width: "100%",
+                maxWidth: "480px",
+                borderRadius: "12px",
+                overflow: "hidden",
+                boxShadow: "0 8px 32px rgba(0,0,0,0.12)",
+                position: "relative",
+                paddingBottom: "56.25%",
               }}
             >
-              <Image
-                src="/images/hero/hero-illustration.webp"
-                alt="Ecommerce Management"
-                width={473}
-                height={435}
-                style={{ width: "100%", maxWidth: "440px", height: "auto" }}
-                priority
+              <iframe
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                  border: "none",
+                }}
+                src="https://www.youtube.com/embed/9DqDFAGLPrc"
+                title="EcomGarden - Ecommerce Management Services"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
               />
             </div>
           </div>

@@ -89,138 +89,28 @@ const processSteps = [
 export default function AmazonArbitragePage() {
   return (
     <>
-      {/* ── DARK HERO SECTION ── */}
-      <section
-        style={{
-          position: "relative",
-          backgroundColor: "var(--color-dark)",
-          padding: "44px 0 36px",
-          overflow: "hidden",
-          fontFamily: "var(--font-roboto)",
-        }}
-      >
-        {/* Decorative circles */}
-        <div
-          style={{
-            position: "absolute",
-            top: "-80px",
-            right: "-80px",
-            width: "260px",
-            height: "260px",
-            borderRadius: "50%",
-            border: "1px solid rgba(255,255,255,0.06)",
-            pointerEvents: "none",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            bottom: "-60px",
-            left: "-60px",
-            width: "200px",
-            height: "200px",
-            borderRadius: "50%",
-            border: "1px solid rgba(255,255,255,0.05)",
-            pointerEvents: "none",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            top: "40%",
-            left: "55%",
-            width: "140px",
-            height: "140px",
-            borderRadius: "50%",
-            background: "rgba(0,166,81,0.06)",
-            pointerEvents: "none",
-          }}
-        />
-
-        <div
-          className="container-main"
-          style={{ position: "relative", zIndex: 10, textAlign: "center" }}
-        >
-          {/* Green badge pill */}
-          <span
-            style={{
-              display: "inline-block",
-              padding: "6px 20px",
-              borderRadius: "50px",
-              backgroundColor: "rgba(0,166,81,0.15)",
-              color: "var(--color-primary)",
-              fontSize: "13px",
-              fontWeight: 600,
-              letterSpacing: "0.5px",
-              marginBottom: "18px",
-            }}
-          >
-            Amazon Arbitrage
-          </span>
-
-          <h1
-            style={{
-              fontSize: "30px",
-              fontWeight: 700,
-              color: "#ffffff",
-              lineHeight: "42px",
-              marginBottom: "12px",
-              fontFamily: "var(--font-roboto)",
-            }}
-          >
+      {/* ── HERO SECTION ── */}
+      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
+        <div className="container-main" style={{ textAlign: "center" }}>
+          <span className="typo-label">Amazon Arbitrage</span>
+          <h1 className="typo-h1" style={{ marginBottom: "10px" }}>
             Amazon Arbitrage 2 Step Dropshipping
           </h1>
-
-          <p
-            style={{
-              fontSize: "15px",
-              color: "#9494ac",
-              maxWidth: "560px",
-              margin: "0 auto 28px",
-              lineHeight: "24px",
-            }}
-          >
+          <p className="typo-subtext" style={{ maxWidth: "560px", margin: "0 auto 24px" }}>
             The most popular zero-inventory business model with profit within the first week and zero risk.
           </p>
-
-          {/* CTA buttons */}
-          <div
-            style={{
-              display: "flex",
-              gap: "14px",
-              justifyContent: "center",
-              flexWrap: "wrap",
-            }}
-          >
+          <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
             <a
               href="https://wa.link/m2ac6m"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-              }}
+              style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
             >
               <FaWhatsapp style={{ fontSize: "18px" }} />
               Quick WhatsApp
             </a>
-            <Link
-              href="/services"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                padding: "10px 24px",
-                borderRadius: "6px",
-                border: "1px solid rgba(255,255,255,0.3)",
-                color: "#ffffff",
-                fontSize: "15px",
-                fontWeight: 500,
-                textDecoration: "none",
-                transition: "border-color 0.2s",
-              }}
-            >
+            <Link href="/services" className="btn-outline">
               Browse Services
             </Link>
           </div>
@@ -228,39 +118,19 @@ export default function AmazonArbitragePage() {
       </section>
 
       {/* ── INTRO SECTION ── */}
-      <section
-        style={{
-          padding: "44px 0",
-          backgroundColor: "#ffffff",
-          fontFamily: "var(--font-roboto)",
-        }}
-      >
+      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             {/* Left - Text */}
             <div>
-              <p
-                style={{
-                  fontSize: "15px",
-                  color: "var(--color-text-light)",
-                  lineHeight: "26px",
-                  marginBottom: "16px",
-                }}
-              >
+              <p className="typo-body" style={{ marginBottom: "16px" }}>
                 Amazon Arbitrage, also known as 2-step dropshipping, is the most
                 popular business model. No upfront inventory is required and
                 only purchase items when a customer places orders. On average, a
                 store starts generating a profit within a week with zero risk.
                 Sounds amazing, right?
               </p>
-              <p
-                style={{
-                  fontSize: "15px",
-                  color: "var(--color-text-light)",
-                  lineHeight: "26px",
-                  marginBottom: "16px",
-                }}
-              >
+              <p className="typo-body" style={{ marginBottom: "16px" }}>
                 Let&apos;s illustrate with an example: We sold an item on
                 Amazon for $30 and purchase from Walmart for $30 and deliver to
                 warehouse. Now re-boxing with Amazon box and ship to customer
@@ -268,13 +138,7 @@ export default function AmazonArbitragePage() {
                 product sells 50 units a day. OMG, it creates $500 in profit
                 per day and $15,000 in profit in a month!
               </p>
-              <p
-                style={{
-                  fontSize: "15px",
-                  color: "var(--color-text-light)",
-                  lineHeight: "26px",
-                }}
-              >
+              <p className="typo-body">
                 If you are looking for quick growth on eCommerce market, then 2
                 step dropshipping will perfect fit for you.
               </p>
@@ -301,38 +165,12 @@ export default function AmazonArbitragePage() {
       </section>
 
       {/* ── HOW IT WORKS ── */}
-      <section
-        style={{
-          padding: "44px 0",
-          backgroundColor: "var(--color-light-gray)",
-          fontFamily: "var(--font-roboto)",
-        }}
-      >
+      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
-          <p
-            style={{
-              fontSize: "12px",
-              fontWeight: 700,
-              letterSpacing: "1.5px",
-              textTransform: "uppercase",
-              color: "var(--color-primary)",
-              textAlign: "center",
-              marginBottom: "8px",
-            }}
-          >
-            HOW IT WORKS
-          </p>
-          <h2
-            style={{
-              fontSize: "24px",
-              fontWeight: 700,
-              color: "#2b2e37",
-              textAlign: "center",
-              marginBottom: "36px",
-            }}
-          >
-            How 2 Step Dropshipping Works
-          </h2>
+          <div className="section-header" style={{ textAlign: "center", marginBottom: "36px" }}>
+            <span className="typo-label">HOW IT WORKS</span>
+            <h2 className="typo-h2">How 2 Step Dropshipping Works</h2>
+          </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {processSteps.map((step, index) => (
@@ -374,36 +212,19 @@ export default function AmazonArbitragePage() {
                         borderRadius: "50%",
                         backgroundColor: "var(--color-primary)",
                         color: "#ffffff",
-                        fontSize: "13px",
-                        fontWeight: 700,
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
                       }}
                     >
-                      {index + 1}
+                      <span className="typo-small" style={{ color: "#ffffff" }}>{index + 1}</span>
                     </div>
                   </div>
                 </div>
-                <h3
-                  style={{
-                    fontSize: "16px",
-                    fontWeight: 700,
-                    color: "#2b2e37",
-                    marginBottom: "6px",
-                  }}
-                >
+                <h3 className="typo-h3" style={{ marginBottom: "6px" }}>
                   {step.title}
                 </h3>
-                <p
-                  style={{
-                    fontSize: "14px",
-                    color: "var(--color-text-light)",
-                    lineHeight: "22px",
-                  }}
-                >
-                  {step.description}
-                </p>
+                <p className="typo-small">{step.description}</p>
               </div>
             ))}
           </div>
@@ -411,22 +232,9 @@ export default function AmazonArbitragePage() {
       </section>
 
       {/* ── RESULTS SECTION ── */}
-      <section
-        style={{
-          padding: "36px 0",
-          backgroundColor: "#ffffff",
-          fontFamily: "var(--font-roboto)",
-        }}
-      >
+      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main" style={{ textAlign: "center" }}>
-          <h2
-            style={{
-              fontSize: "24px",
-              fontWeight: 700,
-              color: "#2b2e37",
-              lineHeight: "34px",
-            }}
-          >
+          <h2 className="typo-h2">
             Some Results of{" "}
             <span style={{ color: "var(--color-primary)" }}>
               2 Step Dropshipping
@@ -437,58 +245,22 @@ export default function AmazonArbitragePage() {
       </section>
 
       {/* ── PROFIT SHARING ── */}
-      <section
-        style={{
-          padding: "44px 0",
-          backgroundColor: "var(--color-light-gray)",
-          fontFamily: "var(--font-roboto)",
-        }}
-      >
+      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
         <div
           className="container-main"
           style={{ textAlign: "center", maxWidth: "720px", margin: "0 auto" }}
         >
-          <h2
-            style={{
-              fontSize: "24px",
-              fontWeight: 700,
-              color: "#2b2e37",
-              marginBottom: "6px",
-            }}
-          >
+          <h2 className="typo-h2" style={{ marginBottom: "6px" }}>
             Start Your Unlimited Vacation. Because
           </h2>
-          <p
-            style={{
-              fontSize: "18px",
-              fontWeight: 600,
-              color: "var(--color-primary)",
-              marginBottom: "20px",
-            }}
-          >
+          <p className="typo-h3" style={{ color: "var(--color-primary)", marginBottom: "20px" }}>
             We provide service with profit sharing model
           </p>
-          <h3
-            style={{
-              fontSize: "22px",
-              fontWeight: 700,
-              color: "var(--color-primary)",
-              marginBottom: "16px",
-            }}
-          >
-            100% Risk Free.{" "}
-            <span style={{ color: "#2b2e37" }}>
-              Pay only once you see profit.
-            </span>
+          <h3 className="typo-h2" style={{ marginBottom: "16px" }}>
+            <span style={{ color: "var(--color-primary)" }}>100% Risk Free.</span>{" "}
+            Pay only once you see profit.
           </h3>
-          <p
-            style={{
-              fontSize: "15px",
-              color: "var(--color-text-light)",
-              lineHeight: "26px",
-              marginBottom: "28px",
-            }}
-          >
+          <p className="typo-body" style={{ marginBottom: "28px" }}>
             No one will offer profit sharing model and no payment before you get
             profit. Because everyone can not handle risk and recover the dark
             side of eCommerce. Our experienced and highly skilled team will
@@ -501,13 +273,7 @@ export default function AmazonArbitragePage() {
       </section>
 
       {/* ── MANAGEMENT SECTION ── */}
-      <section
-        style={{
-          padding: "44px 0",
-          backgroundColor: "#ffffff",
-          fontFamily: "var(--font-roboto)",
-        }}
-      >
+      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             {/* Left - Image */}
@@ -527,51 +293,22 @@ export default function AmazonArbitragePage() {
 
             {/* Right - Text */}
             <div>
-              <h2
-                style={{
-                  fontSize: "24px",
-                  fontWeight: 700,
-                  color: "#2b2e37",
-                  lineHeight: "34px",
-                  marginBottom: "16px",
-                }}
-              >
+              <h2 className="typo-h2" style={{ marginBottom: "16px" }}>
                 Manage Amazon Seller Account With EcomGarden
               </h2>
-              <p
-                style={{
-                  fontSize: "15px",
-                  color: "var(--color-text-light)",
-                  lineHeight: "26px",
-                  marginBottom: "14px",
-                }}
-              >
+              <p className="typo-body" style={{ marginBottom: "14px" }}>
                 At EcomGarden, you will get complete service of fully account
                 management. Our automation tools will ensure 100% accuracy and
                 zero inventory loss. Our dedicated Virtual Assistant will
                 provide you 24/7 support, quick order response, customers
                 inquire.
               </p>
-              <p
-                style={{
-                  fontSize: "15px",
-                  color: "var(--color-text-light)",
-                  lineHeight: "26px",
-                  marginBottom: "14px",
-                }}
-              >
+              <p className="typo-body" style={{ marginBottom: "14px" }}>
                 Looking for a compete store management solutions and a trusted
                 partner? You are in the right place. EcomGarden will fullfill
                 your dream into reality.
               </p>
-              <p
-                style={{
-                  fontSize: "15px",
-                  color: "var(--color-text-light)",
-                  lineHeight: "26px",
-                  marginBottom: "14px",
-                }}
-              >
+              <p className="typo-body" style={{ marginBottom: "14px" }}>
                 Get experienced highly skilled Amazon 2 step dropshipping
                 virtual assistant for your store and get cost-effective and
                 seamless support and run your the business successfully. We
@@ -580,13 +317,7 @@ export default function AmazonArbitragePage() {
                 management, purchase management, customer support, shipping and
                 return handling, inventory management, PPC and marketing.
               </p>
-              <p
-                style={{
-                  fontSize: "15px",
-                  color: "var(--color-text-light)",
-                  lineHeight: "26px",
-                }}
-              >
+              <p className="typo-body">
                 Our service is 100% tranparent and we do not have any hidden
                 charge and do not have any hidden terms &amp; conditions. Get
                 our service until you want and cancel contract anytime.

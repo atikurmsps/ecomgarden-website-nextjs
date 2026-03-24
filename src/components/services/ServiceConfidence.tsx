@@ -32,26 +32,12 @@ export default function ServiceConfidence() {
   }, []);
 
   return (
-    <section
-      style={{
-        padding: "36px 0",
-        backgroundColor: "var(--color-dark)",
-        fontFamily: "var(--font-roboto)",
-      }}
-    >
+    <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
       <div className="container-main" ref={sectionRef}>
-        <h2
-          style={{
-            fontSize: "27px",
-            fontWeight: 700,
-            textAlign: "center",
-            color: "#fff",
-            marginBottom: "32px",
-            fontFamily: "var(--font-roboto)",
-          }}
-        >
-          Confidence with EcomGarden Service
-        </h2>
+        <div className="section-header">
+          <span className="typo-label">Our Track Record</span>
+          <h2 className="typo-h2">Confidence with EcomGarden Service</h2>
+        </div>
 
         <div
           style={{
@@ -75,7 +61,7 @@ export default function ServiceConfidence() {
                 minWidth: "140px",
                 borderRight:
                   index < stats.length - 1
-                    ? "1px solid rgba(255,255,255,0.15)"
+                    ? "1px solid rgba(0,0,0,0.08)"
                     : "none",
               }}
             >
@@ -83,9 +69,8 @@ export default function ServiceConfidence() {
                 style={{
                   fontSize: "36px",
                   fontWeight: 800,
-                  color: "#fff",
+                  color: "var(--color-dark)",
                   lineHeight: "1.1",
-                  fontFamily: "var(--font-roboto)",
                 }}
               >
                 {isVisible ? (
@@ -98,17 +83,7 @@ export default function ServiceConfidence() {
                   `${stat.prefix}0${stat.suffix}`
                 )}
               </div>
-              <p
-                style={{
-                  fontSize: "13px",
-                  fontWeight: 600,
-                  color: "var(--color-primary)",
-                  textTransform: "uppercase" as const,
-                  letterSpacing: "1px",
-                  marginTop: "8px",
-                  fontFamily: "var(--font-roboto)",
-                }}
-              >
+              <p className="typo-label" style={{ marginTop: "8px" }}>
                 {stat.label}
               </p>
             </div>

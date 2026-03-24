@@ -89,126 +89,48 @@ const processSteps = [
 export default function AmazonWholesalePage() {
   return (
     <>
-      {/* Dark Hero Section */}
-      <section
-        style={{
-          padding: "44px 0 36px",
-          backgroundColor: "var(--color-dark)",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        {/* Decorative circles */}
-        <div
-          style={{
-            position: "absolute",
-            top: "-80px",
-            right: "-80px",
-            width: "250px",
-            height: "250px",
-            borderRadius: "50%",
-            border: "1px solid rgba(22, 163, 74, 0.15)",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            bottom: "-60px",
-            left: "-60px",
-            width: "200px",
-            height: "200px",
-            borderRadius: "50%",
-            border: "1px solid rgba(22, 163, 74, 0.1)",
-          }}
-        />
-        <div className="container-main" style={{ position: "relative" }}>
-          {/* Green badge pill */}
-          <div
-            style={{
-              display: "inline-block",
-              backgroundColor: "rgba(22, 163, 74, 0.15)",
-              color: "var(--color-primary)",
-              padding: "6px 18px",
-              borderRadius: "50px",
-              fontSize: "13px",
-              fontWeight: 600,
-              fontFamily: "var(--font-roboto)",
-              marginBottom: "16px",
-              letterSpacing: "0.5px",
-            }}
-          >
-            Amazon Wholesale
-          </div>
-          <h1
-            style={{
-              fontSize: "30px",
-              lineHeight: "40px",
-              color: "#fff",
-              fontFamily: "var(--font-roboto)",
-              fontWeight: 800,
-              marginBottom: "12px",
-            }}
-          >
+      {/* ── HERO SECTION ── */}
+      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
+        <div className="container-main" style={{ textAlign: "center" }}>
+          <span className="typo-label">Amazon Wholesale</span>
+          <h1 className="typo-h1" style={{ marginBottom: "10px" }}>
             Build Your Dream with Amazon Wholesale
           </h1>
-          <p
-            style={{
-              fontSize: "15px",
-              lineHeight: "24px",
-              color: "#9494ac",
-              fontFamily: "var(--font-roboto)",
-              maxWidth: "600px",
-              marginBottom: "24px",
-            }}
-          >
+          <p className="typo-subtext" style={{ maxWidth: "560px", margin: "0 auto 24px" }}>
             Authentic branded products purchased directly from authorized
             distributors. A 100% suspension risk-free model suitable for
             long-term operations with scalable growth.
           </p>
-          <div className="flex flex-wrap gap-4">
+          <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
             <a
               href="https://wa.link/m2ac6m"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-orange flex items-center gap-2"
+              className="btn-primary"
+              style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
             >
-              <FaWhatsapp className="text-lg" />
-              Quick Whatsapp
+              <FaWhatsapp style={{ fontSize: "18px" }} />
+              Quick WhatsApp
             </a>
-            <Link href="/services" className="btn-primary">
+            <Link href="/services" className="btn-outline">
               Browse More Services
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Intro Section */}
-      <section style={{ padding: "44px 0", backgroundColor: "#fff" }}>
+      {/* ── INTRO SECTION ── */}
+      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             {/* Left - Text */}
             <div>
-              <p
-                style={{
-                  fontSize: "15px",
-                  lineHeight: "26px",
-                  color: "var(--color-text-light)",
-                  fontFamily: "var(--font-roboto)",
-                  marginBottom: "16px",
-                }}
-              >
+              <p className="typo-body" style={{ marginBottom: "16px" }}>
                 Amazon Wholesale, is a popular business model. In this model,
                 upfront inventory is required. There are some brand approval
                 process before purchase inventory and selling on Amazon.
               </p>
-              <p
-                style={{
-                  fontSize: "15px",
-                  lineHeight: "26px",
-                  color: "var(--color-text-light)",
-                  fontFamily: "var(--font-roboto)",
-                }}
-              >
+              <p className="typo-body">
                 After brand approval, sellers get a wholesale account for
                 official authenticated products with an approval letter to
                 sell those branded products. This model is 100% suspension
@@ -224,101 +146,88 @@ export default function AmazonWholesalePage() {
                 alt="Build Your Dream with Amazon Wholesale"
                 width={500}
                 height={357}
-                style={{ borderRadius: "12px" }}
-                className="w-full max-w-[500px] h-auto"
+                style={{
+                  width: "100%",
+                  maxWidth: "500px",
+                  height: "auto",
+                  borderRadius: "12px",
+                  boxShadow: "0 4px 24px rgba(0,0,0,0.10)",
+                }}
               />
             </div>
           </div>
         </div>
       </section>
 
-      {/* How It Works */}
-      <section
-        style={{
-          padding: "44px 0",
-          backgroundColor: "var(--color-light-gray)",
-        }}
-      >
+      {/* ── HOW IT WORKS ── */}
+      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
-          <div
-            style={{
-              display: "inline-block",
-              backgroundColor: "rgba(22, 163, 74, 0.15)",
-              color: "var(--color-primary)",
-              padding: "4px 14px",
-              borderRadius: "50px",
-              fontSize: "12px",
-              fontWeight: 600,
-              fontFamily: "var(--font-roboto)",
-              marginBottom: "12px",
-              letterSpacing: "0.5px",
-            }}
-          >
-            Process
+          <div className="section-header" style={{ textAlign: "center", marginBottom: "36px" }}>
+            <span className="typo-label">Process</span>
+            <h2 className="typo-h2">How Amazon Wholesale Works</h2>
           </div>
-          <h2
-            style={{
-              fontSize: "28px",
-              fontWeight: 700,
-              color: "var(--color-text)",
-              fontFamily: "var(--font-roboto)",
-              marginBottom: "32px",
-            }}
-          >
-            How Amazon Wholesale Works
-          </h2>
+
           <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
             {processSteps.map((step, index) => (
-              <div key={step.title} className="text-center">
-                <div className="flex justify-center mb-4">
-                  <div className="relative">
+              <div
+                key={step.title}
+                style={{
+                  backgroundColor: "#ffffff",
+                  borderRadius: "12px",
+                  padding: "20px",
+                  textAlign: "center",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    marginBottom: "14px",
+                  }}
+                >
+                  <div style={{ position: "relative" }}>
                     <Image
                       src={step.img}
                       alt={step.title}
-                      width={80}
-                      height={80}
-                      className="w-[80px] h-[80px] object-contain"
+                      width={70}
+                      height={70}
+                      style={{
+                        width: "70px",
+                        height: "70px",
+                        objectFit: "contain",
+                      }}
                     />
                     <div
-                      className="absolute -top-2 -right-2 w-7 h-7 rounded-full flex items-center justify-center text-white font-bold"
                       style={{
-                        fontSize: "14px",
+                        position: "absolute",
+                        top: "-6px",
+                        right: "-6px",
+                        width: "26px",
+                        height: "26px",
+                        borderRadius: "50%",
                         backgroundColor: "var(--color-primary)",
+                        color: "#ffffff",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
                       }}
                     >
-                      {index + 1}
+                      <span className="typo-small" style={{ color: "#ffffff" }}>{index + 1}</span>
                     </div>
                   </div>
                 </div>
-                <h3
-                  style={{
-                    fontSize: "16px",
-                    fontWeight: 700,
-                    color: "var(--color-text)",
-                    fontFamily: "var(--font-roboto)",
-                    marginBottom: "6px",
-                  }}
-                >
+                <h3 className="typo-h3" style={{ marginBottom: "6px" }}>
                   {step.title}
                 </h3>
-                <p
-                  style={{
-                    fontSize: "14px",
-                    lineHeight: "22px",
-                    color: "var(--color-text-light)",
-                    fontFamily: "var(--font-roboto)",
-                  }}
-                >
-                  {step.description}
-                </p>
+                <p className="typo-small">{step.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Management Section */}
-      <section style={{ padding: "44px 0", backgroundColor: "#fff" }}>
+      {/* ── MANAGEMENT SECTION ── */}
+      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             {/* Left - Image */}
@@ -328,49 +237,27 @@ export default function AmazonWholesalePage() {
                 alt="Manage Amazon Seller Account With EcomGarden"
                 width={570}
                 height={380}
-                style={{ borderRadius: "12px" }}
-                className="w-full shadow-[0px_0px_20px_rgba(0,0,0,0.1)]"
+                style={{
+                  width: "100%",
+                  borderRadius: "12px",
+                  boxShadow: "0 4px 24px rgba(0,0,0,0.10)",
+                }}
               />
             </div>
 
             {/* Right - Text */}
             <div>
-              <h2
-                style={{
-                  fontSize: "28px",
-                  fontWeight: 700,
-                  lineHeight: "36px",
-                  color: "var(--color-text)",
-                  fontFamily: "var(--font-roboto)",
-                  marginBottom: "16px",
-                }}
-              >
+              <h2 className="typo-h2" style={{ marginBottom: "16px" }}>
                 Manage Amazon Seller Account With EcomGarden
               </h2>
-              <p
-                style={{
-                  fontSize: "15px",
-                  lineHeight: "26px",
-                  color: "var(--color-text-light)",
-                  fontFamily: "var(--font-roboto)",
-                  marginBottom: "14px",
-                }}
-              >
+              <p className="typo-body" style={{ marginBottom: "14px" }}>
                 At EcomGarden, you will get complete service of fully account
                 management. Our automation tools will ensure 100% accuracy and
                 zero inventory loss. Our dedicated Virtual Assistant will
                 provide you 24/7 support, quick order response, customers
                 inquire.
               </p>
-              <p
-                style={{
-                  fontSize: "15px",
-                  lineHeight: "26px",
-                  color: "var(--color-text-light)",
-                  fontFamily: "var(--font-roboto)",
-                  marginBottom: "14px",
-                }}
-              >
+              <p className="typo-body" style={{ marginBottom: "14px" }}>
                 Get experienced highly skilled Amazon wholesale virtual
                 assistant for your store and get cost-effective and seamless
                 support and run your the business successfully. We provide
@@ -380,14 +267,7 @@ export default function AmazonWholesalePage() {
                 support, shipping and return handling, inventory management,
                 PPC and marketing.
               </p>
-              <p
-                style={{
-                  fontSize: "15px",
-                  lineHeight: "26px",
-                  color: "var(--color-text-light)",
-                  fontFamily: "var(--font-roboto)",
-                }}
-              >
+              <p className="typo-body">
                 Our service is 100% transparent and we do not have any hidden
                 charge and do not have any hidden terms &amp; conditions. Get
                 our service until you want and cancel contract anytime.

@@ -224,21 +224,15 @@ export default function Header() {
             href="https://wa.link/m2ac6m"
             target="_blank"
             rel="noopener noreferrer"
+            className="btn-accent hidden lg:inline-flex"
             style={{
-              backgroundColor: "var(--color-accent)",
-              color: "#fff",
-              padding: "9px 20px",
-              borderRadius: "8px",
-              fontWeight: 600,
-              fontSize: "15px",
               display: "inline-flex",
               alignItems: "center",
               gap: "8px",
-              textDecoration: "none",
-              transition: "all 0.3s",
-              boxShadow: "0 2px 10px rgba(245,158,11,0.25)",
+              padding: "11px 24px",
+              fontSize: "14px",
+              animation: "none",
             }}
-            className="hidden lg:inline-flex hover:!shadow-lg"
           >
             <FaWhatsapp style={{ fontSize: "16px" }} />
             Quick WhatsApp
@@ -368,18 +362,14 @@ export default function Header() {
               href="https://wa.link/m2ac6m"
               target="_blank"
               rel="noopener noreferrer"
+              className="btn-accent"
               style={{
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 gap: "8px",
-                backgroundColor: "var(--color-accent)",
-                color: "#fff",
-                padding: "12px 20px",
-                borderRadius: "8px",
-                fontWeight: 600,
-                fontSize: "16px",
-                textDecoration: "none",
+                animation: "none",
+                width: "100%",
               }}
             >
               <FaWhatsapp style={{ fontSize: "16px" }} />

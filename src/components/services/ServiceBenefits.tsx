@@ -36,47 +36,22 @@ export default function ServiceBenefits() {
   const [openIndex, setOpenIndex] = useState<number>(0);
 
   return (
-    <section
-      style={{
-        padding: "44px 0",
-        backgroundColor: "#fff",
-        fontFamily: "var(--font-roboto)",
-      }}
-    >
+    <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
       <div className="container-main">
-        <h2
-          style={{
-            fontSize: "27px",
-            fontWeight: 700,
-            textAlign: "center",
-            color: "var(--color-dark)",
-            marginBottom: "8px",
-            fontFamily: "var(--font-roboto)",
-          }}
-        >
-          Benefits of getting our service
-        </h2>
-        <p
-          style={{
-            textAlign: "center",
-            color: "var(--color-text)",
-            marginBottom: "32px",
-            maxWidth: "780px",
-            margin: "0 auto 32px",
-            fontSize: "15px",
-            lineHeight: "24px",
-            fontFamily: "var(--font-roboto)",
-          }}
-        >
-          Our Amazon Virtual Assistant at EcomGarden efficiently launches and
-          manages your Amazon Business worldwide, saving you time and ensuring
-          progress. From setting up an Amazon store, product research, and
-          listings to SEO optimization, account management, customer support,
-          and sales boosting, we handle it all. Our services aim to boost your
-          sales and profits comprehensively. Trust our experts at EcomGarden to
-          enhance your eCommerce business and make it profitable. Here are some
-          key advantages:
-        </p>
+        <div className="section-header">
+          <span className="typo-label">Why Choose Us</span>
+          <h2 className="typo-h2">Benefits of getting our service</h2>
+          <p className="typo-subtext" style={{ maxWidth: "780px", margin: "0 auto" }}>
+            Our Amazon Virtual Assistant at EcomGarden efficiently launches and
+            manages your Amazon Business worldwide, saving you time and ensuring
+            progress. From setting up an Amazon store, product research, and
+            listings to SEO optimization, account management, customer support,
+            and sales boosting, we handle it all. Our services aim to boost your
+            sales and profits comprehensively. Trust our experts at EcomGarden to
+            enhance your eCommerce business and make it profitable. Here are some
+            key advantages:
+          </p>
+        </div>
 
         <div
           style={{
@@ -98,7 +73,7 @@ export default function ServiceBenefits() {
                 width: "100%",
                 maxWidth: "524px",
                 height: "auto",
-                borderRadius: "12px",
+                borderRadius: "10px",
               }}
             />
           </div>
@@ -118,7 +93,7 @@ export default function ServiceBenefits() {
                       : "#fff",
                     border: isOpen
                       ? "1px solid color-mix(in srgb, var(--color-primary) 20%, transparent)"
-                      : "1px solid #eee",
+                      : "1px solid rgba(0,0,0,0.06)",
                     boxShadow: isOpen
                       ? "0 4px 16px color-mix(in srgb, var(--color-primary) 8%, transparent)"
                       : "0 1px 4px rgba(0,0,0,0.03)",
@@ -150,7 +125,6 @@ export default function ServiceBenefits() {
                         color: isOpen
                           ? "var(--color-primary)"
                           : "var(--color-text)",
-                        fontFamily: "var(--font-roboto)",
                         transition: "color 0.2s",
                       }}
                     >
@@ -189,15 +163,7 @@ export default function ServiceBenefits() {
                     }}
                   >
                     <div style={{ padding: "0 20px 16px" }}>
-                      <p
-                        style={{
-                          fontSize: "15px",
-                          lineHeight: "24px",
-                          color: "var(--color-text-light)",
-                          fontFamily: "var(--font-roboto)",
-                          margin: 0,
-                        }}
-                      >
+                      <p className="typo-body" style={{ margin: 0 }}>
                         {item.content}
                       </p>
                     </div>

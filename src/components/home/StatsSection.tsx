@@ -57,39 +57,21 @@ function AnimatedCounter({
   }, [isVisible, target, duration]);
 
   return (
-    <div
-      ref={ref}
-      style={{
-        textAlign: "center",
-        padding: "0 16px",
-        fontFamily: "var(--font-roboto)",
-      }}
-    >
+    <div ref={ref} style={{ textAlign: "center", flex: 1, padding: "0 10px" }}>
       <div
         style={{
           fontSize: "28px",
           lineHeight: "1",
           fontWeight: 800,
-          color: "#fff",
+          color: "var(--color-dark)",
           marginBottom: "4px",
           letterSpacing: "-0.5px",
+          fontFamily: "var(--font-roboto)",
         }}
       >
-        {prefix}
-        {count}
-        {suffix}
+        {prefix}{count}{suffix}
       </div>
-      <p
-        style={{
-          fontSize: "13px",
-          fontWeight: 600,
-          color: "var(--color-primary)",
-          letterSpacing: "0.5px",
-          lineHeight: "1.4",
-          textTransform: "uppercase",
-          margin: 0,
-        }}
-      >
+      <p className="typo-label" style={{ fontSize: "11px", fontWeight: 600, margin: 0 }}>
         {label}
       </p>
     </div>
@@ -100,19 +82,26 @@ export default function StatsSection() {
   return (
     <section
       style={{
-        padding: "20px 0",
-        backgroundColor: "var(--color-dark)",
-        fontFamily: "var(--font-roboto)",
+        position: "relative",
+        zIndex: 20,
+        marginTop: "-42px",
+        marginBottom: "-42px",
       }}
     >
       <div className="container-main">
         <div
           style={{
+            backgroundColor: "#fff",
+            borderRadius: "12px",
+            padding: "22px 16px",
+            boxShadow: "0 6px 30px rgba(0,0,0,0.07)",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            gap: "8px",
+            gap: "0",
             flexWrap: "wrap",
+            maxWidth: "780px",
+            margin: "0 auto",
           }}
         >
           {stats.map((stat, index) => (
@@ -121,7 +110,9 @@ export default function StatsSection() {
               style={{
                 display: "flex",
                 alignItems: "center",
-                gap: "8px",
+                gap: "0",
+                flex: 1,
+                minWidth: "130px",
               }}
             >
               <AnimatedCounter
@@ -131,13 +122,7 @@ export default function StatsSection() {
                 label={stat.label}
               />
               {index < stats.length - 1 && (
-                <div
-                  style={{
-                    width: "1px",
-                    height: "36px",
-                    backgroundColor: "rgba(255,255,255,0.15)",
-                  }}
-                />
+                <div style={{ width: "1px", height: "40px", backgroundColor: "rgba(0,0,0,0.08)", flexShrink: 0 }} />
               )}
             </div>
           ))}

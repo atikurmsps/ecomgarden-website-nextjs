@@ -1,162 +1,108 @@
-import Image from "next/image";
+import { FaCheckCircle, FaShieldAlt, FaRocket, FaHeadset } from "react-icons/fa";
 
 const features = [
   {
-    title: "Complete Store Management",
+    icon: FaShieldAlt,
+    title: "Complete A-Z Store Management",
     description:
-      "We manage the e-commerce store completely from start to finish, including top-selling product research, listing, sourcing, order processing, fulfillment, shipping, return handling, customer support, account health check, reporting and everything from A to Z.",
+      "From product research and listing optimization to order processing, fulfillment, shipping, returns, and customer support — we handle every aspect so you don't lift a finger.",
+    bullets: [
+      "Product research & listing optimization",
+      "Order processing & fulfillment",
+      "Customer support & return handling",
+      "Account health monitoring & reporting",
+    ],
   },
   {
-    title: "Risk-Free Growth",
+    icon: FaRocket,
+    title: "Risk-Free Growth Model",
     description:
-      "Are you want to grow your online e-commerce business quickly without any risk? Use our automated e-commerce management services and experience the results you have always wanted.",
+      "Our performance-based model means you only pay when you see profit. We've helped 250+ clients scale with systems that consistently deliver 35-80% ROI.",
+    bullets: [
+      "Pay only from profit — zero upfront risk",
+      "Proven 80% ROI track record across 55+ stores",
+      "Dedicated team managing your store 24/7",
+      "Scale without hiring or learning curves",
+    ],
+  },
+  {
+    icon: FaHeadset,
+    title: "24/7 Dedicated Support Team",
+    description:
+      "Every client gets a personal account manager backed by a full operations team available around the clock — including weekends and holidays.",
+    bullets: [
+      "Personal account manager assigned to you",
+      "Round-the-clock operations team",
+      "Weekly performance reports & strategy calls",
+      "Direct WhatsApp line for urgent matters",
+    ],
   },
 ];
 
 export default function WhyUsSection() {
   return (
-    <section
-      style={{
-        padding: "40px 0",
-        backgroundColor: "#fff",
-        fontFamily: "var(--font-roboto)",
-      }}
-    >
+    <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
       <div className="container-main">
-        {/* Section label */}
-        <div style={{ textAlign: "center", marginBottom: "24px" }}>
-          <span
-            style={{
-              fontSize: "13px",
-              fontWeight: 700,
-              color: "var(--color-primary)",
-              textTransform: "uppercase",
-              letterSpacing: "1.5px",
-              fontFamily: "var(--font-roboto)",
-            }}
-          >
-            Why Choose Us
-          </span>
-          <h2
-            style={{
-              fontSize: "25px",
-              lineHeight: "1.3",
-              color: "var(--color-dark)",
-              fontWeight: 800,
-              marginTop: "6px",
-              fontFamily: "var(--font-roboto)",
-            }}
-          >
-            Why You Will Get Our Ecommerce Management Services ?
-          </h2>
+        <div className="section-header">
+          <span className="typo-label">Why Choose Us</span>
+          <h2 className="typo-h2">Why 250+ Clients Trust EcomGarden With Their Stores</h2>
+          <p className="typo-subtext">
+            We&apos;re not just another VA agency — we&apos;re a full-service ecommerce management company
+            with our own warehouses, proven systems, and a track record of generating $12M+ in revenue for our clients.
+          </p>
         </div>
 
         <div
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-            gap: "24px",
-            alignItems: "start",
+            gap: "20px",
           }}
         >
-          {/* Left - Image card */}
-          <div
-            style={{
-              borderRadius: "12px",
-              overflow: "hidden",
-              border: "1px solid rgba(0,0,0,0.06)",
-              boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
-            }}
-          >
-            <div style={{ position: "relative" }}>
-              <Image
-                src="/images/hero/sales-screenshot.webp"
-                alt="700k Sales in 1 Year"
-                width={570}
-                height={320}
-                style={{
-                  width: "100%",
-                  height: "auto",
-                  display: "block",
-                }}
-              />
-              {/* Play button overlay */}
+          {features.map((feature) => (
+            <div
+              key={feature.title}
+              className="card-hover"
+              style={{
+                borderRadius: "10px",
+                padding: "24px",
+                border: "1px solid rgba(0,0,0,0.06)",
+                backgroundColor: "#fff",
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
               <div
                 style={{
-                  position: "absolute",
-                  inset: 0,
+                  width: "48px",
+                  height: "48px",
+                  borderRadius: "10px",
+                  backgroundColor: "rgba(22,163,74,0.08)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
+                  marginBottom: "14px",
                 }}
               >
-                <div
-                  style={{
-                    width: "52px",
-                    height: "52px",
-                    borderRadius: "50%",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    cursor: "pointer",
-                    backgroundColor: "var(--color-primary)",
-                    boxShadow: "0 4px 16px rgba(40,167,69,0.35)",
-                    transition: "transform 0.2s",
-                  }}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="white"
-                    style={{ width: "24px", height: "24px", marginLeft: "2px" }}
-                  >
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
+                <feature.icon style={{ fontSize: "22px", color: "var(--color-primary)" }} />
+              </div>
+
+              <h3 className="typo-h3" style={{ marginBottom: "8px" }}>
+                {feature.title}
+              </h3>
+              <p className="typo-body" style={{ marginBottom: "12px" }}>
+                {feature.description}
+              </p>
+              <div style={{ display: "flex", flexDirection: "column", gap: "5px" }}>
+                {feature.bullets.map((bullet) => (
+                  <div key={bullet} style={{ display: "flex", alignItems: "center", gap: "7px" }}>
+                    <FaCheckCircle style={{ fontSize: "12px", color: "var(--color-primary)", flexShrink: 0 }} />
+                    <span className="typo-small" style={{ fontWeight: 500 }}>{bullet}</span>
+                  </div>
+                ))}
               </div>
             </div>
-          </div>
-
-          {/* Right - Feature cards */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-            {features.map((feature) => (
-              <div
-                key={feature.title}
-                style={{
-                  borderRadius: "12px",
-                  padding: "22px",
-                  border: "1px solid rgba(0,0,0,0.06)",
-                  boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
-                  backgroundColor: "#fff",
-                  borderLeft: "3px solid var(--color-primary)",
-                  transition: "box-shadow 0.2s, transform 0.2s",
-                }}
-              >
-                <h3
-                  style={{
-                    fontSize: "16px",
-                    fontWeight: 700,
-                    color: "var(--color-dark)",
-                    marginBottom: "8px",
-                    fontFamily: "var(--font-roboto)",
-                  }}
-                >
-                  {feature.title}
-                </h3>
-                <p
-                  style={{
-                    fontSize: "15px",
-                    lineHeight: "1.7",
-                    color: "var(--color-text-light)",
-                    margin: 0,
-                    fontFamily: "var(--font-roboto)",
-                  }}
-                >
-                  {feature.description}
-                </p>
-              </div>
-            ))}
-          </div>
+          ))}
         </div>
       </div>
     </section>
