@@ -5,6 +5,7 @@ import {
   FaShieldAlt,
   FaHandshake,
   FaChartLine,
+  FaHeadset,
   FaWarehouse,
   FaShippingFast,
 } from "react-icons/fa";
@@ -14,17 +15,22 @@ const highlights = [
   {
     icon: FaShieldAlt,
     title: "100% Risk Free",
-    desc: "Zero upfront fees — you only pay when your store generates real profit",
+    desc: "Pay only once you see profit",
   },
   {
     icon: FaHandshake,
     title: "Profit Sharing",
-    desc: "We succeed when you succeed — our incentives are fully aligned with yours",
+    desc: "We succeed when you succeed",
   },
   {
     icon: FaChartLine,
     title: "35% Avg ROI",
-    desc: "Proven track record across 250+ clients with consistent 35-80% returns",
+    desc: "Proven results across clients",
+  },
+  {
+    icon: FaHeadset,
+    title: "24/7 Support",
+    desc: "Dedicated team for your store",
   },
 ];
 
@@ -125,6 +131,54 @@ export default function PricingPage() {
                 profit within a week.
               </p>
 
+              {/* Highlight pills */}
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "1fr 1fr",
+                  gap: "8px",
+                  marginBottom: "20px",
+                }}
+              >
+                {highlights.map((item) => (
+                  <div
+                    key={item.title}
+                    style={{
+                      background: "#fff",
+                      border: "1px solid #e8e8e8",
+                      borderRadius: "10px",
+                      padding: "10px 14px",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "8px",
+                    }}
+                  >
+                    <span
+                      style={{
+                        width: "32px",
+                        height: "32px",
+                        borderRadius: "7px",
+                        backgroundColor: "rgba(22,163,74,0.1)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        flexShrink: 0,
+                      }}
+                    >
+                      <item.icon style={{ color: "var(--color-primary)", fontSize: "13px" }} />
+                    </span>
+                    <div>
+                      <p className="typo-small" style={{ fontWeight: 700, color: "var(--color-text)", lineHeight: 1.2 }}>
+                        {item.title}
+                      </p>
+                      <p className="typo-small" style={{ color: "#999", marginTop: "1px" }}>
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
               <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
                 <a
                   href="https://wa.link/m2ac6m"
@@ -142,8 +196,8 @@ export default function PricingPage() {
               </div>
             </div>
 
-            {/* Right Image — full height */}
-            <div className="hidden lg:flex items-end justify-center" style={{ position: "relative", minHeight: "100%" }}>
+            {/* Right Image — full height with top padding */}
+            <div className="hidden lg:flex items-end justify-center" style={{ position: "relative", minHeight: "100%", paddingTop: "50px" }}>
               <img
                 src="/images/pricing/hero-vacation.png"
                 alt="Start your unlimited vacation"
@@ -154,52 +208,8 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* Trust Highlights */}
-      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
-        <div className="container-main">
-          <div className="section-header">
-            <span className="typo-label">Why Our Model Works</span>
-            <h2 className="typo-h2">Built For Your Success</h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5" style={{ maxWidth: "900px", margin: "0 auto" }}>
-            {highlights.map((item) => (
-              <div
-                key={item.title}
-                className="card-hover"
-                style={{
-                  backgroundColor: "#f6f7f9",
-                  borderRadius: "10px",
-                  padding: "24px 20px",
-                  textAlign: "center",
-                }}
-              >
-                <div
-                  style={{
-                    width: "48px",
-                    height: "48px",
-                    borderRadius: "50%",
-                    backgroundColor: "rgba(22,163,74,0.1)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    margin: "0 auto 12px",
-                  }}
-                >
-                  <item.icon style={{ color: "var(--color-primary)", fontSize: "20px" }} />
-                </div>
-                <h3 className="typo-h3" style={{ marginBottom: "6px" }}>
-                  {item.title}
-                </h3>
-                <p className="typo-small">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Additional Services */}
-      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
+      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
           <div className="section-header">
             <span className="typo-label">Additional Services</span>
@@ -281,7 +291,7 @@ export default function PricingPage() {
       </section>
 
       {/* Management Services */}
-      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
+      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
           <div className="section-header">
             <span className="typo-label">Management Services</span>
@@ -297,11 +307,12 @@ export default function PricingPage() {
                 key={service.title}
                 className="card-hover"
                 style={{
-                  backgroundColor: "#f6f7f9",
+                  backgroundColor: "#fff",
                   borderRadius: "10px",
                   padding: "24px 20px",
                   display: "flex",
                   flexDirection: "column",
+                  border: "1px solid rgba(0,0,0,0.06)",
                 }}
               >
                 <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "12px" }}>
