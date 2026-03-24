@@ -2,10 +2,7 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "ecomgarden-website-nextjs",
   "compatibility_date": "2025-09-27",
-  "observability": {
-    "enabled": true
-  },
-  "compatibility_flags": [
-    "nodejs_compat"
-  ]
+  "assets": {
+    "directory": "./out"
+  }
 }
