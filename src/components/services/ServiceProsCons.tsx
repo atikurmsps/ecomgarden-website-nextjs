@@ -1,4 +1,4 @@
-import { FaCheck, FaTimes } from "react-icons/fa";
+import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 
 interface ServiceProsConsProps {
   heading: string;
@@ -15,115 +15,54 @@ export default function ServiceProsCons({
     <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
       <div className="container-main">
         <div className="section-header">
-          <span className="typo-label">PROS &amp; CONS</span>
+          <span className="typo-label">Pros &amp; Cons</span>
           <h2 className="typo-h2">{heading}</h2>
         </div>
 
         <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr",
-            gap: "20px",
-            maxWidth: "900px",
-            margin: "0 auto",
-          }}
-          className="md:!grid-cols-2"
+          className="grid grid-cols-1 md:grid-cols-2 gap-5"
+          style={{ maxWidth: "900px", margin: "0 auto" }}
         >
-          {/* Pros Card */}
+          {/* Pros */}
           <div
             style={{
-              backgroundColor: "#fff",
+              backgroundColor: "#f6f7f9",
               borderRadius: "10px",
               padding: "24px",
-              borderLeft: "4px solid var(--color-primary)",
-              border: "1px solid rgba(0,0,0,0.06)",
-              borderLeftWidth: "4px",
-              borderLeftColor: "var(--color-primary)",
             }}
           >
-            <h3 className="typo-h3" style={{ color: "var(--color-primary)", marginBottom: "16px" }}>
+            <h3 className="typo-h3" style={{ color: "var(--color-primary)", marginBottom: "14px" }}>
               Pros
             </h3>
-            <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
               {pros.map((pro) => (
-                <li
-                  key={pro}
-                  style={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    gap: "12px",
-                    marginBottom: "12px",
-                  }}
-                >
-                  <span
-                    style={{
-                      width: "20px",
-                      height: "20px",
-                      borderRadius: "50%",
-                      background: "color-mix(in srgb, var(--color-primary) 12%, transparent)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      flexShrink: 0,
-                      marginTop: "2px",
-                    }}
-                  >
-                    <FaCheck style={{ fontSize: "10px", color: "var(--color-primary)" }} />
-                  </span>
-                  <span className="typo-body" style={{ margin: 0 }}>
-                    {pro}
-                  </span>
-                </li>
+                <div key={pro} style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
+                  <FaCheckCircle style={{ fontSize: "14px", color: "var(--color-primary)", flexShrink: 0, marginTop: "3px" }} />
+                  <span className="typo-body" style={{ margin: 0 }}>{pro}</span>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
 
-          {/* Cons Card */}
+          {/* Cons */}
           <div
             style={{
-              backgroundColor: "#fff",
+              backgroundColor: "#f6f7f9",
               borderRadius: "10px",
               padding: "24px",
-              border: "1px solid rgba(0,0,0,0.06)",
-              borderLeftWidth: "4px",
-              borderLeftColor: "#e74c3c",
             }}
           >
-            <h3 className="typo-h3" style={{ color: "#e74c3c", marginBottom: "16px" }}>
+            <h3 className="typo-h3" style={{ color: "#e74c3c", marginBottom: "14px" }}>
               Cons
             </h3>
-            <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
               {cons.map((con) => (
-                <li
-                  key={con}
-                  style={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    gap: "12px",
-                    marginBottom: "12px",
-                  }}
-                >
-                  <span
-                    style={{
-                      width: "20px",
-                      height: "20px",
-                      borderRadius: "50%",
-                      background: "rgba(231, 76, 60, 0.1)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      flexShrink: 0,
-                      marginTop: "2px",
-                    }}
-                  >
-                    <FaTimes style={{ fontSize: "10px", color: "#e74c3c" }} />
-                  </span>
-                  <span className="typo-body" style={{ margin: 0 }}>
-                    {con}
-                  </span>
-                </li>
+                <div key={con} style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
+                  <FaTimesCircle style={{ fontSize: "14px", color: "#e74c3c", flexShrink: 0, marginTop: "3px" }} />
+                  <span className="typo-body" style={{ margin: 0 }}>{con}</span>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
         </div>
       </div>

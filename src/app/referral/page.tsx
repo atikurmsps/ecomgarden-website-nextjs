@@ -19,41 +19,56 @@ const benefits = [
 export default function ReferralPage() {
   return (
     <>
-      <section className="bg-[#2b2e37] text-white py-16 lg:py-20">
-        <div className="container mx-auto px-4 lg:px-8 text-center">
-          <h1 className="text-3xl md:text-5xl font-bold mb-4 text-white" style={{ fontFamily: "var(--font-roboto-slab)" }}>
-            Affiliate Referral Program
-          </h1>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-            Earn $1,000+ every month from each referral
-          </p>
+      {/* Hero Section */}
+      <section style={{ background: "#f6f7f9", padding: "55px 0" }}>
+        <div className="container-main text-center">
+          <div className="section-header">
+            <span className="typo-label">Referral Program</span>
+            <h1 className="typo-h1">Affiliate Referral Program</h1>
+            <p className="typo-subtext" style={{ maxWidth: "520px", margin: "0 auto" }}>
+              Earn $1,000+ every month from each referral
+            </p>
+          </div>
         </div>
       </section>
 
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 lg:px-8 max-w-3xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4" style={{ fontFamily: "var(--font-roboto-slab)" }}>
-              Why Join Our <span className="text-primary">Affiliate Program</span>?
+      {/* Benefits Section */}
+      <section style={{ padding: "55px 0", background: "#fff" }}>
+        <div className="container-main" style={{ maxWidth: "720px", margin: "0 auto" }}>
+          <div className="section-header text-center" style={{ marginBottom: "28px" }}>
+            <h2 className="typo-h2">
+              Why Join Our <span style={{ color: "var(--color-primary)" }}>Affiliate Program</span>?
             </h2>
-            <p className="text-gray-600 leading-relaxed">
+            <p className="typo-subtext" style={{ maxWidth: "600px", margin: "10px auto 0" }}>
               Partner with EcomGarden and earn generous commissions for every client you refer. Our affiliate program is designed to reward you for helping others discover our premium eCommerce management services.
             </p>
           </div>
 
-          <div className="bg-[#f8f9f9] rounded-xl p-8 mb-10">
+          <div
+            style={{
+              background: "#f6f7f9",
+              borderRadius: "12px",
+              padding: "32px",
+              marginBottom: "28px",
+            }}
+          >
             <ul className="space-y-4">
               {benefits.map((benefit) => (
                 <li key={benefit} className="flex items-center gap-3">
-                  <FaCheck className="text-primary flex-shrink-0" />
-                  <span className="text-gray-700 font-medium">{benefit}</span>
+                  <FaCheck className="flex-shrink-0" style={{ color: "var(--color-primary)" }} />
+                  <span className="typo-body" style={{ fontWeight: 500 }}>{benefit}</span>
                 </li>
               ))}
             </ul>
           </div>
 
           <div className="text-center">
-            <a href="https://wa.me/13072055481" target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex items-center gap-2">
+            <a
+              href="https://wa.me/13072055481"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary inline-flex items-center gap-2"
+            >
               <FaWhatsapp className="text-lg" /> Join Affiliate Today
             </a>
           </div>

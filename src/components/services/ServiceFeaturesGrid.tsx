@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 
 const features = [
   {
@@ -119,11 +119,9 @@ export default function ServiceFeaturesGrid() {
                   marginBottom: "14px",
                 }}
               >
-                <Image
+                <img
                   src={feature.img}
                   alt={feature.title}
-                  width={60}
-                  height={60}
                   style={{ width: "60px", height: "60px", objectFit: "contain" }}
                 />
               </div>

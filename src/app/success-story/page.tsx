@@ -40,84 +40,22 @@ const clientStories = [
 export default function SuccessStoryPage() {
   return (
     <>
-      {/* Dark Hero Section */}
-      <section
-        className="relative overflow-hidden"
-        style={{
-          background: "var(--color-dark)",
-          padding: "44px 0 36px",
-        }}
-      >
-        {/* Decorative circles */}
-        <div
-          className="absolute rounded-full opacity-10"
-          style={{
-            width: "260px",
-            height: "260px",
-            background: "var(--color-primary)",
-            top: "-80px",
-            right: "-60px",
-          }}
-        />
-        <div
-          className="absolute rounded-full opacity-5"
-          style={{
-            width: "180px",
-            height: "180px",
-            background: "var(--color-primary)",
-            bottom: "-60px",
-            left: "-40px",
-          }}
-        />
-
-        <div className="container-main relative z-10 text-center">
-          <span
-            className="inline-block rounded-full font-medium"
-            style={{
-              background: "rgba(40, 167, 69, 0.12)",
-              color: "var(--color-primary)",
-              fontSize: "14px",
-              padding: "5px 16px",
-              marginBottom: "14px",
-              fontFamily: "var(--font-roboto)",
-            }}
-          >
-            Proven Results
-          </span>
-          <h1
-            className="text-white font-bold"
-            style={{
-              fontSize: "30px",
-              lineHeight: "38px",
-              marginBottom: "10px",
-              fontFamily: "var(--font-roboto)",
-            }}
-          >
-            Client Success Stories
-          </h1>
-          <p
-            style={{
-              color: "#9494ac",
-              fontSize: "16px",
-              lineHeight: "22px",
-              maxWidth: "520px",
-              margin: "0 auto",
-              fontFamily: "var(--font-roboto)",
-            }}
-          >
-            Real results from real clients. See how our managed stores
-            consistently deliver strong ROI and healthy accounts.
-          </p>
+      {/* Hero Section */}
+      <section style={{ background: "#f6f7f9", padding: "55px 0" }}>
+        <div className="container-main text-center">
+          <div className="section-header">
+            <span className="typo-label">Proven Results</span>
+            <h1 className="typo-h1">Client Success Stories</h1>
+            <p className="typo-subtext" style={{ maxWidth: "520px", margin: "0 auto" }}>
+              Real results from real clients. See how our managed stores
+              consistently deliver strong ROI and healthy accounts.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Stories Section */}
-      <section
-        style={{
-          background: "var(--color-light-gray)",
-          padding: "44px 0",
-        }}
-      >
+      <section style={{ background: "#fff", padding: "55px 0" }}>
         <div className="container-main">
           <div className="flex flex-col gap-5">
             {clientStories.map((story) => (
@@ -148,16 +86,7 @@ export default function SuccessStoryPage() {
 
                   {/* Content */}
                   <div>
-                    <h3
-                      className="font-bold"
-                      style={{
-                        fontSize: "18px",
-                        lineHeight: "26px",
-                        color: "var(--color-text)",
-                        marginBottom: "16px",
-                        fontFamily: "var(--font-roboto)",
-                      }}
-                    >
+                    <h3 className="typo-h3" style={{ marginBottom: "16px" }}>
                       {story.heading}
                     </h3>
                     <ul className="space-y-2.5">
@@ -174,16 +103,7 @@ export default function SuccessStoryPage() {
                               marginTop: "2px",
                             }}
                           />
-                          <span
-                            style={{
-                              fontSize: "15px",
-                              lineHeight: "20px",
-                              color: "var(--color-text-light)",
-                              fontFamily: "var(--font-roboto)",
-                            }}
-                          >
-                            {bullet}
-                          </span>
+                          <span className="typo-body">{bullet}</span>
                         </li>
                       ))}
                     </ul>

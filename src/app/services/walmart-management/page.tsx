@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+
 import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa";
 import ServiceFeaturesGrid from "@/components/services/ServiceFeaturesGrid";
@@ -153,11 +153,9 @@ export default function WalmartManagementPage() {
 
             {/* Right - Image */}
             <div className="flex justify-center">
-              <Image
+              <img
                 src="/images/services/hero/walmart-hero.jpg"
                 alt="Walmart 2 Step Dropshipping"
-                width={500}
-                height={306}
                 style={{
                   width: "100%",
                   maxWidth: "500px",
@@ -198,11 +196,9 @@ export default function WalmartManagementPage() {
                   }}
                 >
                   <div style={{ position: "relative" }}>
-                    <Image
+                    <img
                       src={step.img}
                       alt={step.title}
-                      width={70}
-                      height={70}
                       style={{
                         width: "70px",
                         height: "70px",
@@ -244,11 +240,9 @@ export default function WalmartManagementPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             {/* Left - Image */}
             <div className="flex justify-center">
-              <Image
+              <img
                 src="/images/services/hero/walmart-secondary.jpg"
                 alt="Manage Walmart Seller Account With EcomGarden"
-                width={570}
-                height={380}
                 style={{
                   width: "100%",
                   borderRadius: "12px",

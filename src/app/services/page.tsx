@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+
 import CTASection from "@/components/home/CTASection";
 
 const services = [
@@ -96,11 +96,9 @@ export default function ServicesPage() {
               >
                 {/* Service icon */}
                 <div style={{ marginBottom: "16px" }}>
-                  <Image
+                  <img
                     src={service.img}
                     alt={service.title}
-                    width={60}
-                    height={60}
                     className="object-contain"
                     style={{ width: "60px", height: "60px" }}
                   />

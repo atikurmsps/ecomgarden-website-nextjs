@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { FaWhatsapp, FaUsers, FaProjectDiagram, FaPeopleCarry, FaGlobeAmericas } from "react-icons/fa";
 import CTASection from "@/components/home/CTASection";
@@ -54,174 +53,78 @@ const teamMembers = [
 export default function AboutPage() {
   return (
     <>
-      {/* Dark Hero Section */}
-      <section
-        style={{
-          background:
-            "linear-gradient(160deg, var(--color-dark) 0%, #1a1555 50%, var(--color-dark) 100%)",
-          padding: "40px 0 36px",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        {/* Decorative circles */}
-        <div
-          style={{
-            position: "absolute",
-            top: "-80px",
-            right: "-80px",
-            width: "250px",
-            height: "250px",
-            borderRadius: "50%",
-            background:
-              "color-mix(in srgb, var(--color-primary) 5%, transparent)",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            bottom: "-60px",
-            left: "-60px",
-            width: "200px",
-            height: "200px",
-            borderRadius: "50%",
-            background:
-              "color-mix(in srgb, var(--color-primary) 4%, transparent)",
-          }}
-        />
-        <div className="container-main" style={{ position: "relative" }}>
-          <div className="text-center">
-            {/* Green badge pill */}
-            <div
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "6px",
-                background:
-                  "color-mix(in srgb, var(--color-primary) 12%, transparent)",
-                border:
-                  "1px solid color-mix(in srgb, var(--color-primary) 20%, transparent)",
-                borderRadius: "50px",
-                padding: "5px 16px",
-                marginBottom: "14px",
-                fontSize: "14px",
-                fontWeight: 600,
-                color: "var(--color-primary)",
-              }}
-            >
-              <FaUsers style={{ fontSize: "11px" }} />
-              About Us
-            </div>
-
-            <h1
-              style={{
-                fontSize: "30px",
-                fontWeight: 700,
-                color: "#fff",
-                marginBottom: "8px",
-                fontFamily: "var(--font-roboto)",
-              }}
-            >
-              Your Trusted eCommerce Partner Since 2018
-            </h1>
-            <p
-              style={{
-                fontSize: "16px",
-                color: "#9494ac",
-                maxWidth: "520px",
-                margin: "0 auto",
-                lineHeight: 1.7,
-              }}
-            >
+      {/* Hero Section */}
+      <section style={{ background: "#f6f7f9", padding: "55px 0" }}>
+        <div className="container-main text-center">
+          <div className="section-header">
+            <span className="typo-label">About Us</span>
+            <h1 className="typo-h1">Your Trusted eCommerce Partner Since 2018</h1>
+            <p className="typo-subtext" style={{ maxWidth: "520px", margin: "0 auto" }}>
               We help entrepreneurs build and scale profitable Amazon, eBay, and
               Walmart businesses across nine countries worldwide.
             </p>
+          </div>
 
-            {/* Stats row */}
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                gap: "12px",
-                marginTop: "28px",
-                flexWrap: "wrap",
-              }}
-            >
-              {stats.map((stat) => {
-                const Icon = stat.icon;
-                return (
-                  <div
-                    key={stat.label}
+          {/* Stats row */}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              gap: "12px",
+              marginTop: "28px",
+              flexWrap: "wrap",
+            }}
+          >
+            {stats.map((stat) => {
+              const Icon = stat.icon;
+              return (
+                <div
+                  key={stat.label}
+                  style={{
+                    background: "#fff",
+                    border: "1px solid #e8e8ee",
+                    borderRadius: "10px",
+                    padding: "14px 22px",
+                    minWidth: "130px",
+                    textAlign: "center",
+                  }}
+                >
+                  <Icon
                     style={{
-                      background:
-                        "color-mix(in srgb, var(--color-primary) 8%, transparent)",
-                      border:
-                        "1px solid color-mix(in srgb, var(--color-primary) 15%, transparent)",
-                      borderRadius: "10px",
-                      padding: "14px 22px",
-                      minWidth: "130px",
-                      textAlign: "center",
+                      fontSize: "16px",
+                      color: "var(--color-primary)",
+                      marginBottom: "6px",
+                    }}
+                  />
+                  <div
+                    style={{
+                      fontSize: "22px",
+                      fontWeight: 700,
+                      color: "var(--color-text)",
                     }}
                   >
-                    <Icon
-                      style={{
-                        fontSize: "16px",
-                        color: "var(--color-primary)",
-                        marginBottom: "6px",
-                      }}
-                    />
-                    <div
-                      style={{
-                        fontSize: "22px",
-                        fontWeight: 700,
-                        color: "#fff",
-                        fontFamily: "var(--font-roboto)",
-                      }}
-                    >
-                      {stat.value}
-                    </div>
-                    <div
-                      style={{
-                        fontSize: "14px",
-                        color: "#9494ac",
-                        marginTop: "2px",
-                      }}
-                    >
-                      {stat.label}
-                    </div>
+                    {stat.value}
                   </div>
-                );
-              })}
-            </div>
+                  <div className="typo-small">
+                    {stat.label}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Intro Section */}
-      <section style={{ padding: "44px 0" }} className="bg-white">
+      <section style={{ padding: "55px 0", background: "#fff" }}>
         <div className="container-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             {/* Left - Text */}
             <div>
-              <h2
-                style={{
-                  fontSize: "26px",
-                  fontWeight: 700,
-                  color: "var(--color-text)",
-                  marginBottom: "16px",
-                  fontFamily: "var(--font-roboto)",
-                }}
-              >
+              <h2 className="typo-h2" style={{ marginBottom: "16px" }}>
                 Welcome to EcomGarden
               </h2>
-              <p
-                style={{
-                  fontSize: "16px",
-                  color: "var(--color-text-light)",
-                  lineHeight: 1.7,
-                  marginBottom: "12px",
-                }}
-              >
+              <p className="typo-body" style={{ marginBottom: "12px" }}>
                 Hello and welcome to EcomGarden, your friendly Amazon business
                 advisor since 2018. We&apos;re thrilled to share our journey
                 with you &ndash; it includes partnering with over 200 clients,
@@ -230,14 +133,7 @@ export default function AboutPage() {
                 nine different countries, helping people just like you
                 everywhere.
               </p>
-              <p
-                style={{
-                  fontSize: "16px",
-                  color: "var(--color-text-light)",
-                  lineHeight: 1.7,
-                  marginBottom: "12px",
-                }}
-              >
+              <p className="typo-body" style={{ marginBottom: "12px" }}>
                 Our team is here to make selling on Amazon a breeze. Whether
                 you&apos;re looking to sell big quantities through Amazon FBA
                 wholesale, find good deals with online arbitrage, create your
@@ -248,14 +144,7 @@ export default function AboutPage() {
                 the rankings, and even help you if you&apos;re having trouble
                 with your account.
               </p>
-              <p
-                style={{
-                  fontSize: "16px",
-                  color: "var(--color-text-light)",
-                  lineHeight: 1.7,
-                  marginBottom: "20px",
-                }}
-              >
+              <p className="typo-body" style={{ marginBottom: "20px" }}>
                 Let us join your Amazon adventure and make your business soar.
                 We keep things straightforward and successful &ndash;
                 that&apos;s the EcomGarden way!
@@ -273,13 +162,13 @@ export default function AboutPage() {
 
             {/* Right - Image */}
             <div className="flex justify-center">
-              <Image
+              <img
                 src="/images/about/team-group.webp"
                 alt="EcomGarden Team"
-                width={550}
-                height={400}
                 className="w-full max-w-[550px] h-auto rounded-lg"
                 style={{
+                  width: "550px",
+                  height: "auto",
                   boxShadow: "0 8px 30px rgba(0,0,0,0.1)",
                   borderRadius: "12px",
                 }}
@@ -290,24 +179,19 @@ export default function AboutPage() {
       </section>
 
       {/* Our Story Section */}
-      <section
-        style={{
-          padding: "44px 0",
-          backgroundColor: "var(--color-light-gray)",
-        }}
-      >
+      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
           <div style={{ maxWidth: "900px", margin: "0 auto" }}>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
               {/* Left - Founder Image */}
               <div className="flex justify-center">
-                <Image
+                <img
                   src="/images/about/atikur-shohel.jpeg"
                   alt="Atikur Rahman Shohel - Founder"
-                  width={250}
-                  height={300}
                   className="w-full max-w-[250px] h-auto"
                   style={{
+                    width: "250px",
+                    height: "auto",
                     borderRadius: "12px",
                     boxShadow: "0 8px 25px rgba(0,0,0,0.08)",
                   }}
@@ -316,25 +200,10 @@ export default function AboutPage() {
 
               {/* Right - Story Text */}
               <div className="lg:col-span-2">
-                <h2
-                  style={{
-                    fontSize: "26px",
-                    fontWeight: 700,
-                    color: "var(--color-text)",
-                    marginBottom: "16px",
-                    fontFamily: "var(--font-roboto)",
-                  }}
-                >
+                <h2 className="typo-h2" style={{ marginBottom: "16px" }}>
                   Our Story
                 </h2>
-                <p
-                  style={{
-                    fontSize: "16px",
-                    color: "var(--color-text-light)",
-                    lineHeight: 1.7,
-                    marginBottom: "12px",
-                  }}
-                >
+                <p className="typo-body" style={{ marginBottom: "12px" }}>
                   In 2014, I began my web development journey on Odesk, a
                   freelancer marketplace. I worked on various projects and
                   initially focused on a dropshipping store in 2016. It
@@ -346,14 +215,7 @@ export default function AboutPage() {
                   time, I decided to expand myself with a team and start taking
                   on public projects.
                 </p>
-                <p
-                  style={{
-                    fontSize: "16px",
-                    color: "var(--color-text-light)",
-                    lineHeight: 1.7,
-                    marginBottom: "20px",
-                  }}
-                >
+                <p className="typo-body" style={{ marginBottom: "20px" }}>
                   I established a team named ITFLE LTD and registered it in the
                   UK due to significant restrictions on banking. In 2021, I
                   registered this business in USA named EKKID LLC. In 2023, we
@@ -363,7 +225,7 @@ export default function AboutPage() {
                 <div>
                   <p
                     style={{
-                      fontSize: "16px",
+                      fontSize: "15px",
                       fontWeight: 700,
                       color: "var(--color-primary)",
                       marginBottom: "2px",
@@ -371,12 +233,7 @@ export default function AboutPage() {
                   >
                     Atikur Rahman Shohel
                   </p>
-                  <p
-                    style={{
-                      fontSize: "15px",
-                      color: "var(--color-text-light)",
-                    }}
-                  >
+                  <p className="typo-small">
                     Founder &amp; Head Of Business, EcomGarden
                   </p>
                 </div>
@@ -387,31 +244,11 @@ export default function AboutPage() {
       </section>
 
       {/* Team Section */}
-      <section style={{ padding: "44px 0" }} className="bg-white">
+      <section style={{ padding: "55px 0", background: "#fff" }}>
         <div className="container-main">
-          <div className="text-center" style={{ marginBottom: "28px" }}>
-            <p
-              style={{
-                fontSize: "14px",
-                fontWeight: 700,
-                color: "var(--color-primary)",
-                textTransform: "uppercase",
-                letterSpacing: "1.5px",
-                marginBottom: "6px",
-              }}
-            >
-              Leadership Team
-            </p>
-            <h2
-              style={{
-                fontSize: "26px",
-                fontWeight: 700,
-                color: "var(--color-text)",
-                fontFamily: "var(--font-roboto)",
-              }}
-            >
-              Meet Our Team
-            </h2>
+          <div className="section-header text-center" style={{ marginBottom: "28px" }}>
+            <span className="typo-label">Leadership Team</span>
+            <h2 className="typo-h2">Meet Our Team</h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -441,11 +278,9 @@ export default function AboutPage() {
                 }}
               >
                 <div className="flex justify-center" style={{ marginBottom: "14px" }}>
-                  <Image
+                  <img
                     src={member.photo}
                     alt={member.name}
-                    width={120}
-                    height={120}
                     className="object-cover"
                     style={{
                       width: "120px",
@@ -460,7 +295,6 @@ export default function AboutPage() {
                     fontWeight: 700,
                     color: "var(--color-text)",
                     marginBottom: "4px",
-                    fontFamily: "var(--font-roboto)",
                   }}
                 >
                   {member.name}
@@ -475,13 +309,7 @@ export default function AboutPage() {
                 >
                   {member.title}
                 </p>
-                <p
-                  style={{
-                    fontSize: "16px",
-                    color: "var(--color-text-light)",
-                    lineHeight: 1.6,
-                  }}
-                >
+                <p className="typo-body">
                   {member.bio}
                 </p>
               </div>

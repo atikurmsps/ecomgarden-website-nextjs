@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+
 
 const features = [
   { img: "/images/features/zero-work.webp", title: "Zero Work From You", description: "We handle everything — you just watch your business grow." },
@@ -52,11 +52,9 @@ export default function FeaturesGrid() {
               className="feature-card"
             >
               <div style={{ display: "flex", justifyContent: "center", marginBottom: "10px" }}>
-                <Image
+                <img
                   src={feature.img}
                   alt={feature.title}
-                  width={100}
-                  height={100}
                   style={{ width: "56px", height: "56px", objectFit: "contain" }}
                 />
               </div>

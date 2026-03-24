@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+
 import Link from "next/link";
 import { FaWhatsapp, FaCheck } from "react-icons/fa";
 import CTASection from "@/components/home/CTASection";
@@ -146,11 +146,9 @@ export default function ThreePLWarehousePage() {
 
             {/* Right - Image */}
             <div style={{ display: "flex", justifyContent: "center" }}>
-              <Image
+              <img
                 src="/images/warehouse/warehouse-map.webp"
                 alt="3PL Warehouse Locations Map"
-                width={550}
-                height={400}
                 style={{ borderRadius: "12px", width: "100%", maxWidth: "550px", height: "auto" }}
               />
             </div>
@@ -161,10 +159,10 @@ export default function ThreePLWarehousePage() {
       {/* Pricing Section */}
       <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
-          <div className="section-header" style={{ textAlign: "left" }}>
+          <div className="section-header">
             <span className="typo-label">Pricing</span>
             <h2 className="typo-h2">Flat Rate Pricing</h2>
-            <p className="typo-subtext" style={{ maxWidth: "720px", margin: "8px 0 32px" }}>
+            <p className="typo-subtext">
               We believe in transparency. Our pricing is flat rate and no
               hidden charge. There are no monthly fees in our warehouse
               service. Receive, Process, Shipping, Storage your items with

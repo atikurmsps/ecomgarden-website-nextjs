@@ -8,37 +8,40 @@ export const metadata: Metadata = {
 export default function TermsPage() {
   return (
     <>
-      <section className="bg-[#2b2e37] text-white py-16 lg:py-20">
-        <div className="container mx-auto px-4 lg:px-8 text-center">
-          <h1 className="text-3xl md:text-5xl font-bold mb-4 text-white" style={{ fontFamily: "var(--font-roboto-slab)" }}>
-            Terms &amp; Conditions
-          </h1>
+      {/* Hero Section */}
+      <section style={{ background: "#f6f7f9", padding: "55px 0" }}>
+        <div className="container-main text-center">
+          <div className="section-header">
+            <span className="typo-label">Legal</span>
+            <h1 className="typo-h1">Terms &amp; Conditions</h1>
+          </div>
         </div>
       </section>
 
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 lg:px-8 max-w-3xl prose prose-gray">
-          <p className="text-gray-600 leading-relaxed mb-6">
+      {/* Content Section */}
+      <section style={{ padding: "55px 0", background: "#fff" }}>
+        <div className="container-main" style={{ maxWidth: "720px", margin: "0 auto" }}>
+          <p className="typo-body" style={{ marginBottom: "24px" }}>
             Welcome to EcomGarden. By using our website and services, you agree to be bound by these Terms and Conditions.
           </p>
 
-          <h2 className="text-xl font-bold mb-3" style={{ fontFamily: "var(--font-roboto-slab)" }}>Services</h2>
-          <p className="text-gray-600 leading-relaxed mb-6">
+          <h2 className="typo-h3" style={{ marginBottom: "12px" }}>Services</h2>
+          <p className="typo-body" style={{ marginBottom: "24px" }}>
             EcomGarden provides eCommerce management services including Amazon, Walmart, and Shopify store management, warehouse services, and shipping solutions.
           </p>
 
-          <h2 className="text-xl font-bold mb-3" style={{ fontFamily: "var(--font-roboto-slab)" }}>Payment Terms</h2>
-          <p className="text-gray-600 leading-relaxed mb-6">
+          <h2 className="typo-h3" style={{ marginBottom: "12px" }}>Payment Terms</h2>
+          <p className="typo-body" style={{ marginBottom: "24px" }}>
             Payment terms are agreed upon during the initial consultation. All fees are due as specified in your service agreement.
           </p>
 
-          <h2 className="text-xl font-bold mb-3" style={{ fontFamily: "var(--font-roboto-slab)" }}>Limitation of Liability</h2>
-          <p className="text-gray-600 leading-relaxed mb-6">
+          <h2 className="typo-h3" style={{ marginBottom: "12px" }}>Limitation of Liability</h2>
+          <p className="typo-body" style={{ marginBottom: "24px" }}>
             EcomGarden shall not be liable for any indirect, incidental, special, or consequential damages resulting from the use of our services.
           </p>
 
-          <h2 className="text-xl font-bold mb-3" style={{ fontFamily: "var(--font-roboto-slab)" }}>Contact</h2>
-          <p className="text-gray-600 leading-relaxed">
+          <h2 className="typo-h3" style={{ marginBottom: "12px" }}>Contact</h2>
+          <p className="typo-body">
             For questions about these terms, contact us at support@ecomgarden.com or call +1 307 205 5481.
           </p>
         </div>

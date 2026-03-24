@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+
 
 const steps = [
   {
@@ -66,11 +66,9 @@ export default function ProcessSection() {
             >
               {/* Icon — no bg circle, no step number */}
               <div style={{ marginBottom: "12px" }}>
-                <Image
+                <img
                   src={step.img}
                   alt={step.title}
-                  width={90}
-                  height={90}
                   style={{ width: "72px", height: "72px", objectFit: "contain" }}
                 />
               </div>

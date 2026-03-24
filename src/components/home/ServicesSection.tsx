@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+
 
 const services = [
   {
@@ -98,11 +98,9 @@ export default function ServicesSection() {
                   justifyContent: "center",
                 }}
               >
-                <Image
+                <img
                   src={service.img}
                   alt={service.title}
-                  width={80}
-                  height={80}
                   style={{ width: "40px", height: "40px", objectFit: "contain" }}
                 />
               </div>

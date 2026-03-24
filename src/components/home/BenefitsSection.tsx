@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
+
 import { FaChevronDown } from "react-icons/fa";
 
 const accordionItems = [
@@ -53,11 +53,9 @@ export default function BenefitsSection() {
         >
           {/* Left - Image */}
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <Image
+            <img
               src="/images/benefits/benefits-illustration.webp"
               alt="Benefits of our service"
-              width={524}
-              height={400}
               style={{ width: "100%", maxWidth: "460px", height: "auto", borderRadius: "10px" }}
             />
           </div>

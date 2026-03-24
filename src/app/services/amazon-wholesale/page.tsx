@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+
 import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa";
 import ServiceFeaturesGrid from "@/components/services/ServiceFeaturesGrid";
@@ -141,11 +141,9 @@ export default function AmazonWholesalePage() {
 
             {/* Right - Image */}
             <div className="flex justify-center">
-              <Image
+              <img
                 src="/images/services/hero/wholesale-hero.jpg"
                 alt="Build Your Dream with Amazon Wholesale"
-                width={500}
-                height={357}
                 style={{
                   width: "100%",
                   maxWidth: "500px",
@@ -186,11 +184,9 @@ export default function AmazonWholesalePage() {
                   }}
                 >
                   <div style={{ position: "relative" }}>
-                    <Image
+                    <img
                       src={step.img}
                       alt={step.title}
-                      width={70}
-                      height={70}
                       style={{
                         width: "70px",
                         height: "70px",
@@ -232,11 +228,9 @@ export default function AmazonWholesalePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             {/* Left - Image */}
             <div className="flex justify-center">
-              <Image
+              <img
                 src="/images/services/management/ecommerce-fulfilment.jpg"
                 alt="Manage Amazon Seller Account With EcomGarden"
-                width={570}
-                height={380}
                 style={{
                   width: "100%",
                   borderRadius: "12px",

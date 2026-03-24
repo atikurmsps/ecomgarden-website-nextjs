@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+
 import {
   FaFacebookF,
   FaYoutube,
@@ -46,11 +46,9 @@ export default function Footer() {
             {/* Column 1 — Brand */}
             <div>
               <Link href="/" style={{ display: "inline-block", marginBottom: "12px" }}>
-                <Image
+                <img
                   src="/images/logo.webp"
                   alt="EcomGarden"
-                  width={200}
-                  height={73}
                   className="brightness-200"
                   style={{ height: "44px", width: "auto" }}
                 />

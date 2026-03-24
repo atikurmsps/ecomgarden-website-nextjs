@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { FaChevronDown, FaQuestionCircle } from "react-icons/fa";
+import { FaChevronDown } from "react-icons/fa";
 import CTASection from "@/components/home/CTASection";
 
 const faqs = [
@@ -60,65 +60,12 @@ export default function FAQPage() {
   return (
     <>
       {/* Hero */}
-      <section
-        style={{
-          background:
-            "linear-gradient(160deg, var(--color-dark) 0%, #1a1555 50%, var(--color-dark) 100%)",
-          padding: "40px 0 36px",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            top: "-80px",
-            right: "-80px",
-            width: "250px",
-            height: "250px",
-            borderRadius: "50%",
-            background: "color-mix(in srgb, var(--color-primary) 5%, transparent)",
-          }}
-        />
-        <div className="container-main" style={{ position: "relative" }}>
-          <div className="text-center">
-            <div
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "6px",
-                background: "color-mix(in srgb, var(--color-primary) 12%, transparent)",
-                border: "1px solid color-mix(in srgb, var(--color-primary) 20%, transparent)",
-                borderRadius: "50px",
-                padding: "5px 16px",
-                marginBottom: "14px",
-                fontSize: "14px",
-                fontWeight: 600,
-                color: "var(--color-primary)",
-              }}
-            >
-              <FaQuestionCircle style={{ fontSize: "11px" }} />
-              Got Questions?
-            </div>
-            <h1
-              style={{
-                fontSize: "27px",
-                fontWeight: 700,
-                color: "#fff",
-                marginBottom: "8px",
-              }}
-            >
-              Frequently Asked Questions
-            </h1>
-            <p
-              style={{
-                fontSize: "16px",
-                color: "#9494ac",
-                maxWidth: "480px",
-                margin: "0 auto",
-                lineHeight: 1.7,
-              }}
-            >
+      <section style={{ background: "#f6f7f9", padding: "55px 0" }}>
+        <div className="container-main text-center">
+          <div className="section-header">
+            <span className="typo-label">Got Questions?</span>
+            <h1 className="typo-h1">Frequently Asked Questions</h1>
+            <p className="typo-subtext" style={{ maxWidth: "480px", margin: "0 auto" }}>
               Everything you need to know about our eCommerce management
               services and business models.
             </p>
@@ -127,7 +74,7 @@ export default function FAQPage() {
       </section>
 
       {/* FAQ Section */}
-      <section style={{ padding: "40px 0 48px", backgroundColor: "var(--color-light-gray)" }}>
+      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
           <div style={{ maxWidth: "780px", margin: "0 auto" }}>
             {faqs.map((item, index) => {
@@ -240,13 +187,7 @@ export default function FAQPage() {
                         padding: "0 18px 16px 58px",
                       }}
                     >
-                      <p
-                        style={{
-                          fontSize: "15px",
-                          color: "var(--color-text-light)",
-                          lineHeight: 1.7,
-                        }}
-                      >
+                      <p className="typo-body">
                         {item.answer}
                       </p>
                     </div>
@@ -269,23 +210,10 @@ export default function FAQPage() {
               boxShadow: "0 2px 12px rgba(0,0,0,0.03)",
             }}
           >
-            <h3
-              style={{
-                fontSize: "18px",
-                fontWeight: 700,
-                color: "var(--color-text)",
-                marginBottom: "6px",
-              }}
-            >
+            <h3 className="typo-h3" style={{ marginBottom: "6px" }}>
               Still have questions?
             </h3>
-            <p
-              style={{
-                fontSize: "15px",
-                color: "var(--color-text-light)",
-                marginBottom: "14px",
-              }}
-            >
+            <p className="typo-body" style={{ marginBottom: "14px" }}>
               Can&apos;t find the answer you&apos;re looking for? Reach out to
               our team.
             </p>
@@ -297,36 +225,13 @@ export default function FAQPage() {
                 href="https://wa.link/m2ac6m"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{
-                  background: "var(--color-primary)",
-                  color: "#fff",
-                  padding: "10px 24px",
-                  borderRadius: "8px",
-                  fontWeight: 600,
-                  fontSize: "15px",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  textDecoration: "none",
-                }}
+                className="btn-primary"
               >
                 Chat on WhatsApp
               </a>
               <a
                 href="/contact"
-                style={{
-                  background: "#f5f5f5",
-                  color: "var(--color-text)",
-                  padding: "10px 24px",
-                  borderRadius: "8px",
-                  fontWeight: 600,
-                  fontSize: "15px",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  textDecoration: "none",
-                  border: "1px solid #eee",
-                }}
+                className="btn-outline"
               >
                 Contact Us
               </a>

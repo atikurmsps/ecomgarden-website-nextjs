@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+
 import Link from "next/link";
 import { FaWhatsapp, FaCheck } from "react-icons/fa";
 import CTASection from "@/components/home/CTASection";
@@ -100,11 +100,9 @@ export default function FlatRateShippingPage() {
 
             {/* Right - Image */}
             <div style={{ display: "flex", justifyContent: "center" }}>
-              <Image
+              <img
                 src="/images/services/hero/shipping-hero.jpg"
                 alt="Flat Rate Cheap USPS & UPS Shipping Label"
-                width={500}
-                height={334}
                 style={{ borderRadius: "12px", width: "100%", maxWidth: "500px", height: "auto" }}
               />
             </div>

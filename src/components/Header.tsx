@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
+
 import { usePathname } from "next/navigation";
 import { FaBars, FaTimes, FaChevronDown, FaWhatsapp } from "react-icons/fa";
 
@@ -88,14 +88,11 @@ export default function Header() {
         >
           {/* Logo */}
           <Link href="/" className="flex items-center flex-shrink-0">
-            <Image
+            <img
               src="/images/logo.webp"
               alt="EcomGarden"
-              width={220}
-              height={80}
               className="w-auto"
               style={{ height: "42px" }}
-              priority
             />
           </Link>
 

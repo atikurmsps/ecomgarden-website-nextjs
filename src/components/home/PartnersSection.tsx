@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+
 
 const partners = [
   { name: "USPS", img: "/images/partners/usps.webp", w: 157, h: 77 },
@@ -48,11 +48,9 @@ export default function PartnersSection() {
                 cursor: "default",
               }}
             >
-              <Image
+              <img
                 src={partner.img}
                 alt={partner.name}
-                width={partner.w}
-                height={partner.h}
                 style={{ maxWidth: "120px", maxHeight: "48px", width: "auto", height: "auto", objectFit: "contain" }}
               />
             </div>

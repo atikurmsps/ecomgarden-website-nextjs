@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
+
 import { FaCheckCircle } from "react-icons/fa";
 
 const warehouseFeatures = [
@@ -52,11 +52,9 @@ export default function WarehouseSection() {
 
           {/* Right - Map Image */}
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <Image
+            <img
               src="/images/warehouse/warehouse-map.webp"
               alt="Warehouse Locations Map"
-              width={550}
-              height={400}
               style={{ width: "100%", maxWidth: "440px", height: "auto", borderRadius: "10px" }}
             />
           </div>

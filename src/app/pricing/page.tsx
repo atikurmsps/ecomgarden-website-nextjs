@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 import Link from "next/link";
 import {
   FaWhatsapp,
@@ -267,14 +267,11 @@ export default function PricingPage() {
 
             {/* Right Image */}
             <div className="hidden lg:flex justify-center">
-              <Image
+              <img
                 src="/images/pricing/hero-vacation.png"
                 alt="Start your unlimited vacation"
-                width={500}
-                height={400}
                 className="object-contain"
                 style={{ maxHeight: "360px", width: "auto" }}
-                priority
               />
             </div>
           </div>
@@ -349,12 +346,11 @@ export default function PricingPage() {
                     margin: "0 auto 14px",
                   }}
                 >
-                  <Image
+                  <img
                     src={service.img}
                     alt={service.title}
-                    width={44}
-                    height={44}
                     className="object-contain"
+                    style={{ width: "44px", height: "44px" }}
                   />
                 </div>
                 <h3
@@ -474,12 +470,11 @@ export default function PricingPage() {
                       flexShrink: 0,
                     }}
                   >
-                    <Image
+                    <img
                       src={service.img}
                       alt={service.title}
-                      width={40}
-                      height={40}
                       className="object-contain"
+                      style={{ width: "40px", height: "40px" }}
                     />
                   </div>
                   <div>

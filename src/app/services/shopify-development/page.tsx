@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+
 import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa";
 import ServiceBenefits from "@/components/services/ServiceBenefits";
@@ -271,11 +271,9 @@ export default function ShopifyDevelopmentPage() {
 
             {/* Right - Image */}
             <div style={{ display: "flex", justifyContent: "center" }}>
-              <Image
+              <img
                 src="/images/services/hero/shopify-hero.svg"
                 alt="Shopify Store Development & Management"
-                width={500}
-                height={400}
                 style={{ borderRadius: "12px", width: "100%", maxWidth: "500px", height: "auto" }}
               />
             </div>
@@ -302,11 +300,9 @@ export default function ShopifyDevelopmentPage() {
                 }}
               >
                 <div style={{ display: "flex", justifyContent: "center", marginBottom: "16px" }}>
-                  <Image
+                  <img
                     src={feature.icon}
                     alt={feature.title}
-                    width={80}
-                    height={80}
                     style={{ width: "80px", height: "80px", objectFit: "contain" }}
                   />
                 </div>
@@ -334,11 +330,9 @@ export default function ShopifyDevelopmentPage() {
               <div key={step.title} style={{ textAlign: "center" }}>
                 <div style={{ display: "flex", justifyContent: "center", marginBottom: "16px" }}>
                   <div style={{ position: "relative" }}>
-                    <Image
+                    <img
                       src={step.img}
                       alt={step.title}
-                      width={80}
-                      height={80}
                       style={{ width: "80px", height: "80px", objectFit: "contain" }}
                     />
                     <div
@@ -390,11 +384,9 @@ export default function ShopifyDevelopmentPage() {
                   boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
                 }}
               >
-                <Image
+                <img
                   src={item.img}
                   alt={item.title}
-                  width={400}
-                  height={300}
                   style={{ width: "100%", height: "auto", objectFit: "cover" }}
                 />
                 <div style={{ padding: "16px" }}>
