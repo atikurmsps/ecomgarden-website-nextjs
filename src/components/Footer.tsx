@@ -47,9 +47,8 @@ export default function Footer() {
             <div>
               <Link href="/" style={{ display: "inline-block", marginBottom: "12px" }}>
                 <img
-                  src="/images/logo.webp"
+                  src="/images/logo-white.webp"
                   alt="EcomGarden"
-                  className="brightness-200"
                   style={{ height: "44px", width: "auto" }}
                 />
               </Link>
