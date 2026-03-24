@@ -150,25 +150,45 @@ export default function HeroSection() {
                 <svg viewBox="0 0 440 440" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "auto" }}>
                   <defs>
                     <style>{`
-                      @keyframes barGrow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
-                      @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-                      @keyframes countUp { from { opacity: 0; } to { opacity: 1; } }
+                      /* 6s total cycle: grow in 0-1.5s, hold 1.5-4s, fade out 4-5s, pause 5-6s */
+                      @keyframes barLoop {
+                        0% { transform: scaleY(0); }
+                        15% { transform: scaleY(1); }
+                        70% { transform: scaleY(1); }
+                        85% { transform: scaleY(0); }
+                        100% { transform: scaleY(0); }
+                      }
+                      @keyframes fadeLoop {
+                        0% { opacity: 0; transform: translateY(8px); }
+                        15% { opacity: 1; transform: translateY(0); }
+                        70% { opacity: 1; transform: translateY(0); }
+                        85% { opacity: 0; transform: translateY(-4px); }
+                        100% { opacity: 0; transform: translateY(8px); }
+                      }
+                      @keyframes revenueLoop {
+                        0% { opacity: 0; }
+                        12% { opacity: 1; }
+                        70% { opacity: 1; }
+                        85% { opacity: 0; }
+                        100% { opacity: 0; }
+                      }
                       @keyframes pulseGlow { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
-                      .bar { transform-origin: bottom; animation: barGrow 0.8s ease-out forwards; opacity: 1; }
-                      .bar-1 { animation-delay: 0.1s; transform: scaleY(0); }
-                      .bar-2 { animation-delay: 0.2s; transform: scaleY(0); }
-                      .bar-3 { animation-delay: 0.3s; transform: scaleY(0); }
-                      .bar-4 { animation-delay: 0.4s; transform: scaleY(0); }
-                      .bar-5 { animation-delay: 0.5s; transform: scaleY(0); }
-                      .bar-6 { animation-delay: 0.6s; transform: scaleY(0); }
-                      .bar-7 { animation-delay: 0.7s; transform: scaleY(0); }
-                      .bar-8 { animation-delay: 0.8s; transform: scaleY(0); }
-                      .bar-9 { animation-delay: 0.9s; transform: scaleY(0); }
-                      .stat-card { animation: fadeSlideUp 0.6s ease-out forwards; opacity: 0; }
-                      .stat-1 { animation-delay: 0.2s; }
-                      .stat-2 { animation-delay: 0.4s; }
-                      .stat-3 { animation-delay: 0.6s; }
-                      .revenue-text { animation: countUp 1s ease-out 0.3s forwards; opacity: 0; }
+
+                      .bar { transform-origin: bottom; animation: barLoop 6s ease-in-out infinite; }
+                      .bar-1 { animation-delay: 0s; }
+                      .bar-2 { animation-delay: 0.08s; }
+                      .bar-3 { animation-delay: 0.16s; }
+                      .bar-4 { animation-delay: 0.24s; }
+                      .bar-5 { animation-delay: 0.32s; }
+                      .bar-6 { animation-delay: 0.4s; }
+                      .bar-7 { animation-delay: 0.48s; }
+                      .bar-8 { animation-delay: 0.56s; }
+                      .bar-9 { animation-delay: 0.64s; }
+                      .stat-card { animation: fadeLoop 6s ease-in-out infinite; }
+                      .stat-1 { animation-delay: 0.1s; }
+                      .stat-2 { animation-delay: 0.25s; }
+                      .stat-3 { animation-delay: 0.4s; }
+                      .revenue-text { animation: revenueLoop 6s ease-in-out infinite; animation-delay: 0.15s; }
                       .roi-badge { animation: pulseGlow 2s ease-in-out infinite; }
                     `}</style>
                   </defs>
