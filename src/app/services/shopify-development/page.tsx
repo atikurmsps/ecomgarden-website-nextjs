@@ -1,6 +1,3 @@
-"use client";
-
-
 import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa";
 import ServiceBenefits from "@/components/services/ServiceBenefits";

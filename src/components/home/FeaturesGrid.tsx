@@ -1,7 +1,5 @@
 "use client";
 
-
-
 const features = [
   { img: "/images/features/zero-work.webp", title: "Zero Work From You", description: "We handle everything — you just watch your business grow." },
   { img: "/images/features/personal-manager.webp", title: "Personal Manager", description: "Dedicated account manager as your single point of contact." },

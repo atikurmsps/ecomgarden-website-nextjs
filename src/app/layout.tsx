@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Roboto, Roboto_Slab } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -9,12 +9,6 @@ const roboto = Roboto({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-roboto",
-});
-
-const robotoSlab = Roboto_Slab({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-roboto-slab",
 });
 
 export const metadata: Metadata = {
@@ -32,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${roboto.variable} ${robotoSlab.variable} antialiased`} style={{ fontFamily: "var(--font-roboto)" }}>
+      <body className={`${roboto.variable} antialiased`} style={{ fontFamily: "var(--font-roboto)" }}>
         <Header />
         <main>{children}</main>
         <Footer />

@@ -9,11 +9,9 @@
   --color-dark: #1a1a2e;
   --color-dark-light: #2d2d44;
   --color-light-gray: #f8f9fa;
-  --color-medium-gray: #f1f3f5;
   --color-text: #333;
   --color-text-light: #666;
   --font-roboto: 'Roboto', sans-serif;
-  --font-roboto-slab: 'Roboto Slab', serif;
 }
 
 * {
@@ -183,11 +181,6 @@ h1, h2, h3, h4, h5, h6 {
 .whatsapp-float:hover {
   transform: scale(1.08);
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
-}
-
-/* Section spacing */
-.section-padding {
-  padding: 40px 0;
 }
 
 /* ===== Universal Typography System ===== */

@@ -1,7 +1,5 @@
 "use client";
 
-
-
 const partners = [
   { name: "USPS", img: "/images/partners/usps.webp", w: 157, h: 77 },
   { name: "Amazon SPN", img: "/images/partners/amazon-spn.webp", w: 157, h: 60 },

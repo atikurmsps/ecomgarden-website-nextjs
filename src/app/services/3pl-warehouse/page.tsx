@@ -1,6 +1,3 @@
-"use client";
-
-
 import Link from "next/link";
 import { FaWhatsapp, FaCheck } from "react-icons/fa";
 import CTASection from "@/components/home/CTASection";

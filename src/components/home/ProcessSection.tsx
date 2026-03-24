@@ -1,7 +1,5 @@
 "use client";
 
-
-
 const steps = [
   {
     img: "/images/process/discussion.png",
