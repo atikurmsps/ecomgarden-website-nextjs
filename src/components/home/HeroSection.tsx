@@ -42,7 +42,7 @@ export default function HeroSection() {
       <div className="container-main">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
           {/* Left Content */}
-          <div style={{ padding: "55px 0 90px" }}>
+          <div style={{ padding: "55px 0 110px" }}>
             <span className="typo-label" style={{ display: "block", marginBottom: "10px" }}>
               #1 Ecommerce Management Agency
             </span>
@@ -140,12 +140,12 @@ export default function HeroSection() {
               <div
                 style={{
                   width: "100%",
-                  maxWidth: "480px",
+                  maxWidth: "440px",
                   borderRadius: "16px",
                   overflow: "hidden",
                   boxShadow: "0 12px 40px rgba(0,0,0,0.12)",
                   position: "relative",
-                  paddingBottom: "56.25%",
+                  paddingBottom: "100%",
                 }}
               >
                 <iframe
@@ -173,11 +173,11 @@ export default function HeroSection() {
                   position: "relative",
                 }}
               >
-                {/* Dashboard-style SVG illustration */}
-                <svg viewBox="0 0 440 320" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "auto" }}>
+                {/* Dashboard-style SVG illustration — 1:1 ratio */}
+                <svg viewBox="0 0 440 440" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "auto" }}>
                   {/* Background card */}
-                  <rect x="0" y="0" width="440" height="320" rx="16" fill="white" />
-                  <rect x="0" y="0" width="440" height="320" rx="16" stroke="#e8e8ee" strokeWidth="1" />
+                  <rect x="0" y="0" width="440" height="440" rx="16" fill="white" />
+                  <rect x="0" y="0" width="440" height="440" rx="16" stroke="#e8e8ee" strokeWidth="1" />
 
                   {/* Header bar */}
                   <rect x="0" y="0" width="440" height="48" rx="16" fill="#1a1a2e" />
@@ -205,27 +205,31 @@ export default function HeroSection() {
                   <text x="302" y="145" fill="#999" fontSize="10" fontFamily="Roboto, sans-serif">Active Stores</text>
                   <text x="302" y="165" fill="#1a1a2e" fontSize="16" fontWeight="700" fontFamily="Roboto, sans-serif">55+</text>
 
-                  {/* Chart bars */}
-                  <rect x="40" y="260" width="28" height="40" rx="4" fill="#dcfce7" />
-                  <rect x="80" y="240" width="28" height="60" rx="4" fill="#dcfce7" />
-                  <rect x="120" y="220" width="28" height="80" rx="4" fill="#dcfce7" />
-                  <rect x="160" y="235" width="28" height="65" rx="4" fill="#dcfce7" />
-                  <rect x="200" y="210" width="28" height="90" rx="4" fill="#16a34a" />
-                  <rect x="240" y="225" width="28" height="75" rx="4" fill="#dcfce7" />
-                  <rect x="280" y="200" width="28" height="100" rx="4" fill="#16a34a" />
-                  <rect x="320" y="190" width="28" height="110" rx="4" fill="#16a34a" />
-                  <rect x="360" y="195" width="28" height="105" rx="4" fill="#dcfce7" />
+                  {/* Chart section label */}
+                  <text x="30" y="210" fill="#999" fontSize="11" fontFamily="Roboto, sans-serif">MONTHLY REVENUE</text>
+                  <line x1="30" y1="220" x2="410" y2="220" stroke="#f0f0f0" strokeWidth="1" />
+
+                  {/* Chart bars — taller for 1:1 ratio */}
+                  <rect x="35" y="340" width="32" height="60" rx="4" fill="#dcfce7" />
+                  <rect x="78" y="310" width="32" height="90" rx="4" fill="#dcfce7" />
+                  <rect x="121" y="280" width="32" height="120" rx="4" fill="#dcfce7" />
+                  <rect x="164" y="300" width="32" height="100" rx="4" fill="#dcfce7" />
+                  <rect x="207" y="265" width="32" height="135" rx="4" fill="#16a34a" />
+                  <rect x="250" y="290" width="32" height="110" rx="4" fill="#dcfce7" />
+                  <rect x="293" y="250" width="32" height="150" rx="4" fill="#16a34a" />
+                  <rect x="336" y="235" width="32" height="165" rx="4" fill="#16a34a" />
+                  <rect x="379" y="245" width="32" height="155" rx="4" fill="#dcfce7" />
 
                   {/* Chart labels */}
-                  <text x="48" y="310" fill="#bbb" fontSize="9" textAnchor="middle" fontFamily="Roboto, sans-serif">Jan</text>
-                  <text x="88" y="310" fill="#bbb" fontSize="9" textAnchor="middle" fontFamily="Roboto, sans-serif">Feb</text>
-                  <text x="128" y="310" fill="#bbb" fontSize="9" textAnchor="middle" fontFamily="Roboto, sans-serif">Mar</text>
-                  <text x="168" y="310" fill="#bbb" fontSize="9" textAnchor="middle" fontFamily="Roboto, sans-serif">Apr</text>
-                  <text x="208" y="310" fill="#bbb" fontSize="9" textAnchor="middle" fontFamily="Roboto, sans-serif">May</text>
-                  <text x="248" y="310" fill="#bbb" fontSize="9" textAnchor="middle" fontFamily="Roboto, sans-serif">Jun</text>
-                  <text x="288" y="310" fill="#bbb" fontSize="9" textAnchor="middle" fontFamily="Roboto, sans-serif">Jul</text>
-                  <text x="328" y="310" fill="#bbb" fontSize="9" textAnchor="middle" fontFamily="Roboto, sans-serif">Aug</text>
-                  <text x="368" y="310" fill="#bbb" fontSize="9" textAnchor="middle" fontFamily="Roboto, sans-serif">Sep</text>
+                  <text x="51" y="415" fill="#bbb" fontSize="10" textAnchor="middle" fontFamily="Roboto, sans-serif">Jan</text>
+                  <text x="94" y="415" fill="#bbb" fontSize="10" textAnchor="middle" fontFamily="Roboto, sans-serif">Feb</text>
+                  <text x="137" y="415" fill="#bbb" fontSize="10" textAnchor="middle" fontFamily="Roboto, sans-serif">Mar</text>
+                  <text x="180" y="415" fill="#bbb" fontSize="10" textAnchor="middle" fontFamily="Roboto, sans-serif">Apr</text>
+                  <text x="223" y="415" fill="#bbb" fontSize="10" textAnchor="middle" fontFamily="Roboto, sans-serif">May</text>
+                  <text x="266" y="415" fill="#bbb" fontSize="10" textAnchor="middle" fontFamily="Roboto, sans-serif">Jun</text>
+                  <text x="309" y="415" fill="#bbb" fontSize="10" textAnchor="middle" fontFamily="Roboto, sans-serif">Jul</text>
+                  <text x="352" y="415" fill="#bbb" fontSize="10" textAnchor="middle" fontFamily="Roboto, sans-serif">Aug</text>
+                  <text x="395" y="415" fill="#bbb" fontSize="10" textAnchor="middle" fontFamily="Roboto, sans-serif">Sep</text>
                 </svg>
 
                 {/* Play button overlay */}
