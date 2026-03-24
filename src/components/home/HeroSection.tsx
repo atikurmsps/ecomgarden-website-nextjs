@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import {
   FaWhatsapp,
@@ -35,20 +35,29 @@ const highlights = [
   },
 ];
 
-const barData = [
-  { x: 35, h: 60, color: "#dcfce7", label: "Jan" },
-  { x: 78, h: 90, color: "#dcfce7", label: "Feb" },
-  { x: 121, h: 120, color: "#dcfce7", label: "Mar" },
-  { x: 164, h: 100, color: "#dcfce7", label: "Apr" },
-  { x: 207, h: 135, color: "#16a34a", label: "May" },
-  { x: 250, h: 110, color: "#dcfce7", label: "Jun" },
-  { x: 293, h: 150, color: "#16a34a", label: "Jul" },
-  { x: 336, h: 165, color: "#16a34a", label: "Aug" },
-  { x: 379, h: 155, color: "#dcfce7", label: "Sep" },
+const barLabels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"];
+const barX = [35, 78, 121, 164, 207, 250, 293, 336, 379];
+
+// Multiple data sets to cycle through — simulates live dashboard
+const dataSets = [
+  { revenue: "$691,224", roi: "+35%", orders: "20,768", profit: "$241,928", stores: "55+", bars: [60, 90, 120, 100, 135, 110, 150, 165, 155] },
+  { revenue: "$724,891", roi: "+38%", orders: "22,140", profit: "$275,460", stores: "57+", bars: [80, 70, 140, 130, 110, 145, 160, 140, 170] },
+  { revenue: "$758,320", roi: "+41%", orders: "23,950", profit: "$310,912", stores: "58+", bars: [95, 110, 85, 150, 125, 170, 130, 155, 145] },
+  { revenue: "$812,450", roi: "+44%", orders: "25,380", profit: "$357,478", stores: "60+", bars: [70, 130, 110, 90, 165, 120, 145, 170, 160] },
 ];
 
 export default function HeroSection() {
   const [showVideo, setShowVideo] = useState(false);
+  const [dataIndex, setDataIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDataIndex((prev) => (prev + 1) % dataSets.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const data = dataSets[dataIndex];
 
   return (
     <>
@@ -150,45 +159,7 @@ export default function HeroSection() {
                 <svg viewBox="0 0 440 440" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "auto" }}>
                   <defs>
                     <style>{`
-                      /* 6s total cycle: grow in 0-1.5s, hold 1.5-4s, fade out 4-5s, pause 5-6s */
-                      @keyframes barLoop {
-                        0% { transform: scaleY(0); }
-                        15% { transform: scaleY(1); }
-                        70% { transform: scaleY(1); }
-                        85% { transform: scaleY(0); }
-                        100% { transform: scaleY(0); }
-                      }
-                      @keyframes fadeLoop {
-                        0% { opacity: 0; transform: translateY(8px); }
-                        15% { opacity: 1; transform: translateY(0); }
-                        70% { opacity: 1; transform: translateY(0); }
-                        85% { opacity: 0; transform: translateY(-4px); }
-                        100% { opacity: 0; transform: translateY(8px); }
-                      }
-                      @keyframes revenueLoop {
-                        0% { opacity: 0; }
-                        12% { opacity: 1; }
-                        70% { opacity: 1; }
-                        85% { opacity: 0; }
-                        100% { opacity: 0; }
-                      }
                       @keyframes pulseGlow { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
-
-                      .bar { transform-origin: bottom; animation: barLoop 6s ease-in-out infinite; }
-                      .bar-1 { animation-delay: 0s; }
-                      .bar-2 { animation-delay: 0.08s; }
-                      .bar-3 { animation-delay: 0.16s; }
-                      .bar-4 { animation-delay: 0.24s; }
-                      .bar-5 { animation-delay: 0.32s; }
-                      .bar-6 { animation-delay: 0.4s; }
-                      .bar-7 { animation-delay: 0.48s; }
-                      .bar-8 { animation-delay: 0.56s; }
-                      .bar-9 { animation-delay: 0.64s; }
-                      .stat-card { animation: fadeLoop 6s ease-in-out infinite; }
-                      .stat-1 { animation-delay: 0.1s; }
-                      .stat-2 { animation-delay: 0.25s; }
-                      .stat-3 { animation-delay: 0.4s; }
-                      .revenue-text { animation: revenueLoop 6s ease-in-out infinite; animation-delay: 0.15s; }
                       .roi-badge { animation: pulseGlow 2s ease-in-out infinite; }
                     `}</style>
                   </defs>
@@ -205,59 +176,65 @@ export default function HeroSection() {
                   <circle cx="60" cy="24" r="5" fill="#16a34a" />
                   <text x="220" y="28" textAnchor="middle" fill="#9494ac" fontSize="12" fontFamily="Roboto, sans-serif">EcomGarden Dashboard</text>
 
-                  {/* Revenue — animated */}
+                  {/* Revenue — values change with transition */}
                   <text x="30" y="80" fill="#999" fontSize="11" fontFamily="Roboto, sans-serif">TOTAL REVENUE</text>
-                  <text className="revenue-text" x="30" y="108" fill="#1a1a2e" fontSize="28" fontWeight="800" fontFamily="Roboto, sans-serif">$691,224</text>
-                  <rect className="roi-badge" x="195" y="90" width="72" height="24" rx="12" fill="rgba(22,163,74,0.1)" />
-                  <text className="roi-badge" x="231" y="106" textAnchor="middle" fill="#16a34a" fontSize="12" fontWeight="700" fontFamily="Roboto, sans-serif">+35% ROI</text>
+                  <text x="30" y="108" fill="#1a1a2e" fontSize="28" fontWeight="800" fontFamily="Roboto, sans-serif">
+                    {data.revenue}
+                  </text>
+                  <rect className="roi-badge" x="210" y="90" width="72" height="24" rx="12" fill="rgba(22,163,74,0.1)" />
+                  <text className="roi-badge" x="246" y="106" textAnchor="middle" fill="#16a34a" fontSize="12" fontWeight="700" fontFamily="Roboto, sans-serif">
+                    {data.roi} ROI
+                  </text>
 
-                  {/* Mini stat cards — animated */}
-                  <g className="stat-card stat-1">
-                    <rect x="30" y="130" width="115" height="55" rx="8" fill="#f6f7f9" />
-                    <text x="42" y="152" fill="#999" fontSize="10" fontFamily="Roboto, sans-serif">Orders</text>
-                    <text x="42" y="172" fill="#1a1a2e" fontSize="17" fontWeight="700" fontFamily="Roboto, sans-serif">20,768</text>
-                  </g>
-                  <g className="stat-card stat-2">
-                    <rect x="160" y="130" width="115" height="55" rx="8" fill="#f6f7f9" />
-                    <text x="172" y="152" fill="#999" fontSize="10" fontFamily="Roboto, sans-serif">Profit</text>
-                    <text x="172" y="172" fill="#16a34a" fontSize="17" fontWeight="700" fontFamily="Roboto, sans-serif">$241,928</text>
-                  </g>
-                  <g className="stat-card stat-3">
-                    <rect x="290" y="130" width="120" height="55" rx="8" fill="#f6f7f9" />
-                    <text x="302" y="152" fill="#999" fontSize="10" fontFamily="Roboto, sans-serif">Active Stores</text>
-                    <text x="302" y="172" fill="#1a1a2e" fontSize="17" fontWeight="700" fontFamily="Roboto, sans-serif">55+</text>
-                  </g>
+                  {/* Mini stat cards — values update */}
+                  <rect x="30" y="130" width="115" height="55" rx="8" fill="#f6f7f9" />
+                  <text x="42" y="152" fill="#999" fontSize="10" fontFamily="Roboto, sans-serif">Orders</text>
+                  <text x="42" y="172" fill="#1a1a2e" fontSize="17" fontWeight="700" fontFamily="Roboto, sans-serif">
+                    {data.orders}
+                  </text>
+
+                  <rect x="160" y="130" width="115" height="55" rx="8" fill="#f6f7f9" />
+                  <text x="172" y="152" fill="#999" fontSize="10" fontFamily="Roboto, sans-serif">Profit</text>
+                  <text x="172" y="172" fill="#16a34a" fontSize="17" fontWeight="700" fontFamily="Roboto, sans-serif">
+                    {data.profit}
+                  </text>
+
+                  <rect x="290" y="130" width="120" height="55" rx="8" fill="#f6f7f9" />
+                  <text x="302" y="152" fill="#999" fontSize="10" fontFamily="Roboto, sans-serif">Active Stores</text>
+                  <text x="302" y="172" fill="#1a1a2e" fontSize="17" fontWeight="700" fontFamily="Roboto, sans-serif">
+                    {data.stores}
+                  </text>
 
                   {/* Chart label */}
                   <text x="30" y="215" fill="#999" fontSize="11" fontFamily="Roboto, sans-serif">MONTHLY REVENUE</text>
                   <line x1="30" y1="225" x2="410" y2="225" stroke="#f0f0f0" strokeWidth="1" />
 
-                  {/* Animated chart bars */}
-                  {barData.map((bar, i) => (
+                  {/* Chart bars — heights transition smoothly */}
+                  {data.bars.map((h: number, i: number) => (
                     <rect
-                      key={bar.label}
-                      className={`bar bar-${i + 1}`}
-                      x={bar.x}
-                      y={400 - bar.h}
+                      key={barLabels[i]}
+                      x={barX[i]}
+                      y={400 - h}
                       width="32"
-                      height={bar.h}
+                      height={h}
                       rx="4"
-                      fill={bar.color}
+                      fill={h > 140 ? "#16a34a" : "#dcfce7"}
+                      style={{ transition: "y 0.8s ease, height 0.8s ease, fill 0.5s ease" }}
                     />
                   ))}
 
                   {/* Chart labels */}
-                  {barData.map((bar) => (
+                  {barLabels.map((label: string, i: number) => (
                     <text
-                      key={`label-${bar.label}`}
-                      x={bar.x + 16}
+                      key={`label-${label}`}
+                      x={barX[i] + 16}
                       y="420"
                       fill="#bbb"
                       fontSize="10"
                       textAnchor="middle"
                       fontFamily="Roboto, sans-serif"
                     >
-                      {bar.label}
+                      {label}
                     </text>
                   ))}
                 </svg>
