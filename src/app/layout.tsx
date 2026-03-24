@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -29,8 +30,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <body className={`${roboto.variable} antialiased`} style={{ fontFamily: "var(--font-roboto)" }}>
+        <ScrollToTop />
         <Header />
         <main>{children}</main>
         <Footer />
