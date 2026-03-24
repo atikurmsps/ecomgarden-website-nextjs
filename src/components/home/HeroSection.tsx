@@ -161,6 +161,11 @@ export default function HeroSection() {
                     <style>{`
                       @keyframes pulseGlow { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
                       .roi-badge { animation: pulseGlow 2s ease-in-out infinite; }
+                      @keyframes playPulse {
+                        0% { box-shadow: 0 4px 20px rgba(22,163,74,0.4), 0 0 0 0 rgba(22,163,74,0.4); }
+                        70% { box-shadow: 0 4px 20px rgba(22,163,74,0.4), 0 0 0 16px rgba(22,163,74,0); }
+                        100% { box-shadow: 0 4px 20px rgba(22,163,74,0.4), 0 0 0 0 rgba(22,163,74,0); }
+                      }
                     `}</style>
                   </defs>
 
@@ -265,6 +270,7 @@ export default function HeroSection() {
                       alignItems: "center",
                       justifyContent: "center",
                       boxShadow: "0 4px 20px rgba(22,163,74,0.4)",
+                      animation: "playPulse 2s ease-in-out infinite",
                     }}
                   >
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
