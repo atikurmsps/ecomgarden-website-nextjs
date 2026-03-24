@@ -246,81 +246,43 @@ export default function ContactPage() {
                 </div>
               )}
 
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <input
-                    type="text"
-                    placeholder="Name"
-                    className="w-full border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors bg-white"
-                    style={{
-                      padding: "10px 14px",
-                      fontSize: "15px",
-                      borderRadius: "8px",
-                    }}
-                    value={formData.name}
-                    onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
-                    }
-                  />
-                </div>
-                <div>
-                  <input
-                    type="email"
-                    required
-                    placeholder="Email"
-                    className="w-full border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors bg-white"
-                    style={{
-                      padding: "10px 14px",
-                      fontSize: "15px",
-                      borderRadius: "8px",
-                    }}
-                    value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
-                  />
-                </div>
-                <div>
-                  <input
-                    type="text"
-                    placeholder="Subject"
-                    className="w-full border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors bg-white"
-                    style={{
-                      padding: "10px 14px",
-                      fontSize: "15px",
-                      borderRadius: "8px",
-                    }}
-                    value={formData.subject}
-                    onChange={(e) =>
-                      setFormData({ ...formData, subject: e.target.value })
-                    }
-                  />
-                </div>
-                <div>
-                  <textarea
-                    rows={4}
-                    placeholder="Message"
-                    className="w-full border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors resize-none bg-white"
-                    style={{
-                      padding: "10px 14px",
-                      fontSize: "15px",
-                      borderRadius: "8px",
-                    }}
-                    value={formData.message}
-                    onChange={(e) =>
-                      setFormData({ ...formData, message: e.target.value })
-                    }
-                  />
-                </div>
-
-                <div>
-                  <button
-                    type="submit"
-                    className="btn-primary"
-                  >
-                    Send Message
-                  </button>
-                </div>
+              <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+                <input
+                  type="text"
+                  placeholder="Your Name"
+                  className="w-full border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors bg-white"
+                  style={{ padding: "14px 16px", fontSize: "15px", borderRadius: "10px" }}
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                />
+                <input
+                  type="email"
+                  required
+                  placeholder="Email Address"
+                  className="w-full border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors bg-white"
+                  style={{ padding: "14px 16px", fontSize: "15px", borderRadius: "10px" }}
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                />
+                <input
+                  type="text"
+                  placeholder="Subject"
+                  className="w-full border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors bg-white"
+                  style={{ padding: "14px 16px", fontSize: "15px", borderRadius: "10px" }}
+                  value={formData.subject}
+                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                />
+                <textarea
+                  rows={5}
+                  placeholder="Your Message"
+                  className="w-full border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors resize-none bg-white"
+                  style={{ padding: "14px 16px", fontSize: "15px", borderRadius: "10px" }}
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                />
+                <button type="submit" className="btn-primary" style={{ width: "100%" }}>
+                  Send Message
+                </button>
               </form>
             </div>
           </div>
