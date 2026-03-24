@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import {
   FaWhatsapp,
@@ -6,6 +5,8 @@ import {
   FaShieldAlt,
   FaHandshake,
   FaChartLine,
+  FaWarehouse,
+  FaShippingFast,
 } from "react-icons/fa";
 import CTASection from "@/components/home/CTASection";
 
@@ -13,36 +14,38 @@ const highlights = [
   {
     icon: FaShieldAlt,
     title: "100% Risk Free",
-    desc: "Pay only once you see profit",
+    desc: "Zero upfront fees — you only pay when your store generates real profit",
   },
   {
     icon: FaHandshake,
     title: "Profit Sharing",
-    desc: "We succeed when you succeed",
+    desc: "We succeed when you succeed — our incentives are fully aligned with yours",
   },
   {
     icon: FaChartLine,
     title: "35% Avg ROI",
-    desc: "Proven results across clients",
+    desc: "Proven track record across 250+ clients with consistent 35-80% returns",
   },
 ];
 
 const additionalServices = [
   {
+    icon: FaWarehouse,
     img: "/images/pricing/warehouse-icon.webp",
-    title: "Warehouse Service",
+    title: "3PL Warehouse Service",
     description:
-      "Operating 3 dedicated warehouses in AZ, NY, CT. No matter which method you use to sell, we've got you covered. Our 3PL warehouses can do FBA prep, WFS prep, storage, 2-step Dropshipping, or ship your orders directly to your customers.",
+      "Operating 3 dedicated warehouses in AZ, NY, CT. FBA prep, WFS prep, storage, 2-step dropshipping, and direct-to-customer shipping — all under one roof.",
+    bullets: ["Same-day order processing", "Flat rate pricing, no hidden fees", "Web-based inventory software"],
     href: "/services/3pl-warehouse",
-    btnText: "Read More",
   },
   {
+    icon: FaShippingFast,
     img: "/images/pricing/shipping-icon.webp",
-    title: "Cheap Flat Rate Shipping",
+    title: "Flat Rate Shipping Labels",
     description:
-      "Stop paying extra dollar to your current shipping provider anymore. Forget your shipping calculator. Get our flat rate shipping label and increase your ROI to 2X more.",
+      "Stop overpaying for shipping. Get discounted USPS & UPS labels at flat rates — no box size limits, no expiration, no hidden fees.",
+    bullets: ["USPS Priority Mail from $4.00", "UPS Next Day Air from $5.00", "No box size or weight limits"],
     href: "/services/flat-rate-shipping",
-    btnText: "Read More",
   },
 ];
 
@@ -51,52 +54,46 @@ const managementServices = [
     img: "/images/pricing/amazon-wholesale-icon.webp",
     title: "Amazon Wholesale",
     description:
-      "Amazon Wholesale, is a popular business model. In this model, upfront inventory is required. With wholesale business model, all products will official authentic and you will get official approval letter to sell those branded products. Its 100% suspension risk free.",
+      "Official authentic branded products from authorized distributors. 100% suspension risk free with brand approval letters.",
     href: "/services/amazon-wholesale",
-    btnText: "Read More",
   },
   {
     img: "/images/pricing/walmart-icon.png",
     title: "Walmart Management",
     description:
-      "Our Walmart Virtual Assistant can help you with Walmart product research, listings, optimizations, order management, error fixing, customer service, and many more tasks so you are free to focus on growing your business.",
+      "Complete Walmart store management — product research, listings, order fulfillment, pricing optimization, and daily operations.",
     href: "/services/walmart-management",
-    btnText: "Read More",
   },
   {
     img: "/images/pricing/amazon-arbitrage-icon.webp",
     title: "Amazon Arbitrage",
     subtitle: "(2-Step Dropshipping)",
     description:
-      "Most popular business model. In this model, no upfront inventory is required. The inventory is acquired only when a customer places an order. This is a zero-risk and quickly profitable business model. Start profit within a week.",
+      "No upfront inventory required. Zero-risk, quickly profitable business model — start generating profit within the first week.",
     href: "/services/amazon-arbitrage",
-    btnText: "Read More",
   },
   {
     img: "/images/pricing/amazon-fba-icon.webp",
     title: "Amazon FBA",
     description:
-      "Our Amazon VAs can help you with Amazon product listings, optimizations, customer service, and many more tasks so you are free to focus on growing and developing your business.",
+      "Full FBA management — product listings, optimization, PPC campaigns, inventory management, and customer service handled for you.",
     href: "https://wa.link/m2ac6m",
-    btnText: "Get Started",
     external: true,
   },
   {
     img: "/images/pricing/walmart-wfs-icon.png",
     title: "Walmart WFS",
     description:
-      "Our Amazon VAs can help you with Amazon product listings, optimizations, customer service, and many more tasks so you are free to focus on growing and developing your business.",
+      "Walmart Fulfillment Services management — product prep, shipping to WFS warehouses, listing optimization, and order management.",
     href: "https://wa.link/m2ac6m",
-    btnText: "Get Started",
     external: true,
   },
   {
     img: "/images/pricing/ebay-icon.webp",
     title: "eBay Management",
     description:
-      "Our Amazon VAs can help you with Amazon product listings, optimizations, customer service, and many more tasks so you are free to focus on growing and developing your business.",
+      "Complete eBay store management — listing creation, pricing strategy, order fulfillment, customer support, and returns handling.",
     href: "/services/amazon-arbitrage",
-    btnText: "Read More",
   },
 ];
 
@@ -104,366 +101,135 @@ export default function PricingPage() {
   return (
     <>
       {/* Hero Section */}
-      <section
-        style={{
-          background: "var(--color-light-gray)",
-          padding: "40px 0 36px",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        <div className="container-main" style={{ position: "relative" }}>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+      <section style={{ backgroundColor: "#f6f7f9", position: "relative", overflow: "hidden" }}>
+        <div className="container-main">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
             {/* Left Content */}
-            <div>
-              <div
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "6px",
-                  background: "color-mix(in srgb, var(--color-primary) 10%, transparent)",
-                  border: "1px solid color-mix(in srgb, var(--color-primary) 20%, transparent)",
-                  borderRadius: "50px",
-                  padding: "5px 14px",
-                  marginBottom: "14px",
-                  fontSize: "14px",
-                  fontWeight: 600,
-                  color: "var(--color-primary)",
-                }}
-              >
+            <div style={{ padding: "55px 0" }}>
+              <span className="typo-label" style={{ display: "block", marginBottom: "10px" }}>
                 Profit Sharing Model
-              </div>
+              </span>
 
-              <h1
-                style={{
-                  fontSize: "27px",
-                  fontWeight: 700,
-                  color: "var(--color-text)",
-                  lineHeight: 1.3,
-                  marginBottom: "4px",
-                }}
-              >
+              <h1 className="typo-h1" style={{ marginBottom: "6px" }}>
                 Start Your Unlimited Vacation
               </h1>
-              <p
-                style={{
-                  fontSize: "16px",
-                  fontWeight: 600,
-                  color: "var(--color-primary)",
-                  marginBottom: "4px",
-                }}
-              >
+              <p className="typo-body" style={{ color: "var(--color-primary)", fontWeight: 600, marginBottom: "6px", fontSize: "16px" }}>
                 We provide service with profit sharing model
               </p>
-              <h3
-                style={{
-                  fontSize: "20px",
-                  fontWeight: 700,
-                  color: "var(--color-accent)",
-                  marginBottom: "10px",
-                }}
-              >
+              <p className="typo-h3" style={{ color: "var(--color-accent)", marginBottom: "12px" }}>
                 100% Risk Free. Pay only once you see profit.
-              </h3>
-              <p
-                style={{
-                  fontSize: "15px",
-                  color: "var(--color-text-light)",
-                  lineHeight: 1.7,
-                  marginBottom: "20px",
-                  maxWidth: "480px",
-                }}
-              >
+              </p>
+              <p className="typo-body" style={{ marginBottom: "20px", maxWidth: "480px" }}>
                 No one will offer profit sharing model and no payment before you
                 get profit. Our experienced and highly skilled team will start
                 profit within a week.
               </p>
 
-              {/* Highlight pills */}
-              <div
-                className="flex flex-wrap"
-                style={{ gap: "8px", marginBottom: "20px" }}
-              >
-                {highlights.map((item) => (
-                  <div
-                    key={item.title}
-                    style={{
-                      background: "#fff",
-                      border: "1px solid #e8e8e8",
-                      borderRadius: "10px",
-                      padding: "10px 14px",
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "8px",
-                    }}
-                  >
-                    <span
-                      style={{
-                        width: "32px",
-                        height: "32px",
-                        borderRadius: "7px",
-                        background: "color-mix(in srgb, var(--color-primary) 10%, transparent)",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        flexShrink: 0,
-                      }}
-                    >
-                      <item.icon
-                        style={{ color: "var(--color-primary)", fontSize: "13px" }}
-                      />
-                    </span>
-                    <div>
-                      <p
-                        style={{
-                          color: "var(--color-text)",
-                          fontWeight: 600,
-                          fontSize: "14px",
-                          lineHeight: 1.2,
-                        }}
-                      >
-                        {item.title}
-                      </p>
-                      <p
-                        style={{
-                          color: "#999",
-                          fontSize: "13px",
-                          marginTop: "1px",
-                        }}
-                      >
-                        {item.desc}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div
-                className="flex flex-wrap"
-                style={{ gap: "10px" }}
-              >
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
                 <a
                   href="https://wa.link/m2ac6m"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary"
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "8px",
-                  }}
+                  style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
                 >
                   <FaWhatsapp style={{ fontSize: "16px" }} />
                   Book Your Dream Project
                 </a>
-                <Link
-                  href="/contact"
-                  className="btn-outline"
-                >
+                <Link href="/contact" className="btn-outline">
                   Contact Us
                 </Link>
               </div>
             </div>
 
-            {/* Right Image */}
-            <div className="hidden lg:flex justify-center">
+            {/* Right Image — full height */}
+            <div className="hidden lg:flex items-end justify-center" style={{ position: "relative", minHeight: "100%" }}>
               <img
                 src="/images/pricing/hero-vacation.png"
                 alt="Start your unlimited vacation"
-                className="object-contain"
-                style={{ maxHeight: "360px", width: "auto" }}
+                style={{ width: "auto", maxWidth: "100%", height: "100%", objectFit: "contain", objectPosition: "bottom" }}
               />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Additional Services */}
-      <section style={{ padding: "44px 0 40px" }} className="bg-white">
+      {/* Trust Highlights */}
+      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
-          <div className="text-center" style={{ marginBottom: "28px" }}>
-            <p
-              style={{
-                color: "var(--color-primary)",
-                fontSize: "14px",
-                fontWeight: 600,
-                letterSpacing: "1.5px",
-                textTransform: "uppercase",
-                marginBottom: "8px",
-              }}
-            >
-              Additional Services
-            </p>
-            <h2
-              style={{
-                fontSize: "26px",
-                fontWeight: 700,
-                color: "var(--color-text)",
-                marginBottom: "8px",
-              }}
-            >
-              Additional services on EcomGarden
-            </h2>
-            <p
-              style={{
-                fontSize: "16px",
-                color: "var(--color-text-light)",
-                maxWidth: "600px",
-                margin: "0 auto",
-                lineHeight: 1.7,
-              }}
-            >
-              To complete your dream eCommerce project, we also provide partial
-              services for your business.
-            </p>
+          <div className="section-header">
+            <span className="typo-label">Why Our Model Works</span>
+            <h2 className="typo-h2">Built For Your Success</h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto">
-            {additionalServices.map((service) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5" style={{ maxWidth: "900px", margin: "0 auto" }}>
+            {highlights.map((item) => (
               <div
-                key={service.title}
+                key={item.title}
+                className="card-hover"
                 style={{
-                  background: "#fff",
-                  borderRadius: "14px",
-                  padding: "26px 22px",
-                  boxShadow: "0 4px 24px rgba(0,0,0,0.06)",
-                  border: "1px solid #f0f0f0",
-                  transition: "all 0.3s",
+                  backgroundColor: "#f6f7f9",
+                  borderRadius: "10px",
+                  padding: "24px 20px",
                   textAlign: "center",
                 }}
-                className="hover:!shadow-xl hover:!border-primary/20"
               >
                 <div
                   style={{
-                    width: "68px",
-                    height: "68px",
-                    borderRadius: "14px",
-                    background:
-                      "linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 8%, transparent), color-mix(in srgb, var(--color-primary) 15%, transparent))",
+                    width: "48px",
+                    height: "48px",
+                    borderRadius: "50%",
+                    backgroundColor: "rgba(22,163,74,0.1)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    margin: "0 auto 14px",
+                    margin: "0 auto 12px",
                   }}
                 >
-                  <img
-                    src={service.img}
-                    alt={service.title}
-                    className="object-contain"
-                    style={{ width: "44px", height: "44px" }}
-                  />
+                  <item.icon style={{ color: "var(--color-primary)", fontSize: "20px" }} />
                 </div>
-                <h3
-                  style={{
-                    fontSize: "17px",
-                    fontWeight: 700,
-                    color: "var(--color-text)",
-                    marginBottom: "8px",
-                  }}
-                >
-                  {service.title}
+                <h3 className="typo-h3" style={{ marginBottom: "6px" }}>
+                  {item.title}
                 </h3>
-                <p
-                  style={{
-                    fontSize: "15px",
-                    color: "var(--color-text-light)",
-                    lineHeight: 1.7,
-                    marginBottom: "14px",
-                  }}
-                >
-                  {service.description}
-                </p>
-                <Link
-                  href={service.href}
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "6px",
-                    color: "var(--color-primary)",
-                    fontWeight: 600,
-                    fontSize: "15px",
-                    textDecoration: "none",
-                    transition: "gap 0.2s",
-                  }}
-                >
-                  {service.btnText}
-                  <FaChevronRight style={{ fontSize: "10px" }} />
-                </Link>
+                <p className="typo-small">{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Management Services */}
-      <section style={{ padding: "44px 0 40px", backgroundColor: "var(--color-light-gray)" }}>
+      {/* Additional Services */}
+      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
-          <div className="text-center" style={{ marginBottom: "28px" }}>
-            <p
-              style={{
-                color: "var(--color-primary)",
-                fontSize: "14px",
-                fontWeight: 600,
-                letterSpacing: "1.5px",
-                textTransform: "uppercase",
-                marginBottom: "8px",
-              }}
-            >
-              Management Services
-            </p>
-            <h2
-              style={{
-                fontSize: "26px",
-                fontWeight: 700,
-                color: "var(--color-text)",
-                marginBottom: "8px",
-              }}
-            >
-              Management services on EcomGarden
-            </h2>
-            <p
-              style={{
-                fontSize: "16px",
-                color: "var(--color-text-light)",
-                maxWidth: "620px",
-                margin: "0 auto",
-                lineHeight: 1.7,
-              }}
-            >
-              Our expert team will complete every task of your store
-              professionally — from store setup to accounting, we handle
-              everything.
+          <div className="section-header">
+            <span className="typo-label">Additional Services</span>
+            <h2 className="typo-h2">Warehouse &amp; Shipping Solutions</h2>
+            <p className="typo-subtext">
+              Complete your eCommerce operation with our in-house warehouse and shipping services — designed to cut costs and boost margins.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {managementServices.map((service) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5" style={{ maxWidth: "900px", margin: "0 auto" }}>
+            {additionalServices.map((service) => (
               <div
                 key={service.title}
+                className="card-hover"
                 style={{
-                  background: "#fff",
-                  borderRadius: "14px",
-                  padding: "24px 20px",
-                  boxShadow: "0 2px 16px rgba(0,0,0,0.04)",
-                  border: "1px solid #f0f0f0",
-                  transition: "all 0.3s",
+                  backgroundColor: "#fff",
+                  borderRadius: "10px",
+                  padding: "28px 24px",
+                  border: "1px solid rgba(0,0,0,0.06)",
                   display: "flex",
                   flexDirection: "column",
                 }}
-                className="hover:!shadow-xl hover:!border-primary/20"
               >
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "12px",
-                    marginBottom: "12px",
-                  }}
-                >
+                <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "12px" }}>
                   <div
                     style={{
-                      width: "44px",
-                      height: "44px",
+                      width: "50px",
+                      height: "50px",
+                      borderRadius: "10px",
+                      backgroundColor: "rgba(22,163,74,0.08)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -473,62 +239,100 @@ export default function PricingPage() {
                     <img
                       src={service.img}
                       alt={service.title}
-                      className="object-contain"
-                      style={{ width: "40px", height: "40px" }}
+                      style={{ width: "32px", height: "32px", objectFit: "contain" }}
                     />
                   </div>
+                  <h3 className="typo-h3">{service.title}</h3>
+                </div>
+
+                <p className="typo-body" style={{ marginBottom: "12px" }}>
+                  {service.description}
+                </p>
+
+                <div style={{ display: "flex", flexDirection: "column", gap: "4px", marginBottom: "16px" }}>
+                  {service.bullets.map((b) => (
+                    <div key={b} style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                      <span style={{ color: "var(--color-primary)", fontSize: "10px" }}>●</span>
+                      <span className="typo-small" style={{ fontWeight: 500 }}>{b}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <Link
+                  href={service.href}
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "6px",
+                    color: "var(--color-primary)",
+                    fontWeight: 600,
+                    fontSize: "14px",
+                    textDecoration: "none",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.5px",
+                  }}
+                >
+                  Learn More <FaChevronRight style={{ fontSize: "9px" }} />
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Management Services */}
+      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
+        <div className="container-main">
+          <div className="section-header">
+            <span className="typo-label">Management Services</span>
+            <h2 className="typo-h2">Full Store Management Solutions</h2>
+            <p className="typo-subtext">
+              Our expert team handles every task of your store professionally — from setup to scaling, we manage everything so you can focus on growth.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {managementServices.map((service) => (
+              <div
+                key={service.title}
+                className="card-hover"
+                style={{
+                  backgroundColor: "#f6f7f9",
+                  borderRadius: "10px",
+                  padding: "24px 20px",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "12px" }}>
+                  <img
+                    src={service.img}
+                    alt={service.title}
+                    style={{ width: "40px", height: "40px", objectFit: "contain", flexShrink: 0 }}
+                  />
                   <div>
-                    <h3
-                      style={{
-                        fontSize: "16px",
-                        fontWeight: 700,
-                        color: "var(--color-text)",
-                        lineHeight: 1.3,
-                      }}
-                    >
-                      {service.title}
-                    </h3>
+                    <h3 className="typo-h3" style={{ fontSize: "17px" }}>{service.title}</h3>
                     {"subtitle" in service && service.subtitle && (
-                      <p
-                        style={{
-                          fontSize: "14px",
-                          color: "var(--color-primary)",
-                          fontWeight: 500,
-                        }}
-                      >
+                      <p className="typo-small" style={{ color: "var(--color-primary)", fontWeight: 600 }}>
                         {service.subtitle}
                       </p>
                     )}
                   </div>
                 </div>
-                <p
-                  style={{
-                    fontSize: "15px",
-                    color: "var(--color-text-light)",
-                    lineHeight: 1.7,
-                    marginBottom: "14px",
-                    flex: 1,
-                  }}
-                >
+
+                <p className="typo-body" style={{ marginBottom: "14px", flex: 1 }}>
                   {service.description}
                 </p>
+
                 {"external" in service && service.external ? (
                   <a
                     href={service.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{
-                      display: "inline-flex",
-                      alignItems: "center",
-                      gap: "6px",
-                      color: "var(--color-primary)",
-                      fontWeight: 600,
-                      fontSize: "15px",
-                      textDecoration: "none",
-                    }}
+                    className="btn-primary"
+                    style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "10px 20px", fontSize: "13px", width: "fit-content", animation: "none" }}
                   >
-                    {service.btnText}
-                    <FaChevronRight style={{ fontSize: "9px" }} />
+                    Get Started <FaChevronRight style={{ fontSize: "9px" }} />
                   </a>
                 ) : (
                   <Link
@@ -539,12 +343,13 @@ export default function PricingPage() {
                       gap: "6px",
                       color: "var(--color-primary)",
                       fontWeight: 600,
-                      fontSize: "15px",
+                      fontSize: "14px",
                       textDecoration: "none",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.5px",
                     }}
                   >
-                    {service.btnText}
-                    <FaChevronRight style={{ fontSize: "9px" }} />
+                    Read More <FaChevronRight style={{ fontSize: "9px" }} />
                   </Link>
                 )}
               </div>
@@ -553,7 +358,6 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
       <CTASection />
     </>
   );
