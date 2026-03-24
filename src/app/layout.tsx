@@ -17,6 +17,10 @@ export const metadata: Metadata = {
     "Start, Grow & Scale Your eCommerce Businesses with our All-in-one Automated Ecommerce Management Services. Amazon, Walmart, eBay, Shopify store management.",
   keywords:
     "ecommerce management, amazon wholesale, amazon arbitrage, walmart management, shopify development, 3pl warehouse",
+  icons: {
+    icon: "/images/favicon.webp",
+    apple: "/images/favicon.webp",
+  },
 };
 
 export default function RootLayout({
