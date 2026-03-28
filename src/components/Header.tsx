@@ -1,60 +1,80 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 import { usePathname } from "next/navigation";
-import { FaBars, FaTimes, FaChevronDown, FaWhatsapp } from "react-icons/fa";
+import { FaBars, FaTimes, FaChevronDown, FaWhatsapp, FaUserCircle } from "react-icons/fa";
 
-const services = [
-  {
-    name: "Amazon Wholesale",
-    href: "/services/amazon-wholesale",
-    desc: "Full-service wholesale management",
-  },
-  {
-    name: "Amazon Arbitrage",
-    href: "/services/amazon-arbitrage",
-    desc: "2-step dropshipping solutions",
-  },
-  {
-    name: "Walmart Management",
-    href: "/services/walmart-management",
-    desc: "Complete store management",
-  },
-  {
-    name: "Shopify Development",
-    href: "/services/shopify-development",
-    desc: "Custom store building",
-  },
-  {
-    name: "3PL Warehouse",
-    href: "/services/3pl-warehouse",
-    desc: "Storage & fulfillment",
-  },
-  {
-    name: "Flat Rate Shipping",
-    href: "/services/flat-rate-shipping",
-    desc: "Affordable shipping rates",
-  },
-];
+interface NavItem {
+  name: string;
+  href: string;
+  children?: { name: string; href: string; desc?: string }[];
+}
 
-const navLinks = [
+const navLinks: NavItem[] = [
   { name: "Home", href: "/" },
-  { name: "All Services", href: "/services", hasDropdown: true },
+  {
+    name: "Amazon",
+    href: "/services/amazon-wholesale",
+    children: [
+      { name: "Amazon FBA", href: "/services/amazon-fba", desc: "Private label & FBA management" },
+      { name: "Amazon Wholesale", href: "/services/amazon-wholesale", desc: "Full-service wholesale management" },
+      { name: "2 Step Amazon Dropshipping", href: "/services/amazon-arbitrage", desc: "Low-risk arbitrage model" },
+      { name: "Amazon Account Reinstatement", href: "/services/amazon-reinstatement", desc: "Suspended account recovery" },
+    ],
+  },
+  {
+    name: "Walmart",
+    href: "/services/walmart-management",
+    children: [
+      { name: "Walmart WFS", href: "/services/walmart-wfs", desc: "Walmart Fulfillment Services" },
+      { name: "Walmart Wholesale", href: "/services/walmart-wholesale", desc: "Wholesale store management" },
+      { name: "2 Step Walmart Dropshipping", href: "/services/walmart-dropshipping", desc: "Low-risk dropshipping model" },
+      { name: "Walmart Account Reinstatement", href: "/services/walmart-reinstatement", desc: "Suspended account recovery" },
+    ],
+  },
+  {
+    name: "Shopify",
+    href: "/services/shopify-development",
+    children: [
+      { name: "Shopify Dropshipping Store", href: "/services/shopify-dropshipping", desc: "Ready-to-sell dropship store" },
+      { name: "Shopify Store Redesign", href: "/services/shopify-redesign", desc: "Conversion-optimized redesign" },
+      { name: "Shopify Theme Development", href: "/services/shopify-theme-development", desc: "Custom theme from scratch" },
+      { name: "Shopify App Development", href: "/services/shopify-app-development", desc: "Custom app solutions" },
+      { name: "Shopify Store Marketing", href: "/services/shopify-marketing", desc: "SEO, ads & growth" },
+    ],
+  },
+  {
+    name: "Others Services",
+    href: "/services",
+    children: [
+      { name: "Etsy Dropshipping", href: "/services/etsy-dropshipping", desc: "Etsy store management" },
+      { name: "eBay Dropshipping", href: "/services/ebay-dropshipping", desc: "eBay store management" },
+      { name: "Warehouse Service", href: "/services/3pl-warehouse", desc: "3PL storage & fulfillment" },
+      { name: "Flat Rate Cheap Shipping Label", href: "/services/flat-rate-shipping", desc: "Discounted shipping rates" },
+      { name: "Company Filing LLC & LTD", href: "/services/company-filing", desc: "Business formation services" },
+      { name: "Company Tax Filing", href: "/services/tax-filing", desc: "Tax preparation & filing" },
+    ],
+  },
   { name: "Success Story", href: "/success-story" },
   { name: "Pricing", href: "/pricing" },
-  { name: "FAQ", href: "/faq" },
-  { name: "About Us", href: "/about" },
-  { name: "Contact", href: "/contact" },
+  {
+    name: "About",
+    href: "/about",
+    children: [
+      { name: "About Us", href: "/about" },
+      { name: "FAQ", href: "/faq" },
+      { name: "Contact Us", href: "/contact" },
+    ],
+  },
 ];
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
+  const [openMobileDropdown, setOpenMobileDropdown] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
-  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
@@ -65,8 +85,16 @@ export default function Header() {
   // Close mobile menu on route change
   useEffect(() => {
     setMobileMenuOpen(false);
-    setServicesOpen(false);
+    setOpenMobileDropdown(null);
   }, [pathname]);
+
+  const isLinkActive = (link: NavItem) => {
+    if (pathname === link.href) return true;
+    if (link.children) {
+      return link.children.some((child) => pathname === child.href);
+    }
+    return false;
+  };
 
   return (
     <header
@@ -102,25 +130,23 @@ export default function Header() {
             style={{ height: "64px" }}
           >
             {navLinks.map((link) => {
-              const isActive =
-                pathname === link.href ||
-                (link.href !== "/" && pathname.startsWith(link.href));
+              const isActive = isLinkActive(link);
+              const hasDropdown = !!link.children;
               return (
                 <div
                   key={link.name}
                   className="relative group"
                   style={{ height: "100%" }}
-                  ref={link.hasDropdown ? dropdownRef : undefined}
                 >
                   <Link
                     href={link.href}
                     style={{
                       display: "flex",
                       alignItems: "center",
-                      gap: "5px",
-                      padding: "0 16px",
+                      gap: "4px",
+                      padding: "0 12px",
                       height: "100%",
-                      fontSize: "16px",
+                      fontSize: "15px",
                       fontWeight: 600,
                       color: isActive
                         ? "var(--color-primary)"
@@ -132,7 +158,7 @@ export default function Header() {
                     className="hover:!text-primary"
                   >
                     {link.name}
-                    {link.hasDropdown && (
+                    {hasDropdown && (
                       <FaChevronDown
                         style={{
                           fontSize: "8px",
@@ -146,8 +172,8 @@ export default function Header() {
                         style={{
                           position: "absolute",
                           bottom: 0,
-                          left: "16px",
-                          right: "16px",
+                          left: "12px",
+                          right: "12px",
                           height: "3px",
                           backgroundColor: "var(--color-primary)",
                           borderRadius: "3px 3px 0 0",
@@ -156,30 +182,48 @@ export default function Header() {
                     )}
                   </Link>
 
-                  {/* Mega Dropdown */}
-                  {link.hasDropdown && (
+                  {/* Dropdown */}
+                  {hasDropdown && (
                     <div
                       style={{
                         position: "absolute",
-                        top: "100%",
-                        left: "-40px",
+                        top: "calc(100% - 4px)",
+                        left: "50%",
+                        transform: "translateX(-50%)",
                         backgroundColor: "#fff",
                         boxShadow: "0 12px 40px rgba(0,0,0,0.12)",
-                        borderRadius: "0 0 12px 12px",
+                        borderRadius: "10px",
                         padding: "8px 0",
-                        minWidth: "280px",
+                        minWidth: "250px",
                         opacity: 0,
                         visibility: "hidden" as const,
                         transition: "all 0.2s ease",
-                        borderTop: "3px solid var(--color-primary)",
                         zIndex: 50,
                       }}
                       className="group-hover:!opacity-100 group-hover:!visible"
                     >
-                      {services.map((service) => (
+                      {/* CSS Arrow */}
+                      <div
+                        style={{
+                          position: "absolute",
+                          top: "-8px",
+                          left: "50%",
+                          transform: "translateX(-50%) rotate(45deg)",
+                          width: "16px",
+                          height: "16px",
+                          backgroundColor: "#fff",
+                          boxShadow: "-2px -2px 4px rgba(0,0,0,0.04)",
+                        }}
+                      />
+                      {link.children!.map((child, idx) => (
+                        <div key={child.name}>
+                          {idx > 0 && (
+                            <div style={{ display: "flex", justifyContent: "center", padding: "0 20px" }}>
+                              <div style={{ width: "100%", height: "0.5px", backgroundColor: "#ebebeb" }} />
+                            </div>
+                          )}
                         <Link
-                          key={service.name}
-                          href={service.href}
+                          href={child.href}
                           style={{
                             display: "flex",
                             flexDirection: "column",
@@ -193,21 +237,24 @@ export default function Header() {
                             style={{
                               fontSize: "15px",
                               fontWeight: 600,
-                              color: "var(--color-text)",
+                              color: pathname === child.href ? "var(--color-primary)" : "var(--color-text)",
                             }}
                           >
-                            {service.name}
+                            {child.name}
                           </span>
-                          <span
-                            style={{
-                              fontSize: "13px",
-                              color: "#999",
-                              marginTop: "1px",
-                            }}
-                          >
-                            {service.desc}
-                          </span>
+                          {child.desc && (
+                            <span
+                              style={{
+                                fontSize: "13px",
+                                color: "#999",
+                                marginTop: "1px",
+                              }}
+                            >
+                              {child.desc}
+                            </span>
+                          )}
                         </Link>
+                        </div>
                       ))}
                     </div>
                   )}
@@ -216,12 +263,32 @@ export default function Header() {
             })}
           </nav>
 
-          {/* CTA Button */}
+          {/* My Account + CTA Buttons */}
+          <div className="hidden lg:flex items-center" style={{ gap: "20px" }}>
+          <a
+            href="https://portal.ecomgarden.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "5px",
+              fontSize: "14px",
+              fontWeight: 600,
+              color: "var(--color-text)",
+              textDecoration: "none",
+              transition: "color 0.2s",
+            }}
+            className="hover:!text-primary"
+          >
+            <FaUserCircle style={{ fontSize: "18px" }} />
+            Login
+          </a>
           <a
             href="https://wa.link/m2ac6m"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-accent hidden lg:inline-flex"
+            className="btn-accent"
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -234,6 +301,7 @@ export default function Header() {
             <FaWhatsapp style={{ fontSize: "16px" }} />
             Quick WhatsApp
           </a>
+          </div>
 
           {/* Mobile Menu Toggle */}
           <button
@@ -258,7 +326,7 @@ export default function Header() {
       {/* Mobile Navigation */}
       <div
         style={{
-          maxHeight: mobileMenuOpen ? "600px" : "0",
+          maxHeight: mobileMenuOpen ? "800px" : "0",
           overflow: "hidden",
           transition: "max-height 0.35s ease",
           borderTop: mobileMenuOpen ? "1px solid #f0f0f0" : "none",
@@ -267,13 +335,15 @@ export default function Header() {
       >
         <div style={{ padding: "8px 0 16px" }}>
           {navLinks.map((link) => {
-            const isActive = pathname === link.href;
+            const isActive = isLinkActive(link);
+            const hasDropdown = !!link.children;
+            const isOpen = openMobileDropdown === link.name;
             return (
               <div key={link.name}>
-                {link.hasDropdown ? (
+                {hasDropdown ? (
                   <>
                     <button
-                      onClick={() => setServicesOpen(!servicesOpen)}
+                      onClick={() => setOpenMobileDropdown(isOpen ? null : link.name)}
                       style={{
                         display: "flex",
                         alignItems: "center",
@@ -296,36 +366,34 @@ export default function Header() {
                         style={{
                           fontSize: "10px",
                           transition: "transform 0.2s",
-                          transform: servicesOpen
-                            ? "rotate(180deg)"
-                            : "rotate(0)",
+                          transform: isOpen ? "rotate(180deg)" : "rotate(0)",
                         }}
                       />
                     </button>
                     <div
                       style={{
-                        maxHeight: servicesOpen ? "400px" : "0",
+                        maxHeight: isOpen ? "400px" : "0",
                         overflow: "hidden",
                         transition: "max-height 0.3s ease",
                         backgroundColor: "#f9f9f9",
                       }}
                     >
-                      {services.map((service) => (
+                      {link.children!.map((child) => (
                         <Link
-                          key={service.name}
-                          href={service.href}
+                          key={child.name}
+                          href={child.href}
                           style={{
                             display: "block",
                             padding: "10px 20px 10px 36px",
                             fontSize: "16px",
-                            color: "#555",
+                            color: pathname === child.href ? "var(--color-primary)" : "#555",
                             textDecoration: "none",
                             transition: "color 0.2s",
                           }}
                           className="hover:!text-primary"
                           onClick={() => setMobileMenuOpen(false)}
                         >
-                          {service.name}
+                          {child.name}
                         </Link>
                       ))}
                     </div>
