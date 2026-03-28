@@ -93,22 +93,29 @@ export default function ShopifyPage() {
 
       {/* ── PLATFORM INTRODUCTION ── */}
       <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
-        <div className="container-main" style={{ maxWidth: "800px", marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>
-          <h2 className="typo-h2" style={{ marginBottom: "16px" }}>Own Your Brand, Own Your Store</h2>
-          <p className="typo-body" style={{ marginBottom: "14px", fontSize: "16px", lineHeight: 1.7 }}>
-            Shopify powers over 4.4 million stores worldwide and has processed more than $444 billion in total sales. Unlike selling on marketplaces, Shopify gives you full control over your brand, customer data, and store experience.
-          </p>
-          <p className="typo-body" style={{ marginBottom: "14px", fontSize: "16px", lineHeight: 1.7 }}>
-            With thousands of apps, fully customizable themes, and built-in payment processing, Shopify is the most versatile ecommerce platform available. Whether you&apos;re launching a dropshipping business or building a premium brand, it scales with you.
-          </p>
-          <p className="typo-body" style={{ fontSize: "16px", lineHeight: 1.7 }}>
-            EcomGarden offers end-to-end Shopify services — from store setup and custom theme development to marketing and ongoing management — so your store looks professional and drives real sales from day one.
-          </p>
+        <div className="container-main">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div>
+              <h2 className="typo-h2" style={{ marginBottom: "16px" }}>Own Your Brand, Own Your Store</h2>
+              <p className="typo-body" style={{ marginBottom: "14px" }}>
+                Shopify powers over 4.4 million stores worldwide and has processed more than $444 billion in total sales. Unlike selling on marketplaces, Shopify gives you full control over your brand, customer data, and store experience.
+              </p>
+              <p className="typo-body" style={{ marginBottom: "14px" }}>
+                With thousands of apps, fully customizable themes, and built-in payment processing, Shopify is the most versatile ecommerce platform available. Whether you&apos;re launching a dropshipping business or building a premium brand, it scales with you.
+              </p>
+              <p className="typo-body">
+                EcomGarden offers end-to-end Shopify services — from store setup and custom theme development to marketing and ongoing management — so your store looks professional and drives real sales from day one.
+              </p>
+            </div>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <img src="/images/services/hero/shopify-platform.jpg" alt="Shopify Platform" style={{ width: "100%", maxWidth: "500px", borderRadius: "12px", height: "auto" }} />
+            </div>
+          </div>
         </div>
       </section>
 
       {/* ── OUR SHOPIFY SERVICES ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
+      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
           <div className="section-header">
             <span className="typo-label">OUR SERVICES</span>

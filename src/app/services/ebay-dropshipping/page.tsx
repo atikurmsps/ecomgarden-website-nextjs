@@ -109,52 +109,26 @@ export default function EbayDropshippingPage() {
         </div>
       </section>
 
-      {/* ── THE EBAY ADVANTAGE (3 stat cards) ── */}
+      {/* ── THE EBAY ADVANTAGE ── */}
       <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
-          <div className="section-header">
-            <span className="typo-label">THE OPPORTUNITY</span>
-            <h2 className="typo-h2">The eBay Advantage Most Sellers Miss</h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6" style={{ marginTop: "32px" }}>
-            {[
-              {
-                stat: "190M+",
-                label: "Active Buyers",
-                desc: "The second-largest marketplace in the world. Buyers who search eBay first — not Amazon — because they want deals, variety, and auction pricing.",
-              },
-              {
-                stat: "20+",
-                label: "Global Marketplaces",
-                desc: "eBay US, UK, Australia, Germany, Canada, and more. One product, multiple markets. We manage them all from a single dashboard.",
-              },
-              {
-                stat: "Lower",
-                label: "Fees Than Amazon",
-                desc: "eBay's final value fees are 10-13% vs Amazon's 15-20%. Top Rated Sellers get an additional 20% discount. More margin stays in your pocket.",
-              },
-            ].map((item) => (
-              <div
-                key={item.label}
-                style={{
-                  background: "linear-gradient(135deg, var(--color-dark) 0%, #1a2332 100%)",
-                  borderRadius: "14px",
-                  padding: "32px 28px",
-                  textAlign: "center",
-                }}
-              >
-                <div style={{ fontSize: "42px", fontWeight: 800, color: "var(--color-primary)", lineHeight: 1, marginBottom: "4px" }}>
-                  {item.stat}
-                </div>
-                <div style={{ fontSize: "16px", fontWeight: 600, color: "#fff", marginBottom: "14px" }}>
-                  {item.label}
-                </div>
-                <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.7)", lineHeight: 1.6, margin: 0 }}>
-                  {item.desc}
-                </p>
-              </div>
-            ))}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div>
+              <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>THE OPPORTUNITY</span>
+              <h2 className="typo-h2" style={{ marginBottom: "16px" }}>The eBay Advantage Most Sellers Miss</h2>
+              <p className="typo-body" style={{ marginBottom: "14px" }}>
+                eBay has <strong>190M+ active buyers</strong> worldwide — the second-largest marketplace after Amazon. Buyers come to eBay for deals, variety, and auction-style pricing that Amazon doesn&apos;t offer.
+              </p>
+              <p className="typo-body" style={{ marginBottom: "14px" }}>
+                With <strong>20+ global marketplaces</strong> (US, UK, Australia, Germany, Canada), one product can sell across multiple markets. We manage all of them from a single dashboard.
+              </p>
+              <p className="typo-body">
+                eBay&apos;s final value fees are <strong>10-13% vs Amazon&apos;s 15-20%</strong>. Top Rated Sellers get an additional 20% fee discount. More margin stays in your pocket.
+              </p>
+            </div>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <img src="/images/services/hero/ebay-hq.jpg" alt="eBay Headquarters" style={{ width: "100%", maxWidth: "500px", borderRadius: "12px", height: "auto" }} />
+            </div>
           </div>
         </div>
       </section>

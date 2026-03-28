@@ -87,22 +87,29 @@ export default function WalmartPage() {
 
       {/* ── PLATFORM INTRODUCTION ── */}
       <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
-        <div className="container-main" style={{ maxWidth: "800px", marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>
-          <h2 className="typo-h2" style={{ marginBottom: "16px" }}>The Fastest-Growing Marketplace</h2>
-          <p className="typo-body" style={{ marginBottom: "14px", fontSize: "16px", lineHeight: 1.7 }}>
-            Walmart Marketplace attracts over 120 million unique monthly visitors and is rapidly expanding its third-party seller program. With no monthly seller fees and lower competition than Amazon, early movers have a massive advantage.
-          </p>
-          <p className="typo-body" style={{ marginBottom: "14px", fontSize: "16px", lineHeight: 1.7 }}>
-            Walmart&apos;s fulfillment infrastructure, trusted brand reputation, and growing online presence make it the ideal platform for sellers looking to diversify beyond Amazon or enter ecommerce for the first time.
-          </p>
-          <p className="typo-body" style={{ fontSize: "16px", lineHeight: 1.7 }}>
-            EcomGarden helps you navigate Walmart&apos;s approval process, set up your store, source products, and manage daily operations — giving you a head start on this rapidly growing platform.
-          </p>
+        <div className="container-main">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div>
+              <h2 className="typo-h2" style={{ marginBottom: "16px" }}>The Fastest-Growing Marketplace</h2>
+              <p className="typo-body" style={{ marginBottom: "14px" }}>
+                Walmart Marketplace attracts over 120 million unique monthly visitors and is rapidly expanding its third-party seller program. With no monthly seller fees and lower competition than Amazon, early movers have a massive advantage.
+              </p>
+              <p className="typo-body" style={{ marginBottom: "14px" }}>
+                Walmart&apos;s fulfillment infrastructure, trusted brand reputation, and growing online presence make it the ideal platform for sellers looking to diversify beyond Amazon or enter ecommerce for the first time.
+              </p>
+              <p className="typo-body">
+                EcomGarden helps you navigate Walmart&apos;s approval process, set up your store, source products, and manage daily operations — giving you a head start on this rapidly growing platform.
+              </p>
+            </div>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <img src="/images/services/hero/walmart-platform.jpeg" alt="Walmart Marketplace" style={{ width: "100%", maxWidth: "500px", borderRadius: "12px", height: "auto" }} />
+            </div>
+          </div>
         </div>
       </section>
 
       {/* ── OUR WALMART SERVICES ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
+      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
           <div className="section-header">
             <span className="typo-label">OUR SERVICES</span>

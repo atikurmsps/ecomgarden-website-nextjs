@@ -87,22 +87,29 @@ export default function AmazonPage() {
 
       {/* ── PLATFORM INTRODUCTION ── */}
       <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
-        <div className="container-main" style={{ maxWidth: "800px", marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>
-          <h2 className="typo-h2" style={{ marginBottom: "16px" }}>The World&apos;s #1 Marketplace</h2>
-          <p className="typo-body" style={{ marginBottom: "14px", fontSize: "16px", lineHeight: 1.7 }}>
-            Amazon has over 300 million active customers worldwide and generates more than $600 billion in annual sales. Over 60% of those sales come from third-party sellers — that&apos;s the opportunity waiting for you.
-          </p>
-          <p className="typo-body" style={{ marginBottom: "14px", fontSize: "16px", lineHeight: 1.7 }}>
-            Whether you&apos;re looking to build a wholesale business, launch an FBA brand, or start with low-risk dropshipping, Amazon provides the infrastructure, customer base, and fulfillment network to scale fast.
-          </p>
-          <p className="typo-body" style={{ fontSize: "16px", lineHeight: 1.7 }}>
-            At EcomGarden, we handle everything from store setup and product sourcing to daily operations and advertising — so you can focus on growing your investment.
-          </p>
+        <div className="container-main">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div>
+              <h2 className="typo-h2" style={{ marginBottom: "16px" }}>The World&apos;s #1 Marketplace</h2>
+              <p className="typo-body" style={{ marginBottom: "14px" }}>
+                Amazon has over 300 million active customers worldwide and generates more than $600 billion in annual sales. Over 60% of those sales come from third-party sellers — that&apos;s the opportunity waiting for you.
+              </p>
+              <p className="typo-body" style={{ marginBottom: "14px" }}>
+                Whether you&apos;re looking to build a wholesale business, launch an FBA brand, or start with low-risk dropshipping, Amazon provides the infrastructure, customer base, and fulfillment network to scale fast.
+              </p>
+              <p className="typo-body">
+                At EcomGarden, we handle everything from store setup and product sourcing to daily operations and advertising — so you can focus on growing your investment.
+              </p>
+            </div>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <img src="/images/services/hero/amazon-platform.jpg" alt="Amazon Marketplace" style={{ width: "100%", maxWidth: "500px", borderRadius: "12px", height: "auto" }} />
+            </div>
+          </div>
         </div>
       </section>
 
       {/* ── OUR AMAZON SERVICES ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
+      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
           <div className="section-header">
             <span className="typo-label">OUR SERVICES</span>

@@ -159,30 +159,9 @@ export default function EtsyDropshippingPage() {
               ))}
             </div>
 
-            {/* Right: dark card with checkmarks */}
-            <div style={{
-              background: "linear-gradient(135deg, var(--color-dark) 0%, #1a2332 100%)",
-              borderRadius: "14px",
-              padding: "32px 28px",
-            }}>
-              <h3 style={{ color: "#fff", fontSize: "18px", fontWeight: 700, marginBottom: "20px" }}>
-                What Makes Etsy Sellers Succeed
-              </h3>
-              {[
-                "Original, trend-driven designs — not generic clipart",
-                "SEO-optimized listings with all 13 tags utilized",
-                "Fast shipping and consistent order tracking",
-                "Professional buyer communication (under 24 hours)",
-                "Star Seller badge earned and maintained",
-                "Seasonal product launches timed to buyer demand",
-                "Etsy Ads with positive ROAS from week one",
-                "Shop policies that build trust and reduce returns",
-              ].map((item) => (
-                <div key={item} style={{ display: "flex", alignItems: "flex-start", gap: "10px", marginBottom: "12px" }}>
-                  <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "14px", marginTop: "3px", flexShrink: 0 }} />
-                  <span style={{ color: "rgba(255,255,255,0.88)", fontSize: "14px", lineHeight: 1.5 }}>{item}</span>
-                </div>
-              ))}
+            {/* Right: Image */}
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <img src="/images/services/hero/etsy-platform.jpg" alt="Etsy Marketplace" style={{ width: "100%", maxWidth: "500px", borderRadius: "12px", height: "auto" }} />
             </div>
           </div>
         </div>

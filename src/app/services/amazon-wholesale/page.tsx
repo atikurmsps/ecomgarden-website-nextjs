@@ -7,10 +7,10 @@ import ServiceConfidence from "@/components/services/ServiceConfidence";
 import CTASection from "@/components/home/CTASection";
 
 const comparisonData = [
-  { feature: "Brand approval handled for you", us: true, diy: false, others: "Limited brands" },
+  { feature: "Brand approval & authorization letters", us: true, diy: false, others: "Limited brands" },
   { feature: "Supplier negotiation & bulk pricing", us: true, diy: "You negotiate", others: "Extra fee" },
   { feature: "FBA prep, labeling & shipment plans", us: true, diy: "You do it all", others: "Partial" },
-  { feature: "Automated repricing & Buy Box strategy", us: true, diy: false, others: "Basic tools" },
+  { feature: "24/7 automated repricing & Buy Box", us: true, diy: false, others: "Basic tools" },
   { feature: "Inventory forecasting & reorder alerts", us: true, diy: false, others: false },
   { feature: "Account health monitoring 24/7", us: true, diy: "You check daily", others: "Reactive" },
   { feature: "Multi-brand portfolio management", us: true, diy: "Overwhelming", others: "Max 5 brands" },
@@ -19,48 +19,48 @@ const comparisonData = [
 ];
 
 const whatYouGet = [
-  { img: "/images/services/icons/personal-manager.png", title: "Brand Approval", desc: "We contact brands and distributors, handle all paperwork, and secure official authorization letters. Gated and restricted brands included." },
-  { img: "/images/services/icons/calculation.png", title: "Supplier Negotiation", desc: "Bulk pricing, MOQ negotiation, and payment terms with authorized distributors. We squeeze every point of margin for you." },
-  { img: "/images/services/icons/order-fulfillment.png", title: "FBA Prep & Shipping", desc: "Labeling, poly-bagging, bundling, and shipment plan creation. Products arrive at Amazon warehouse ready to sell." },
-  { img: "/images/services/icons/inventory.png", title: "Inventory Management", desc: "Real-time stock tracking, reorder alerts, and demand forecasting. Never run out of bestsellers or overstock dead weight." },
-  { img: "/images/services/icons/marketing.png", title: "Dynamic Repricing", desc: "24/7 automated repricing monitors competitors and adjusts prices to win Buy Box while maintaining your target profit margins." },
-  { img: "/images/services/icons/account-health.png", title: "Account Health", desc: "Proactive monitoring of performance metrics, policy compliance, and IP complaint prevention. Your account stays in excellent standing." },
-  { img: "/images/services/icons/customer-support.png", title: "Customer Support", desc: "Every buyer message answered within 4 hours. Returns processed, A-to-Z claims handled, feedback managed. Zero headaches." },
-  { img: "/images/services/icons/scalability.png", title: "Growth Strategy", desc: "Started with 5 brands? We scale to 50+. New categories, higher volume, better supplier terms. Your wholesale empire, built." },
+  { img: "/images/services/icons/personal-manager.png", title: "Brand Approval", desc: "We contact brands and distributors, handle all paperwork, and secure official authorization letters. Gated and restricted brands included — even the ones others cannot touch." },
+  { img: "/images/services/icons/calculation.png", title: "Supplier Negotiation", desc: "Bulk pricing, MOQ negotiation, and payment terms with authorized distributors. We squeeze every point of margin so your capital works harder." },
+  { img: "/images/services/icons/order-fulfillment.png", title: "FBA Prep & Shipping", desc: "Labeling, poly-bagging, bundling, and shipment plan creation. Products arrive at Amazon warehouse inspection-ready. You never touch a box." },
+  { img: "/images/services/icons/inventory.png", title: "Inventory Management", desc: "Real-time stock tracking, reorder alerts, and demand forecasting. Never run out of bestsellers or tie up $20K in dead weight that does not move." },
+  { img: "/images/services/icons/marketing.png", title: "Dynamic Repricing", desc: "24/7 automated repricing monitors every competitor and adjusts prices to win Buy Box while maintaining your target profit margins. Smart pricing, not a race to zero." },
+  { img: "/images/services/icons/account-health.png", title: "Account Health", desc: "Proactive monitoring of performance metrics, policy compliance, and IP complaint prevention. Authorized products mean zero inauthentic claims. Your account stays clean." },
+  { img: "/images/services/icons/customer-support.png", title: "Customer Support", desc: "Every buyer message answered within 4 hours. Returns processed, A-to-Z claims handled, feedback managed. Zero headaches for you." },
+  { img: "/images/services/icons/scalability.png", title: "Growth Strategy", desc: "Started with 5 brands? We scale to 50+. New categories, higher volume, better supplier terms. Your wholesale empire, built systematically." },
 ];
 
 const faqs = [
   {
-    question: "Is Amazon wholesale a safe business model?",
-    answer: "Yes, 100% safe. We get official brand approval before purchasing any inventory. Products come from authorized distributors with proper documentation. This means zero IP complaints, zero inauthentic claims, and zero suspension risk. It is the safest model on Amazon.",
+    question: "Is Amazon wholesale actually safe from suspensions?",
+    answer: "Yes, the safest model on Amazon. We get official brand authorization before purchasing any inventory. Products come from authorized distributors with proper invoices and documentation. This means zero IP complaints, zero inauthentic claims, and zero suspension risk. Unlike arbitrage or private label, you are selling products that already have demand and brand trust.",
   },
   {
-    question: "How much capital do I need to start?",
-    answer: "Minimum $5,000 to start, though $15,000-$20,000 is ideal for meaningful returns. Wholesale requires purchasing inventory upfront, but the margins are strong — 30-40% ROI after all expenses. The more capital you deploy, the faster you scale.",
+    question: "How much capital do I need to start wholesale?",
+    answer: "Minimum $5,000 to start, though $15,000-$20,000 is ideal for meaningful returns. Wholesale requires purchasing inventory upfront, but margins are strong — 30-40% ROI after all expenses. Unlike private label where you gamble on unproven products, wholesale means selling brands customers already search for.",
   },
   {
-    question: "What ROI can I realistically expect?",
-    answer: "Our average ROI is 35% after ALL expenses — Amazon fees, product cost, FBA fees, shipping, prep, everything. On a $10,000 inventory investment, that is $3,500 profit per cycle. We only source products that meet our minimum margin threshold before purchasing.",
+    question: "What kind of ROI can I realistically expect?",
+    answer: "Our average ROI is 35% after ALL expenses — Amazon fees, product cost, FBA fees, shipping, prep, everything. On a $10,000 inventory investment, that is $3,500 profit per cycle. We only source products that meet our minimum margin threshold before purchasing. No guesswork, only math.",
   },
   {
-    question: "How do you get brand approvals?",
-    answer: "We have established relationships with hundreds of brands and authorized distributors. Our team handles all outreach, paperwork, and negotiations. We secure official authorization letters that protect your account from IP complaints — including gated and restricted brands most agencies cannot touch.",
+    question: "How do you get brand approvals that I cannot get myself?",
+    answer: "We have established relationships with hundreds of brands and authorized distributors built over years. Our team handles all outreach, paperwork, and negotiations. We secure official authorization letters that protect your account — including gated and restricted brands that most sellers and agencies cannot access.",
   },
   {
-    question: "Where do you source products from?",
-    answer: "Directly from authorized distributors and brand-approved wholesalers in the US. Every product comes with proper invoices and documentation. We never source from unauthorized channels — your supply chain is clean and Amazon-compliant.",
+    question: "What if a product stops selling or margins drop?",
+    answer: "We validate every product before purchasing — landed cost, FBA fees, competition depth, Buy Box rotation, and sales velocity. If market conditions change post-purchase, we adjust pricing dynamically or liquidate strategically. The key is diversification — with 20-50 brands, one slow mover does not sink your portfolio.",
   },
   {
-    question: "Do you handle FBA prep and shipping?",
-    answer: "Yes, everything. Labeling, poly-bagging, bundling, shipment plan creation, and freight coordination. Products arrive at Amazon fulfillment centers ready to sell. You never touch a box.",
+    question: "Do I need a warehouse or do you handle FBA prep?",
+    answer: "We handle everything. Labeling, poly-bagging, bundling, shipment plan creation, and freight coordination. Products arrive at Amazon fulfillment centers ready to sell. You never touch inventory, never visit a warehouse, never pack a box.",
   },
   {
-    question: "What if a product is not profitable?",
-    answer: "We validate every product before purchasing — landed cost, FBA fees, competition depth, Buy Box rotation, and sales velocity. If a product does not meet our margin threshold, it does not get ordered. If market conditions change, we adjust pricing or liquidate strategically.",
+    question: "How is wholesale different from arbitrage or private label?",
+    answer: "Arbitrage means buying discounted retail products one at a time — high effort, thin margins, IP risk. Private label means creating your own brand from scratch — high capital, high risk, slow to profit. Wholesale means selling established brands with proven demand at negotiated wholesale prices. Consistent margins, zero brand building required, and the safest account status on Amazon.",
   },
   {
     question: "Can I cancel anytime?",
-    answer: "Yes, no contracts and no lock-in periods. Our retention rate is over 90% because the results speak for themselves — but you are free to leave whenever you choose. Zero exit fees, zero hassle.",
+    answer: "Yes, no contracts and no lock-in periods. Our retention rate is over 90% because the results speak for themselves — but you are free to leave whenever you choose. Zero exit fees, zero hassle. We keep clients by performing, not by locking them in.",
   },
 ];
 
@@ -77,10 +77,10 @@ export default function AmazonWholesalePage() {
             <div>
               <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>AMAZON WHOLESALE</span>
               <h1 className="typo-h1" style={{ marginBottom: "14px" }}>
-                Sell Authorized Brands on Amazon. <span style={{ color: "var(--color-primary)" }}>We Handle Everything.</span>
+                Sell Established Brands on Amazon. <span style={{ color: "var(--color-primary)" }}>Consistent Margins, Zero Brand Building.</span>
               </h1>
               <p className="typo-body" style={{ marginBottom: "16px", fontSize: "17px" }}>
-                We secure brand approvals, source from authorized distributors, prep inventory for FBA, and manage your store daily. You invest. You profit. We do the work.
+                We secure brand approvals, source from authorized distributors, prep inventory for FBA, and manage your store daily. You invest the capital. We do every ounce of work. You collect the profit.
               </p>
 
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6px 16px", marginBottom: "20px" }}>
@@ -137,34 +137,34 @@ export default function AmazonWholesalePage() {
           <div className="section-header">
             <span className="typo-label">WHY THIS WORKS</span>
             <h2 className="typo-h2">Your Problems. Our Solutions.</h2>
-            <p className="typo-subtext">Wholesale is lucrative — but the barriers are real. Here&apos;s how we remove every one of them so you can focus on growing your investment.</p>
+            <p className="typo-subtext">Wholesale is the most consistent Amazon model — but the barriers are real. Here&apos;s how we remove every one of them so you focus on growing your investment.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ marginTop: "28px" }}>
             {[
               {
-                problem: "Can't get brand approvals?",
-                solution: "We have relationships with 500+ brands and distributors. We handle all outreach, paperwork, and negotiations — including gated brands others can't touch.",
+                problem: "Can't find reliable distributors?",
+                solution: "We have relationships with 500+ authorized distributors built over years. Verified invoices, clean supply chains, and brands that Amazon trusts. No gray-market risk.",
               },
               {
-                problem: "Distributors won't talk to small sellers?",
-                solution: "Our purchasing volume gives you leverage you don't have alone. Better pricing, lower MOQs, and payment terms that protect your cash flow.",
+                problem: "Brand approvals keep getting rejected?",
+                solution: "Our team has secured 500+ brand approvals — including gated and restricted brands most agencies cannot touch. We handle all outreach, paperwork, and authorization letters.",
               },
               {
-                problem: "$20K+ capital tied up in inventory?",
-                solution: "We validate every SKU before you spend a dollar. Demand analysis, margin calculation, competition depth — no dead stock surprises.",
+                problem: "Need $50K+ to start wholesale?",
+                solution: "Start with $5K. We validate every SKU before you spend — demand analysis, margin calculation, competition depth. No dead stock surprises. Scale as profits compound.",
               },
               {
-                problem: "FBA prep is a full-time nightmare?",
-                solution: "Labeling, poly-bagging, bundling, shipment plans — all handled. Products arrive at Amazon ready to sell. You never touch a box.",
+                problem: "FBA prep is eating your margins?",
+                solution: "Labeling, poly-bagging, bundling, shipment plans — all handled at competitive rates. Products arrive at Amazon inspection-ready. You never touch a box or visit a warehouse.",
               },
               {
-                problem: "Losing the Buy Box to 15 other sellers?",
-                solution: "Our repricing runs 24/7. We win the Buy Box while maintaining your margins. Smart pricing, not a race to the bottom.",
+                problem: "Buy Box keeps getting stolen?",
+                solution: "Our repricing runs 24/7. We win the Buy Box while maintaining your margins — smart pricing algorithms, not a race to the bottom. Average Buy Box win rate: 70%+.",
               },
               {
-                problem: "Managing 20 brands feels impossible?",
-                solution: "We track every brand, every SKU, every reorder point. Portfolio management at scale — so you can add brands without adding chaos.",
+                problem: "Managing 10+ suppliers is chaos?",
+                solution: "We track every brand, every SKU, every reorder point, every supplier relationship. Portfolio management at scale — add brands without adding complexity to your life.",
               },
             ].map((item) => (
               <div
@@ -180,7 +180,7 @@ export default function AmazonWholesalePage() {
                 <p style={{ fontSize: "14px", fontWeight: 700, color: "var(--color-dark)", marginBottom: "10px", lineHeight: 1.4 }}>
                   <span style={{ color: "#dc2626" }}>✗</span>{" "}{item.problem}
                 </p>
-                <p style={{ fontSize: "13px", color: "var(--color-text-light)", margin: 0, lineHeight: 1.6, paddingLeft: "2px", borderLeft: "3px solid var(--color-primary)" }}>
+                <p style={{ fontSize: "13px", color: "var(--color-text-light)", margin: 0, lineHeight: 1.6, paddingLeft: "2px", borderLeft: "3px solid var(--color-primary)", marginLeft: "0" }}>
                   <span style={{ display: "block", paddingLeft: "12px" }}>
                     <span style={{ color: "var(--color-primary)", fontWeight: 700 }}>→</span>{" "}{item.solution}
                   </span>
@@ -191,7 +191,7 @@ export default function AmazonWholesalePage() {
         </div>
       </section>
 
-      {/* ── CLIENT RESULTS ── */}
+      {/* ── CLIENT RESULTS / SOCIAL PROOF ── */}
       <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
           <div className="section-header">
@@ -199,15 +199,31 @@ export default function AmazonWholesalePage() {
             <h2 className="typo-h2">See What Our Clients Are Achieving</h2>
             <p className="typo-subtext">Real stores. Real revenue. Real clients sharing their results publicly.</p>
           </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6" style={{ marginTop: "28px", maxWidth: "900px", marginLeft: "auto", marginRight: "auto" }}>
+            {/* Video 1 */}
             <div style={{ borderRadius: "12px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.08)", border: "1px solid rgba(0,0,0,0.06)" }}>
               <div style={{ position: "relative", paddingBottom: "56.25%", height: 0 }}>
-                <iframe src="https://www.youtube.com/embed/2TxAECYAyM0" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen title="Client Result" />
+                <iframe
+                  src="https://www.youtube.com/embed/2TxAECYAyM0"
+                  style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  title="Client Result - Amazon Wholesale"
+                />
               </div>
             </div>
+
+            {/* Video 2 */}
             <div style={{ borderRadius: "12px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.08)", border: "1px solid rgba(0,0,0,0.06)" }}>
               <div style={{ position: "relative", paddingBottom: "56.25%", height: 0 }}>
-                <iframe src="https://www.youtube.com/embed/9DqDFAGLPrc" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen title="Client Result" />
+                <iframe
+                  src="https://www.youtube.com/embed/9DqDFAGLPrc"
+                  style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  title="Client Result - Amazon Wholesale Revenue"
+                />
               </div>
             </div>
           </div>
@@ -227,10 +243,10 @@ export default function AmazonWholesalePage() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6" style={{ marginTop: "32px" }}>
             {[
-              { img: "/images/process/discussion.png", title: "Research & Approve", desc: "We identify profitable brands, contact distributors, and secure official authorization letters for your account." },
-              { img: "/images/process/get-access.png", title: "Source & Order", desc: "Negotiate bulk pricing, place orders from authorized distributors, and coordinate shipping to FBA warehouses." },
-              { img: "/images/process/planning.png", title: "Prep & Launch", desc: "FBA prep, labeling, shipment plans created. Products go live with optimized listings and competitive pricing." },
-              { img: "/images/process/growth.png", title: "Scale & Profit", desc: "Repricing wins Buy Box. PPC drives traffic. Inventory auto-reorders. We add more brands. You collect profit." },
+              { img: "/images/process/discussion.png", title: "Research & Approve", desc: "We identify profitable brands, contact distributors, and secure official authorization letters for your account. Only vetted brands make the cut." },
+              { img: "/images/process/get-access.png", title: "Source & Order", desc: "Negotiate bulk pricing, place orders from authorized distributors, and coordinate shipping to FBA prep centers. Every invoice clean and compliant." },
+              { img: "/images/process/planning.png", title: "Prep & Launch", desc: "FBA prep, labeling, shipment plans created. Products go live with optimized listings, competitive pricing, and repricing activated from day one." },
+              { img: "/images/process/growth.png", title: "Scale & Profit", desc: "Repricing wins Buy Box. Inventory auto-reorders. We add more brands, more SKUs, more revenue streams. You collect profit monthly." },
             ].map((item, index) => (
               <div key={item.title} style={{ textAlign: "center", padding: "8px" }}>
                 <div style={{ marginBottom: "12px", display: "flex", justifyContent: "center" }}>
@@ -278,11 +294,11 @@ export default function AmazonWholesalePage() {
         </div>
       </section>
 
-      {/* ── PROFIT SHARING BANNER ── */}
+      {/* ── CTA BANNER ── */}
       <section style={{ padding: "45px 0", backgroundColor: "var(--color-dark)" }}>
         <div className="container-main" style={{ textAlign: "center" }}>
           <h2 style={{ fontSize: "24px", fontWeight: 700, color: "#fff", marginBottom: "6px" }}>
-            We Don&apos;t Get Paid Until <span style={{ color: "var(--color-primary)" }}>You Get Paid</span>
+            Sell Proven Brands. <span style={{ color: "var(--color-primary)" }}>Skip the Guesswork.</span>
           </h2>
           <p style={{ fontSize: "15px", color: "rgba(255,255,255,0.7)", maxWidth: "550px", margin: "0 auto 20px" }}>
             Profit sharing model — zero management fees until your wholesale store is profitable. We have skin in the game. No other agency does this.
@@ -304,12 +320,12 @@ export default function AmazonWholesalePage() {
       <ServiceConfidence />
 
       {/* ── ECOMGARDEN VS OTHERS ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
+      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
           <div className="section-header">
             <span className="typo-label">THE HONEST COMPARISON</span>
             <h2 className="typo-h2">Why 150+ Wholesale Sellers Chose Us Over Going Solo</h2>
-            <p className="typo-subtext">Wholesale is a capital-intensive business. One wrong brand, one bad supplier, one stockout — and you lose thousands. We prevent all of it.</p>
+            <p className="typo-subtext">Wholesale is capital-intensive. One wrong brand, one bad supplier, one stockout — and you lose thousands. We prevent all of it.</p>
           </div>
 
           <div style={{ maxWidth: "850px", margin: "32px auto 0", overflowX: "auto" }}>
@@ -318,7 +334,7 @@ export default function AmazonWholesalePage() {
                 <tr>
                   <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, fontSize: "13px", backgroundColor: "#f6f7f9", borderBottom: "2px solid #e8e8e8" }}>What You Need</th>
                   <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, fontSize: "13px", backgroundColor: "var(--color-primary)", color: "#fff", borderBottom: "2px solid var(--color-primary-dark)", minWidth: "130px" }}>EcomGarden</th>
-                  <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, fontSize: "13px", backgroundColor: "#f6f7f9", borderBottom: "2px solid #e8e8e8", minWidth: "120px" }}>Do It Yourself</th>
+                  <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, fontSize: "13px", backgroundColor: "#f6f7f9", borderBottom: "2px solid #e8e8e8", minWidth: "120px" }}>DIY Wholesale</th>
                   <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, fontSize: "13px", backgroundColor: "#f6f7f9", borderBottom: "2px solid #e8e8e8", minWidth: "120px" }}>Other Agencies</th>
                 </tr>
               </thead>
@@ -344,11 +360,11 @@ export default function AmazonWholesalePage() {
       </section>
 
       {/* ── FAQ ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
+      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
           <div className="section-header">
             <span className="typo-label">GOT QUESTIONS?</span>
-            <h2 className="typo-h2">Everything You Want to Know Before Starting</h2>
+            <h2 className="typo-h2">Everything You Want to Know Before Investing</h2>
           </div>
 
           <div style={{ maxWidth: "750px", margin: "24px auto 0" }}>

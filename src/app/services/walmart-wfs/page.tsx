@@ -64,6 +64,7 @@ const faqs = [
   },
 ];
 
+
 export default function WalmartWFSPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -76,10 +77,10 @@ export default function WalmartWFSPage() {
             <div>
               <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>WALMART FULFILLMENT SERVICES (WFS)</span>
               <h1 className="typo-h1" style={{ marginBottom: "14px" }}>
-                WFS Done Right. Prep, Ship, Sell. <span style={{ color: "var(--color-primary)" }}>We Handle It All.</span>
+                Walmart Fulfillment Services — <span style={{ color: "#0071dc" }}>Let Walmart Ship For You</span>
               </h1>
               <p className="typo-body" style={{ marginBottom: "16px", fontSize: "17px" }}>
-                We prep your products to Walmart&apos;s exact standards, ship to their warehouses, optimize your listings for the WFS advantage, and manage your inventory so you never miss a sale.
+                WFS is Walmart&apos;s version of FBA. Your products stored in Walmart warehouses, shipped with 2-day delivery, Pro Seller badge eligible. We handle every step — prep, ship, optimize, scale.
               </p>
 
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6px 16px", marginBottom: "20px" }}>
@@ -87,7 +88,7 @@ export default function WalmartWFSPage() {
                   "Zero prep rejections",
                   "Pro Seller badge ready",
                   "Lower fees than FBA",
-                  "Faster delivery badges",
+                  "2-day delivery badge",
                   "Pay from profits only",
                   "Full WFS management",
                 ].map((item) => (
@@ -117,7 +118,7 @@ export default function WalmartWFSPage() {
 
             <div className="hidden lg:flex items-center justify-center">
               <img
-                src="/svg/dropshipping_hero_v4.svg"
+                src="/svg/wholesale.svg"
                 alt="Walmart WFS Services"
                 style={{ width: "100%", maxWidth: "600px", height: "auto" }}
               />
@@ -142,23 +143,23 @@ export default function WalmartWFSPage() {
                 solution: "We've prepped thousands of WFS shipments. Labeling, packaging, poly bags, bundles — every item meets Walmart's exact spec. Zero rejections, guaranteed.",
               },
               {
-                problem: "Shipping to Walmart warehouses is complex?",
-                solution: "Shipping plans, carrier selection, pallet specs, appointment scheduling — we handle the entire inbound process. Your inventory arrives on time, every time.",
+                problem: "Shipping to Walmart warehouses is expensive?",
+                solution: "Optimized shipping plans, negotiated carrier rates, pallets built to spec. We cut your inbound costs by 30%+ compared to self-shipping.",
               },
               {
-                problem: "Storage fees eating into your margins?",
+                problem: "Storage fees eating your margins?",
                 solution: "We forecast demand, rotate inventory, and liquidate aged stock before fees spike. Our clients average 40% lower storage costs than self-managed sellers.",
               },
               {
-                problem: "Inventory planning is a guessing game?",
+                problem: "Can't get the Pro Seller badge?",
+                solution: "WFS handles shipping speed. We handle everything else — listing quality, response time, order defect rate. Pro Seller badge typically earned within 90 days.",
+              },
+              {
+                problem: "Inventory keeps going out of stock?",
                 solution: "Demand forecasting, seasonal trends, reorder point alerts — we ensure you never stock out during peaks and never overstock during lows.",
               },
               {
-                problem: "Can't seem to earn the Pro Seller badge?",
-                solution: "WFS handles shipping speed. We handle everything else — listing quality, customer response time, order defect rate. Pro Seller badge typically earned within 90 days.",
-              },
-              {
-                problem: "Returns are messy and untracked?",
+                problem: "WFS returns are complicated?",
                 solution: "Walmart handles WFS returns physically, but we track every return, manage customer communication, and identify return-rate patterns to fix root causes.",
               },
             ].map((item) => (
@@ -187,7 +188,7 @@ export default function WalmartWFSPage() {
       </section>
 
       {/* ── HOW IT WORKS ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
+      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
           <div className="section-header">
             <span className="typo-label">THE PROCESS</span>
@@ -200,9 +201,9 @@ export default function WalmartWFSPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6" style={{ marginTop: "32px" }}>
             {[
               { img: "/images/process/discussion.png", title: "Prep & Label", desc: "Every product prepped to Walmart's exact WFS standards. Barcodes, packaging, labeling — done right the first time." },
-              { img: "/images/process/get-access.png", title: "Ship & Receive", desc: "Optimized shipping plans, carrier negotiation, pallet building. Your inventory lands in Walmart warehouses fast." },
-              { img: "/images/process/planning.png", title: "Optimize & Sell", desc: "Listings optimized for WFS placement, pricing tuned for the Buy Box, PPC campaigns driving traffic to your products." },
-              { img: "/images/process/growth.png", title: "Scale & Profit", desc: "Inventory replenished, new SKUs added, storage optimized. Your WFS operation grows while costs stay controlled." },
+              { img: "/images/process/get-access.png", title: "Ship to WFS", desc: "Optimized shipping plans, carrier negotiation, pallet building. Your inventory lands in Walmart warehouses fast and cheap." },
+              { img: "/images/process/planning.png", title: "Walmart Fulfills", desc: "Walmart stores, picks, packs, and ships your orders with 2-day delivery. You earn the fast shipping badge automatically." },
+              { img: "/images/process/growth.png", title: "Scale & Earn", desc: "Inventory replenished, new SKUs added, storage optimized. Your WFS operation grows while costs stay controlled." },
             ].map((item, index) => (
               <div key={item.title} style={{ textAlign: "center", padding: "8px" }}>
                 <div style={{ marginBottom: "12px", display: "flex", justifyContent: "center" }}>
@@ -228,7 +229,7 @@ export default function WalmartWFSPage() {
       </section>
 
       {/* ── WHAT YOU GET ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
+      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
           <div className="section-header">
             <span className="typo-label">FULL SERVICE</span>
@@ -250,11 +251,11 @@ export default function WalmartWFSPage() {
         </div>
       </section>
 
-      {/* ── PROFIT SHARING BANNER ── */}
+      {/* ── CTA BANNER ── */}
       <section style={{ padding: "45px 0", backgroundColor: "var(--color-dark)" }}>
         <div className="container-main" style={{ textAlign: "center" }}>
           <h2 style={{ fontSize: "24px", fontWeight: 700, color: "#fff", marginBottom: "6px" }}>
-            We Don&apos;t Get Paid Until <span style={{ color: "var(--color-primary)" }}>You Get Paid</span>
+            We Don&apos;t Get Paid Until <span style={{ color: "#0071dc" }}>You Get Paid</span>
           </h2>
           <p style={{ fontSize: "15px", color: "rgba(255,255,255,0.7)", maxWidth: "550px", margin: "0 auto 20px" }}>
             Profit sharing model — zero management fees until your WFS store is profitable. Our success is tied directly to yours.
@@ -276,7 +277,7 @@ export default function WalmartWFSPage() {
       <ServiceConfidence />
 
       {/* ── ECOMGARDEN VS OTHERS ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
+      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
           <div className="section-header">
             <span className="typo-label">THE HONEST COMPARISON</span>
@@ -290,7 +291,7 @@ export default function WalmartWFSPage() {
                 <tr>
                   <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, fontSize: "13px", backgroundColor: "#f6f7f9", borderBottom: "2px solid #e8e8e8" }}>What You Need</th>
                   <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, fontSize: "13px", backgroundColor: "var(--color-primary)", color: "#fff", borderBottom: "2px solid var(--color-primary-dark)", minWidth: "130px" }}>EcomGarden</th>
-                  <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, fontSize: "13px", backgroundColor: "#f6f7f9", borderBottom: "2px solid #e8e8e8", minWidth: "120px" }}>Do It Yourself</th>
+                  <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, fontSize: "13px", backgroundColor: "#f6f7f9", borderBottom: "2px solid #e8e8e8", minWidth: "120px" }}>Self-Managing WFS</th>
                   <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, fontSize: "13px", backgroundColor: "#f6f7f9", borderBottom: "2px solid #e8e8e8", minWidth: "120px" }}>Other Agencies</th>
                 </tr>
               </thead>
@@ -316,7 +317,7 @@ export default function WalmartWFSPage() {
       </section>
 
       {/* ── FAQ ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
+      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
           <div className="section-header">
             <span className="typo-label">GOT QUESTIONS?</span>
