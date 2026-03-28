@@ -2,73 +2,65 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp, FaBoxes, FaHandshake, FaChartLine, FaShieldAlt, FaTags, FaWarehouse, FaShoppingCart, FaTruck, FaSmile, FaMoneyBillWave } from "react-icons/fa";
+import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp } from "react-icons/fa";
 import ServiceConfidence from "@/components/services/ServiceConfidence";
-import ServiceFAQ from "@/components/services/ServiceFAQ";
 import CTASection from "@/components/home/CTASection";
 
 const comparisonData = [
-  { feature: "Brand approval handled for you", us: true, diy: false, others: "Limited" },
-  { feature: "Supplier negotiation & pricing", us: true, diy: "You do it", others: "Extra fee" },
-  { feature: "FBA prep & shipment planning", us: true, diy: "You do it", others: "Partial" },
-  { feature: "Automated repricing strategy", us: true, diy: false, others: "Basic" },
+  { feature: "Brand approval handled for you", us: true, diy: false, others: "Limited brands" },
+  { feature: "Supplier negotiation & bulk pricing", us: true, diy: "You negotiate", others: "Extra fee" },
+  { feature: "FBA prep, labeling & shipment plans", us: true, diy: "You do it all", others: "Partial" },
+  { feature: "Automated repricing & Buy Box strategy", us: true, diy: false, others: "Basic tools" },
   { feature: "Inventory forecasting & reorder alerts", us: true, diy: false, others: false },
-  { feature: "Account health monitoring", us: true, diy: "You do it", others: "Reactive" },
-  { feature: "Dedicated wholesale VA", us: true, diy: false, others: "Shared team" },
-  { feature: "Profit sharing model available", us: true, diy: "N/A", others: false },
-  { feature: "Transparent reporting", us: true, diy: "You track", others: "Monthly only" },
+  { feature: "Account health monitoring 24/7", us: true, diy: "You check daily", others: "Reactive" },
+  { feature: "Multi-brand portfolio management", us: true, diy: "Overwhelming", others: "Max 5 brands" },
+  { feature: "Profit sharing — pay from profits only", us: true, diy: "N/A", others: false },
+  { feature: "24/7 WhatsApp support", us: true, diy: false, others: "Email only" },
 ];
 
 const whatYouGet = [
-  { img: "/images/services/icons/personal-manager.png", title: "Brand Approval Process", desc: "We contact brands and distributors on your behalf, handle all paperwork, and secure official authorization letters so you can sell without IP complaints." },
-  { img: "/images/services/icons/calculation.png", title: "Supplier Negotiations", desc: "Our team negotiates wholesale pricing, minimum order quantities, and payment terms with authorized distributors to maximize your profit margins." },
-  { img: "/images/services/icons/order-fulfillment.png", title: "FBA Prep & Shipment", desc: "Complete FBA preparation including labeling, poly-bagging, bundling, and shipment plan creation. Products arrive at Amazon ready to sell." },
-  { img: "/images/services/icons/inventory.png", title: "Inventory Management", desc: "Real-time stock tracking, reorder point alerts, and demand forecasting so you never run out of your best sellers or overstock slow movers." },
-  { img: "/images/services/icons/marketing.png", title: "Dynamic Repricing", desc: "Automated repricing tools monitor competitor prices 24/7 and adjust your prices to win the Buy Box while maintaining target profit margins." },
-  { img: "/images/services/icons/account-health.png", title: "Account Health Protection", desc: "Proactive monitoring of performance metrics, policy compliance, and IP complaint prevention. We keep your account in excellent standing." },
+  { img: "/images/services/icons/personal-manager.png", title: "Brand Approval", desc: "We contact brands and distributors, handle all paperwork, and secure official authorization letters. Gated and restricted brands included." },
+  { img: "/images/services/icons/calculation.png", title: "Supplier Negotiation", desc: "Bulk pricing, MOQ negotiation, and payment terms with authorized distributors. We squeeze every point of margin for you." },
+  { img: "/images/services/icons/order-fulfillment.png", title: "FBA Prep & Shipping", desc: "Labeling, poly-bagging, bundling, and shipment plan creation. Products arrive at Amazon warehouse ready to sell." },
+  { img: "/images/services/icons/inventory.png", title: "Inventory Management", desc: "Real-time stock tracking, reorder alerts, and demand forecasting. Never run out of bestsellers or overstock dead weight." },
+  { img: "/images/services/icons/marketing.png", title: "Dynamic Repricing", desc: "24/7 automated repricing monitors competitors and adjusts prices to win Buy Box while maintaining your target profit margins." },
+  { img: "/images/services/icons/account-health.png", title: "Account Health", desc: "Proactive monitoring of performance metrics, policy compliance, and IP complaint prevention. Your account stays in excellent standing." },
+  { img: "/images/services/icons/customer-support.png", title: "Customer Support", desc: "Every buyer message answered within 4 hours. Returns processed, A-to-Z claims handled, feedback managed. Zero headaches." },
+  { img: "/images/services/icons/scalability.png", title: "Growth Strategy", desc: "Started with 5 brands? We scale to 50+. New categories, higher volume, better supplier terms. Your wholesale empire, built." },
 ];
 
 const faqs = [
   {
-    question: "How Safe Amazon Wholesale Business?",
-    answer:
-      "Its 100% safe business model. We will get approval from brand first and then get inventory from official distributor.",
+    question: "Is Amazon wholesale a safe business model?",
+    answer: "Yes, 100% safe. We get official brand approval before purchasing any inventory. Products come from authorized distributors with proper documentation. This means zero IP complaints, zero inauthentic claims, and zero suspension risk. It is the safest model on Amazon.",
   },
   {
-    question:
-      "Does wholesale profitable after shipping and warehouse cost?",
-    answer:
-      "Yes. Its fully profitable. When we do products research, we pick products thats only have good profit margin and it will cover our warehouse & shipping cost.",
+    question: "How much capital do I need to start?",
+    answer: "Minimum $5,000 to start, though $15,000-$20,000 is ideal for meaningful returns. Wholesale requires purchasing inventory upfront, but the margins are strong — 30-40% ROI after all expenses. The more capital you deploy, the faster you scale.",
   },
   {
-    question: "How much ROI (Return ON Investment) can I get?",
-    answer:
-      "Our average ROI is 35%. You will get 30-40% PROFIT MARGIN after all expense (shipping, warehouse and all other fees)",
+    question: "What ROI can I realistically expect?",
+    answer: "Our average ROI is 35% after ALL expenses — Amazon fees, product cost, FBA fees, shipping, prep, everything. On a $10,000 inventory investment, that is $3,500 profit per cycle. We only source products that meet our minimum margin threshold before purchasing.",
   },
   {
-    question: "How much inventory do i need to start?",
-    answer:
-      "Wholesale business required purchasing inventory before. Based on your budget, we will purchase SKU quantity. A average good budgets is $20k. For a minimum start, its required $5k.",
+    question: "How do you get brand approvals?",
+    answer: "We have established relationships with hundreds of brands and authorized distributors. Our team handles all outreach, paperwork, and negotiations. We secure official authorization letters that protect your account from IP complaints — including gated and restricted brands most agencies cannot touch.",
   },
   {
-    question: "Can I use my address as warehouse?",
-    answer:
-      "Yes, If you can handle products receiving and shipping to customer, then why you will pay 3rd party warehouse!",
+    question: "Where do you source products from?",
+    answer: "Directly from authorized distributors and brand-approved wholesalers in the US. Every product comes with proper invoices and documentation. We never source from unauthorized channels — your supply chain is clean and Amazon-compliant.",
   },
   {
-    question: "Where do you source products?",
-    answer:
-      "We will get approval from brand first. Based on brand, we will get inventory from their authorised distributor.",
+    question: "Do you handle FBA prep and shipping?",
+    answer: "Yes, everything. Labeling, poly-bagging, bundling, shipment plan creation, and freight coordination. Products arrive at Amazon fulfillment centers ready to sell. You never touch a box.",
   },
   {
-    question: "Will you guys manage my whole business?",
-    answer:
-      "Yes, We provide A-Z management including products research, sourcing, order management, shipping, return handling, customer support, promotion.",
+    question: "What if a product is not profitable?",
+    answer: "We validate every product before purchasing — landed cost, FBA fees, competition depth, Buy Box rotation, and sales velocity. If a product does not meet our margin threshold, it does not get ordered. If market conditions change, we adjust pricing or liquidate strategically.",
   },
   {
-    question: "What if I can not create any profit?",
-    answer:
-      "Our working method is 100% profit guarantee. You will get full refund of any charge with no question ask.",
+    question: "Can I cancel anytime?",
+    answer: "Yes, no contracts and no lock-in periods. Our retention rate is over 90% because the results speak for themselves — but you are free to leave whenever you choose. Zero exit fees, zero hassle.",
   },
 ];
 
@@ -82,18 +74,35 @@ export default function AmazonWholesalePage() {
       <section style={{ padding: "55px 0 70px", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            {/* Left: Content */}
             <div>
               <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>AMAZON WHOLESALE</span>
               <h1 className="typo-h1" style={{ marginBottom: "14px" }}>
-                Build a Scalable Amazon Business With Authorized Wholesale Products
+                Sell Authorized Brands on Amazon. <span style={{ color: "var(--color-primary)" }}>We Handle Everything.</span>
               </h1>
-              <p className="typo-body" style={{ marginBottom: "12px", fontSize: "17px" }}>
-                Authentic branded products from official distributors. <strong>100% suspension risk-free</strong> with 30-40% profit margins.
+              <p className="typo-body" style={{ marginBottom: "16px", fontSize: "17px" }}>
+                We secure brand approvals, source from authorized distributors, prep inventory for FBA, and manage your store daily. You invest. You profit. We do the work.
               </p>
-              <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
-                Brand approvals, supplier sourcing, FBA prep, repricing — all handled by our team.
+
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6px 16px", marginBottom: "20px" }}>
+                {[
+                  "30-40% profit margins",
+                  "Zero suspension risk",
+                  "Brand approvals included",
+                  "FBA prep handled",
+                  "Pay from profits only",
+                  "A-Z store management",
+                ].map((item) => (
+                  <div key={item} style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                    <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "12px", flexShrink: 0 }} />
+                    <span style={{ fontSize: "13px", color: "#555" }}>{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "20px" }}>
+                150+ wholesale clients scaled. 500+ brands approved. Your turn.
               </p>
+
               <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
                 <a
                   href="https://wa.link/m2ac6m"
@@ -103,150 +112,119 @@ export default function AmazonWholesalePage() {
                   style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
                 >
                   <FaWhatsapp style={{ fontSize: "18px" }} />
-                  Get Free Consultation
+                  Start Earning — Free Consultation
                 </a>
                 <Link href="/pricing" className="btn-outline">
-                  View Pricing
+                  See Pricing
                 </Link>
-              </div>
-
-              {/* Trust badges */}
-              <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap" }}>
-                {[
-                  { icon: <FaBoxes />, text: "35% Avg. ROI" },
-                  { icon: <FaShieldAlt />, text: "Zero Suspension Risk" },
-                  { icon: <FaHandshake />, text: "150+ Happy Clients" },
-                ].map((badge) => (
-                  <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
-                    <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
-                    {badge.text}
-                  </div>
-                ))}
               </div>
             </div>
 
-            {/* Right: SVG Illustration */}
             <div className="hidden lg:flex items-center justify-center">
-              <div style={{
-                width: "100%",
-                maxWidth: "460px",
-                aspectRatio: "1/1",
-                borderRadius: "16px",
-                background: "linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%)",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                padding: "40px",
-                color: "#fff",
-                textAlign: "center",
-                position: "relative",
-                overflow: "hidden",
-              }}>
-                <div style={{ position: "absolute", top: "20px", right: "20px", backgroundColor: "rgba(22,163,74,0.2)", borderRadius: "12px", padding: "6px 14px" }}>
-                  <span style={{ fontSize: "12px", fontWeight: 700, color: "var(--color-primary)" }}>VERIFIED</span>
-                </div>
-                <FaHandshake style={{ fontSize: "48px", marginBottom: "16px", opacity: 0.9 }} />
-                <h3 style={{ fontSize: "22px", fontWeight: 700, color: "#fff", marginBottom: "8px" }}>
-                  30-40% Profit Margins
-                </h3>
-                <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
-                  Official brand approvals &amp; authorized distributors
-                </p>
-                <div style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
-                  {[
-                    { val: "150+", label: "Clients" },
-                    { val: "35%", label: "Avg ROI" },
-                    { val: "500+", label: "Brands" },
-                  ].map((s) => (
-                    <div key={s.label} style={{ textAlign: "center" }}>
-                      <div style={{ fontSize: "20px", fontWeight: 800, color: "var(--color-primary)" }}>{s.val}</div>
-                      <div style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)" }}>{s.label}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              <img
+                src="/svg/dropshipping_hero_v4.svg"
+                alt="Amazon Wholesale Services"
+                style={{ width: "100%", maxWidth: "600px", height: "auto" }}
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── INTRO SECTION ── */}
+      {/* ── PROBLEM → SOLUTION ── */}
       <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <p className="typo-body" style={{ marginBottom: "16px" }}>
-                Amazon Wholesale is a popular business model where you sell authentic branded products purchased directly from authorized distributors. Brand approval is required before purchasing inventory and listing on Amazon.
-              </p>
-              <p className="typo-body" style={{ marginBottom: "16px" }}>
-                After brand approval, sellers receive a wholesale account for official authenticated products with an approval letter. This model is 100% suspension risk-free and suitable for long-term operations with scalable growth.
-              </p>
-              <p className="typo-body">
-                Our team handles the entire process — from finding profitable brands and securing approvals to managing inventory, repricing, and account health — so you can focus on growing your investment.
-              </p>
-            </div>
-            <div className="flex justify-center">
-              <div style={{
-                width: "100%",
-                borderRadius: "12px",
-                background: "linear-gradient(135deg, var(--color-dark) 0%, #2d2d3f 100%)",
-                padding: "32px",
-                color: "#fff",
-              }}>
-                <h3 style={{ color: "#fff", fontSize: "20px", fontWeight: 700, marginBottom: "16px" }}>
-                  Key Highlights
-                </h3>
-                <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                  {[
-                    "100% authentic branded products",
-                    "Official distributor authorization",
-                    "30-40% average profit margins",
-                    "Zero suspension risk with brand approvals",
-                    "Scalable long-term business model",
-                    "Complete A-Z account management",
-                  ].map((item) => (
-                    <div key={item} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                      <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "14px", flexShrink: 0 }} />
-                      <span style={{ fontSize: "14px", color: "rgba(255,255,255,0.9)" }}>{item}</span>
-                    </div>
-                  ))}
-                </div>
+          <div className="section-header">
+            <span className="typo-label">WHY THIS WORKS</span>
+            <h2 className="typo-h2">Your Problems. Our Solutions.</h2>
+            <p className="typo-subtext">Wholesale is lucrative — but the barriers are real. Here&apos;s how we remove every one of them so you can focus on growing your investment.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ marginTop: "28px" }}>
+            {[
+              {
+                problem: "Can't get brand approvals?",
+                solution: "We have relationships with 500+ brands and distributors. We handle all outreach, paperwork, and negotiations — including gated brands others can't touch.",
+              },
+              {
+                problem: "Distributors won't talk to small sellers?",
+                solution: "Our purchasing volume gives you leverage you don't have alone. Better pricing, lower MOQs, and payment terms that protect your cash flow.",
+              },
+              {
+                problem: "$20K+ capital tied up in inventory?",
+                solution: "We validate every SKU before you spend a dollar. Demand analysis, margin calculation, competition depth — no dead stock surprises.",
+              },
+              {
+                problem: "FBA prep is a full-time nightmare?",
+                solution: "Labeling, poly-bagging, bundling, shipment plans — all handled. Products arrive at Amazon ready to sell. You never touch a box.",
+              },
+              {
+                problem: "Losing the Buy Box to 15 other sellers?",
+                solution: "Our repricing runs 24/7. We win the Buy Box while maintaining your margins. Smart pricing, not a race to the bottom.",
+              },
+              {
+                problem: "Managing 20 brands feels impossible?",
+                solution: "We track every brand, every SKU, every reorder point. Portfolio management at scale — so you can add brands without adding chaos.",
+              },
+            ].map((item) => (
+              <div
+                key={item.problem}
+                className="card-hover"
+                style={{
+                  borderRadius: "10px",
+                  padding: "22px",
+                  backgroundColor: "#f6f7f9",
+                  border: "1px solid rgba(0,0,0,0.04)",
+                }}
+              >
+                <p style={{ fontSize: "14px", fontWeight: 700, color: "var(--color-dark)", marginBottom: "10px", lineHeight: 1.4 }}>
+                  <span style={{ color: "#dc2626" }}>✗</span>{" "}{item.problem}
+                </p>
+                <p style={{ fontSize: "13px", color: "var(--color-text-light)", margin: 0, lineHeight: 1.6, paddingLeft: "2px", borderLeft: "3px solid var(--color-primary)" }}>
+                  <span style={{ display: "block", paddingLeft: "12px" }}>
+                    <span style={{ color: "var(--color-primary)", fontWeight: 700 }}>→</span>{" "}{item.solution}
+                  </span>
+                </p>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ── HOW IT WORKS ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
+      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
-          <div className="section-header" style={{ textAlign: "center", marginBottom: "36px" }}>
-            <span className="typo-label">Process</span>
-            <h2 className="typo-h2">How Amazon Wholesale Works</h2>
+          <div className="section-header">
+            <span className="typo-label">THE PROCESS</span>
+            <h2 className="typo-h2">How You Build a Wholesale Empire With Us</h2>
+            <p className="typo-subtext" style={{ maxWidth: "700px" }}>
+              Buy from authorized distributor at $15. Sell on Amazon for $30. Amazon fees + FBA = $8. <strong>Your profit: $7 per unit</strong>. Sell 100 units/day = <strong>$21,000/month</strong>.
+            </p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "0", marginTop: "36px" }}>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6" style={{ marginTop: "32px" }}>
             {[
-              { step: "01", icon: <FaShoppingCart style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Buy Inventory", desc: "Purchase inventory from official brand or distributor and send to FBA or 3rd party warehouse" },
-              { step: "02", icon: <FaTags style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Sell Items", desc: "List inventory on Amazon and start selling inventory" },
-              { step: "03", icon: <FaTruck style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Shipping", desc: "Your warehouse or FBA will process the product and shipping to customer" },
-              { step: "04", icon: <FaSmile style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Happy Customer", desc: "Customer will receive product from you. Happy with their order" },
-              { step: "05", icon: <FaMoneyBillWave style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Get Payout", desc: "Amazon sends payout every 14 days of order delivery. Get funds directly in your bank account" },
-            ].map((item) => (
-              <div
-                key={item.step}
-                style={{
-                  padding: "28px 20px",
-                  textAlign: "center",
-                  position: "relative",
-                }}
-              >
-                <div style={{ fontSize: "36px", fontWeight: 800, color: "var(--color-primary)", opacity: 0.15, marginBottom: "8px", lineHeight: 1 }}>
-                  {item.step}
+              { img: "/images/process/discussion.png", title: "Research & Approve", desc: "We identify profitable brands, contact distributors, and secure official authorization letters for your account." },
+              { img: "/images/process/get-access.png", title: "Source & Order", desc: "Negotiate bulk pricing, place orders from authorized distributors, and coordinate shipping to FBA warehouses." },
+              { img: "/images/process/planning.png", title: "Prep & Launch", desc: "FBA prep, labeling, shipment plans created. Products go live with optimized listings and competitive pricing." },
+              { img: "/images/process/growth.png", title: "Scale & Profit", desc: "Repricing wins Buy Box. PPC drives traffic. Inventory auto-reorders. We add more brands. You collect profit." },
+            ].map((item, index) => (
+              <div key={item.title} style={{ textAlign: "center", padding: "8px" }}>
+                <div style={{ marginBottom: "12px", display: "flex", justifyContent: "center" }}>
+                  <div style={{ position: "relative" }}>
+                    <img src={item.img} alt={item.title} style={{ width: "72px", height: "72px", objectFit: "contain" }} />
+                    <div style={{
+                      position: "absolute", top: "-4px", right: "-4px",
+                      width: "22px", height: "22px", borderRadius: "50%",
+                      backgroundColor: "var(--color-primary)", color: "#fff",
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                      fontSize: "11px", fontWeight: 700,
+                    }}>
+                      {index + 1}
+                    </div>
+                  </div>
                 </div>
-                <div style={{ marginBottom: "10px" }}>{item.icon}</div>
-                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
+                <h3 className="typo-h4" style={{ marginBottom: "4px" }}>{item.title}</h3>
                 <p className="typo-small">{item.desc}</p>
               </div>
             ))}
@@ -255,28 +233,21 @@ export default function AmazonWholesalePage() {
       </section>
 
       {/* ── WHAT YOU GET ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
+      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
           <div className="section-header">
-            <span className="typo-label">WHAT YOU GET</span>
-            <h2 className="typo-h2">Complete Wholesale Management Under One Roof</h2>
-            <p className="typo-subtext">Every aspect of your wholesale business handled by specialists — not generic VAs.</p>
+            <span className="typo-label">FULL SERVICE</span>
+            <h2 className="typo-h2">Everything We Handle. Everything You Don&apos;t.</h2>
+            <p className="typo-subtext">From brand approvals to customer support — your entire wholesale operation, managed daily by our team.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ marginTop: "32px" }}>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6" style={{ marginTop: "32px" }}>
             {whatYouGet.map((item) => (
-              <div
-                key={item.title}
-                className="card-hover"
-                style={{
-                  backgroundColor: "#f6f7f9",
-                  borderRadius: "10px",
-                  padding: "24px",
-                  border: "1px solid rgba(0,0,0,0.04)",
-                }}
-              >
-                <img src={item.img} alt={item.title} style={{ width: "48px", height: "48px", objectFit: "contain", marginBottom: "12px" }} />
-                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
+              <div key={item.title} style={{ textAlign: "center", padding: "8px" }}>
+                <div style={{ marginBottom: "12px", display: "flex", justifyContent: "center" }}>
+                  <img src={item.img} alt={item.title} style={{ width: "64px", height: "64px", objectFit: "contain" }} />
+                </div>
+                <h3 className="typo-h4" style={{ marginBottom: "4px" }}>{item.title}</h3>
                 <p className="typo-small">{item.desc}</p>
               </div>
             ))}
@@ -284,55 +255,25 @@ export default function AmazonWholesalePage() {
         </div>
       </section>
 
-      {/* ── MANAGEMENT SECTION ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <div style={{
-                width: "100%",
-                borderRadius: "12px",
-                background: "linear-gradient(135deg, var(--color-dark) 0%, #2d2d3f 100%)",
-                padding: "32px",
-                color: "#fff",
-              }}>
-                <h3 style={{ color: "#fff", fontSize: "20px", fontWeight: 700, marginBottom: "16px" }}>
-                  Our Management Covers
-                </h3>
-                <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                  {[
-                    "Winning product research & sourcing",
-                    "Brand approvals & supplier negotiations",
-                    "FBA prep, labeling & shipment planning",
-                    "Listing optimization & SEO",
-                    "Dynamic repricing & Buy Box strategy",
-                    "Order management & customer support",
-                    "Return handling & inventory tracking",
-                    "PPC advertising & marketing",
-                  ].map((item) => (
-                    <div key={item} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                      <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "14px", flexShrink: 0 }} />
-                      <span style={{ fontSize: "14px", color: "rgba(255,255,255,0.9)" }}>{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div>
-              <h2 className="typo-h2" style={{ marginBottom: "16px" }}>
-                Manage Amazon Seller Account With EcomGarden
-              </h2>
-              <p className="typo-body" style={{ marginBottom: "14px" }}>
-                At EcomGarden, you get complete wholesale account management. Our automation tools ensure 100% accuracy and zero inventory loss. Your dedicated manager provides ongoing support, quick responses, and proactive account monitoring.
-              </p>
-              <p className="typo-body" style={{ marginBottom: "14px" }}>
-                Our experienced wholesale specialists handle winning product research, brand approvals, product listing, SEO optimization, order management, purchase management, customer support, shipping, return handling, inventory management, PPC, and marketing.
-              </p>
-              <p className="typo-body">
-                Our service is 100% transparent — no hidden charges, no hidden terms and conditions. Use our service as long as you want and cancel anytime.
-              </p>
-            </div>
-          </div>
+      {/* ── PROFIT SHARING BANNER ── */}
+      <section style={{ padding: "45px 0", backgroundColor: "var(--color-dark)" }}>
+        <div className="container-main" style={{ textAlign: "center" }}>
+          <h2 style={{ fontSize: "24px", fontWeight: 700, color: "#fff", marginBottom: "6px" }}>
+            We Don&apos;t Get Paid Until <span style={{ color: "var(--color-primary)" }}>You Get Paid</span>
+          </h2>
+          <p style={{ fontSize: "15px", color: "rgba(255,255,255,0.7)", maxWidth: "550px", margin: "0 auto 20px" }}>
+            Profit sharing model — zero management fees until your wholesale store is profitable. We have skin in the game. No other agency does this.
+          </p>
+          <a
+            href="https://wa.link/m2ac6m"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary btn-primary-pulse"
+            style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+          >
+            <FaWhatsapp style={{ fontSize: "18px" }} />
+            Start Risk-Free Today
+          </a>
         </div>
       </section>
 
@@ -343,76 +284,48 @@ export default function AmazonWholesalePage() {
       <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
           <div className="section-header">
-            <span className="typo-label">WHY ECOMGARDEN</span>
-            <h2 className="typo-h2">EcomGarden vs DIY vs Other Agencies</h2>
-            <p className="typo-subtext">See why sellers choose us over managing wholesale themselves or hiring generic agencies.</p>
+            <span className="typo-label">THE HONEST COMPARISON</span>
+            <h2 className="typo-h2">Why 150+ Wholesale Sellers Chose Us Over Going Solo</h2>
+            <p className="typo-subtext">Wholesale is a capital-intensive business. One wrong brand, one bad supplier, one stockout — and you lose thousands. We prevent all of it.</p>
           </div>
 
-          <div style={{ maxWidth: "800px", margin: "32px auto 0", overflowX: "auto" }}>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr auto auto auto", gap: "0", backgroundColor: "#fff", borderRadius: "12px", overflow: "hidden", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
-              <div style={{ padding: "12px 16px", fontWeight: 700, backgroundColor: "#f6f7f9", fontSize: "13px" }}>Feature</div>
-              <div style={{ padding: "12px 20px", fontWeight: 700, backgroundColor: "var(--color-primary)", color: "#fff", textAlign: "center", fontSize: "13px", minWidth: "110px" }}>EcomGarden</div>
-              <div style={{ padding: "12px 20px", fontWeight: 700, backgroundColor: "#f6f7f9", textAlign: "center", fontSize: "13px", minWidth: "100px" }}>DIY</div>
-              <div style={{ padding: "12px 20px", fontWeight: 700, backgroundColor: "#f6f7f9", textAlign: "center", fontSize: "13px", minWidth: "100px" }}>Others</div>
-
-              {comparisonData.map((row) => (
-                <React.Fragment key={row.feature}>
-                  <div style={{ padding: "10px 16px", fontSize: "13px", borderBottom: "1px solid #f5f5f5" }}>{row.feature}</div>
-                  <div style={{ padding: "10px 20px", textAlign: "center", borderBottom: "1px solid #f5f5f5", backgroundColor: "rgba(22,163,74,0.03)" }}>
-                    {row.us === true ? <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "16px" }} /> : <span style={{ fontSize: "13px", color: "var(--color-primary)", fontWeight: 600 }}>{row.us}</span>}
-                  </div>
-                  <div style={{ padding: "10px 20px", textAlign: "center", borderBottom: "1px solid #f5f5f5" }}>
-                    {row.diy === false ? <FaTimesCircle style={{ color: "#dc2626", fontSize: "16px" }} /> : <span style={{ fontSize: "13px", color: "#999" }}>{row.diy}</span>}
-                  </div>
-                  <div style={{ padding: "10px 20px", textAlign: "center", borderBottom: "1px solid #f5f5f5" }}>
-                    {row.others === false ? <FaTimesCircle style={{ color: "#dc2626", fontSize: "16px" }} /> : <span style={{ fontSize: "13px", color: "#999" }}>{row.others}</span>}
-                  </div>
-                </React.Fragment>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── WHY CHOOSE US ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main">
-          <div className="section-header">
-            <span className="typo-label">THE ECOMGARDEN DIFFERENCE</span>
-            <h2 className="typo-h2">Why Wholesale Sellers Choose EcomGarden</h2>
-          </div>
-
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "20px", marginTop: "32px" }}>
-            {[
-              { title: "We Get Brand Approvals Others Can't", desc: "Our established relationships with distributors and proven approval process means we secure brand authorization faster — including restricted and gated brands that most agencies won't touch." },
-              { title: "Profit-First Product Research", desc: "We don't just find products. We analyze landed cost, FBA fees, competition depth, Buy Box rotation, and sales velocity to ensure every SKU we source delivers 30-40% ROI after all expenses." },
-              { title: "Real Wholesale Experience, Not Guesswork", desc: "Our team has managed over $10M in wholesale inventory across 15+ active stores. We know which distributors are reliable, which brands convert, and which categories to avoid." },
-              { title: "Your Money Stays in Your Account", desc: "We never handle your funds. All purchases go through your accounts. Full transparency with real-time P&L tracking on every single SKU — no fake numbers, no hidden costs." },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="card-hover"
-                style={{
-                  backgroundColor: "#fff",
-                  borderRadius: "10px",
-                  padding: "24px",
-                  border: "1px solid rgba(0,0,0,0.04)",
-                }}
-              >
-                <h3 className="typo-h4" style={{ marginBottom: "8px", color: "var(--color-primary)" }}>{item.title}</h3>
-                <p className="typo-small">{item.desc}</p>
-              </div>
-            ))}
+          <div style={{ maxWidth: "850px", margin: "32px auto 0", overflowX: "auto" }}>
+            <table style={{ width: "100%", borderCollapse: "separate", borderSpacing: "0", borderRadius: "12px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.08)", border: "1px solid #e5e7eb" }}>
+              <thead>
+                <tr>
+                  <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, fontSize: "13px", backgroundColor: "#f6f7f9", borderBottom: "2px solid #e8e8e8" }}>What You Need</th>
+                  <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, fontSize: "13px", backgroundColor: "var(--color-primary)", color: "#fff", borderBottom: "2px solid var(--color-primary-dark)", minWidth: "130px" }}>EcomGarden</th>
+                  <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, fontSize: "13px", backgroundColor: "#f6f7f9", borderBottom: "2px solid #e8e8e8", minWidth: "120px" }}>Do It Yourself</th>
+                  <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, fontSize: "13px", backgroundColor: "#f6f7f9", borderBottom: "2px solid #e8e8e8", minWidth: "120px" }}>Other Agencies</th>
+                </tr>
+              </thead>
+              <tbody>
+                {comparisonData.map((row, i) => (
+                  <tr key={row.feature} style={{ backgroundColor: i % 2 === 0 ? "#fff" : "#fafbfc" }}>
+                    <td style={{ padding: "12px 20px", fontSize: "13px", fontWeight: 500, textAlign: "center", borderBottom: "1px solid #f0f0f0", verticalAlign: "middle" }}>{row.feature}</td>
+                    <td style={{ padding: "12px 20px", textAlign: "center", borderBottom: "1px solid #f0f0f0", backgroundColor: i % 2 === 0 ? "rgba(22,163,74,0.04)" : "rgba(22,163,74,0.07)", verticalAlign: "middle" }}>
+                      {row.us === true ? <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "18px", display: "inline-block", verticalAlign: "middle" }} /> : <span style={{ fontSize: "13px", color: "var(--color-primary)", fontWeight: 600 }}>{row.us}</span>}
+                    </td>
+                    <td style={{ padding: "12px 20px", textAlign: "center", borderBottom: "1px solid #f0f0f0", verticalAlign: "middle" }}>
+                      {row.diy === false ? <FaTimesCircle style={{ color: "#dc2626", fontSize: "18px", display: "inline-block", verticalAlign: "middle" }} /> : <span style={{ fontSize: "13px", color: "#888" }}>{row.diy}</span>}
+                    </td>
+                    <td style={{ padding: "12px 20px", textAlign: "center", borderBottom: "1px solid #f0f0f0", verticalAlign: "middle" }}>
+                      {row.others === false ? <FaTimesCircle style={{ color: "#dc2626", fontSize: "18px", display: "inline-block", verticalAlign: "middle" }} /> : <span style={{ fontSize: "13px", color: "#888" }}>{row.others}</span>}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
 
       {/* ── FAQ ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
+      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
           <div className="section-header">
-            <span className="typo-label">FAQ</span>
-            <h2 className="typo-h2">Frequently Asked Questions</h2>
+            <span className="typo-label">GOT QUESTIONS?</span>
+            <h2 className="typo-h2">Everything You Want to Know Before Starting</h2>
           </div>
 
           <div style={{ maxWidth: "750px", margin: "24px auto 0" }}>
@@ -420,7 +333,7 @@ export default function AmazonWholesalePage() {
               <div
                 key={i}
                 style={{
-                  backgroundColor: "#f6f7f9",
+                  backgroundColor: "#fff",
                   borderRadius: "8px",
                   marginBottom: "8px",
                   overflow: "hidden",
@@ -430,18 +343,10 @@ export default function AmazonWholesalePage() {
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    width: "100%",
-                    padding: "14px 18px",
-                    background: "none",
-                    border: "none",
-                    cursor: "pointer",
-                    fontSize: "15px",
-                    fontWeight: 600,
-                    color: "var(--color-dark)",
-                    textAlign: "left",
+                    display: "flex", alignItems: "center", justifyContent: "space-between",
+                    width: "100%", padding: "14px 18px", background: "none", border: "none",
+                    cursor: "pointer", fontSize: "15px", fontWeight: 600,
+                    color: "var(--color-dark)", textAlign: "left",
                   }}
                 >
                   {faq.question}
@@ -449,8 +354,7 @@ export default function AmazonWholesalePage() {
                 </button>
                 <div style={{
                   maxHeight: openFaq === i ? "300px" : "0",
-                  overflow: "hidden",
-                  transition: "max-height 0.3s ease",
+                  overflow: "hidden", transition: "max-height 0.3s ease",
                 }}>
                   <p className="typo-body" style={{ padding: "0 18px 14px" }}>{faq.answer}</p>
                 </div>
@@ -460,7 +364,6 @@ export default function AmazonWholesalePage() {
         </div>
       </section>
 
-      {/* ── CTA ── */}
       <CTASection />
     </>
   );

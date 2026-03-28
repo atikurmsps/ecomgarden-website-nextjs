@@ -2,71 +2,65 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp, FaSearch, FaBullhorn, FaListAlt, FaBoxes, FaCopyright, FaChartLine, FaTruck, FaRocket } from "react-icons/fa";
+import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp } from "react-icons/fa";
 import ServiceConfidence from "@/components/services/ServiceConfidence";
 import CTASection from "@/components/home/CTASection";
 
 const comparisonData = [
-  { feature: "Data-driven product research", us: true, diy: "Guesswork", others: "Basic tools" },
-  { feature: "PPC campaign management & optimization", us: true, diy: "Trial & error", others: "Extra fee" },
-  { feature: "Listing creation with A+ content", us: true, diy: "You do it", others: "Template-based" },
+  { feature: "Data-driven product validation", us: true, diy: "Guesswork", others: "Basic tools" },
+  { feature: "Daily PPC bid optimization", us: true, diy: "Weekly if lucky", others: "Automated only" },
+  { feature: "A+ Content & listing optimization", us: true, diy: "You write it", others: "Template-based" },
   { feature: "Inventory forecasting & reorder alerts", us: true, diy: false, others: false },
-  { feature: "Brand Registry & IP protection", us: true, diy: "You figure out", others: "Not included" },
+  { feature: "Brand Registry setup & protection", us: true, diy: "You figure out", others: "Not included" },
   { feature: "Supplier sourcing & negotiation", us: true, diy: "You do it", others: "Referrals only" },
-  { feature: "Keyword research & SEO optimization", us: true, diy: "Basic", others: "One-time" },
-  { feature: "Ongoing performance monitoring", us: true, diy: "You track", others: "Monthly report" },
-  { feature: "Transparent P&L reporting", us: true, diy: "You calculate", others: "Limited" },
+  { feature: "Account health monitoring 24/7", us: true, diy: "You check daily", others: "Monthly report" },
+  { feature: "Profit sharing — pay from profits only", us: true, diy: "N/A", others: false },
+  { feature: "24/7 WhatsApp support", us: true, diy: false, others: "Email only" },
 ];
 
 const whatYouGet = [
-  { img: "/images/services/icons/product-research.png", title: "Product Research & Validation", desc: "Deep market analysis using Helium 10, Jungle Scout, and proprietary data to find products with strong demand, low competition, and healthy margins. Every product is validated before you invest a dollar." },
-  { img: "/images/services/icons/marketing.png", title: "PPC Management", desc: "Full Sponsored Products, Sponsored Brands, and Sponsored Display management. Daily bid optimization, keyword discovery, negative keyword pruning, and ACoS tracking to maximize your ad ROI." },
-  { img: "/images/services/icons/order-fulfillment.png", title: "Listing Optimization", desc: "Professional listings with keyword-rich titles, compelling bullet points, A+ Enhanced Brand Content, and optimized backend search terms. We continuously test and improve conversion rates." },
-  { img: "/images/services/icons/inventory.png", title: "Inventory Planning", desc: "Demand forecasting, reorder point calculations, and lead time tracking so you never run out of stock or tie up cash in excess inventory. We plan around seasonality and trends." },
-  { img: "/images/services/icons/safety.png", title: "Brand Registry & Protection", desc: "We help you register your brand with Amazon Brand Registry, set up IP protection, and access exclusive tools like A+ Content, Sponsored Brands, and Brand Analytics." },
-  { img: "/images/services/icons/scalability.png", title: "Growth Strategy", desc: "Beyond day-to-day management — we plan product line expansion, international marketplace launches, and long-term brand positioning to build a valuable business asset." },
+  { img: "/images/services/icons/product-research.png", title: "Product Research", desc: "Deep market analysis using Helium 10, Jungle Scout, and proprietary data. Demand, competition, margins — every product validated before you invest a dollar." },
+  { img: "/images/services/icons/marketing.png", title: "PPC Management", desc: "Sponsored Products, Brands, and Display — managed daily. Bid optimization, keyword discovery, negative pruning. We drive traffic, you collect profit." },
+  { img: "/images/services/icons/order-fulfillment.png", title: "Listing Optimization", desc: "Keyword-rich titles, compelling bullets, backend search terms, and conversion-focused copy. Continuously tested and improved." },
+  { img: "/images/services/icons/return-handling.png", title: "A+ Content", desc: "Enhanced Brand Content that converts browsers into buyers. Professional layouts, comparison charts, and brand storytelling that boost conversion rates 5-10%." },
+  { img: "/images/services/icons/inventory.png", title: "Inventory Planning", desc: "Demand forecasting, reorder calculations, lead time tracking. Never run out of stock or tie up cash in excess inventory. We plan around seasonality." },
+  { img: "/images/services/icons/safety.png", title: "Brand Registry", desc: "Full Brand Registry setup, IP protection, and access to exclusive tools — A+ Content, Sponsored Brands, Brand Analytics. Your brand, protected." },
+  { img: "/images/services/icons/account-health.png", title: "Account Health", desc: "Performance metrics, policy compliance, IP complaint prevention — all monitored proactively. Problems caught and fixed before they become suspensions." },
+  { img: "/images/services/icons/scalability.png", title: "Growth Strategy", desc: "Product line expansion, new marketplace launches, and long-term brand positioning. We build you a business asset worth selling." },
 ];
 
 const faqs = [
   {
     question: "What is Amazon FBA and how does it work?",
-    answer:
-      "FBA stands for Fulfilled by Amazon. You send your products to Amazon's fulfillment centers, and Amazon handles storage, packing, shipping, customer service, and returns. You focus on sourcing products and growing your brand while Amazon handles the logistics.",
+    answer: "FBA stands for Fulfilled by Amazon. You send products to Amazon warehouses, and Amazon handles storage, packing, shipping, customer service, and returns. Your products get Prime eligibility and Amazon handles the logistics — you focus on product selection and brand growth.",
   },
   {
-    question: "How much investment do I need to start an FBA business?",
-    answer:
-      "A good starting budget for Amazon FBA is $10,000-$15,000. This covers initial inventory, product photography, listing optimization, and PPC advertising. For a minimum start, you can begin with $5,000 but growth will be slower.",
+    question: "How much capital do I need to start?",
+    answer: "A strong starting budget is $10,000-$15,000 covering initial inventory, product photography, listing optimization, and PPC advertising. You can start with $5,000 but growth will be slower. The key is having enough runway to iterate — your first product teaches you, your second product pays you.",
   },
   {
-    question: "How long does it take to see profit with FBA?",
-    answer:
-      "Most FBA businesses start seeing consistent profit within 3-6 months. The first 1-2 months are typically spent on product research, sourcing, and launch. Once your listings are optimized and PPC campaigns are running, revenue builds steadily.",
+    question: "How long until I see profit?",
+    answer: "Most FBA businesses see consistent profit within 3-6 months. The first 1-2 months cover product research, sourcing, and launch. Once listings are optimized and PPC campaigns are dialed in, revenue builds steadily. Our clients typically break even by month 2-3 and profit from month 4.",
   },
   {
     question: "Do you help with private label product development?",
-    answer:
-      "Yes, we provide end-to-end private label support including market research, competitor analysis, supplier sourcing, sample evaluation, packaging design, and brand registry. We guide you through every step of building your own brand on Amazon.",
+    answer: "Yes, end-to-end. Market research, competitor analysis, supplier sourcing from verified manufacturers, sample evaluation, packaging design, and Brand Registry. We guide you through building a real brand on Amazon — not just listing random products.",
   },
   {
-    question: "How do you manage PPC advertising for FBA products?",
-    answer:
-      "We create and optimize Sponsored Products, Sponsored Brands, and Sponsored Display campaigns. Our team monitors ACoS, adjusts bids daily, performs keyword research, and runs A/B tests to maximize your advertising ROI while maintaining profitability.",
+    question: "How do you manage PPC advertising?",
+    answer: "Daily — not weekly. We create and optimize Sponsored Products, Sponsored Brands, and Sponsored Display campaigns. Our team monitors ACoS at the SKU level, adjusts bids, discovers high-converting keywords, prunes waste, and runs A/B tests. Most agencies check PPC once a week. We check it every day.",
   },
   {
-    question: "What happens if my inventory runs out of stock?",
-    answer:
-      "Running out of stock hurts your ranking and sales velocity. Our inventory management system tracks stock levels, forecasts demand, and sends reorder alerts well in advance so you never lose momentum due to stockouts.",
-  },
-  {
-    question: "Will you manage my entire FBA business?",
-    answer:
-      "Yes, we provide complete A-Z FBA management including product research, supplier negotiation, listing creation, SEO optimization, PPC management, inventory planning, customer support, and performance monitoring.",
+    question: "What happens if inventory runs out?",
+    answer: "Stockouts destroy your ranking and waste PPC spend rebuilding momentum. Our inventory system tracks sales velocity, lead times, and seasonal patterns to calculate exact reorder dates. We send alerts weeks before you run low — stockouts do not happen on our watch.",
   },
   {
     question: "What if my product does not sell well?",
-    answer:
-      "We conduct thorough market validation before launching any product. If a product underperforms, we analyze the data, optimize the listing and PPC strategy, and pivot if needed. Our goal is always to ensure profitability for your business.",
+    answer: "We validate thoroughly before launch, but markets shift. If a product underperforms, we analyze the data, optimize listing copy, adjust PPC strategy, and pivot pricing. If needed, we liquidate strategically and redirect capital to stronger opportunities.",
+  },
+  {
+    question: "Can I cancel anytime?",
+    answer: "Yes, no contracts and no lock-in periods. Our retention rate is over 90% because the results speak for themselves — but you are free to leave whenever you choose. Zero exit fees, zero hassle.",
   },
 ];
 
@@ -80,18 +74,35 @@ export default function AmazonFBAPage() {
       <section style={{ padding: "55px 0 70px", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            {/* Left: Content */}
             <div>
-              <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>AMAZON FBA</span>
+              <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>AMAZON FBA MANAGEMENT</span>
               <h1 className="typo-h1" style={{ marginBottom: "14px" }}>
-                Build a Profitable Amazon Brand With Expert FBA Management
+                Build a Real Amazon Brand. <span style={{ color: "var(--color-primary)" }}>We Run the Entire Operation.</span>
               </h1>
-              <p className="typo-body" style={{ marginBottom: "12px", fontSize: "17px" }}>
-                End-to-end FBA management from product research to scaling. <strong>Private label expertise, PPC optimization, and inventory planning</strong> under one roof.
+              <p className="typo-body" style={{ marginBottom: "16px", fontSize: "17px" }}>
+                Product research, supplier sourcing, listing creation, PPC campaigns, inventory planning, Brand Registry — all handled by our team. You own the brand. We grow it.
               </p>
-              <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
-                Data-driven approach. Every decision backed by research, not guesswork.
+
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6px 16px", marginBottom: "20px" }}>
+                {[
+                  "Data-driven research",
+                  "Daily PPC optimization",
+                  "A+ Content included",
+                  "Brand Registry setup",
+                  "Pay from profits only",
+                  "A-Z store management",
+                ].map((item) => (
+                  <div key={item} style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                    <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "12px", flexShrink: 0 }} />
+                    <span style={{ fontSize: "13px", color: "#555" }}>{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "20px" }}>
+                $10M+ revenue managed across 50+ brands. Your brand could be next.
               </p>
+
               <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
                 <a
                   href="https://wa.link/m2ac6m"
@@ -101,150 +112,119 @@ export default function AmazonFBAPage() {
                   style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
                 >
                   <FaWhatsapp style={{ fontSize: "18px" }} />
-                  Get Free Consultation
+                  Launch Your Brand — Free Consultation
                 </a>
                 <Link href="/pricing" className="btn-outline">
-                  View Pricing
+                  See Pricing
                 </Link>
-              </div>
-
-              {/* Trust badges */}
-              <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap" }}>
-                {[
-                  { icon: <FaCopyright />, text: "Brand Registry Experts" },
-                  { icon: <FaBullhorn />, text: "PPC Optimization Daily" },
-                  { icon: <FaChartLine />, text: "$10M+ Revenue Managed" },
-                ].map((badge) => (
-                  <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
-                    <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
-                    {badge.text}
-                  </div>
-                ))}
               </div>
             </div>
 
-            {/* Right: SVG Illustration */}
             <div className="hidden lg:flex items-center justify-center">
-              <div style={{
-                width: "100%",
-                maxWidth: "460px",
-                aspectRatio: "1/1",
-                borderRadius: "16px",
-                background: "linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%)",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                padding: "40px",
-                color: "#fff",
-                textAlign: "center",
-                position: "relative",
-                overflow: "hidden",
-              }}>
-                <div style={{ position: "absolute", top: "20px", right: "20px", backgroundColor: "rgba(22,163,74,0.2)", borderRadius: "12px", padding: "6px 14px" }}>
-                  <span style={{ fontSize: "12px", fontWeight: 700, color: "var(--color-primary)" }}>FBA EXPERTS</span>
-                </div>
-                <FaBoxes style={{ fontSize: "48px", marginBottom: "16px", opacity: 0.9 }} />
-                <h3 style={{ fontSize: "22px", fontWeight: 700, color: "#fff", marginBottom: "8px" }}>
-                  $10M+ Revenue Managed
-                </h3>
-                <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
-                  Private label, PPC &amp; inventory planning under one roof
-                </p>
-                <div style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
-                  {[
-                    { val: "50+", label: "Brands" },
-                    { val: "Daily", label: "PPC Optimization" },
-                    { val: "A+", label: "Content" },
-                  ].map((s) => (
-                    <div key={s.label} style={{ textAlign: "center" }}>
-                      <div style={{ fontSize: "20px", fontWeight: 800, color: "var(--color-primary)" }}>{s.val}</div>
-                      <div style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)" }}>{s.label}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              <img
+                src="/svg/dropshipping_hero_v4.svg"
+                alt="Amazon FBA Services"
+                style={{ width: "100%", maxWidth: "600px", height: "auto" }}
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── INTRO SECTION ── */}
+      {/* ── PROBLEM → SOLUTION ── */}
       <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <p className="typo-body" style={{ marginBottom: "16px" }}>
-                Amazon FBA (Fulfilled by Amazon) is one of the most powerful business models for building a scalable eCommerce brand. With FBA, Amazon handles warehousing, packing, shipping, and customer service while you focus on growing your product line and brand presence.
-              </p>
-              <p className="typo-body" style={{ marginBottom: "16px" }}>
-                Whether you are launching your first private label product or managing an existing portfolio of FBA SKUs, our team provides the expertise and hands-on management you need to succeed. From identifying winning products to optimizing your PPC spend, we handle every aspect of your FBA operations.
-              </p>
-              <p className="typo-body">
-                Our data-driven approach ensures every decision is backed by market research, competitor analysis, and real performance metrics. We treat your business as our own and work tirelessly to maximize your ROI.
-              </p>
-            </div>
-            <div className="flex justify-center">
-              <div style={{
-                width: "100%",
-                borderRadius: "12px",
-                background: "linear-gradient(135deg, var(--color-dark) 0%, #2d2d3f 100%)",
-                padding: "32px",
-                color: "#fff",
-              }}>
-                <h3 style={{ color: "#fff", fontSize: "20px", fontWeight: 700, marginBottom: "16px" }}>
-                  Key Highlights
-                </h3>
-                <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                  {[
-                    "Build your own private label brand",
-                    "Amazon handles storage & shipping",
-                    "Prime-eligible fast delivery",
-                    "Data-driven product research",
-                    "Professional PPC management",
-                    "$10M+ revenue managed by our team",
-                  ].map((item) => (
-                    <div key={item} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                      <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "14px", flexShrink: 0 }} />
-                      <span style={{ fontSize: "14px", color: "rgba(255,255,255,0.9)" }}>{item}</span>
-                    </div>
-                  ))}
-                </div>
+          <div className="section-header">
+            <span className="typo-label">WHY THIS WORKS</span>
+            <h2 className="typo-h2">Your Problems. Our Solutions.</h2>
+            <p className="typo-subtext">FBA is the most powerful business model on Amazon — but most sellers fail because they lack expertise. Here&apos;s how we fix that.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ marginTop: "28px" }}>
+            {[
+              {
+                problem: "Picked the wrong product and lost $5K?",
+                solution: "Every product goes through our validation framework — demand analysis, competition depth, margin calculation, supplier reliability. We don't launch losers.",
+              },
+              {
+                problem: "PPC eating your profits alive?",
+                solution: "Our PPC team optimizes bids daily — not weekly. Keyword discovery, negative pruning, ACoS tracking at SKU level. Average 20-25% ACoS across our portfolio.",
+              },
+              {
+                problem: "Page 5 listing nobody can find?",
+                solution: "Keyword-rich titles, compelling bullets, A+ Content, and backend search terms — all optimized for both Amazon algorithm and human buyers. Rankings climb within weeks.",
+              },
+              {
+                problem: "Ran out of stock and lost all momentum?",
+                solution: "Our inventory system tracks velocity, lead times, and seasonality. Reorder alerts fire weeks early. Stockouts don't happen on our watch.",
+              },
+              {
+                problem: "Brand Registry feels impossible?",
+                solution: "We handle the entire Brand Registry process — trademark guidance, application, verification, and setup of A+ Content, Sponsored Brands, and Brand Analytics.",
+              },
+              {
+                problem: "Account health dashboard is all red?",
+                solution: "Proactive monitoring catches problems before they become suspensions. Policy compliance, performance metrics, IP complaints — all handled before Amazon notices.",
+              },
+            ].map((item) => (
+              <div
+                key={item.problem}
+                className="card-hover"
+                style={{
+                  borderRadius: "10px",
+                  padding: "22px",
+                  backgroundColor: "#f6f7f9",
+                  border: "1px solid rgba(0,0,0,0.04)",
+                }}
+              >
+                <p style={{ fontSize: "14px", fontWeight: 700, color: "var(--color-dark)", marginBottom: "10px", lineHeight: 1.4 }}>
+                  <span style={{ color: "#dc2626" }}>✗</span>{" "}{item.problem}
+                </p>
+                <p style={{ fontSize: "13px", color: "var(--color-text-light)", margin: 0, lineHeight: 1.6, paddingLeft: "2px", borderLeft: "3px solid var(--color-primary)" }}>
+                  <span style={{ display: "block", paddingLeft: "12px" }}>
+                    <span style={{ color: "var(--color-primary)", fontWeight: 700 }}>→</span>{" "}{item.solution}
+                  </span>
+                </p>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ── HOW IT WORKS ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
+      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
-          <div className="section-header" style={{ textAlign: "center", marginBottom: "36px" }}>
-            <span className="typo-label">Process</span>
-            <h2 className="typo-h2">How Amazon FBA Works</h2>
+          <div className="section-header">
+            <span className="typo-label">THE PROCESS</span>
+            <h2 className="typo-h2">How You Build a Profitable FBA Brand With Us</h2>
+            <p className="typo-subtext" style={{ maxWidth: "700px" }}>
+              Source product at $8. Sell on Amazon for $25. Amazon fees + FBA = $9. <strong>Your profit: $8 per unit</strong>. Sell 80 units/day = <strong>$19,200/month</strong>.
+            </p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "0", marginTop: "36px" }}>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6" style={{ marginTop: "32px" }}>
             {[
-              { step: "01", icon: <FaSearch style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Product Research", desc: "Deep market analysis to find profitable product opportunities with strong demand and low competition" },
-              { step: "02", icon: <FaRocket style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Source & Launch", desc: "Source from verified suppliers, create optimized listings, and launch with a proven strategy" },
-              { step: "03", icon: <FaTruck style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Ship to FBA", desc: "Prepare and ship inventory to Amazon fulfillment centers following all FBA requirements" },
-              { step: "04", icon: <FaBoxes style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Amazon Fulfills", desc: "Amazon stores, packs, and ships orders to customers with Prime-eligible fast delivery" },
-              { step: "05", icon: <FaChartLine style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Scale & Profit", desc: "Optimize PPC, expand product line, and scale your brand for long-term profitable growth" },
-            ].map((item) => (
-              <div
-                key={item.step}
-                style={{
-                  padding: "28px 20px",
-                  textAlign: "center",
-                  position: "relative",
-                }}
-              >
-                <div style={{ fontSize: "36px", fontWeight: 800, color: "var(--color-primary)", opacity: 0.15, marginBottom: "8px", lineHeight: 1 }}>
-                  {item.step}
+              { img: "/images/process/discussion.png", title: "Research & Validate", desc: "Deep market analysis finds products with strong demand, low competition, and healthy margins. Every product validated before you invest." },
+              { img: "/images/process/get-access.png", title: "Source & Launch", desc: "Verified suppliers, negotiated pricing, optimized listings, professional photography. Your product goes live ready to convert." },
+              { img: "/images/process/planning.png", title: "Optimize & Rank", desc: "PPC campaigns drive traffic. A+ Content converts visitors. SEO pushes organic rankings. Your listing climbs page by page." },
+              { img: "/images/process/growth.png", title: "Scale & Dominate", desc: "Expand product line, enter new categories, launch on international marketplaces. Build a brand asset worth real money." },
+            ].map((item, index) => (
+              <div key={item.title} style={{ textAlign: "center", padding: "8px" }}>
+                <div style={{ marginBottom: "12px", display: "flex", justifyContent: "center" }}>
+                  <div style={{ position: "relative" }}>
+                    <img src={item.img} alt={item.title} style={{ width: "72px", height: "72px", objectFit: "contain" }} />
+                    <div style={{
+                      position: "absolute", top: "-4px", right: "-4px",
+                      width: "22px", height: "22px", borderRadius: "50%",
+                      backgroundColor: "var(--color-primary)", color: "#fff",
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                      fontSize: "11px", fontWeight: 700,
+                    }}>
+                      {index + 1}
+                    </div>
+                  </div>
                 </div>
-                <div style={{ marginBottom: "10px" }}>{item.icon}</div>
-                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
+                <h3 className="typo-h4" style={{ marginBottom: "4px" }}>{item.title}</h3>
                 <p className="typo-small">{item.desc}</p>
               </div>
             ))}
@@ -253,28 +233,21 @@ export default function AmazonFBAPage() {
       </section>
 
       {/* ── WHAT YOU GET ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
+      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
           <div className="section-header">
-            <span className="typo-label">WHAT YOU GET</span>
-            <h2 className="typo-h2">Full-Service FBA Management</h2>
-            <p className="typo-subtext">From product research to brand scaling — every aspect of your FBA business handled by specialists.</p>
+            <span className="typo-label">FULL SERVICE</span>
+            <h2 className="typo-h2">Everything We Handle. Everything You Don&apos;t.</h2>
+            <p className="typo-subtext">From product research to brand scaling — your entire FBA business, managed daily by our team.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ marginTop: "32px" }}>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6" style={{ marginTop: "32px" }}>
             {whatYouGet.map((item) => (
-              <div
-                key={item.title}
-                className="card-hover"
-                style={{
-                  backgroundColor: "#f6f7f9",
-                  borderRadius: "10px",
-                  padding: "24px",
-                  border: "1px solid rgba(0,0,0,0.04)",
-                }}
-              >
-                <img src={item.img} alt={item.title} style={{ width: "48px", height: "48px", objectFit: "contain", marginBottom: "12px" }} />
-                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
+              <div key={item.title} style={{ textAlign: "center", padding: "8px" }}>
+                <div style={{ marginBottom: "12px", display: "flex", justifyContent: "center" }}>
+                  <img src={item.img} alt={item.title} style={{ width: "64px", height: "64px", objectFit: "contain" }} />
+                </div>
+                <h3 className="typo-h4" style={{ marginBottom: "4px" }}>{item.title}</h3>
                 <p className="typo-small">{item.desc}</p>
               </div>
             ))}
@@ -282,55 +255,25 @@ export default function AmazonFBAPage() {
         </div>
       </section>
 
-      {/* ── MANAGEMENT SECTION ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <div style={{
-                width: "100%",
-                borderRadius: "12px",
-                background: "linear-gradient(135deg, var(--color-dark) 0%, #2d2d3f 100%)",
-                padding: "32px",
-                color: "#fff",
-              }}>
-                <h3 style={{ color: "#fff", fontSize: "20px", fontWeight: 700, marginBottom: "16px" }}>
-                  Our FBA Management Covers
-                </h3>
-                <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                  {[
-                    "Product research & supplier vetting",
-                    "Professional listing creation & A+ content",
-                    "PPC campaign management & optimization",
-                    "Keyword research & SEO optimization",
-                    "Inventory forecasting & reorder planning",
-                    "Brand Registry & IP protection",
-                    "Performance monitoring & reporting",
-                    "Product line expansion strategy",
-                  ].map((item) => (
-                    <div key={item} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                      <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "14px", flexShrink: 0 }} />
-                      <span style={{ fontSize: "14px", color: "rgba(255,255,255,0.9)" }}>{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div>
-              <h2 className="typo-h2" style={{ marginBottom: "16px" }}>
-                Full-Service FBA Management With EcomGarden
-              </h2>
-              <p className="typo-body" style={{ marginBottom: "14px" }}>
-                At EcomGarden, we provide comprehensive FBA store management that covers every stage of your product lifecycle. Our team handles product research, supplier vetting, listing creation with professional photography and A+ content, keyword optimization, and launch strategy.
-              </p>
-              <p className="typo-body" style={{ marginBottom: "14px" }}>
-                Our PPC specialists manage your advertising campaigns with precision — optimizing bids, discovering high-converting keywords, and reducing wasted ad spend. Combined with our inventory forecasting tools, we ensure your products stay in stock and your campaigns never pause due to stockouts.
-              </p>
-              <p className="typo-body">
-                Our service is 100% transparent with no hidden charges and no hidden terms and conditions. Get our service for as long as you want and cancel your contract anytime.
-              </p>
-            </div>
-          </div>
+      {/* ── PROFIT SHARING BANNER ── */}
+      <section style={{ padding: "45px 0", backgroundColor: "var(--color-dark)" }}>
+        <div className="container-main" style={{ textAlign: "center" }}>
+          <h2 style={{ fontSize: "24px", fontWeight: 700, color: "#fff", marginBottom: "6px" }}>
+            We Don&apos;t Get Paid Until <span style={{ color: "var(--color-primary)" }}>You Get Paid</span>
+          </h2>
+          <p style={{ fontSize: "15px", color: "rgba(255,255,255,0.7)", maxWidth: "550px", margin: "0 auto 20px" }}>
+            Profit sharing model — zero management fees until your FBA brand is profitable. We invest our time and expertise upfront. You pay from results.
+          </p>
+          <a
+            href="https://wa.link/m2ac6m"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary btn-primary-pulse"
+            style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+          >
+            <FaWhatsapp style={{ fontSize: "18px" }} />
+            Start Risk-Free Today
+          </a>
         </div>
       </section>
 
@@ -341,76 +284,48 @@ export default function AmazonFBAPage() {
       <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
           <div className="section-header">
-            <span className="typo-label">WHY ECOMGARDEN</span>
-            <h2 className="typo-h2">EcomGarden vs Self-Managing vs Other Agencies</h2>
-            <p className="typo-subtext">FBA success requires expertise across product research, PPC, listings, and inventory. See the difference.</p>
+            <span className="typo-label">THE HONEST COMPARISON</span>
+            <h2 className="typo-h2">Why Smart Sellers Choose Expert Management Over DIY</h2>
+            <p className="typo-subtext">FBA looks simple. Then you realize product research, PPC, inventory, listings, and account health is 5 full-time jobs. We do all 5.</p>
           </div>
 
-          <div style={{ maxWidth: "800px", margin: "32px auto 0", overflowX: "auto" }}>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr auto auto auto", gap: "0", backgroundColor: "#fff", borderRadius: "12px", overflow: "hidden", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
-              <div style={{ padding: "12px 16px", fontWeight: 700, backgroundColor: "#f6f7f9", fontSize: "13px" }}>Feature</div>
-              <div style={{ padding: "12px 20px", fontWeight: 700, backgroundColor: "var(--color-primary)", color: "#fff", textAlign: "center", fontSize: "13px", minWidth: "110px" }}>EcomGarden</div>
-              <div style={{ padding: "12px 20px", fontWeight: 700, backgroundColor: "#f6f7f9", textAlign: "center", fontSize: "13px", minWidth: "100px" }}>Self-Manage</div>
-              <div style={{ padding: "12px 20px", fontWeight: 700, backgroundColor: "#f6f7f9", textAlign: "center", fontSize: "13px", minWidth: "100px" }}>Others</div>
-
-              {comparisonData.map((row) => (
-                <React.Fragment key={row.feature}>
-                  <div style={{ padding: "10px 16px", fontSize: "13px", borderBottom: "1px solid #f5f5f5" }}>{row.feature}</div>
-                  <div style={{ padding: "10px 20px", textAlign: "center", borderBottom: "1px solid #f5f5f5", backgroundColor: "rgba(22,163,74,0.03)" }}>
-                    {row.us === true ? <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "16px" }} /> : <span style={{ fontSize: "13px", color: "var(--color-primary)", fontWeight: 600 }}>{row.us}</span>}
-                  </div>
-                  <div style={{ padding: "10px 20px", textAlign: "center", borderBottom: "1px solid #f5f5f5" }}>
-                    {row.diy === false ? <FaTimesCircle style={{ color: "#dc2626", fontSize: "16px" }} /> : <span style={{ fontSize: "13px", color: "#999" }}>{row.diy}</span>}
-                  </div>
-                  <div style={{ padding: "10px 20px", textAlign: "center", borderBottom: "1px solid #f5f5f5" }}>
-                    {row.others === false ? <FaTimesCircle style={{ color: "#dc2626", fontSize: "16px" }} /> : <span style={{ fontSize: "13px", color: "#999" }}>{row.others}</span>}
-                  </div>
-                </React.Fragment>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── WHY CHOOSE US ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main">
-          <div className="section-header">
-            <span className="typo-label">THE ECOMGARDEN DIFFERENCE</span>
-            <h2 className="typo-h2">Why FBA Sellers Choose EcomGarden</h2>
-          </div>
-
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "20px", marginTop: "32px" }}>
-            {[
-              { title: "PPC Specialists, Not Generalists", desc: "Our PPC team manages campaigns daily — not weekly. We optimize bids, discover converting keywords, prune wasted spend, and track ACoS down to the SKU level. Most agencies check in once a week." },
-              { title: "We Validate Before You Invest", desc: "Every product goes through our validation framework: demand analysis, competition depth, margin calculation, supplier reliability, and differentiation potential. We don't launch products that won't make money." },
-              { title: "Brand Building, Not Just Selling", desc: "We help you build a real brand with Brand Registry, A+ Content, Sponsored Brands, and a product line strategy. A brand is an asset you can sell — a random product listing is not." },
-              { title: "Never Run Out of Stock Again", desc: "Our inventory forecasting tracks sales velocity, lead times, and seasonal patterns to calculate exact reorder dates. Stockouts kill rankings and waste PPC spend — we prevent them." },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="card-hover"
-                style={{
-                  backgroundColor: "#fff",
-                  borderRadius: "10px",
-                  padding: "24px",
-                  border: "1px solid rgba(0,0,0,0.04)",
-                }}
-              >
-                <h3 className="typo-h4" style={{ marginBottom: "8px", color: "var(--color-primary)" }}>{item.title}</h3>
-                <p className="typo-small">{item.desc}</p>
-              </div>
-            ))}
+          <div style={{ maxWidth: "850px", margin: "32px auto 0", overflowX: "auto" }}>
+            <table style={{ width: "100%", borderCollapse: "separate", borderSpacing: "0", borderRadius: "12px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.08)", border: "1px solid #e5e7eb" }}>
+              <thead>
+                <tr>
+                  <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, fontSize: "13px", backgroundColor: "#f6f7f9", borderBottom: "2px solid #e8e8e8" }}>What You Need</th>
+                  <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, fontSize: "13px", backgroundColor: "var(--color-primary)", color: "#fff", borderBottom: "2px solid var(--color-primary-dark)", minWidth: "130px" }}>EcomGarden</th>
+                  <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, fontSize: "13px", backgroundColor: "#f6f7f9", borderBottom: "2px solid #e8e8e8", minWidth: "120px" }}>Self-Managing</th>
+                  <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, fontSize: "13px", backgroundColor: "#f6f7f9", borderBottom: "2px solid #e8e8e8", minWidth: "120px" }}>Other Agencies</th>
+                </tr>
+              </thead>
+              <tbody>
+                {comparisonData.map((row, i) => (
+                  <tr key={row.feature} style={{ backgroundColor: i % 2 === 0 ? "#fff" : "#fafbfc" }}>
+                    <td style={{ padding: "12px 20px", fontSize: "13px", fontWeight: 500, textAlign: "center", borderBottom: "1px solid #f0f0f0", verticalAlign: "middle" }}>{row.feature}</td>
+                    <td style={{ padding: "12px 20px", textAlign: "center", borderBottom: "1px solid #f0f0f0", backgroundColor: i % 2 === 0 ? "rgba(22,163,74,0.04)" : "rgba(22,163,74,0.07)", verticalAlign: "middle" }}>
+                      {row.us === true ? <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "18px", display: "inline-block", verticalAlign: "middle" }} /> : <span style={{ fontSize: "13px", color: "var(--color-primary)", fontWeight: 600 }}>{row.us}</span>}
+                    </td>
+                    <td style={{ padding: "12px 20px", textAlign: "center", borderBottom: "1px solid #f0f0f0", verticalAlign: "middle" }}>
+                      {row.diy === false ? <FaTimesCircle style={{ color: "#dc2626", fontSize: "18px", display: "inline-block", verticalAlign: "middle" }} /> : <span style={{ fontSize: "13px", color: "#888" }}>{row.diy}</span>}
+                    </td>
+                    <td style={{ padding: "12px 20px", textAlign: "center", borderBottom: "1px solid #f0f0f0", verticalAlign: "middle" }}>
+                      {row.others === false ? <FaTimesCircle style={{ color: "#dc2626", fontSize: "18px", display: "inline-block", verticalAlign: "middle" }} /> : <span style={{ fontSize: "13px", color: "#888" }}>{row.others}</span>}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
 
       {/* ── FAQ ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
+      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
           <div className="section-header">
-            <span className="typo-label">FAQ</span>
-            <h2 className="typo-h2">Frequently Asked Questions</h2>
+            <span className="typo-label">GOT QUESTIONS?</span>
+            <h2 className="typo-h2">Everything You Want to Know Before Starting</h2>
           </div>
 
           <div style={{ maxWidth: "750px", margin: "24px auto 0" }}>
@@ -418,7 +333,7 @@ export default function AmazonFBAPage() {
               <div
                 key={i}
                 style={{
-                  backgroundColor: "#f6f7f9",
+                  backgroundColor: "#fff",
                   borderRadius: "8px",
                   marginBottom: "8px",
                   overflow: "hidden",
@@ -428,18 +343,10 @@ export default function AmazonFBAPage() {
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    width: "100%",
-                    padding: "14px 18px",
-                    background: "none",
-                    border: "none",
-                    cursor: "pointer",
-                    fontSize: "15px",
-                    fontWeight: 600,
-                    color: "var(--color-dark)",
-                    textAlign: "left",
+                    display: "flex", alignItems: "center", justifyContent: "space-between",
+                    width: "100%", padding: "14px 18px", background: "none", border: "none",
+                    cursor: "pointer", fontSize: "15px", fontWeight: 600,
+                    color: "var(--color-dark)", textAlign: "left",
                   }}
                 >
                   {faq.question}
@@ -447,8 +354,7 @@ export default function AmazonFBAPage() {
                 </button>
                 <div style={{
                   maxHeight: openFaq === i ? "300px" : "0",
-                  overflow: "hidden",
-                  transition: "max-height 0.3s ease",
+                  overflow: "hidden", transition: "max-height 0.3s ease",
                 }}>
                   <p className="typo-body" style={{ padding: "0 18px 14px" }}>{faq.answer}</p>
                 </div>
@@ -458,7 +364,6 @@ export default function AmazonFBAPage() {
         </div>
       </section>
 
-      {/* ── CTA ── */}
       <CTASection />
     </>
   );

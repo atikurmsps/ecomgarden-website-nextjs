@@ -2,75 +2,67 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp, FaChartLine, FaBoxes, FaShoppingCart, FaTags, FaCogs, FaHeadset, FaListAlt, FaTruck, FaSmile, FaMoneyBillWave } from "react-icons/fa";
-import ServiceBenefits from "@/components/services/ServiceBenefits";
-import ServiceFAQ from "@/components/services/ServiceFAQ";
+import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp } from "react-icons/fa";
 import ServiceConfidence from "@/components/services/ServiceConfidence";
 import CTASection from "@/components/home/CTASection";
 
 const comparisonData = [
-  { feature: "Dedicated Walmart account manager", us: true, self: false, others: "Shared VA" },
-  { feature: "Product research & winning items", us: true, self: "Trial & error", others: "Basic only" },
-  { feature: "Buy Box winning strategies", us: true, self: false, others: false },
-  { feature: "Listing SEO optimization", us: true, self: false, others: "Extra fee" },
-  { feature: "Order & purchase automation", us: true, self: "Manual", others: "Partial" },
-  { feature: "Warehouse coordination", us: true, self: "You manage", others: "Extra fee" },
-  { feature: "Return & refund handling", us: true, self: "You handle", others: "Extra fee" },
-  { feature: "Profit guarantee", us: true, self: false, others: false },
-  { feature: "WhatsApp direct support", us: true, self: "N/A", others: "Email only" },
-  { feature: "Average profit margin", us: "30-40%", self: "10-15%", others: "15-20%" },
+  { feature: "Full Walmart listing optimization", us: true, diy: "Trial & error", others: "Basic" },
+  { feature: "Buy Box winning strategies", us: true, diy: false, others: "Limited" },
+  { feature: "Daily order & fulfillment management", us: true, diy: "You do it", others: "Extra fee" },
+  { feature: "Walmart PPC campaign management", us: true, diy: "You guess", others: "Basic setup" },
+  { feature: "Account health monitoring 24/7", us: true, diy: false, others: "Weekly check" },
+  { feature: "Pricing & repricing strategy", us: true, diy: "Manual", others: "Software only" },
+  { feature: "Customer service & returns handling", us: true, diy: "You handle", others: "Extra fee" },
+  { feature: "Profit sharing — pay from profits only", us: true, diy: "N/A", others: false },
+  { feature: "24/7 WhatsApp support", us: true, diy: false, others: "Email only" },
+];
+
+const whatYouGet = [
+  { img: "/images/services/icons/product-research.png", title: "Listing Optimization", desc: "SEO-rich titles, bullet points, descriptions, and backend keywords tuned for Walmart's search algorithm. Every listing built to rank and convert." },
+  { img: "/images/services/icons/inventory.png", title: "Buy Box Strategy", desc: "Dynamic repricing, fulfillment speed optimization, and seller metrics management to win and hold the Walmart Buy Box consistently." },
+  { img: "/images/services/icons/order-fulfillment.png", title: "Order Fulfillment", desc: "Every order tracked, processed, and shipped on time. Whether WFS, 3PL, or self-fulfilled — we handle the entire flow daily." },
+  { img: "/images/services/icons/marketing.png", title: "Pricing & Repricing", desc: "Competitive price monitoring, margin-based repricing rules, and market analysis that keeps you profitable without racing to the bottom." },
+  { img: "/images/services/icons/customer-support.png", title: "Customer Support", desc: "Every buyer message answered within 4 hours. Returns processed. Negative reviews addressed. Your seller rating stays protected." },
+  { img: "/images/services/icons/account-health.png", title: "Account Health", desc: "Order defect rate, on-time shipping, valid tracking — every metric monitored daily. Issues flagged and fixed before they become problems." },
+  { img: "/images/services/icons/safety.png", title: "PPC & Advertising", desc: "Walmart Sponsored Products, keyword targeting, bid optimization, and campaign scaling. We drive traffic and you collect the profit." },
+  { img: "/images/services/icons/scalability.png", title: "Growth Strategy", desc: "New category expansion, product line scaling, seasonal planning, and competitive analysis. We grow your store quarter over quarter." },
 ];
 
 const faqs = [
   {
-    question: "Does 2 Step Dropshipping Legal?",
-    answer:
-      "Yes, 2 step dropshipping is legal. You will never face any legal issue with 2 step dropshipping model.",
+    question: "How is selling on Walmart different from Amazon?",
+    answer: "Walmart has different listing requirements, a unique search algorithm, stricter seller standards, and lower competition. The opportunity is massive — but the playbook is completely different from Amazon. Our team specializes in Walmart-specific strategies that most Amazon sellers miss.",
   },
   {
-    question: "How Safe 2 Step Dropshipping Business?",
-    answer:
-      "Its 100% safe business model. Walmart required sending products with Walmart's branded packaging or white branding. As well, no 3rd party retailer invoice into the parcel. Our warehouse will remove the 3rd party invoice and repackaging products with Walmart branded box.",
+    question: "Do I need an existing Walmart Seller account?",
+    answer: "Yes, you need an approved Walmart Seller Center account. If you do not have one yet, we can guide you through the application process. Walmart is selective about who they approve, so having expert help with your application significantly increases your approval chances.",
   },
   {
-    question:
-      "Does 2 Step Dropshipping profitable after shipping and warehouse cost?",
-    answer:
-      "Yes. Its fully profitable. When we do products research, we pick products thats only have good profit margin and it will cover our warehouse & shipping cost.",
+    question: "How much capital do I need to start?",
+    answer: "Minimum $3,000-$5,000 working capital depending on your business model. Walmart pays on a bi-weekly cycle, so you need funds to cover inventory and fulfillment costs. The more capital you have, the faster we can scale your store.",
   },
   {
-    question: "How much ROI (Return ON Investment) can I get?",
-    answer:
-      "Our average ROI is 35%. You will get 30-40% PROFIT MARGIN after all expense (shipping, warehouse and all other fees)",
+    question: "What ROI can I expect on Walmart?",
+    answer: "Walmart typically offers 25-40% profit margins depending on your product category and fulfillment method. Competition is lower than Amazon, which means healthier margins. Most clients see meaningful traction within the first 30 days of professional management.",
   },
   {
-    question:
-      "Why I Need Investment Where Dropshipping Not Required any upfront?",
-    answer:
-      "Good question. Walmart will send you payout after 14 days of order delivery. So you need purchase products using your own funds. Then you will get payment from Walmart. So you need capital to purchase products when customer will order.",
+    question: "Can you manage my Walmart store alongside my Amazon store?",
+    answer: "Absolutely. Many of our clients sell on both platforms. We manage both stores independently with platform-specific strategies. Cross-platform selling increases your revenue while diversifying your risk — if one account has issues, the other keeps generating income.",
   },
   {
-    question: "Can I use my address as warehouse?",
-    answer:
-      "Yes, If you can handle products receiving and shipping to customer, then why you will pay 3rd party warehouse!",
+    question: "What if my account health metrics drop?",
+    answer: "We monitor your account health metrics daily. If any metric trends downward, we take immediate corrective action — whether it is shipping speed, order defect rate, or customer response time. Prevention is always easier than reinstatement.",
   },
   {
-    question: "Where do you source products?",
-    answer:
-      "We use authentic products sources only and use sourcing where its cheapest. We use Amazon Prime, Sams Club, Target, Home Depot, Costco Wholesale.",
+    question: "Do you handle Walmart advertising?",
+    answer: "Yes, we manage Walmart Sponsored Products campaigns including keyword research, bid management, budget optimization, and performance reporting. Walmart ads are currently cheaper than Amazon PPC, which means better ROAS for your budget.",
   },
   {
-    question: "Will you guys manage my whole business?",
-    answer:
-      "Yes, We provide A-Z management including products research, sourcing, order management, shipping, return handling, customer support, promotion.",
-  },
-  {
-    question: "What if I can not create any profit?",
-    answer:
-      "Our working method is 100% profit guarantee. You will get full refund of any charge with no question ask.",
+    question: "Can I cancel anytime?",
+    answer: "Yes, no contracts and no lock-in periods. We earn your business every month through results. Our retention rate is 90%+ because our clients see consistent growth — but you are free to leave whenever you choose.",
   },
 ];
-
 
 export default function WalmartManagementPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -81,18 +73,31 @@ export default function WalmartManagementPage() {
       <section style={{ padding: "55px 0 70px", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            {/* Left: Content */}
             <div>
-              <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>WALMART MANAGEMENT</span>
+              <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>WALMART STORE MANAGEMENT</span>
               <h1 className="typo-h1" style={{ marginBottom: "14px" }}>
-                Complete Walmart Store Management &mdash; From Listings to Profits
+                Your Walmart Store, Run by Experts. <span style={{ color: "var(--color-primary)" }}>Profit by You.</span>
               </h1>
-              <p className="typo-body" style={{ marginBottom: "12px", fontSize: "17px" }}>
-                We&apos;ve managed <strong>200+ Walmart stores</strong> with an average 30-40% profit margin using our proven 2-step dropshipping system.
+              <p className="typo-body" style={{ marginBottom: "16px", fontSize: "17px" }}>
+                We optimize your listings, win the Buy Box, manage orders, run ads, and handle every detail of your Walmart store. You focus on growth. We handle the grind.
               </p>
-              <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
-                Profit within the first week. 100% money-back guarantee if we don&apos;t deliver.
-              </p>
+
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6px 16px", marginBottom: "20px" }}>
+                {[
+                  "Full store management",
+                  "Buy Box domination",
+                  "25-40% profit margins",
+                  "Walmart PPC experts",
+                  "Pay from profits only",
+                  "A-Z daily operations",
+                ].map((item) => (
+                  <div key={item} style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                    <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "12px", flexShrink: 0 }} />
+                    <span style={{ fontSize: "13px", color: "#555" }}>{item}</span>
+                  </div>
+                ))}
+              </div>
+
               <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
                 <a
                   href="https://wa.link/m2ac6m"
@@ -102,226 +107,122 @@ export default function WalmartManagementPage() {
                   style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
                 >
                   <FaWhatsapp style={{ fontSize: "18px" }} />
-                  Get Free Consultation
+                  Start Earning — Free Consultation
                 </a>
                 <Link href="/pricing" className="btn-outline">
-                  View Pricing
+                  See Pricing
                 </Link>
               </div>
-
-              {/* Trust badges */}
-              <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap" }}>
-                {[
-                  { icon: <FaChartLine />, text: "200+ Stores Managed" },
-                  { icon: <FaBoxes />, text: "30-40% Avg. Profit Margin" },
-                  { icon: <FaHeadset />, text: "24/7 Dedicated Support" },
-                ].map((badge) => (
-                  <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
-                    <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
-                    {badge.text}
-                  </div>
-                ))}
-              </div>
             </div>
 
-            {/* Right: SVG Illustration */}
             <div className="hidden lg:flex items-center justify-center">
-              <div style={{
-                width: "100%",
-                maxWidth: "460px",
-                aspectRatio: "1/1",
-                borderRadius: "16px",
-                background: "linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%)",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                padding: "40px",
-                color: "#fff",
-                textAlign: "center",
-                position: "relative",
-                overflow: "hidden",
-              }}>
-                <div style={{ position: "absolute", top: "20px", right: "20px", backgroundColor: "rgba(22,163,74,0.2)", borderRadius: "12px", padding: "6px 14px" }}>
-                  <span style={{ fontSize: "12px", fontWeight: 700, color: "var(--color-primary)" }}>A-Z MANAGED</span>
-                </div>
-                <FaCogs style={{ fontSize: "48px", marginBottom: "16px", opacity: 0.9 }} />
-                <h3 style={{ fontSize: "22px", fontWeight: 700, color: "#fff", marginBottom: "8px" }}>
-                  200+ Stores Managed
-                </h3>
-                <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
-                  Complete store management with profit guarantee
-                </p>
-                <div style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
-                  {[
-                    { val: "35%", label: "Avg ROI" },
-                    { val: "200+", label: "Stores" },
-                    { val: "24/7", label: "Support" },
-                  ].map((s) => (
-                    <div key={s.label} style={{ textAlign: "center" }}>
-                      <div style={{ fontSize: "20px", fontWeight: 800, color: "var(--color-primary)" }}>{s.val}</div>
-                      <div style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)" }}>{s.label}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              <img
+                src="/svg/dropshipping_hero_v4.svg"
+                alt="Walmart Store Management Services"
+                style={{ width: "100%", maxWidth: "600px", height: "auto" }}
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── INTRO SECTION ── */}
+      {/* ── PROBLEM → SOLUTION ── */}
       <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <p className="typo-body" style={{ marginBottom: "16px" }}>
-                Walmart 2-step dropshipping, is the most popular business
-                model. In this model, no upfront inventory is required.
-              </p>
-              <p className="typo-body" style={{ marginBottom: "16px" }}>
-                The inventory is acquired only when a customer places an
-                order. This is a zero-risk and quickly profitable business
-                model. On average, a store starts generating a profit within a
-                week.
-              </p>
-              <p className="typo-body">
-                We purchase a product from supplier for $10 and sell it on
-                Walmart for $30. However, there are $4 warehouse fees for
-                re-boxing with Walmart branding and a $6 shipping charge. In
-                the end, the profit margin is $10. Imagine if this product
-                sells 30 units a day. OMG, it creates $300 in profit per day
-                and $9,000 in profit in a month!
-              </p>
-            </div>
-            <div className="flex justify-center">
-              <div style={{
-                width: "100%",
-                borderRadius: "12px",
-                background: "linear-gradient(135deg, var(--color-dark) 0%, #2d2d3f 100%)",
-                padding: "32px",
-                color: "#fff",
-              }}>
-                <h3 style={{ color: "#fff", fontSize: "20px", fontWeight: 700, marginBottom: "16px" }}>
-                  Key Highlights
-                </h3>
-                <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                  {[
-                    "No upfront inventory required",
-                    "Profit within the first week",
-                    "30-40% average profit margins",
-                    "200+ stores managed successfully",
-                    "100% money-back profit guarantee",
-                    "24/7 dedicated VA support",
-                  ].map((item) => (
-                    <div key={item} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                      <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "14px", flexShrink: 0 }} />
-                      <span style={{ fontSize: "14px", color: "rgba(255,255,255,0.9)" }}>{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── HOW IT WORKS ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main">
-          <div className="section-header" style={{ textAlign: "center", marginBottom: "36px" }}>
-            <span className="typo-label">Process</span>
-            <h2 className="typo-h2">How 2 Step Dropshipping Works</h2>
+          <div className="section-header">
+            <span className="typo-label">WHY THIS WORKS</span>
+            <h2 className="typo-h2">Your Problems. Our Solutions.</h2>
+            <p className="typo-subtext">Walmart is the fastest-growing marketplace — but it plays by different rules than Amazon. Here&apos;s why sellers trust EcomGarden to manage their stores.</p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "0", marginTop: "36px" }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ marginTop: "28px" }}>
             {[
-              { step: "01", icon: <FaListAlt style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Sell Items", desc: "List catalog on Walmart and start selling items" },
-              { step: "02", icon: <FaShoppingCart style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Buy Items", desc: "Purchase items from supplier thats customer ordered and shipping to warehouse" },
-              { step: "03", icon: <FaTruck style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Shipping", desc: "Warehouse will remove supplier branding and repackaging Walmart branding and ship to customer" },
-              { step: "04", icon: <FaSmile style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Happy Customer", desc: "Customer will receive Walmart branded parcel and Walmart invoice. Happy with their order" },
-              { step: "05", icon: <FaMoneyBillWave style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Get Payout", desc: "Walmart sends payout every 14 days of order delivery. Get funds directly in your bank account" },
+              {
+                problem: "New to Walmart and don't know the rules?",
+                solution: "We've managed 100+ Walmart stores. Different algorithm, different policies, different game — and we know every move. You're selling within days.",
+              },
+              {
+                problem: "Walmart works differently from Amazon?",
+                solution: "Completely different listing structure, search ranking, and seller metrics. We build Walmart-native strategies — not recycled Amazon playbooks.",
+              },
+              {
+                problem: "Listing optimization is a different beast?",
+                solution: "Walmart's SEO algorithm weights attributes, content quality, and price competitiveness differently. Our listings are engineered for Walmart's specific ranking factors.",
+              },
+              {
+                problem: "Lower traffic needs a smarter strategy?",
+                solution: "Walmart has fewer sellers but also fewer buyers per category. We combine organic ranking, PPC, and pricing strategy to capture maximum market share.",
+              },
+              {
+                problem: "Fulfillment complexity is overwhelming?",
+                solution: "WFS, 3PL, self-fulfilled — each has trade-offs. We select and manage the right fulfillment method for each product to maximize speed and minimize cost.",
+              },
+              {
+                problem: "Account health standards are strict?",
+                solution: "Walmart suspends faster than Amazon for metric violations. We monitor every KPI daily and take corrective action before thresholds are breached.",
+              },
             ].map((item) => (
               <div
-                key={item.step}
+                key={item.problem}
+                className="card-hover"
                 style={{
-                  padding: "28px 20px",
-                  textAlign: "center",
-                  position: "relative",
+                  borderRadius: "10px",
+                  padding: "22px",
+                  backgroundColor: "#f6f7f9",
+                  border: "1px solid rgba(0,0,0,0.04)",
                 }}
               >
-                <div style={{ fontSize: "36px", fontWeight: 800, color: "var(--color-primary)", opacity: 0.15, marginBottom: "8px", lineHeight: 1 }}>
-                  {item.step}
-                </div>
-                <div style={{ marginBottom: "10px" }}>{item.icon}</div>
-                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
-                <p className="typo-small">{item.desc}</p>
+                <p style={{ fontSize: "14px", fontWeight: 700, color: "var(--color-dark)", marginBottom: "10px", lineHeight: 1.4 }}>
+                  <span style={{ color: "#dc2626" }}>&#10007;</span>{" "}{item.problem}
+                </p>
+                <p style={{ fontSize: "13px", color: "var(--color-text-light)", margin: 0, lineHeight: 1.6, paddingLeft: "2px", borderLeft: "3px solid var(--color-primary)", marginLeft: "0" }}>
+                  <span style={{ display: "block", paddingLeft: "12px" }}>
+                    <span style={{ color: "var(--color-primary)", fontWeight: 700 }}>&rarr;</span>{" "}{item.solution}
+                  </span>
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── MANAGEMENT SECTION ── */}
+      {/* ── HOW IT WORKS ── */}
       <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <div style={{
-                width: "100%",
-                borderRadius: "12px",
-                background: "linear-gradient(135deg, var(--color-dark) 0%, #2d2d3f 100%)",
-                padding: "32px",
-                color: "#fff",
-              }}>
-                <h3 style={{ color: "#fff", fontSize: "20px", fontWeight: 700, marginBottom: "16px" }}>
-                  Our Management Covers
-                </h3>
-                <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                  {[
-                    "Winning product research & sourcing",
-                    "Listing creation & SEO optimization",
-                    "Order management & daily purchasing",
-                    "Warehouse coordination & reboxing",
-                    "Customer support & returns handling",
-                    "Shipping tracking & management",
-                    "Account health monitoring",
-                    "PPC advertising & promotions",
-                  ].map((item) => (
-                    <div key={item} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                      <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "14px", flexShrink: 0 }} />
-                      <span style={{ fontSize: "14px", color: "rgba(255,255,255,0.9)" }}>{item}</span>
+          <div className="section-header">
+            <span className="typo-label">THE PROCESS</span>
+            <h2 className="typo-h2">How We Grow Your Walmart Store</h2>
+            <p className="typo-subtext" style={{ maxWidth: "700px" }}>
+              From audit to scale — a proven 4-step system that turns underperforming Walmart stores into <strong>consistent revenue machines</strong>.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6" style={{ marginTop: "32px" }}>
+            {[
+              { img: "/images/process/discussion.png", title: "Store Audit", desc: "We analyze your listings, metrics, pricing, and competition to identify every growth opportunity and fix every weakness." },
+              { img: "/images/process/get-access.png", title: "Optimize & Fix", desc: "Listings rewritten, pricing adjusted, fulfillment optimized, account health issues resolved. Your store is built to compete." },
+              { img: "/images/process/planning.png", title: "Launch & Scale", desc: "PPC campaigns launched, Buy Box strategies deployed, new products added. Traffic and sales start climbing within weeks." },
+              { img: "/images/process/growth.png", title: "Grow & Profit", desc: "Daily management, weekly reporting, monthly strategy reviews. We scale what works and cut what does not. You collect profit." },
+            ].map((item, index) => (
+              <div key={item.title} style={{ textAlign: "center", padding: "8px" }}>
+                <div style={{ marginBottom: "12px", display: "flex", justifyContent: "center" }}>
+                  <div style={{ position: "relative" }}>
+                    <img src={item.img} alt={item.title} style={{ width: "72px", height: "72px", objectFit: "contain" }} />
+                    <div style={{
+                      position: "absolute", top: "-4px", right: "-4px",
+                      width: "22px", height: "22px", borderRadius: "50%",
+                      backgroundColor: "var(--color-primary)", color: "#fff",
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                      fontSize: "11px", fontWeight: 700,
+                    }}>
+                      {index + 1}
                     </div>
-                  ))}
+                  </div>
                 </div>
+                <h3 className="typo-h4" style={{ marginBottom: "4px" }}>{item.title}</h3>
+                <p className="typo-small">{item.desc}</p>
               </div>
-            </div>
-            <div>
-              <h2 className="typo-h2" style={{ marginBottom: "16px" }}>
-                Manage Walmart Seller Account With EcomGarden
-              </h2>
-              <p className="typo-body" style={{ marginBottom: "14px" }}>
-                At EcomGarden, you will get complete service of fully account
-                management. Our automation tools will ensure 100% accuracy and
-                zero inventory loss. Our dedicated Virtual Assistant will
-                provide you 24/7 support, quick order response, customers
-                inquire.
-              </p>
-              <p className="typo-body" style={{ marginBottom: "14px" }}>
-                Get experienced highly skilled Walmart 2 step dropshipping
-                virtual assistant for your store and get cost-effective and
-                seamless support and run your the business successfully. We
-                provide complete solutions of store management including wining
-                products research, products listing, SEO optimizations, order
-                management, purchase management, customer support, shipping and
-                return handling, inventory management, PPC and marketing.
-              </p>
-              <p className="typo-body">
-                Our service is 100% transparent and we do not have any hidden
-                charge and do not have any hidden terms &amp; conditions. Get
-                our service until you want and cancel contract anytime.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -330,127 +231,96 @@ export default function WalmartManagementPage() {
       <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
           <div className="section-header">
-            <span className="typo-label">WHAT YOU GET</span>
-            <h2 className="typo-h2">Complete Walmart Store Management</h2>
-            <p className="typo-subtext">Everything handled by our expert team so you can focus on profits.</p>
+            <span className="typo-label">FULL SERVICE</span>
+            <h2 className="typo-h2">Everything We Handle. Everything You Don&apos;t.</h2>
+            <p className="typo-subtext">From listing creation to customer service — your entire Walmart business, managed daily by our team.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ marginTop: "32px" }}>
-            {[
-              { img: "/images/services/icons/product-research.png", title: "Winning Product Research", desc: "Data-driven product selection focusing on high-demand, high-margin items. We analyze competition, sales velocity, and profitability before listing anything." },
-              { img: "/images/services/icons/marketing.png", title: "Listing & SEO Optimization", desc: "Optimized titles, descriptions, and keywords that rank higher in Walmart search. Enhanced content and competitive pricing to win the Buy Box." },
-              { img: "/images/services/icons/order-fulfillment.png", title: "Order & Purchase Management", desc: "Automated order processing with same-day purchase from source retailers. Zero missed orders, zero late shipments, 100% accuracy guaranteed." },
-              { img: "/images/services/icons/inventory.png", title: "Warehouse & Shipping", desc: "Full warehouse coordination for Walmart-compliant repackaging. Products arrive in Walmart branding with proper invoicing and tracking." },
-              { img: "/images/services/icons/return-handling.png", title: "Returns & Customer Support", desc: "We handle all customer inquiries, returns, and refund requests. Maintaining your seller metrics and account health is our top priority." },
-              { img: "/images/services/icons/customer-support.png", title: "24/7 Dedicated VA Support", desc: "Your own dedicated virtual assistant available around the clock. Direct WhatsApp access for real-time updates and questions about your store." },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="card-hover"
-                style={{
-                  backgroundColor: "#fff",
-                  borderRadius: "10px",
-                  padding: "24px",
-                  border: "1px solid rgba(0,0,0,0.04)",
-                }}
-              >
-                <img src={item.img} alt={item.title} style={{ width: "48px", height: "48px", objectFit: "contain", marginBottom: "12px" }} />
-                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
-                <p className="typo-small">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── ECOMGARDEN VS OTHERS ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
-        <div className="container-main">
-          <div className="section-header">
-            <span className="typo-label">WHY CHOOSE US</span>
-            <h2 className="typo-h2">EcomGarden vs Self-Managing vs Other Agencies</h2>
-            <p className="typo-subtext">See why 200+ sellers trust EcomGarden to manage their Walmart stores.</p>
-          </div>
-
-          <div style={{ maxWidth: "850px", margin: "32px auto 0", overflowX: "auto" }}>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr auto auto auto", gap: "0", backgroundColor: "#fff", borderRadius: "12px", overflow: "hidden", boxShadow: "0 2px 12px rgba(0,0,0,0.06)", minWidth: "600px" }}>
-              <div style={{ padding: "12px 16px", fontWeight: 700, backgroundColor: "#f6f7f9", fontSize: "13px" }}>Feature</div>
-              <div style={{ padding: "12px 20px", fontWeight: 700, backgroundColor: "var(--color-primary)", color: "#fff", textAlign: "center", fontSize: "13px", minWidth: "110px" }}>EcomGarden</div>
-              <div style={{ padding: "12px 20px", fontWeight: 700, backgroundColor: "#f6f7f9", textAlign: "center", fontSize: "13px", minWidth: "110px" }}>Self-Managing</div>
-              <div style={{ padding: "12px 20px", fontWeight: 700, backgroundColor: "#f6f7f9", textAlign: "center", fontSize: "13px", minWidth: "110px" }}>Other Agencies</div>
-
-              {comparisonData.map((row) => (
-                <React.Fragment key={row.feature}>
-                  <div style={{ padding: "10px 16px", fontSize: "13px", borderBottom: "1px solid #f5f5f5" }}>{row.feature}</div>
-                  <div style={{ padding: "10px 20px", textAlign: "center", borderBottom: "1px solid #f5f5f5", backgroundColor: "rgba(22,163,74,0.03)" }}>
-                    {row.us === true ? <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "16px" }} /> : <span style={{ fontSize: "13px", color: "var(--color-primary)", fontWeight: 600 }}>{row.us}</span>}
-                  </div>
-                  <div style={{ padding: "10px 20px", textAlign: "center", borderBottom: "1px solid #f5f5f5" }}>
-                    {row.self === false ? <FaTimesCircle style={{ color: "#dc2626", fontSize: "16px" }} /> : <span style={{ fontSize: "13px", color: "#999" }}>{row.self}</span>}
-                  </div>
-                  <div style={{ padding: "10px 20px", textAlign: "center", borderBottom: "1px solid #f5f5f5" }}>
-                    {row.others === false ? <FaTimesCircle style={{ color: "#dc2626", fontSize: "16px" }} /> : <span style={{ fontSize: "13px", color: "#999" }}>{row.others}</span>}
-                  </div>
-                </React.Fragment>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── WHY CHOOSE US ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main">
-          <div className="section-header">
-            <span className="typo-label">THE ECOMGARDEN DIFFERENCE</span>
-            <h2 className="typo-h2">Why Sellers Choose EcomGarden</h2>
-          </div>
-
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "0", marginTop: "36px" }}>
-            {[
-              { step: "01", title: "Profit Guarantee", desc: "100% money-back if we don't generate profit for your store. We put our money where our mouth is." },
-              { step: "02", title: "Proven 30-40% ROI", desc: "Our product research team only picks winners. Average 35% profit margin after all expenses." },
-              { step: "03", title: "Zero Hidden Fees", desc: "Transparent pricing, no lock-in contracts, no surprise charges. Cancel anytime with no penalty." },
-              { step: "04", title: "A-Z Management", desc: "From product research to customer support, we handle everything. You just watch profits grow." },
-            ].map((item) => (
-              <div
-                key={item.step}
-                style={{
-                  padding: "28px 24px",
-                  textAlign: "center",
-                  position: "relative",
-                }}
-              >
-                <div style={{
-                  fontSize: "36px",
-                  fontWeight: 800,
-                  color: "var(--color-primary)",
-                  opacity: 0.15,
-                  marginBottom: "8px",
-                  lineHeight: 1,
-                }}>
-                  {item.step}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6" style={{ marginTop: "32px" }}>
+            {whatYouGet.map((item) => (
+              <div key={item.title} style={{ textAlign: "center", padding: "8px" }}>
+                <div style={{ marginBottom: "12px", display: "flex", justifyContent: "center" }}>
+                  <img src={item.img} alt={item.title} style={{ width: "64px", height: "64px", objectFit: "contain" }} />
                 </div>
-                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
+                <h3 className="typo-h4" style={{ marginBottom: "4px" }}>{item.title}</h3>
                 <p className="typo-small">{item.desc}</p>
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── PROFIT SHARING BANNER ── */}
+      <section style={{ padding: "45px 0", backgroundColor: "var(--color-dark)" }}>
+        <div className="container-main" style={{ textAlign: "center" }}>
+          <h2 style={{ fontSize: "24px", fontWeight: 700, color: "#fff", marginBottom: "6px" }}>
+            We Don&apos;t Get Paid Until <span style={{ color: "var(--color-primary)" }}>You Get Paid</span>
+          </h2>
+          <p style={{ fontSize: "15px", color: "rgba(255,255,255,0.7)", maxWidth: "550px", margin: "0 auto 20px" }}>
+            Profit sharing model — zero management fees until your store is profitable. We have skin in the game because we believe in our results.
+          </p>
+          <a
+            href="https://wa.link/m2ac6m"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary btn-primary-pulse"
+            style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+          >
+            <FaWhatsapp style={{ fontSize: "18px" }} />
+            Start Risk-Free Today
+          </a>
         </div>
       </section>
 
       {/* Confidence Stats */}
       <ServiceConfidence />
 
-      {/* Benefits Section */}
-      <ServiceBenefits />
+      {/* ── ECOMGARDEN VS OTHERS ── */}
+      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
+        <div className="container-main">
+          <div className="section-header">
+            <span className="typo-label">THE HONEST COMPARISON</span>
+            <h2 className="typo-h2">Why Walmart Sellers Choose Us Over Going Solo</h2>
+            <p className="typo-subtext">Walmart rewards consistency and expertise. Most solo sellers burn out in 90 days. We&apos;ve been scaling stores for 3+ years.</p>
+          </div>
+
+          <div style={{ maxWidth: "850px", margin: "32px auto 0", overflowX: "auto" }}>
+            <table style={{ width: "100%", borderCollapse: "separate", borderSpacing: "0", borderRadius: "12px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.08)", border: "1px solid #e5e7eb" }}>
+              <thead>
+                <tr>
+                  <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, fontSize: "13px", backgroundColor: "#f6f7f9", borderBottom: "2px solid #e8e8e8" }}>What You Need</th>
+                  <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, fontSize: "13px", backgroundColor: "var(--color-primary)", color: "#fff", borderBottom: "2px solid var(--color-primary-dark)", minWidth: "130px" }}>EcomGarden</th>
+                  <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, fontSize: "13px", backgroundColor: "#f6f7f9", borderBottom: "2px solid #e8e8e8", minWidth: "120px" }}>Do It Yourself</th>
+                  <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, fontSize: "13px", backgroundColor: "#f6f7f9", borderBottom: "2px solid #e8e8e8", minWidth: "120px" }}>Other Agencies</th>
+                </tr>
+              </thead>
+              <tbody>
+                {comparisonData.map((row, i) => (
+                  <tr key={row.feature} style={{ backgroundColor: i % 2 === 0 ? "#fff" : "#fafbfc" }}>
+                    <td style={{ padding: "12px 20px", fontSize: "13px", fontWeight: 500, textAlign: "center", borderBottom: "1px solid #f0f0f0", verticalAlign: "middle" }}>{row.feature}</td>
+                    <td style={{ padding: "12px 20px", textAlign: "center", borderBottom: "1px solid #f0f0f0", backgroundColor: i % 2 === 0 ? "rgba(22,163,74,0.04)" : "rgba(22,163,74,0.07)", verticalAlign: "middle" }}>
+                      {row.us === true ? <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "18px", display: "inline-block", verticalAlign: "middle" }} /> : <span style={{ fontSize: "13px", color: "var(--color-primary)", fontWeight: 600 }}>{row.us}</span>}
+                    </td>
+                    <td style={{ padding: "12px 20px", textAlign: "center", borderBottom: "1px solid #f0f0f0", verticalAlign: "middle" }}>
+                      {row.diy === false ? <FaTimesCircle style={{ color: "#dc2626", fontSize: "18px", display: "inline-block", verticalAlign: "middle" }} /> : <span style={{ fontSize: "13px", color: "#888" }}>{row.diy}</span>}
+                    </td>
+                    <td style={{ padding: "12px 20px", textAlign: "center", borderBottom: "1px solid #f0f0f0", verticalAlign: "middle" }}>
+                      {row.others === false ? <FaTimesCircle style={{ color: "#dc2626", fontSize: "18px", display: "inline-block", verticalAlign: "middle" }} /> : <span style={{ fontSize: "13px", color: "#888" }}>{row.others}</span>}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
 
       {/* ── FAQ ── */}
       <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
           <div className="section-header">
-            <span className="typo-label">FAQ</span>
-            <h2 className="typo-h2">Frequently Asked Questions</h2>
+            <span className="typo-label">GOT QUESTIONS?</span>
+            <h2 className="typo-h2">Everything You Want to Know Before Starting</h2>
           </div>
 
           <div style={{ maxWidth: "750px", margin: "24px auto 0" }}>
@@ -468,18 +338,10 @@ export default function WalmartManagementPage() {
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    width: "100%",
-                    padding: "14px 18px",
-                    background: "none",
-                    border: "none",
-                    cursor: "pointer",
-                    fontSize: "15px",
-                    fontWeight: 600,
-                    color: "var(--color-dark)",
-                    textAlign: "left",
+                    display: "flex", alignItems: "center", justifyContent: "space-between",
+                    width: "100%", padding: "14px 18px", background: "none", border: "none",
+                    cursor: "pointer", fontSize: "15px", fontWeight: 600,
+                    color: "var(--color-dark)", textAlign: "left",
                   }}
                 >
                   {faq.question}
@@ -487,8 +349,7 @@ export default function WalmartManagementPage() {
                 </button>
                 <div style={{
                   maxHeight: openFaq === i ? "300px" : "0",
-                  overflow: "hidden",
-                  transition: "max-height 0.3s ease",
+                  overflow: "hidden", transition: "max-height 0.3s ease",
                 }}>
                   <p className="typo-body" style={{ padding: "0 18px 14px" }}>{faq.answer}</p>
                 </div>
@@ -498,7 +359,6 @@ export default function WalmartManagementPage() {
         </div>
       </section>
 
-      {/* Final CTA */}
       <CTASection />
     </>
   );

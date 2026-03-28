@@ -2,67 +2,67 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp, FaWarehouse, FaTruck, FaBarcode, FaChartBar, FaSyncAlt, FaShieldAlt, FaSearch, FaBoxOpen, FaMoneyBillWave } from "react-icons/fa";
-import ServiceBenefits from "@/components/services/ServiceBenefits";
+import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp } from "react-icons/fa";
 import ServiceConfidence from "@/components/services/ServiceConfidence";
 import CTASection from "@/components/home/CTASection";
 
 const comparisonData = [
-  { feature: "WFS inbound shipment creation", us: true, self: false, others: "Extra fee" },
-  { feature: "Product prep & labeling", us: true, self: "You handle", others: "Extra fee" },
-  { feature: "Inventory replenishment planning", us: true, self: "Manual tracking", others: "Basic alerts" },
-  { feature: "Listing optimization for WFS", us: true, self: false, others: "Generic" },
-  { feature: "Buy Box strategy with WFS badge", us: true, self: false, others: false },
-  { feature: "Storage fee optimization", us: true, self: false, others: false },
-  { feature: "Return rate monitoring", us: true, self: false, others: "Extra fee" },
-  { feature: "Carrier coordination", us: true, self: "You arrange", others: "Partial" },
-  { feature: "Account health management", us: true, self: "You monitor", others: "Basic" },
-  { feature: "WhatsApp direct support", us: true, self: "N/A", others: "Email only" },
+  { feature: "End-to-end WFS product prep", us: true, diy: "You learn", others: "Basic" },
+  { feature: "Inbound shipping plan optimization", us: true, diy: "Trial & error", others: "Limited" },
+  { feature: "Inventory forecasting & planning", us: true, diy: false, others: "Software only" },
+  { feature: "Storage fee minimization", us: true, diy: "You monitor", others: false },
+  { feature: "Pro Seller badge qualification", us: true, diy: "Uncertain", others: "Not guaranteed" },
+  { feature: "Listing optimization for WFS", us: true, diy: "Generic", others: "Basic" },
+  { feature: "Returns & customer service handling", us: true, diy: "You handle", others: "Extra fee" },
+  { feature: "Profit sharing — pay from profits only", us: true, diy: "N/A", others: false },
+  { feature: "24/7 WhatsApp support", us: true, diy: false, others: "Email only" },
+];
+
+const whatYouGet = [
+  { img: "/images/services/icons/order-fulfillment.png", title: "Product Prep", desc: "Every item prepped to Walmart's exact WFS standards — labeling, packaging, poly bagging, bundling. Zero rejections at the warehouse." },
+  { img: "/images/services/icons/inventory.png", title: "Inbound Shipping", desc: "Shipping plans created, carrier selected, pallets built to spec. We get your inventory into Walmart warehouses fast and at the lowest cost." },
+  { img: "/images/services/icons/product-research.png", title: "Inventory Planning", desc: "Demand forecasting, reorder points, seasonal stocking — we ensure you never run out of stock and never overstock." },
+  { img: "/images/services/icons/marketing.png", title: "Storage Optimization", desc: "Walmart charges storage fees just like Amazon. We rotate inventory, manage aged stock, and keep your storage costs minimal." },
+  { img: "/images/services/icons/safety.png", title: "Listing Optimization", desc: "WFS listings get priority placement. We optimize every listing to maximize the WFS advantage — faster delivery badge, higher rankings." },
+  { img: "/images/services/icons/customer-support.png", title: "Customer Support", desc: "Walmart handles WFS shipping, but we handle everything else — buyer messages, feedback, returns coordination, and escalations." },
+  { img: "/images/services/icons/account-health.png", title: "Account Health", desc: "WFS requires strict compliance. We monitor every metric, resolve issues proactively, and maintain your Pro Seller eligibility." },
+  { img: "/images/services/icons/scalability.png", title: "Scaling Strategy", desc: "Start with 20 SKUs in WFS, scale to 200+. We identify which products benefit most from WFS and expand your catalog strategically." },
 ];
 
 const faqs = [
   {
     question: "What is Walmart Fulfillment Services (WFS)?",
-    answer:
-      "Walmart Fulfillment Services (WFS) is Walmart's own fulfillment program where sellers ship inventory to Walmart warehouses, and Walmart handles storage, picking, packing, shipping, and customer returns on your behalf. Products fulfilled by WFS earn the W+ tag and faster delivery badges.",
+    answer: "WFS is Walmart's version of Amazon FBA. You send your inventory to Walmart's warehouses, and they handle storage, picking, packing, shipping, and customer returns. Your listings get faster delivery badges and higher search placement — similar to Prime on Amazon.",
   },
   {
-    question: "How does WFS differ from self-fulfillment on Walmart?",
-    answer:
-      "With WFS, Walmart stores and ships your products from their fulfillment centers, giving you access to 2-day shipping badges, higher search rankings, and better Buy Box placement. Self-fulfillment requires you to handle storage, packing, and shipping yourself.",
+    question: "How is WFS different from Amazon FBA?",
+    answer: "WFS has lower storage fees, no long-term storage surcharges (yet), fewer sellers competing, and Walmart's growing marketplace gives you first-mover advantage. The prep requirements are different though — Walmart has its own labeling and packaging standards that must be followed exactly.",
   },
   {
-    question: "What are the costs associated with WFS?",
-    answer:
-      "WFS charges fulfillment fees based on product weight and dimensions, plus monthly storage fees. These fees are competitive and often lower than comparable services. Our team optimizes your packaging dimensions to minimize fees and maximize profitability.",
+    question: "What are WFS prep requirements?",
+    answer: "Products must have scannable barcodes, proper packaging (no loose items), correct labeling format, and meet Walmart's dimension and weight limits. Hazmat, fragile, and oversized items have additional requirements. We handle all of this — your products arrive at Walmart warehouse-ready.",
   },
   {
-    question: "How do you prepare products for WFS warehouses?",
-    answer:
-      "We handle complete product prep including labeling with Walmart barcodes, poly-bagging fragile items, bundling multi-packs, and ensuring all packaging meets Walmart's strict receiving guidelines. Proper prep prevents rejections and delays.",
+    question: "How much does WFS cost?",
+    answer: "WFS fulfillment fees are competitive with FBA and often lower. Storage fees are also lower than Amazon. The exact cost depends on product size, weight, and storage duration. We optimize your product selection and inventory turnover to keep your total WFS costs minimal.",
   },
   {
-    question: "Can WFS help improve my product rankings on Walmart?",
-    answer:
-      "Yes, WFS products receive priority in Walmart search results and are more likely to win the Buy Box. The 2-day delivery badge and Walmart+ eligibility significantly increase conversion rates and organic visibility.",
+    question: "What is the Pro Seller badge and why does it matter?",
+    answer: "The Pro Seller badge is Walmart's trust signal — like a 'Top Rated' status. It requires 90-day track record, fast shipping, low cancellation rate, and quality listings. WFS automatically qualifies you for faster shipping. We manage the other metrics to earn and keep your badge.",
   },
   {
-    question: "What happens if a customer returns a WFS product?",
-    answer:
-      "Walmart handles all returns for WFS orders. Returned items in sellable condition are restocked automatically. Damaged items are disposed of or returned to you based on your preference. Our team monitors return rates and takes action to minimize them.",
+    question: "Can you help me transition from FBA to WFS?",
+    answer: "Yes, we help Amazon sellers expand to WFS regularly. We handle the entire transition — account setup, listing migration, inventory prep, shipping plans, and ongoing management. Most sellers see WFS as a new revenue channel, not a replacement for FBA.",
   },
   {
-    question: "How long does it take to get started with WFS?",
-    answer:
-      "Once your Walmart seller account is approved, we can have your first WFS shipment prepared and sent within 5-7 business days. Products typically become active within 2-3 days after Walmart receives and processes your inventory.",
+    question: "What happens with returns on WFS?",
+    answer: "Walmart handles the physical return process for WFS orders. We manage the customer communication, refund decisions, and restocking coordination. We also track return rates by product to identify and address any quality or listing accuracy issues.",
   },
   {
-    question: "Do you handle inventory replenishment for WFS?",
-    answer:
-      "Yes, we continuously monitor your WFS inventory levels and create replenishment shipments before stock runs out. Our forecasting tools analyze sales velocity to ensure optimal inventory levels without overstocking.",
+    question: "Can I cancel anytime?",
+    answer: "Yes, no contracts and no lock-in periods. Your inventory remains in Walmart's warehouses regardless of whether you use our management service. We earn your business through results, not contracts.",
   },
 ];
-
 
 export default function WalmartWFSPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -73,18 +73,31 @@ export default function WalmartWFSPage() {
       <section style={{ padding: "55px 0 70px", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            {/* Left: Content */}
             <div>
-              <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>WALMART WFS</span>
+              <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>WALMART FULFILLMENT SERVICES (WFS)</span>
               <h1 className="typo-h1" style={{ marginBottom: "14px" }}>
-                Walmart WFS Management &mdash; 2-Day Delivery Badge That Sells
+                WFS Done Right. Prep, Ship, Sell. <span style={{ color: "var(--color-primary)" }}>We Handle It All.</span>
               </h1>
-              <p className="typo-body" style={{ marginBottom: "12px", fontSize: "17px" }}>
-                Sellers using WFS see <strong>30-50% more sales</strong> with 2-day shipping badges, Walmart+ eligibility, and higher search rankings.
+              <p className="typo-body" style={{ marginBottom: "16px", fontSize: "17px" }}>
+                We prep your products to Walmart&apos;s exact standards, ship to their warehouses, optimize your listings for the WFS advantage, and manage your inventory so you never miss a sale.
               </p>
-              <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
-                First WFS shipment ready in 5-7 days. We handle prep, shipping &amp; replenishment.
-              </p>
+
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6px 16px", marginBottom: "20px" }}>
+                {[
+                  "Zero prep rejections",
+                  "Pro Seller badge ready",
+                  "Lower fees than FBA",
+                  "Faster delivery badges",
+                  "Pay from profits only",
+                  "Full WFS management",
+                ].map((item) => (
+                  <div key={item} style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                    <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "12px", flexShrink: 0 }} />
+                    <span style={{ fontSize: "13px", color: "#555" }}>{item}</span>
+                  </div>
+                ))}
+              </div>
+
               <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
                 <a
                   href="https://wa.link/m2ac6m"
@@ -94,224 +107,122 @@ export default function WalmartWFSPage() {
                   style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
                 >
                   <FaWhatsapp style={{ fontSize: "18px" }} />
-                  Get Free Consultation
+                  Start Earning — Free Consultation
                 </a>
                 <Link href="/pricing" className="btn-outline">
-                  View Pricing
+                  See Pricing
                 </Link>
               </div>
-
-              {/* Trust badges */}
-              <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap" }}>
-                {[
-                  { icon: <FaWarehouse />, text: "WFS Certified Experts" },
-                  { icon: <FaTruck />, text: "30-50% Sales Increase" },
-                  { icon: <FaSyncAlt />, text: "Auto-Replenishment" },
-                ].map((badge) => (
-                  <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
-                    <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
-                    {badge.text}
-                  </div>
-                ))}
-              </div>
             </div>
 
-            {/* Right: SVG Illustration */}
             <div className="hidden lg:flex items-center justify-center">
-              <div style={{
-                width: "100%",
-                maxWidth: "460px",
-                aspectRatio: "1/1",
-                borderRadius: "16px",
-                background: "linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%)",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                padding: "40px",
-                color: "#fff",
-                textAlign: "center",
-                position: "relative",
-                overflow: "hidden",
-              }}>
-                <div style={{ position: "absolute", top: "20px", right: "20px", backgroundColor: "rgba(22,163,74,0.2)", borderRadius: "12px", padding: "6px 14px" }}>
-                  <span style={{ fontSize: "12px", fontWeight: 700, color: "var(--color-primary)" }}>2-DAY DELIVERY</span>
-                </div>
-                <FaWarehouse style={{ fontSize: "48px", marginBottom: "16px", opacity: 0.9 }} />
-                <h3 style={{ fontSize: "22px", fontWeight: 700, color: "#fff", marginBottom: "8px" }}>
-                  30-50% More Sales
-                </h3>
-                <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
-                  WFS badge, Walmart+ eligible &amp; higher rankings
-                </p>
-                <div style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
-                  {[
-                    { val: "2-Day", label: "Delivery" },
-                    { val: "W+", label: "Eligible" },
-                    { val: "5-7d", label: "Setup" },
-                  ].map((s) => (
-                    <div key={s.label} style={{ textAlign: "center" }}>
-                      <div style={{ fontSize: "20px", fontWeight: 800, color: "var(--color-primary)" }}>{s.val}</div>
-                      <div style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)" }}>{s.label}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              <img
+                src="/svg/dropshipping_hero_v4.svg"
+                alt="Walmart WFS Services"
+                style={{ width: "100%", maxWidth: "600px", height: "auto" }}
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── INTRO SECTION ── */}
+      {/* ── PROBLEM → SOLUTION ── */}
       <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <p className="typo-body" style={{ marginBottom: "16px" }}>
-                Walmart Fulfillment Services (WFS) is the fastest-growing
-                fulfillment program for Walmart marketplace sellers. By storing
-                your products in Walmart&apos;s own warehouses, you gain access to
-                2-day shipping, Walmart+ eligibility, and significantly higher
-                search rankings.
-              </p>
-              <p className="typo-body" style={{ marginBottom: "16px" }}>
-                Our WFS management service handles everything from product
-                preparation and labeling to creating inbound shipments, tracking
-                inventory levels, and ensuring your listings are fully optimized
-                for maximum visibility and conversions.
-              </p>
-              <p className="typo-body">
-                Sellers using WFS typically see a 30-50% increase in sales
-                compared to self-fulfilled listings. With our expert management,
-                you can focus on growing your product catalog while we handle the
-                logistics and optimization that drive results.
-              </p>
-            </div>
-            <div className="flex justify-center">
-              <div style={{
-                width: "100%",
-                borderRadius: "12px",
-                background: "linear-gradient(135deg, var(--color-dark) 0%, #2d2d3f 100%)",
-                padding: "32px",
-                color: "#fff",
-              }}>
-                <h3 style={{ color: "#fff", fontSize: "20px", fontWeight: 700, marginBottom: "16px" }}>
-                  Key Highlights
-                </h3>
-                <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                  {[
-                    "2-day delivery badge for all products",
-                    "Walmart+ eligibility for premium shoppers",
-                    "30-50% sales increase with WFS",
-                    "Higher search rankings on Walmart",
-                    "Walmart handles returns & customer service",
-                    "First shipment ready in 5-7 days",
-                  ].map((item) => (
-                    <div key={item} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                      <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "14px", flexShrink: 0 }} />
-                      <span style={{ fontSize: "14px", color: "rgba(255,255,255,0.9)" }}>{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── HOW IT WORKS ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main">
-          <div className="section-header" style={{ textAlign: "center", marginBottom: "36px" }}>
-            <span className="typo-label">Process</span>
-            <h2 className="typo-h2">How WFS Management Works</h2>
+          <div className="section-header">
+            <span className="typo-label">WHY THIS WORKS</span>
+            <h2 className="typo-h2">Your Problems. Our Solutions.</h2>
+            <p className="typo-subtext">WFS is a massive advantage — if you do it right. Most sellers waste time and money on prep rejections and storage fees. We eliminate both.</p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "0", marginTop: "36px" }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ marginTop: "28px" }}>
             {[
-              { step: "01", icon: <FaSearch style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Product Sourcing", desc: "Source profitable products and prepare optimized listings for Walmart marketplace" },
-              { step: "02", icon: <FaBarcode style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Product Prep", desc: "Label, poly-bag, and package products to meet Walmart WFS receiving requirements" },
-              { step: "03", icon: <FaTruck style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Ship to WFS", desc: "Create inbound shipments and ship inventory to Walmart fulfillment centers" },
-              { step: "04", icon: <FaBoxOpen style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Walmart Fulfills", desc: "Walmart stores, picks, packs, and ships orders with 2-day delivery to customers" },
-              { step: "05", icon: <FaMoneyBillWave style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Get Paid", desc: "Receive payouts from Walmart while we manage inventory replenishment and optimization" },
+              {
+                problem: "WFS prep requirements are confusing?",
+                solution: "We've prepped thousands of WFS shipments. Labeling, packaging, poly bags, bundles — every item meets Walmart's exact spec. Zero rejections, guaranteed.",
+              },
+              {
+                problem: "Shipping to Walmart warehouses is complex?",
+                solution: "Shipping plans, carrier selection, pallet specs, appointment scheduling — we handle the entire inbound process. Your inventory arrives on time, every time.",
+              },
+              {
+                problem: "Storage fees eating into your margins?",
+                solution: "We forecast demand, rotate inventory, and liquidate aged stock before fees spike. Our clients average 40% lower storage costs than self-managed sellers.",
+              },
+              {
+                problem: "Inventory planning is a guessing game?",
+                solution: "Demand forecasting, seasonal trends, reorder point alerts — we ensure you never stock out during peaks and never overstock during lows.",
+              },
+              {
+                problem: "Can't seem to earn the Pro Seller badge?",
+                solution: "WFS handles shipping speed. We handle everything else — listing quality, customer response time, order defect rate. Pro Seller badge typically earned within 90 days.",
+              },
+              {
+                problem: "Returns are messy and untracked?",
+                solution: "Walmart handles WFS returns physically, but we track every return, manage customer communication, and identify return-rate patterns to fix root causes.",
+              },
             ].map((item) => (
               <div
-                key={item.step}
+                key={item.problem}
+                className="card-hover"
                 style={{
-                  padding: "28px 20px",
-                  textAlign: "center",
-                  position: "relative",
+                  borderRadius: "10px",
+                  padding: "22px",
+                  backgroundColor: "#f6f7f9",
+                  border: "1px solid rgba(0,0,0,0.04)",
                 }}
               >
-                <div style={{ fontSize: "36px", fontWeight: 800, color: "var(--color-primary)", opacity: 0.15, marginBottom: "8px", lineHeight: 1 }}>
-                  {item.step}
-                </div>
-                <div style={{ marginBottom: "10px" }}>{item.icon}</div>
-                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
-                <p className="typo-small">{item.desc}</p>
+                <p style={{ fontSize: "14px", fontWeight: 700, color: "var(--color-dark)", marginBottom: "10px", lineHeight: 1.4 }}>
+                  <span style={{ color: "#dc2626" }}>&#10007;</span>{" "}{item.problem}
+                </p>
+                <p style={{ fontSize: "13px", color: "var(--color-text-light)", margin: 0, lineHeight: 1.6, paddingLeft: "2px", borderLeft: "3px solid var(--color-primary)", marginLeft: "0" }}>
+                  <span style={{ display: "block", paddingLeft: "12px" }}>
+                    <span style={{ color: "var(--color-primary)", fontWeight: 700 }}>&rarr;</span>{" "}{item.solution}
+                  </span>
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── MANAGEMENT SECTION ── */}
+      {/* ── HOW IT WORKS ── */}
       <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <div style={{
-                width: "100%",
-                borderRadius: "12px",
-                background: "linear-gradient(135deg, var(--color-dark) 0%, #2d2d3f 100%)",
-                padding: "32px",
-                color: "#fff",
-              }}>
-                <h3 style={{ color: "#fff", fontSize: "20px", fontWeight: 700, marginBottom: "16px" }}>
-                  Our WFS Management Covers
-                </h3>
-                <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                  {[
-                    "Product prep, labeling & packaging",
-                    "Inbound shipment creation & tracking",
-                    "Inventory replenishment automation",
-                    "Listing optimization & enhanced content",
-                    "Storage fee optimization",
-                    "Carrier coordination & logistics",
-                    "Account health monitoring",
-                    "Performance reporting & analytics",
-                  ].map((item) => (
-                    <div key={item} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                      <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "14px", flexShrink: 0 }} />
-                      <span style={{ fontSize: "14px", color: "rgba(255,255,255,0.9)" }}>{item}</span>
+          <div className="section-header">
+            <span className="typo-label">THE PROCESS</span>
+            <h2 className="typo-h2">How We Manage Your WFS Operation</h2>
+            <p className="typo-subtext" style={{ maxWidth: "700px" }}>
+              From product prep to warehouse delivery — a streamlined system that turns WFS into your <strong>competitive advantage</strong>.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6" style={{ marginTop: "32px" }}>
+            {[
+              { img: "/images/process/discussion.png", title: "Prep & Label", desc: "Every product prepped to Walmart's exact WFS standards. Barcodes, packaging, labeling — done right the first time." },
+              { img: "/images/process/get-access.png", title: "Ship & Receive", desc: "Optimized shipping plans, carrier negotiation, pallet building. Your inventory lands in Walmart warehouses fast." },
+              { img: "/images/process/planning.png", title: "Optimize & Sell", desc: "Listings optimized for WFS placement, pricing tuned for the Buy Box, PPC campaigns driving traffic to your products." },
+              { img: "/images/process/growth.png", title: "Scale & Profit", desc: "Inventory replenished, new SKUs added, storage optimized. Your WFS operation grows while costs stay controlled." },
+            ].map((item, index) => (
+              <div key={item.title} style={{ textAlign: "center", padding: "8px" }}>
+                <div style={{ marginBottom: "12px", display: "flex", justifyContent: "center" }}>
+                  <div style={{ position: "relative" }}>
+                    <img src={item.img} alt={item.title} style={{ width: "72px", height: "72px", objectFit: "contain" }} />
+                    <div style={{
+                      position: "absolute", top: "-4px", right: "-4px",
+                      width: "22px", height: "22px", borderRadius: "50%",
+                      backgroundColor: "var(--color-primary)", color: "#fff",
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                      fontSize: "11px", fontWeight: 700,
+                    }}>
+                      {index + 1}
                     </div>
-                  ))}
+                  </div>
                 </div>
+                <h3 className="typo-h4" style={{ marginBottom: "4px" }}>{item.title}</h3>
+                <p className="typo-small">{item.desc}</p>
               </div>
-            </div>
-            <div>
-              <h2 className="typo-h2" style={{ marginBottom: "16px" }}>
-                Complete WFS Inventory Management With EcomGarden
-              </h2>
-              <p className="typo-body" style={{ marginBottom: "14px" }}>
-                Managing WFS inventory requires precision and constant attention.
-                Our team monitors stock levels in real-time, creates optimized
-                replenishment plans, and ensures your products never go out of
-                stock at Walmart&apos;s fulfillment centers.
-              </p>
-              <p className="typo-body" style={{ marginBottom: "14px" }}>
-                We handle every aspect of WFS operations including inbound
-                shipment creation, carrier coordination, product prep compliance,
-                listing optimization with enhanced content, and ongoing
-                performance monitoring to maintain your account health.
-              </p>
-              <p className="typo-body">
-                Our service is fully transparent with no hidden fees. You
-                maintain complete control of your Walmart seller account while we
-                handle the day-to-day WFS operations that drive growth and
-                profitability.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -320,127 +231,96 @@ export default function WalmartWFSPage() {
       <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
           <div className="section-header">
-            <span className="typo-label">WHAT YOU GET</span>
-            <h2 className="typo-h2">Full-Service WFS Management</h2>
-            <p className="typo-subtext">Every aspect of WFS handled by our specialist team.</p>
+            <span className="typo-label">FULL SERVICE</span>
+            <h2 className="typo-h2">Everything We Handle. Everything You Don&apos;t.</h2>
+            <p className="typo-subtext">From prep table to Walmart warehouse — your entire WFS operation, managed by experts who do this every day.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ marginTop: "32px" }}>
-            {[
-              { img: "/images/services/icons/order-fulfillment.png", title: "Product Prep & Labeling", desc: "Walmart barcode labeling, poly-bagging, bundling, and packaging that meets WFS receiving guidelines. Zero rejections, zero delays." },
-              { img: "/images/services/icons/inventory.png", title: "Inbound Shipment Management", desc: "We create shipment plans, coordinate carriers, and track every shipment until it is received and checked in at Walmart warehouses." },
-              { img: "/images/services/icons/scalability.png", title: "Inventory Replenishment", desc: "Real-time inventory monitoring with automated replenishment triggers. Sales velocity forecasting ensures you never run out of stock." },
-              { img: "/images/services/icons/marketing.png", title: "Listing Optimization", desc: "SEO-optimized titles, descriptions, and keywords plus enhanced content. WFS badge + optimized listing = maximum conversions." },
-              { img: "/images/services/icons/calculation.png", title: "Storage Fee Optimization", desc: "We optimize packaging dimensions to minimize WFS storage and fulfillment fees. Smart inventory planning avoids long-term storage charges." },
-              { img: "/images/services/icons/account-health.png", title: "Account Health Monitoring", desc: "Continuous monitoring of seller metrics, return rates, and compliance. Proactive issue resolution keeps your account in top standing." },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="card-hover"
-                style={{
-                  backgroundColor: "#fff",
-                  borderRadius: "10px",
-                  padding: "24px",
-                  border: "1px solid rgba(0,0,0,0.04)",
-                }}
-              >
-                <img src={item.img} alt={item.title} style={{ width: "48px", height: "48px", objectFit: "contain", marginBottom: "12px" }} />
-                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
-                <p className="typo-small">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── ECOMGARDEN VS OTHERS ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
-        <div className="container-main">
-          <div className="section-header">
-            <span className="typo-label">WHY CHOOSE US</span>
-            <h2 className="typo-h2">EcomGarden vs Self-Managing vs Other Agencies</h2>
-            <p className="typo-subtext">WFS requires precision. See who handles it best.</p>
-          </div>
-
-          <div style={{ maxWidth: "850px", margin: "32px auto 0", overflowX: "auto" }}>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr auto auto auto", gap: "0", backgroundColor: "#fff", borderRadius: "12px", overflow: "hidden", boxShadow: "0 2px 12px rgba(0,0,0,0.06)", minWidth: "600px" }}>
-              <div style={{ padding: "12px 16px", fontWeight: 700, backgroundColor: "#f6f7f9", fontSize: "13px" }}>Feature</div>
-              <div style={{ padding: "12px 20px", fontWeight: 700, backgroundColor: "var(--color-primary)", color: "#fff", textAlign: "center", fontSize: "13px", minWidth: "110px" }}>EcomGarden</div>
-              <div style={{ padding: "12px 20px", fontWeight: 700, backgroundColor: "#f6f7f9", textAlign: "center", fontSize: "13px", minWidth: "110px" }}>Self-Managing</div>
-              <div style={{ padding: "12px 20px", fontWeight: 700, backgroundColor: "#f6f7f9", textAlign: "center", fontSize: "13px", minWidth: "110px" }}>Other Agencies</div>
-
-              {comparisonData.map((row) => (
-                <React.Fragment key={row.feature}>
-                  <div style={{ padding: "10px 16px", fontSize: "13px", borderBottom: "1px solid #f5f5f5" }}>{row.feature}</div>
-                  <div style={{ padding: "10px 20px", textAlign: "center", borderBottom: "1px solid #f5f5f5", backgroundColor: "rgba(22,163,74,0.03)" }}>
-                    {row.us === true ? <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "16px" }} /> : <span style={{ fontSize: "13px", color: "var(--color-primary)", fontWeight: 600 }}>{row.us}</span>}
-                  </div>
-                  <div style={{ padding: "10px 20px", textAlign: "center", borderBottom: "1px solid #f5f5f5" }}>
-                    {row.self === false ? <FaTimesCircle style={{ color: "#dc2626", fontSize: "16px" }} /> : <span style={{ fontSize: "13px", color: "#999" }}>{row.self}</span>}
-                  </div>
-                  <div style={{ padding: "10px 20px", textAlign: "center", borderBottom: "1px solid #f5f5f5" }}>
-                    {row.others === false ? <FaTimesCircle style={{ color: "#dc2626", fontSize: "16px" }} /> : <span style={{ fontSize: "13px", color: "#999" }}>{row.others}</span>}
-                  </div>
-                </React.Fragment>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── WHY CHOOSE US ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main">
-          <div className="section-header">
-            <span className="typo-label">THE WFS ADVANTAGE</span>
-            <h2 className="typo-h2">Why WFS With EcomGarden Wins</h2>
-          </div>
-
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "0", marginTop: "36px" }}>
-            {[
-              { step: "01", title: "2-Day Delivery Badge", desc: "WFS products earn Walmart's 2-day delivery badge, dramatically increasing click-through and conversion rates." },
-              { step: "02", title: "Higher Search Rankings", desc: "Walmart prioritizes WFS listings in search results. More visibility means more sales without extra ad spend." },
-              { step: "03", title: "Walmart+ Eligibility", desc: "WFS products qualify for Walmart+ free shipping, giving you access to millions of premium shoppers." },
-              { step: "04", title: "Hassle-Free Returns", desc: "Walmart handles all returns and customer service for WFS orders. You focus on sourcing and scaling." },
-            ].map((item) => (
-              <div
-                key={item.step}
-                style={{
-                  padding: "28px 24px",
-                  textAlign: "center",
-                  position: "relative",
-                }}
-              >
-                <div style={{
-                  fontSize: "36px",
-                  fontWeight: 800,
-                  color: "var(--color-primary)",
-                  opacity: 0.15,
-                  marginBottom: "8px",
-                  lineHeight: 1,
-                }}>
-                  {item.step}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6" style={{ marginTop: "32px" }}>
+            {whatYouGet.map((item) => (
+              <div key={item.title} style={{ textAlign: "center", padding: "8px" }}>
+                <div style={{ marginBottom: "12px", display: "flex", justifyContent: "center" }}>
+                  <img src={item.img} alt={item.title} style={{ width: "64px", height: "64px", objectFit: "contain" }} />
                 </div>
-                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
+                <h3 className="typo-h4" style={{ marginBottom: "4px" }}>{item.title}</h3>
                 <p className="typo-small">{item.desc}</p>
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── PROFIT SHARING BANNER ── */}
+      <section style={{ padding: "45px 0", backgroundColor: "var(--color-dark)" }}>
+        <div className="container-main" style={{ textAlign: "center" }}>
+          <h2 style={{ fontSize: "24px", fontWeight: 700, color: "#fff", marginBottom: "6px" }}>
+            We Don&apos;t Get Paid Until <span style={{ color: "var(--color-primary)" }}>You Get Paid</span>
+          </h2>
+          <p style={{ fontSize: "15px", color: "rgba(255,255,255,0.7)", maxWidth: "550px", margin: "0 auto 20px" }}>
+            Profit sharing model — zero management fees until your WFS store is profitable. Our success is tied directly to yours.
+          </p>
+          <a
+            href="https://wa.link/m2ac6m"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary btn-primary-pulse"
+            style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+          >
+            <FaWhatsapp style={{ fontSize: "18px" }} />
+            Start Risk-Free Today
+          </a>
         </div>
       </section>
 
       {/* Confidence Stats */}
       <ServiceConfidence />
 
-      {/* Benefits Section */}
-      <ServiceBenefits />
+      {/* ── ECOMGARDEN VS OTHERS ── */}
+      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
+        <div className="container-main">
+          <div className="section-header">
+            <span className="typo-label">THE HONEST COMPARISON</span>
+            <h2 className="typo-h2">Why WFS Sellers Choose Us Over Going Solo</h2>
+            <p className="typo-subtext">WFS prep errors waste time and money. Storage mismanagement kills margins. We eliminate both problems from day one.</p>
+          </div>
+
+          <div style={{ maxWidth: "850px", margin: "32px auto 0", overflowX: "auto" }}>
+            <table style={{ width: "100%", borderCollapse: "separate", borderSpacing: "0", borderRadius: "12px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.08)", border: "1px solid #e5e7eb" }}>
+              <thead>
+                <tr>
+                  <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, fontSize: "13px", backgroundColor: "#f6f7f9", borderBottom: "2px solid #e8e8e8" }}>What You Need</th>
+                  <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, fontSize: "13px", backgroundColor: "var(--color-primary)", color: "#fff", borderBottom: "2px solid var(--color-primary-dark)", minWidth: "130px" }}>EcomGarden</th>
+                  <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, fontSize: "13px", backgroundColor: "#f6f7f9", borderBottom: "2px solid #e8e8e8", minWidth: "120px" }}>Do It Yourself</th>
+                  <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, fontSize: "13px", backgroundColor: "#f6f7f9", borderBottom: "2px solid #e8e8e8", minWidth: "120px" }}>Other Agencies</th>
+                </tr>
+              </thead>
+              <tbody>
+                {comparisonData.map((row, i) => (
+                  <tr key={row.feature} style={{ backgroundColor: i % 2 === 0 ? "#fff" : "#fafbfc" }}>
+                    <td style={{ padding: "12px 20px", fontSize: "13px", fontWeight: 500, textAlign: "center", borderBottom: "1px solid #f0f0f0", verticalAlign: "middle" }}>{row.feature}</td>
+                    <td style={{ padding: "12px 20px", textAlign: "center", borderBottom: "1px solid #f0f0f0", backgroundColor: i % 2 === 0 ? "rgba(22,163,74,0.04)" : "rgba(22,163,74,0.07)", verticalAlign: "middle" }}>
+                      {row.us === true ? <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "18px", display: "inline-block", verticalAlign: "middle" }} /> : <span style={{ fontSize: "13px", color: "var(--color-primary)", fontWeight: 600 }}>{row.us}</span>}
+                    </td>
+                    <td style={{ padding: "12px 20px", textAlign: "center", borderBottom: "1px solid #f0f0f0", verticalAlign: "middle" }}>
+                      {row.diy === false ? <FaTimesCircle style={{ color: "#dc2626", fontSize: "18px", display: "inline-block", verticalAlign: "middle" }} /> : <span style={{ fontSize: "13px", color: "#888" }}>{row.diy}</span>}
+                    </td>
+                    <td style={{ padding: "12px 20px", textAlign: "center", borderBottom: "1px solid #f0f0f0", verticalAlign: "middle" }}>
+                      {row.others === false ? <FaTimesCircle style={{ color: "#dc2626", fontSize: "18px", display: "inline-block", verticalAlign: "middle" }} /> : <span style={{ fontSize: "13px", color: "#888" }}>{row.others}</span>}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
 
       {/* ── FAQ ── */}
       <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
           <div className="section-header">
-            <span className="typo-label">FAQ</span>
-            <h2 className="typo-h2">Frequently Asked Questions</h2>
+            <span className="typo-label">GOT QUESTIONS?</span>
+            <h2 className="typo-h2">Everything You Want to Know About WFS</h2>
           </div>
 
           <div style={{ maxWidth: "750px", margin: "24px auto 0" }}>
@@ -458,18 +338,10 @@ export default function WalmartWFSPage() {
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    width: "100%",
-                    padding: "14px 18px",
-                    background: "none",
-                    border: "none",
-                    cursor: "pointer",
-                    fontSize: "15px",
-                    fontWeight: 600,
-                    color: "var(--color-dark)",
-                    textAlign: "left",
+                    display: "flex", alignItems: "center", justifyContent: "space-between",
+                    width: "100%", padding: "14px 18px", background: "none", border: "none",
+                    cursor: "pointer", fontSize: "15px", fontWeight: 600,
+                    color: "var(--color-dark)", textAlign: "left",
                   }}
                 >
                   {faq.question}
@@ -477,8 +349,7 @@ export default function WalmartWFSPage() {
                 </button>
                 <div style={{
                   maxHeight: openFaq === i ? "300px" : "0",
-                  overflow: "hidden",
-                  transition: "max-height 0.3s ease",
+                  overflow: "hidden", transition: "max-height 0.3s ease",
                 }}>
                   <p className="typo-body" style={{ padding: "0 18px 14px" }}>{faq.answer}</p>
                 </div>
@@ -488,7 +359,6 @@ export default function WalmartWFSPage() {
         </div>
       </section>
 
-      {/* Final CTA */}
       <CTASection />
     </>
   );

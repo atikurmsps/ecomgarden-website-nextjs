@@ -2,78 +2,65 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp, FaSearch, FaListAlt, FaShoppingCart, FaUndoAlt, FaShieldAlt, FaRocket, FaTruck, FaSmile } from "react-icons/fa";
+import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp } from "react-icons/fa";
 import ServiceConfidence from "@/components/services/ServiceConfidence";
 import CTASection from "@/components/home/CTASection";
 
 const comparisonData = [
-  { feature: "Profitable product sourcing done for you", us: true, diy: false, others: "Limited catalog" },
-  { feature: "Listing optimization & SEO", us: true, diy: "You do it", others: "Basic" },
-  { feature: "Order management & daily purchasing", us: true, diy: "You do it daily", others: "Partial" },
-  { feature: "Returns handling & restocking", us: true, diy: "You handle", others: "Extra fee" },
-  { feature: "Account safety & compliance", us: true, diy: "High risk", others: "Reactive" },
-  { feature: "Warehouse coordination & reboxing", us: true, diy: "You manage", others: "Extra fee" },
-  { feature: "Profit sharing model available", us: true, diy: "N/A", others: false },
-  { feature: "Profit within first week", us: true, diy: "Uncertain", others: "2-4 weeks" },
-  { feature: "24/7 dedicated support", us: true, diy: false, others: "Business hours" },
+  { feature: "Daily product sourcing by experts", us: true, diy: false, others: "Limited catalog" },
+  { feature: "Buy Box winning strategies", us: true, diy: "Trial & error", others: "Basic" },
+  { feature: "Same-day order purchasing", us: true, diy: "You do it daily", others: "Delayed" },
+  { feature: "Own warehouse reboxing included", us: true, diy: "You arrange", others: "$3-5 per order" },
+  { feature: "IP complaint prevention system", us: true, diy: "High risk", others: "Reactive" },
+  { feature: "Returns & refund management", us: true, diy: "You handle", others: "Extra fee" },
+  { feature: "Profit sharing — pay from profits only", us: true, diy: "N/A", others: false },
+  { feature: "Profit within first 7 days", us: true, diy: "Uncertain", others: "2-4 weeks" },
+  { feature: "24/7 WhatsApp support", us: true, diy: false, others: "Email only" },
 ];
 
 const whatYouGet = [
-  { img: "/images/services/icons/product-research.png", title: "Product Sourcing & Research", desc: "Our research team finds high-demand, high-margin products daily from Walmart, Target, Costco, and other retailers. Every product is validated for profitability before listing." },
-  { img: "/images/services/icons/order-fulfillment.png", title: "Listing Optimization", desc: "Professional listing creation with keyword-optimized titles, bullet points, and competitive pricing. We monitor and adjust listings to maintain Buy Box share." },
-  { img: "/images/services/icons/inventory.png", title: "Order Management", desc: "When customers order, our team purchases from the source, coordinates with the warehouse for reboxing, and ensures timely delivery — all within Amazon metrics." },
-  { img: "/images/services/icons/return-handling.png", title: "Returns Handling", desc: "Complete return management including warehouse receiving, restocking sellable items, and processing refunds. Every return is tracked and accounted for in your P&L." },
-  { img: "/images/services/icons/safety.png", title: "Account Safety", desc: "We follow strict compliance protocols — proper reboxing with Amazon-branded packaging, no third-party invoices, and proactive IP complaint monitoring to keep your account safe." },
-  { img: "/images/services/icons/scalability.png", title: "Scaling & Growth", desc: "Once your store is profitable, we scale by adding more SKUs, expanding to new categories, and optimizing pricing to increase daily order volume and profit." },
+  { img: "/images/services/icons/product-research.png", title: "Product Sourcing", desc: "50+ products researched daily from Walmart, Target, Costco, Home Depot. Only winners make it to your store." },
+  { img: "/images/services/icons/order-fulfillment.png", title: "Listing & Buy Box", desc: "SEO-optimized listings, competitive repricing, and Buy Box strategies that keep you ahead." },
+  { img: "/images/services/icons/inventory.png", title: "Order Fulfillment", desc: "Customer orders → we buy → warehouse reboxes → delivered. Same-day processing, every order." },
+  { img: "/images/services/icons/return-handling.png", title: "Returns & Refunds", desc: "Full return cycle handled. Restocking, refunds, and P&L tracking — nothing falls through." },
+  { img: "/images/services/icons/safety.png", title: "Account Protection", desc: "Amazon-branded packaging, zero retailer traces, IP monitoring. Your account stays safe." },
+  { img: "/images/services/icons/customer-support.png", title: "Buyer Communication", desc: "Every message answered within 4 hours. A-to-Z claims handled. Feedback managed." },
+  { img: "/images/services/icons/marketing.png", title: "PPC Campaigns", desc: "Sponsored Products ads, keyword targeting, bid optimization. We drive traffic, you collect profit." },
+  { img: "/images/services/icons/scalability.png", title: "Scale on Autopilot", desc: "Started with 10 SKUs? We'll scale to 100+. New categories, higher volume, bigger margins." },
 ];
 
 const faqs = [
   {
-    question: "Does 2 Step Dropshipping Legal?",
-    answer:
-      "Yes, 2 step dropshipping is legal. You will never face any legal issue with 2 step dropshipping model.",
+    question: "Is Amazon 2-step dropshipping legal?",
+    answer: "Yes, 100% legal. Amazon allows selling products you source from retail stores as long as you ship with proper packaging (no third-party branding). Our warehouse handles all reboxing with Amazon-compliant packaging.",
   },
   {
-    question: "How Safe 2 Step Dropshipping Business?",
-    answer:
-      "Its 100% safe business model. Amazon required sending products with Amazon's branded packaging or white branding. As well, no 3rd party retailer invoice into the parcel. Our warehouse will remove the walmart invoice and repackaging products with Amazon branded box.",
+    question: "How is this different from regular dropshipping?",
+    answer: "Regular dropshipping ships directly from the retailer to the customer — which violates Amazon's policies. With 2-step, we route everything through our warehouse where we remove retailer branding and repackage in Amazon-branded boxes. This keeps your account 100% safe.",
   },
   {
-    question:
-      "Does 2 Step Dropshipping profitable after shipping and warehouse cost?",
-    answer:
-      "Yes. Its fully profitable. When we do products research, we pick products thats only have good profit margin and it will cover our warehouse & shipping cost.",
+    question: "How much capital do I need to start?",
+    answer: "Minimum $3,000-$5,000 working capital. Amazon pays you 14 days after delivery, so you need funds to purchase products when customers order. The more capital you have, the more orders we can process daily. Most clients start seeing returns within the first week.",
   },
   {
-    question: "How much ROI (Return ON Investment) can I get?",
-    answer:
-      "Our average ROI is 35%. You will get 30-40% PROFIT MARGIN after all expense (shipping, warehouse and all other fees)",
+    question: "What ROI can I realistically expect?",
+    answer: "Our average ROI is 30-40% after ALL expenses — Amazon fees, product cost, shipping, warehouse reboxing, everything. On a $5,000 investment, that's $1,500-$2,000 profit per cycle. We only list products that meet our minimum margin threshold.",
   },
   {
-    question:
-      "Why I Need Investment Where Dropshipping Not Required any upfront?",
-    answer:
-      "Good question. Amazon will send you payout after 14 days of order delivery. So you need purchase products using your own funds. Then you will get payment from Amazon. So you need capital to purchase products when customer will order.",
+    question: "What if a product gets an IP complaint?",
+    answer: "Our research team screens every product against known IP-restricted brands before listing. If a complaint does occur, we immediately remove the listing, file an appeal, and replace it with a safe alternative. In 3+ years, our IP complaint rate is under 0.5%.",
   },
   {
-    question: "Can I use my address as warehouse?",
-    answer:
-      "Yes, If you can handle products receiving and shipping to customer, then why you will pay 3rd party warehouse!",
+    question: "Where do you source products from?",
+    answer: "Walmart, Target, Costco, Sam's Club, Home Depot, Lowe's, and other major US retailers. We use multiple sourcing channels to find the best prices and cross-reference against Amazon to ensure strong margins.",
   },
   {
-    question: "Where do you source products?",
-    answer:
-      "We use authentic products sources only and use sourcing where its cheapest. We use Walmart, Amazon Prime, Sams Club, Target, Home Depot, Costco Wholesale.",
+    question: "Do you really offer profit sharing?",
+    answer: "Yes. You pay nothing upfront for our management service. We take a percentage of the profit we generate for you. If there's no profit, you owe us nothing. This is how confident we are in our process — we have skin in the game.",
   },
   {
-    question: "Will you guys manage my whole business?",
-    answer:
-      "Yes, We provide A-Z management including products research, sourcing, order management, shipping, return handling, customer support, promotion.",
-  },
-  {
-    question: "What if I can not create any profit?",
-    answer:
-      "Our working method is 100% profit guarantee. You will get full refund of any charge with no question ask.",
+    question: "Can I cancel anytime?",
+    answer: "Yes, no contracts and no lock-in periods. Use our service as long as you want. Our retention rate is 90%+ because the results speak for themselves — but you're free to leave whenever you choose.",
   },
 ];
 
@@ -87,18 +74,31 @@ export default function AmazonArbitragePage() {
       <section style={{ padding: "55px 0 70px", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            {/* Left: Content */}
             <div>
-              <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>AMAZON ARBITRAGE</span>
+              <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>AMAZON 2-STEP DROPSHIPPING</span>
               <h1 className="typo-h1" style={{ marginBottom: "14px" }}>
-                Start Profiting From Amazon Within Your First Week
+                Your Amazon Store, Managed by Us. <span style={{ color: "var(--color-primary)" }}>Profit by You.</span>
               </h1>
-              <p className="typo-body" style={{ marginBottom: "12px", fontSize: "17px" }}>
-                The most popular zero-inventory model. <strong>No upfront stock needed</strong> — only buy when customers order. Profit from day one with 30-40% margins.
+              <p className="typo-body" style={{ marginBottom: "16px", fontSize: "17px" }}>
+                We source products, list them on your store, buy when customers order, rebox at our warehouse, and ship with Amazon packaging. You do nothing. You keep the profit.
               </p>
-              <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
-                100% risk-free. Pay only once you see profit with our profit sharing model.
-              </p>
+
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6px 16px", marginBottom: "20px" }}>
+                {[
+                  "$0 inventory needed",
+                  "Profit in 7 days",
+                  "30-40% profit margins",
+                  "Own US warehouse",
+                  "Pay from profits only",
+                  "A-Z store management",
+                ].map((item) => (
+                  <div key={item} style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                    <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "12px", flexShrink: 0 }} />
+                    <span style={{ fontSize: "13px", color: "#555" }}>{item}</span>
+                  </div>
+                ))}
+              </div>
+
               <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
                 <a
                   href="https://wa.link/m2ac6m"
@@ -108,149 +108,119 @@ export default function AmazonArbitragePage() {
                   style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
                 >
                   <FaWhatsapp style={{ fontSize: "18px" }} />
-                  Get Free Consultation
+                  Start Earning — Free Consultation
                 </a>
                 <Link href="/pricing" className="btn-outline">
-                  View Pricing
+                  See Pricing
                 </Link>
-              </div>
-
-              {/* Trust badges */}
-              <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap" }}>
-                {[
-                  { icon: <FaRocket />, text: "Profit Within 7 Days" },
-                  { icon: <FaShieldAlt />, text: "Zero Inventory Risk" },
-                  { icon: <FaCheckCircle />, text: "35% Avg. ROI" },
-                ].map((badge) => (
-                  <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
-                    <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
-                    {badge.text}
-                  </div>
-                ))}
               </div>
             </div>
 
-            {/* Right: SVG Illustration */}
             <div className="hidden lg:flex items-center justify-center">
-              <div style={{
-                width: "100%",
-                maxWidth: "460px",
-                aspectRatio: "1/1",
-                borderRadius: "16px",
-                background: "linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%)",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                padding: "40px",
-                color: "#fff",
-                textAlign: "center",
-                position: "relative",
-                overflow: "hidden",
-              }}>
-                <div style={{ position: "absolute", top: "20px", right: "20px", backgroundColor: "rgba(22,163,74,0.2)", borderRadius: "12px", padding: "6px 14px" }}>
-                  <span style={{ fontSize: "12px", fontWeight: 700, color: "var(--color-primary)" }}>ZERO RISK</span>
-                </div>
-                <FaRocket style={{ fontSize: "48px", marginBottom: "16px", opacity: 0.9 }} />
-                <h3 style={{ fontSize: "22px", fontWeight: 700, color: "#fff", marginBottom: "8px" }}>
-                  Profit in 7 Days
-                </h3>
-                <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
-                  No inventory needed. Buy only when customers order.
-                </p>
-                <div style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
-                  {[
-                    { val: "35%", label: "Avg ROI" },
-                    { val: "$0", label: "Upfront Stock" },
-                    { val: "24/7", label: "Support" },
-                  ].map((s) => (
-                    <div key={s.label} style={{ textAlign: "center" }}>
-                      <div style={{ fontSize: "20px", fontWeight: 800, color: "var(--color-primary)" }}>{s.val}</div>
-                      <div style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)" }}>{s.label}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              <img
+                src="/svg/dropshipping_hero_v4.svg"
+                alt="Amazon Dropshipping Services"
+                style={{ width: "100%", maxWidth: "600px", height: "auto" }}
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── INTRO SECTION ── */}
+      {/* ── PROBLEM → SOLUTION ── */}
       <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <p className="typo-body" style={{ marginBottom: "16px" }}>
-                Amazon Arbitrage, also known as 2-step dropshipping, is the most popular business model. No upfront inventory is required — you only purchase items when a customer places an order. On average, a store starts generating profit within a week with zero risk.
-              </p>
-              <p className="typo-body" style={{ marginBottom: "16px" }}>
-                Here&apos;s how the math works: We sell an item on Amazon for $40, purchase from Walmart for $20, and deliver to the warehouse for reboxing. The warehouse ships to the customer for $10. Final profit: $10 per unit. If that product sells 50 units daily, that&apos;s $500 profit per day — $15,000 per month.
-              </p>
-              <p className="typo-body">
-                If you are looking for quick growth on eCommerce with minimal risk, 2-step dropshipping is the perfect fit.
-              </p>
-            </div>
-            <div className="flex justify-center">
-              <div style={{
-                width: "100%",
-                borderRadius: "12px",
-                background: "linear-gradient(135deg, var(--color-dark) 0%, #2d2d3f 100%)",
-                padding: "32px",
-                color: "#fff",
-              }}>
-                <h3 style={{ color: "#fff", fontSize: "20px", fontWeight: 700, marginBottom: "16px" }}>
-                  Key Highlights
-                </h3>
-                <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                  {[
-                    "No upfront inventory required",
-                    "Profit within the first week",
-                    "30-40% average profit margins",
-                    "Zero inventory risk",
-                    "Profit sharing model available",
-                    "Complete A-Z account management",
-                  ].map((item) => (
-                    <div key={item} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                      <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "14px", flexShrink: 0 }} />
-                      <span style={{ fontSize: "14px", color: "rgba(255,255,255,0.9)" }}>{item}</span>
-                    </div>
-                  ))}
-                </div>
+          <div className="section-header">
+            <span className="typo-label">WHY THIS WORKS</span>
+            <h2 className="typo-h2">Your Problems. Our Solutions.</h2>
+            <p className="typo-subtext">Whether you&apos;re starting your first online business or looking for a hands-off income stream — here&apos;s why 250+ clients chose Amazon dropshipping with EcomGarden.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ marginTop: "28px" }}>
+            {[
+              {
+                problem: "Don't know where to start?",
+                solution: "We set up your store and start selling within 7 days. 250+ clients started from zero with us.",
+              },
+              {
+                problem: "Traditional business needs $50K+?",
+                solution: "Start with $3K-$5K. Zero inventory risk. 30-40% ROI per cycle. See profit in week one.",
+              },
+              {
+                problem: "Product research takes 6 hrs/day?",
+                solution: "Our team sources 50+ validated products daily. You never touch a spreadsheet.",
+              },
+              {
+                problem: "Wrong product = account suspended?",
+                solution: "Every product IP-screened. Own US warehouse reboxes with Amazon packaging. Under 0.5% complaint rate.",
+              },
+              {
+                problem: "It's a full-time job but you have one?",
+                solution: "We run your store 24/7 — orders, returns, buyers, PPC. You check profits once a week.",
+              },
+              {
+                problem: "Other agencies charge upfront?",
+                solution: "We offer profit sharing — you pay nothing until your store is profitable. Zero risk on your side.",
+              },
+            ].map((item) => (
+              <div
+                key={item.problem}
+                className="card-hover"
+                style={{
+                  borderRadius: "10px",
+                  padding: "22px",
+                  backgroundColor: "#f6f7f9",
+                  border: "1px solid rgba(0,0,0,0.04)",
+                }}
+              >
+                <p style={{ fontSize: "14px", fontWeight: 700, color: "var(--color-dark)", marginBottom: "10px", lineHeight: 1.4 }}>
+                  <span style={{ color: "#dc2626" }}>✗</span>{" "}{item.problem}
+                </p>
+                <p style={{ fontSize: "13px", color: "var(--color-text-light)", margin: 0, lineHeight: 1.6, paddingLeft: "2px", borderLeft: "3px solid var(--color-primary)", marginLeft: "0" }}>
+                  <span style={{ display: "block", paddingLeft: "12px" }}>
+                    <span style={{ color: "var(--color-primary)", fontWeight: 700 }}>→</span>{" "}{item.solution}
+                  </span>
+                </p>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ── HOW IT WORKS ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
+      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
-          <div className="section-header" style={{ textAlign: "center", marginBottom: "36px" }}>
-            <span className="typo-label">HOW IT WORKS</span>
-            <h2 className="typo-h2">How 2 Step Dropshipping Works</h2>
+          <div className="section-header">
+            <span className="typo-label">THE PROCESS</span>
+            <h2 className="typo-h2">How You Make Money With 2-Step Dropshipping</h2>
+            <p className="typo-subtext" style={{ maxWidth: "700px" }}>
+              Sell on Amazon for $40. Buy from Walmart for $20. Warehouse reboxes and ships for $10. <strong>Your profit: $10 per unit</strong>. Sell 50 units a day = <strong>$15,000/month</strong>.
+            </p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "0", marginTop: "36px" }}>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6" style={{ marginTop: "32px" }}>
             {[
-              { step: "01", icon: <FaListAlt style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Sell Items", desc: "List catalog on Amazon and start selling items" },
-              { step: "02", icon: <FaShoppingCart style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Buy Items", desc: "Purchase items from Walmart thats customer ordered and shipping to warehouse" },
-              { step: "03", icon: <FaTruck style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Shipping", desc: "Warehouse will remove Walmart branding and repackaging Amazon branding and ship to customer" },
-              { step: "04", icon: <FaSmile style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Happy Customer", desc: "Customer will receive Amazon branded parcel and Amazon invoice. Happy with their order" },
-            ].map((item) => (
-              <div
-                key={item.step}
-                style={{
-                  padding: "28px 20px",
-                  textAlign: "center",
-                  position: "relative",
-                }}
-              >
-                <div style={{ fontSize: "36px", fontWeight: 800, color: "var(--color-primary)", opacity: 0.15, marginBottom: "8px", lineHeight: 1 }}>
-                  {item.step}
+              { img: "/images/process/discussion.png", title: "We List, You Sell", desc: "We find winning products and list them on your Amazon store. Sales start within days." },
+              { img: "/images/process/get-access.png", title: "Customer Orders", desc: "A customer buys from your store. We immediately purchase the item from the retailer." },
+              { img: "/images/process/planning.png", title: "Rebox & Ship", desc: "Our US warehouse removes all retailer branding, repackages in Amazon packaging, and ships." },
+              { img: "/images/process/growth.png", title: "You Profit", desc: "Customer gets an Amazon-branded package. Amazon pays you. We scale and repeat daily." },
+            ].map((item, index) => (
+              <div key={item.title} style={{ textAlign: "center", padding: "8px" }}>
+                <div style={{ marginBottom: "12px", display: "flex", justifyContent: "center" }}>
+                  <div style={{ position: "relative" }}>
+                    <img src={item.img} alt={item.title} style={{ width: "72px", height: "72px", objectFit: "contain" }} />
+                    <div style={{
+                      position: "absolute", top: "-4px", right: "-4px",
+                      width: "22px", height: "22px", borderRadius: "50%",
+                      backgroundColor: "var(--color-primary)", color: "#fff",
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                      fontSize: "11px", fontWeight: 700,
+                    }}>
+                      {index + 1}
+                    </div>
+                  </div>
                 </div>
-                <div style={{ marginBottom: "10px" }}>{item.icon}</div>
-                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
+                <h3 className="typo-h4" style={{ marginBottom: "4px" }}>{item.title}</h3>
                 <p className="typo-small">{item.desc}</p>
               </div>
             ))}
@@ -259,28 +229,21 @@ export default function AmazonArbitragePage() {
       </section>
 
       {/* ── WHAT YOU GET ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
+      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
           <div className="section-header">
-            <span className="typo-label">WHAT YOU GET</span>
-            <h2 className="typo-h2">Complete Arbitrage Management — You Do Nothing</h2>
-            <p className="typo-subtext">Every daily task handled by our team so you can focus on what matters to you.</p>
+            <span className="typo-label">FULL SERVICE</span>
+            <h2 className="typo-h2">Everything We Handle. Everything You Don&apos;t.</h2>
+            <p className="typo-subtext">From finding products to shipping orders — your entire Amazon business, managed daily by our team.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ marginTop: "32px" }}>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6" style={{ marginTop: "32px" }}>
             {whatYouGet.map((item) => (
-              <div
-                key={item.title}
-                className="card-hover"
-                style={{
-                  backgroundColor: "#f6f7f9",
-                  borderRadius: "10px",
-                  padding: "24px",
-                  border: "1px solid rgba(0,0,0,0.04)",
-                }}
-              >
-                <img src={item.img} alt={item.title} style={{ width: "48px", height: "48px", objectFit: "contain", marginBottom: "12px" }} />
-                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
+              <div key={item.title} style={{ textAlign: "center", padding: "8px" }}>
+                <div style={{ marginBottom: "12px", display: "flex", justifyContent: "center" }}>
+                  <img src={item.img} alt={item.title} style={{ width: "64px", height: "64px", objectFit: "contain" }} />
+                </div>
+                <h3 className="typo-h4" style={{ marginBottom: "4px" }}>{item.title}</h3>
                 <p className="typo-small">{item.desc}</p>
               </div>
             ))}
@@ -288,83 +251,25 @@ export default function AmazonArbitragePage() {
         </div>
       </section>
 
-      {/* ── PROFIT SHARING ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
-        <div
-          className="container-main"
-          style={{ textAlign: "center", maxWidth: "720px", margin: "0 auto" }}
-        >
-          <h2 className="typo-h2" style={{ marginBottom: "6px" }}>
-            Start Your Unlimited Vacation. Because
+      {/* ── PROFIT SHARING BANNER ── */}
+      <section style={{ padding: "45px 0", backgroundColor: "var(--color-dark)" }}>
+        <div className="container-main" style={{ textAlign: "center" }}>
+          <h2 style={{ fontSize: "24px", fontWeight: 700, color: "#fff", marginBottom: "6px" }}>
+            We Don&apos;t Get Paid Until <span style={{ color: "var(--color-primary)" }}>You Get Paid</span>
           </h2>
-          <p className="typo-h3" style={{ color: "var(--color-primary)", marginBottom: "20px" }}>
-            We provide service with profit sharing model
+          <p style={{ fontSize: "15px", color: "rgba(255,255,255,0.7)", maxWidth: "550px", margin: "0 auto 20px" }}>
+            Profit sharing model — zero management fees until your store is profitable. No other agency puts their money where their mouth is like this.
           </p>
-          <h3 className="typo-h2" style={{ marginBottom: "16px" }}>
-            <span style={{ color: "var(--color-primary)" }}>100% Risk Free.</span>{" "}
-            Pay only once you see profit.
-          </h3>
-          <p className="typo-body" style={{ marginBottom: "28px" }}>
-            No one will offer profit sharing model and no payment before you get
-            profit. Because everyone can not handle risk and recover the dark
-            side of eCommerce. Our experienced and highly skilled team will
-            start profit within a week.
-          </p>
-          <Link href="/contact" className="btn-primary">
-            Contact Us
-          </Link>
-        </div>
-      </section>
-
-      {/* ── MANAGEMENT SECTION ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
-        <div className="container-main">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <div style={{
-                width: "100%",
-                borderRadius: "12px",
-                background: "linear-gradient(135deg, var(--color-dark) 0%, #2d2d3f 100%)",
-                padding: "32px",
-                color: "#fff",
-              }}>
-                <h3 style={{ color: "#fff", fontSize: "20px", fontWeight: 700, marginBottom: "16px" }}>
-                  Our Management Covers
-                </h3>
-                <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                  {[
-                    "Daily product sourcing & research",
-                    "Order processing & purchasing",
-                    "Warehouse coordination & reboxing",
-                    "Listing optimization & SEO",
-                    "Customer support & returns",
-                    "Account health monitoring",
-                    "Shipping tracking & management",
-                    "PPC advertising & marketing",
-                  ].map((item) => (
-                    <div key={item} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                      <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "14px", flexShrink: 0 }} />
-                      <span style={{ fontSize: "14px", color: "rgba(255,255,255,0.9)" }}>{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div>
-              <h2 className="typo-h2" style={{ marginBottom: "16px" }}>
-                Manage Amazon Seller Account With EcomGarden
-              </h2>
-              <p className="typo-body" style={{ marginBottom: "14px" }}>
-                At EcomGarden, you get complete account management. Our automation tools ensure 100% accuracy and zero inventory loss. Your dedicated Virtual Assistant provides 24/7 support, quick order responses, and customer inquiry handling.
-              </p>
-              <p className="typo-body" style={{ marginBottom: "14px" }}>
-                Our experienced team handles winning product research, product listing, SEO optimization, order management, purchase management, customer support, shipping, return handling, inventory management, PPC, and marketing.
-              </p>
-              <p className="typo-body">
-                Our service is 100% transparent — no hidden charges, no hidden terms and conditions. Use our service as long as you want and cancel anytime.
-              </p>
-            </div>
-          </div>
+          <a
+            href="https://wa.link/m2ac6m"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary btn-primary-pulse"
+            style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+          >
+            <FaWhatsapp style={{ fontSize: "18px" }} />
+            Start Risk-Free Today
+          </a>
         </div>
       </section>
 
@@ -375,76 +280,48 @@ export default function AmazonArbitragePage() {
       <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
           <div className="section-header">
-            <span className="typo-label">WHY ECOMGARDEN</span>
-            <h2 className="typo-h2">EcomGarden vs DIY vs Other Agencies</h2>
-            <p className="typo-subtext">Arbitrage requires daily attention. See why sellers trust us over doing it alone.</p>
+            <span className="typo-label">THE HONEST COMPARISON</span>
+            <h2 className="typo-h2">Why 250+ Sellers Chose Us Over Doing It Themselves</h2>
+            <p className="typo-subtext">Arbitrage is a daily grind. Most sellers burn out in 3 months. We&apos;ve been doing it for 3+ years.</p>
           </div>
 
-          <div style={{ maxWidth: "800px", margin: "32px auto 0", overflowX: "auto" }}>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr auto auto auto", gap: "0", backgroundColor: "#fff", borderRadius: "12px", overflow: "hidden", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
-              <div style={{ padding: "12px 16px", fontWeight: 700, backgroundColor: "#f6f7f9", fontSize: "13px" }}>Feature</div>
-              <div style={{ padding: "12px 20px", fontWeight: 700, backgroundColor: "var(--color-primary)", color: "#fff", textAlign: "center", fontSize: "13px", minWidth: "110px" }}>EcomGarden</div>
-              <div style={{ padding: "12px 20px", fontWeight: 700, backgroundColor: "#f6f7f9", textAlign: "center", fontSize: "13px", minWidth: "100px" }}>DIY</div>
-              <div style={{ padding: "12px 20px", fontWeight: 700, backgroundColor: "#f6f7f9", textAlign: "center", fontSize: "13px", minWidth: "100px" }}>Others</div>
-
-              {comparisonData.map((row) => (
-                <React.Fragment key={row.feature}>
-                  <div style={{ padding: "10px 16px", fontSize: "13px", borderBottom: "1px solid #f5f5f5" }}>{row.feature}</div>
-                  <div style={{ padding: "10px 20px", textAlign: "center", borderBottom: "1px solid #f5f5f5", backgroundColor: "rgba(22,163,74,0.03)" }}>
-                    {row.us === true ? <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "16px" }} /> : <span style={{ fontSize: "13px", color: "var(--color-primary)", fontWeight: 600 }}>{row.us}</span>}
-                  </div>
-                  <div style={{ padding: "10px 20px", textAlign: "center", borderBottom: "1px solid #f5f5f5" }}>
-                    {row.diy === false ? <FaTimesCircle style={{ color: "#dc2626", fontSize: "16px" }} /> : <span style={{ fontSize: "13px", color: "#999" }}>{row.diy}</span>}
-                  </div>
-                  <div style={{ padding: "10px 20px", textAlign: "center", borderBottom: "1px solid #f5f5f5" }}>
-                    {row.others === false ? <FaTimesCircle style={{ color: "#dc2626", fontSize: "16px" }} /> : <span style={{ fontSize: "13px", color: "#999" }}>{row.others}</span>}
-                  </div>
-                </React.Fragment>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── WHY CHOOSE US ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main">
-          <div className="section-header">
-            <span className="typo-label">THE ECOMGARDEN DIFFERENCE</span>
-            <h2 className="typo-h2">Why Arbitrage Sellers Choose EcomGarden</h2>
-          </div>
-
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "20px", marginTop: "32px" }}>
-            {[
-              { title: "Profit Sharing = Zero Risk For You", desc: "We are one of the only agencies offering a profit sharing model. You pay nothing until you see profit. If we don't make you money, you owe us nothing. That's how confident we are." },
-              { title: "Daily Product Sourcing Machine", desc: "Our research team sources profitable products every single day from Walmart, Target, Costco, Sam's Club, and Home Depot. We validate margins before listing, not after." },
-              { title: "Bulletproof Account Safety", desc: "Amazon's policies around arbitrage are strict. We use proper reboxing with Amazon-branded packaging, remove all third-party invoices, and proactively monitor for IP complaints before they escalate." },
-              { title: "We Handle The Daily Grind", desc: "Arbitrage requires daily purchasing, tracking, and coordination. Most sellers burn out doing it themselves. Our team handles every order, every day — weekends and holidays included." },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="card-hover"
-                style={{
-                  backgroundColor: "#fff",
-                  borderRadius: "10px",
-                  padding: "24px",
-                  border: "1px solid rgba(0,0,0,0.04)",
-                }}
-              >
-                <h3 className="typo-h4" style={{ marginBottom: "8px", color: "var(--color-primary)" }}>{item.title}</h3>
-                <p className="typo-small">{item.desc}</p>
-              </div>
-            ))}
+          <div style={{ maxWidth: "850px", margin: "32px auto 0", overflowX: "auto" }}>
+            <table style={{ width: "100%", borderCollapse: "separate", borderSpacing: "0", borderRadius: "12px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.08)", border: "1px solid #e5e7eb" }}>
+              <thead>
+                <tr>
+                  <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, fontSize: "13px", backgroundColor: "#f6f7f9", borderBottom: "2px solid #e8e8e8" }}>What You Need</th>
+                  <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, fontSize: "13px", backgroundColor: "var(--color-primary)", color: "#fff", borderBottom: "2px solid var(--color-primary-dark)", minWidth: "130px" }}>EcomGarden</th>
+                  <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, fontSize: "13px", backgroundColor: "#f6f7f9", borderBottom: "2px solid #e8e8e8", minWidth: "120px" }}>Do It Yourself</th>
+                  <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, fontSize: "13px", backgroundColor: "#f6f7f9", borderBottom: "2px solid #e8e8e8", minWidth: "120px" }}>Other Agencies</th>
+                </tr>
+              </thead>
+              <tbody>
+                {comparisonData.map((row, i) => (
+                  <tr key={row.feature} style={{ backgroundColor: i % 2 === 0 ? "#fff" : "#fafbfc" }}>
+                    <td style={{ padding: "12px 20px", fontSize: "13px", fontWeight: 500, textAlign: "center", borderBottom: "1px solid #f0f0f0", verticalAlign: "middle" }}>{row.feature}</td>
+                    <td style={{ padding: "12px 20px", textAlign: "center", borderBottom: "1px solid #f0f0f0", backgroundColor: i % 2 === 0 ? "rgba(22,163,74,0.04)" : "rgba(22,163,74,0.07)", verticalAlign: "middle" }}>
+                      {row.us === true ? <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "18px", display: "inline-block", verticalAlign: "middle" }} /> : <span style={{ fontSize: "13px", color: "var(--color-primary)", fontWeight: 600 }}>{row.us}</span>}
+                    </td>
+                    <td style={{ padding: "12px 20px", textAlign: "center", borderBottom: "1px solid #f0f0f0", verticalAlign: "middle" }}>
+                      {row.diy === false ? <FaTimesCircle style={{ color: "#dc2626", fontSize: "18px", display: "inline-block", verticalAlign: "middle" }} /> : <span style={{ fontSize: "13px", color: "#888" }}>{row.diy}</span>}
+                    </td>
+                    <td style={{ padding: "12px 20px", textAlign: "center", borderBottom: "1px solid #f0f0f0", verticalAlign: "middle" }}>
+                      {row.others === false ? <FaTimesCircle style={{ color: "#dc2626", fontSize: "18px", display: "inline-block", verticalAlign: "middle" }} /> : <span style={{ fontSize: "13px", color: "#888" }}>{row.others}</span>}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
 
       {/* ── FAQ ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
+      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
           <div className="section-header">
-            <span className="typo-label">FAQ</span>
-            <h2 className="typo-h2">Frequently Asked Questions</h2>
+            <span className="typo-label">GOT QUESTIONS?</span>
+            <h2 className="typo-h2">Everything You Want to Know Before Starting</h2>
           </div>
 
           <div style={{ maxWidth: "750px", margin: "24px auto 0" }}>
@@ -452,7 +329,7 @@ export default function AmazonArbitragePage() {
               <div
                 key={i}
                 style={{
-                  backgroundColor: "#f6f7f9",
+                  backgroundColor: "#fff",
                   borderRadius: "8px",
                   marginBottom: "8px",
                   overflow: "hidden",
@@ -462,18 +339,10 @@ export default function AmazonArbitragePage() {
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    width: "100%",
-                    padding: "14px 18px",
-                    background: "none",
-                    border: "none",
-                    cursor: "pointer",
-                    fontSize: "15px",
-                    fontWeight: 600,
-                    color: "var(--color-dark)",
-                    textAlign: "left",
+                    display: "flex", alignItems: "center", justifyContent: "space-between",
+                    width: "100%", padding: "14px 18px", background: "none", border: "none",
+                    cursor: "pointer", fontSize: "15px", fontWeight: 600,
+                    color: "var(--color-dark)", textAlign: "left",
                   }}
                 >
                   {faq.question}
@@ -481,8 +350,7 @@ export default function AmazonArbitragePage() {
                 </button>
                 <div style={{
                   maxHeight: openFaq === i ? "300px" : "0",
-                  overflow: "hidden",
-                  transition: "max-height 0.3s ease",
+                  overflow: "hidden", transition: "max-height 0.3s ease",
                 }}>
                   <p className="typo-body" style={{ padding: "0 18px 14px" }}>{faq.answer}</p>
                 </div>
@@ -492,7 +360,6 @@ export default function AmazonArbitragePage() {
         </div>
       </section>
 
-      {/* ── CTA ── */}
       <CTASection />
     </>
   );
