@@ -186,6 +186,40 @@ export default function WalmartDropshippingPage() {
         </div>
       </section>
 
+      {/* ── WHAT IS 2-STEP DROPSHIPPING ── */}
+      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
+        <div className="container-main">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div style={{ borderRadius: "12px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.1)" }}>
+              <div style={{ position: "relative", paddingBottom: "56.25%", height: 0 }}>
+                <iframe
+                  src="https://player.vimeo.com/video/912074268?badge=0&autopause=0&title=0&byline=0&portrait=0"
+                  style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }}
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowFullScreen
+                  title="How 2-Step Dropshipping Works"
+                />
+              </div>
+            </div>
+            <div>
+              <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>WHAT IS 2-STEP DROPSHIPPING?</span>
+              <h2 className="typo-h2" style={{ marginBottom: "14px" }}>
+                Sell on Walmart Without Holding Any Inventory
+              </h2>
+              <p className="typo-body" style={{ marginBottom: "14px" }}>
+                Customer orders from your Walmart store → we buy from retailers like <strong>Amazon, Target, or Costco</strong> → ship to our warehouse → we <strong>remove retailer packaging</strong>, rebox in compliant packaging → deliver to your customer.
+              </p>
+              <p className="typo-body" style={{ marginBottom: "14px" }}>
+                The customer receives a clean, professionally packaged order with zero trace of the original retailer. You keep <strong>30-40% profit margin</strong> on every sale. No inventory, no risk.
+              </p>
+              <p className="typo-body">
+                This 2-step process (retailer → warehouse → customer) keeps your account <strong>100% Walmart-compliant</strong> while you run a profitable business from anywhere.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── HOW IT WORKS ── */}
       <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">

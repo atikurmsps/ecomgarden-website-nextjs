@@ -191,6 +191,29 @@ export default function AmazonWholesalePage() {
         </div>
       </section>
 
+      {/* ── CLIENT RESULTS ── */}
+      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
+        <div className="container-main">
+          <div className="section-header">
+            <span className="typo-label">REAL RESULTS</span>
+            <h2 className="typo-h2">See What Our Clients Are Achieving</h2>
+            <p className="typo-subtext">Real stores. Real revenue. Real clients sharing their results publicly.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6" style={{ marginTop: "28px", maxWidth: "900px", marginLeft: "auto", marginRight: "auto" }}>
+            <div style={{ borderRadius: "12px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.08)", border: "1px solid rgba(0,0,0,0.06)" }}>
+              <div style={{ position: "relative", paddingBottom: "56.25%", height: 0 }}>
+                <iframe src="https://www.youtube.com/embed/2TxAECYAyM0" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen title="Client Result" />
+              </div>
+            </div>
+            <div style={{ borderRadius: "12px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.08)", border: "1px solid rgba(0,0,0,0.06)" }}>
+              <div style={{ position: "relative", paddingBottom: "56.25%", height: 0 }}>
+                <iframe src="https://www.youtube.com/embed/9DqDFAGLPrc" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen title="Client Result" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── HOW IT WORKS ── */}
       <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">

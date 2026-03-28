@@ -7,7 +7,7 @@ import FeaturesGrid from "@/components/home/FeaturesGrid";
 import AffiliateSection from "@/components/home/AffiliateSection";
 import WarehouseSection from "@/components/home/WarehouseSection";
 import WhyUsSection from "@/components/home/WhyUsSection";
-import BenefitsSection from "@/components/home/BenefitsSection";
+import BenefitsSections from "@/components/services/ServiceBenefits";
 import PartnersSection from "@/components/home/PartnersSection";
 import CTASection from "@/components/home/CTASection";
 
@@ -23,7 +23,7 @@ export default function Home() {
       <AffiliateSection />
       <WarehouseSection />
       <WhyUsSection />
-      <BenefitsSection />
+      <BenefitsSections />
       <PartnersSection />
       <CTASection />
     </>

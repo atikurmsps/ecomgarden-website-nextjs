@@ -187,8 +187,84 @@ export default function AmazonArbitragePage() {
         </div>
       </section>
 
-      {/* ── HOW IT WORKS ── */}
+      {/* ── WHAT IS 2-STEP DROPSHIPPING ── */}
+      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
+        <div className="container-main">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            {/* Left: Video */}
+            <div style={{ borderRadius: "12px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.1)" }}>
+              <div style={{ position: "relative", paddingBottom: "56.25%", height: 0 }}>
+                <iframe
+                  src="https://player.vimeo.com/video/912074268?badge=0&autopause=0&title=0&byline=0&portrait=0"
+                  style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }}
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowFullScreen
+                  title="How Amazon 2-Step Dropshipping Works"
+                />
+              </div>
+            </div>
+
+            {/* Right: Content */}
+            <div>
+              <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>WHAT IS 2-STEP DROPSHIPPING?</span>
+              <h2 className="typo-h2" style={{ marginBottom: "14px" }}>
+                Sell on Amazon Without Holding Any Inventory
+              </h2>
+              <p className="typo-body" style={{ marginBottom: "14px" }}>
+                Customer orders from your Amazon store → we buy from <strong>Walmart, Sam&apos;s Club, or Costco</strong> → ship to our warehouse → we <strong>remove retailer packaging</strong>, rebox in Amazon-compliant packaging → deliver to your customer.
+              </p>
+              <p className="typo-body" style={{ marginBottom: "14px" }}>
+                The customer receives a clean, professionally packaged order with zero trace of the original retailer. You keep <strong>30-40% profit margin</strong> on every sale. No inventory, no risk.
+              </p>
+              <p className="typo-body">
+                This 2-step process (retailer → warehouse → customer) keeps your account <strong>100% Amazon-compliant</strong> while you run a profitable business from anywhere in the world.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CLIENT RESULTS / SOCIAL PROOF ── */}
       <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
+        <div className="container-main">
+          <div className="section-header">
+            <span className="typo-label">REAL RESULTS</span>
+            <h2 className="typo-h2">See What Our Clients Are Achieving</h2>
+            <p className="typo-subtext">Real stores. Real revenue. Real clients sharing their results publicly.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6" style={{ marginTop: "28px", maxWidth: "900px", marginLeft: "auto", marginRight: "auto" }}>
+            {/* Video 1 */}
+            <div style={{ borderRadius: "12px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.08)", border: "1px solid rgba(0,0,0,0.06)" }}>
+              <div style={{ position: "relative", paddingBottom: "56.25%", height: 0 }}>
+                <iframe
+                  src="https://www.youtube.com/embed/2TxAECYAyM0"
+                  style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  title="Client Result - Amazon Dropshipping"
+                />
+              </div>
+            </div>
+
+            {/* Video 2 */}
+            <div style={{ borderRadius: "12px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.08)", border: "1px solid rgba(0,0,0,0.06)" }}>
+              <div style={{ position: "relative", paddingBottom: "56.25%", height: 0 }}>
+                <iframe
+                  src="https://www.youtube.com/embed/9DqDFAGLPrc"
+                  style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  title="Client Result - Amazon Store Revenue"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── HOW IT WORKS ── */}
+      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
           <div className="section-header">
             <span className="typo-label">THE PROCESS</span>
@@ -229,7 +305,7 @@ export default function AmazonArbitragePage() {
       </section>
 
       {/* ── WHAT YOU GET ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
+      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
           <div className="section-header">
             <span className="typo-label">FULL SERVICE</span>
@@ -277,7 +353,7 @@ export default function AmazonArbitragePage() {
       <ServiceConfidence />
 
       {/* ── ECOMGARDEN VS OTHERS ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
+      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
           <div className="section-header">
             <span className="typo-label">THE HONEST COMPARISON</span>
@@ -317,7 +393,7 @@ export default function AmazonArbitragePage() {
       </section>
 
       {/* ── FAQ ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
+      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
           <div className="section-header">
             <span className="typo-label">GOT QUESTIONS?</span>
