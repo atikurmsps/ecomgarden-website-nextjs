@@ -1,17 +1,10 @@
 import Link from "next/link";
-import { FaWhatsapp } from "react-icons/fa";
+import { FaWhatsapp, FaCheckCircle } from "react-icons/fa";
 import ServiceFeaturesGrid from "@/components/services/ServiceFeaturesGrid";
 import ServiceBenefits from "@/components/services/ServiceBenefits";
 import ServiceFAQ from "@/components/services/ServiceFAQ";
 import ServiceConfidence from "@/components/services/ServiceConfidence";
-import ServiceProsCons from "@/components/services/ServiceProsCons";
 import CTASection from "@/components/home/CTASection";
-import {
-  FaBoxOpen,
-  FaTruck,
-  FaPrint,
-  FaDollarSign,
-} from "react-icons/fa";
 
 const faqs = [
   {
@@ -72,95 +65,41 @@ export default function FlatRateShippingPage() {
     <>
       {/* ── HERO SECTION ── */}
       <section style={{ padding: "55px 0 70px", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            {/* Left: Content */}
-            <div>
-              <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>FLAT RATE SHIPPING</span>
-              <h1 className="typo-h1" style={{ marginBottom: "14px" }}>
-                USPS Priority Mail Labels &mdash; Just $4 Per Label
-              </h1>
-              <p className="typo-body" style={{ marginBottom: "12px", fontSize: "17px" }}>
-                Ship any weight to any US address for a flat <strong>$4 with USPS Priority
-                Mail</strong>. Also available: discounted UPS labels. No contracts, no
-                minimums &mdash; save 50-70% on every shipment.
-              </p>
-              <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
-                No contracts. No minimums. No monthly fees.
-              </p>
-              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
-                <a
-                  href="https://wa.link/m2ac6m"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary btn-primary-pulse"
-                  style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
-                >
-                  <FaWhatsapp style={{ fontSize: "18px" }} />
-                  Quick WhatsApp
-                </a>
-                <Link href="/services" className="btn-outline">
-                  Browse More Services
-                </Link>
+        <div className="container-main" style={{ textAlign: "center" }}>
+          <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>FLAT RATE SHIPPING</span>
+          <h1 className="typo-h1" style={{ marginBottom: "14px", maxWidth: "850px", marginLeft: "auto", marginRight: "auto" }}>
+            USPS Priority Mail Labels &mdash; Just $4 Per Label
+          </h1>
+          <p className="typo-body" style={{ marginBottom: "12px", fontSize: "17px", maxWidth: "750px", marginLeft: "auto", marginRight: "auto" }}>
+            Ship any weight to any US address for a flat <strong>$4 with USPS Priority
+            Mail</strong>. Also available: discounted UPS labels. No contracts, no
+            minimums &mdash; save 50-70% on every shipment.
+          </p>
+          <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
+            No contracts. No minimums. No monthly fees.
+          </p>
+          <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", justifyContent: "center" }}>
+            <a
+              href="https://wa.link/m2ac6m"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary btn-primary-pulse"
+              style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+            >
+              <FaWhatsapp style={{ fontSize: "18px" }} />
+              Quick WhatsApp
+            </a>
+            <Link href="/services" className="btn-outline">
+              Browse More Services
+            </Link>
+          </div>
+          <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap", justifyContent: "center" }}>
+            {["USPS Priority Mail", "Full Tracking Included", "Same-Day Generation"].map((text) => (
+              <div key={text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
+                <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "13px" }} />
+                {text}
               </div>
-
-              {/* Trust badges */}
-              <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap" }}>
-                {[
-                  { text: "USPS Priority Mail" },
-                  { text: "Full Tracking Included" },
-                  { text: "Same-Day Generation" },
-                ].map((badge) => (
-                  <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
-                    <span style={{ color: "var(--color-primary)", fontWeight: 700 }}>&#10003;</span>
-                    {badge.text}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Right: Branded illustration card */}
-            <div className="hidden lg:flex items-center justify-center">
-              <div style={{
-                width: "100%",
-                maxWidth: "460px",
-                aspectRatio: "1/1",
-                borderRadius: "16px",
-                background: "linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%)",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                padding: "40px",
-                color: "#fff",
-                textAlign: "center",
-                position: "relative",
-                overflow: "hidden",
-              }}>
-                <div style={{ position: "absolute", top: "20px", right: "20px", backgroundColor: "rgba(22,163,74,0.2)", borderRadius: "12px", padding: "6px 14px" }}>
-                  <span style={{ fontSize: "12px", fontWeight: 700, color: "var(--color-primary)" }}>FLAT RATE</span>
-                </div>
-                <div style={{ fontSize: "72px", fontWeight: 900, color: "var(--color-primary)", lineHeight: 1, marginBottom: "8px" }}>$4</div>
-                <h3 style={{ fontSize: "22px", fontWeight: 700, color: "#fff", marginBottom: "8px" }}>
-                  Per Label &mdash; Any Weight
-                </h3>
-                <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
-                  Save 50-70%
-                </p>
-                <div style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
-                  {[
-                    { val: "USPS", label: "Priority Mail" },
-                    { val: "Any", label: "Weight" },
-                    { val: "Full", label: "Tracking" },
-                  ].map((s) => (
-                    <div key={s.label} style={{ textAlign: "center" }}>
-                      <div style={{ fontSize: "20px", fontWeight: 800, color: "var(--color-primary)" }}>{s.val}</div>
-                      <div style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)" }}>{s.label}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -257,10 +196,10 @@ export default function FlatRateShippingPage() {
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "0", marginTop: "36px" }}>
             {[
-              { step: "01", icon: <FaBoxOpen style={{ fontSize: "28px", color: "var(--color-primary)" }} />, title: "Share Order Details", desc: "Provide your shipment details including recipient address and package weight. No account setup required." },
-              { step: "02", icon: <FaDollarSign style={{ fontSize: "28px", color: "var(--color-primary)" }} />, title: "Pay $4 Per Label", desc: "Each USPS Priority Mail label is a flat $4. No surprises, no surcharges, no weight-based calculations." },
-              { step: "03", icon: <FaPrint style={{ fontSize: "28px", color: "var(--color-primary)" }} />, title: "Print Your Label", desc: "Receive your shipping label with full tracking. Print it on any standard printer and attach to your package." },
-              { step: "04", icon: <FaTruck style={{ fontSize: "28px", color: "var(--color-primary)" }} />, title: "Ship & Save", desc: "Drop off your package at any USPS location. Save 50-70% on every shipment compared to retail rates." },
+              { step: "01", title: "Share Order Details", desc: "Provide your shipment details including recipient address and package weight. No account setup required." },
+              { step: "02", title: "Pay $4 Per Label", desc: "Each USPS Priority Mail label is a flat $4. No surprises, no surcharges, no weight-based calculations." },
+              { step: "03", title: "Print Your Label", desc: "Receive your shipping label with full tracking. Print it on any standard printer and attach to your package." },
+              { step: "04", title: "Ship & Save", desc: "Drop off your package at any USPS location. Save 50-70% on every shipment compared to retail rates." },
             ].map((item) => (
               <div
                 key={item.step}
@@ -270,10 +209,9 @@ export default function FlatRateShippingPage() {
                   position: "relative",
                 }}
               >
-                <div style={{ fontSize: "36px", fontWeight: 800, color: "var(--color-primary)", opacity: 0.15, lineHeight: 1 }}>
+                <div style={{ fontSize: "48px", fontWeight: 800, color: "var(--color-primary)", opacity: 0.12, lineHeight: 1, marginBottom: "10px" }}>
                   {item.step}
                 </div>
-                <div style={{ margin: "10px 0 8px" }}>{item.icon}</div>
                 <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
                 <p className="typo-small">{item.desc}</p>
               </div>
@@ -377,26 +315,6 @@ export default function FlatRateShippingPage() {
 
       {/* Confidence Stats */}
       <ServiceConfidence />
-
-      {/* Pros & Cons */}
-      <ServiceProsCons
-        heading="Pros & Cons of Flat Rate Shipping Labels"
-        pros={[
-          "$4 flat rate Priority Mail — any weight, any US destination",
-          "Save 50-70% compared to retail USPS and UPS rates",
-          "No contracts, no minimums, no monthly fees",
-          "Full tracking included with every label",
-          "Same-day label generation",
-          "Works for Amazon FBM, eBay, Shopify, Walmart, and more",
-          "Bulk discounts available for high-volume shippers",
-        ]}
-        cons={[
-          "Currently available for US domestic shipments only",
-          "Labels must be used within standard carrier validity windows",
-          "International shipping labels not yet available",
-          "UPS rates vary by weight (not flat rate like Priority Mail)",
-        ]}
-      />
 
       {/* Service Features Grid */}
       <ServiceFeaturesGrid />

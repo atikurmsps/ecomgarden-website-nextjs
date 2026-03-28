@@ -60,93 +60,43 @@ export default function TaxFilingPage() {
     <>
       {/* ── HERO ── */}
       <section style={{ padding: "55px 0 70px", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            {/* Left: Content */}
-            <div>
-              <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>ECOMMERCE TAX FILING</span>
-              <h1 className="typo-h1" style={{ marginBottom: "14px" }}>
-                Tax Filing Built for Amazon, Walmart &amp; Shopify Sellers
-              </h1>
-              <p className="typo-body" style={{ marginBottom: "12px", fontSize: "17px" }}>
-                Federal &amp; state returns, multi-state sales tax, bookkeeping, and year-round support from CPAs who <strong>only work with ecommerce businesses</strong>.
-              </p>
-              <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
-                250+ ecommerce businesses served. Flat-rate pricing. No surprises.
-              </p>
-              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
-                <a
-                  href="https://wa.link/m2ac6m"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary btn-primary-pulse"
-                  style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
-                >
-                  <FaWhatsapp style={{ fontSize: "18px" }} />
-                  Get Free Tax Quote
-                </a>
-                <Link href="/pricing" className="btn-outline">
-                  View Pricing
-                </Link>
+        <div className="container-main" style={{ textAlign: "center" }}>
+          <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>TAX FILING SERVICES</span>
+          <h1 className="typo-h1" style={{ marginBottom: "14px", maxWidth: "850px", marginLeft: "auto", marginRight: "auto" }}>
+            Business Tax Filing Starting at <span style={{ color: "var(--color-primary)" }}>$100</span>
+          </h1>
+          <p className="typo-body" style={{ marginBottom: "12px", fontSize: "17px", maxWidth: "750px", marginLeft: "auto", marginRight: "auto" }}>
+            Federal &amp; state returns, multi-state sales tax, bookkeeping, and year-round support for <strong>all types of businesses</strong> — ecommerce, LLC, sole proprietors, freelancers, and more. Specialized expertise for Amazon, Walmart &amp; Shopify sellers.
+          </p>
+          <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
+            250+ businesses served. Starting at $100. No hidden fees.
+          </p>
+          <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", justifyContent: "center" }}>
+            <a
+              href="https://wa.link/m2ac6m"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary btn-primary-pulse"
+              style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+            >
+              <FaWhatsapp style={{ fontSize: "18px" }} />
+              Get Free Tax Quote
+            </a>
+            <Link href="/pricing" className="btn-outline">
+              View Pricing
+            </Link>
+          </div>
+          <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap", justifyContent: "center" }}>
+            {[
+              { icon: <FaCalculator />, text: "250+ Businesses Filed" },
+              { icon: <FaShieldAlt />, text: "100% IRS Compliant" },
+              { icon: <FaHandshake />, text: "Flat-Rate Pricing" },
+            ].map((badge) => (
+              <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
+                <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
+                {badge.text}
               </div>
-
-              {/* Trust badges */}
-              <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap" }}>
-                {[
-                  { icon: <FaCalculator />, text: "250+ Businesses Filed" },
-                  { icon: <FaShieldAlt />, text: "100% IRS Compliant" },
-                  { icon: <FaHandshake />, text: "Flat-Rate Pricing" },
-                ].map((badge) => (
-                  <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
-                    <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
-                    {badge.text}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Right: Branded illustration card */}
-            <div className="hidden lg:flex items-center justify-center">
-              <div style={{
-                width: "100%",
-                maxWidth: "460px",
-                aspectRatio: "1/1",
-                borderRadius: "16px",
-                background: "linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%)",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                padding: "40px",
-                color: "#fff",
-                textAlign: "center",
-                position: "relative",
-                overflow: "hidden",
-              }}>
-                <div style={{ position: "absolute", top: "20px", right: "20px", backgroundColor: "rgba(22,163,74,0.2)", borderRadius: "12px", padding: "6px 14px" }}>
-                  <span style={{ fontSize: "12px", fontWeight: 700, color: "var(--color-primary)" }}>COMPLIANT</span>
-                </div>
-                <FaCalculator style={{ fontSize: "56px", marginBottom: "16px", opacity: 0.9 }} />
-                <h3 style={{ fontSize: "22px", fontWeight: 700, color: "#fff", marginBottom: "8px" }}>
-                  250+ Businesses Filed
-                </h3>
-                <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
-                  100% IRS Compliant
-                </p>
-                <div style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
-                  {[
-                    { val: "250+", label: "Filed" },
-                    { val: "100%", label: "Compliant" },
-                    { val: "Flat", label: "Rate Pricing" },
-                  ].map((s) => (
-                    <div key={s.label} style={{ textAlign: "center" }}>
-                      <div style={{ fontSize: "20px", fontWeight: 800, color: "var(--color-primary)" }}>{s.val}</div>
-                      <div style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)" }}>{s.label}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -156,8 +106,8 @@ export default function TaxFilingPage() {
         <div className="container-main">
           <div className="section-header">
             <span className="typo-label">COMPLETE TAX SERVICE</span>
-            <h2 className="typo-h2">Everything Your Ecommerce Business Needs</h2>
-            <p className="typo-subtext">Not just annual filing — year-round tax compliance and planning.</p>
+            <h2 className="typo-h2">Everything Your Business Needs — Starting at $100</h2>
+            <p className="typo-subtext">From LLC tax returns to multi-state sales tax compliance — we handle it all for ecommerce sellers, freelancers, and small businesses.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ marginTop: "32px" }}>

@@ -8,36 +8,52 @@ import CTASection from "@/components/home/CTASection";
 const packages = [
   {
     name: "LLC Formation",
+    price: "$100",
+    priceNote: "+ State Fee",
     popular: false,
     features: [
       "Articles of Organization Filing",
-      "EIN Application (IRS)",
       "Operating Agreement",
       "Registered Agent (1 Year)",
       "Digital Document Delivery",
     ],
   },
   {
+    name: "EIN Application",
+    price: "$50",
+    priceNote: "3 Business Days",
+    popular: false,
+    features: [
+      "IRS EIN Application",
+      "SS-4 Form Preparation",
+      "Confirmation Letter",
+      "Ready for Bank & Marketplace",
+    ],
+  },
+  {
     name: "Complete Business Setup",
+    price: "Custom",
+    priceNote: "Best Value",
     popular: true,
     features: [
-      "Everything in LLC Formation",
+      "LLC Formation + EIN",
       "Business Bank Account Setup",
       "Reseller Certificate / Sales Tax Permit",
       "Virtual Business Address",
-      "Marketplace Seller Registration Guide",
+      "Marketplace Seller Registration",
       "ITIN Application Support",
     ],
   },
   {
-    name: "UK LTD Registration",
+    name: "ITIN Application",
+    price: "$250",
+    priceNote: "~60 Days Processing",
     popular: false,
     features: [
-      "Companies House Filing",
-      "Registered Office Address",
-      "Company Documents & Certificates",
-      "UTR Number Application",
-      "VAT Registration Assistance",
+      "IRS ITIN Application (W-7)",
+      "Document Preparation",
+      "Certified Acceptance Agent",
+      "Required for Non-US Tax Filing",
     ],
   },
 ];
@@ -96,93 +112,43 @@ export default function CompanyFilingPage() {
     <>
       {/* ── HERO ── */}
       <section style={{ padding: "55px 0 70px", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            {/* Left: Content */}
-            <div>
-              <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>COMPANY FORMATION</span>
-              <h1 className="typo-h1" style={{ marginBottom: "14px" }}>
-                Start Your Ecommerce Business With a Proper US LLC or UK LTD
-              </h1>
-              <p className="typo-body" style={{ marginBottom: "12px", fontSize: "17px" }}>
-                We&apos;ve helped <strong>250+ international sellers</strong> form their companies and start selling on Amazon, Walmart, Shopify, eBay &amp; Etsy.
-              </p>
-              <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
-                Complete A-Z setup in 7-10 business days. No paperwork headaches.
-              </p>
-              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
-                <a
-                  href="https://wa.link/m2ac6m"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary btn-primary-pulse"
-                  style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
-                >
-                  <FaWhatsapp style={{ fontSize: "18px" }} />
-                  Get Free Consultation
-                </a>
-                <Link href="/pricing" className="btn-outline">
-                  View Pricing
-                </Link>
+        <div className="container-main" style={{ textAlign: "center" }}>
+          <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>COMPANY FILING &amp; EIN / ITIN</span>
+          <h1 className="typo-h1" style={{ marginBottom: "14px", maxWidth: "850px", marginLeft: "auto", marginRight: "auto" }}>
+            US LLC Formation, EIN, ITIN &amp; UK LTD — Everything You Need to Start
+          </h1>
+          <p className="typo-body" style={{ marginBottom: "12px", fontSize: "17px", maxWidth: "750px", marginLeft: "auto", marginRight: "auto" }}>
+            We&apos;ve helped <strong>250+ international sellers</strong> form their companies and start selling on Amazon, Walmart, Shopify, eBay &amp; Etsy.
+          </p>
+          <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
+            Complete A-Z setup in 7-10 business days. No paperwork headaches.
+          </p>
+          <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", justifyContent: "center" }}>
+            <a
+              href="https://wa.link/m2ac6m"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary btn-primary-pulse"
+              style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+            >
+              <FaWhatsapp style={{ fontSize: "18px" }} />
+              Get Free Consultation
+            </a>
+            <Link href="/pricing" className="btn-outline">
+              View Pricing
+            </Link>
+          </div>
+          <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap", justifyContent: "center" }}>
+            {[
+              { icon: <FaBuilding />, text: "250+ Companies Formed" },
+              { icon: <FaGlobeAmericas />, text: "30+ Countries Served" },
+              { icon: <FaClock />, text: "7-10 Day Turnaround" },
+            ].map((badge) => (
+              <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
+                <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
+                {badge.text}
               </div>
-
-              {/* Trust badges */}
-              <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap" }}>
-                {[
-                  { icon: <FaBuilding />, text: "250+ Companies Formed" },
-                  { icon: <FaGlobeAmericas />, text: "30+ Countries Served" },
-                  { icon: <FaClock />, text: "7-10 Day Turnaround" },
-                ].map((badge) => (
-                  <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
-                    <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
-                    {badge.text}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Right: Branded illustration card */}
-            <div className="hidden lg:flex items-center justify-center">
-              <div style={{
-                width: "100%",
-                maxWidth: "460px",
-                aspectRatio: "1/1",
-                borderRadius: "16px",
-                background: "linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%)",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                padding: "40px",
-                color: "#fff",
-                textAlign: "center",
-                position: "relative",
-                overflow: "hidden",
-              }}>
-                <div style={{ position: "absolute", top: "20px", right: "20px", backgroundColor: "rgba(22,163,74,0.2)", borderRadius: "12px", padding: "6px 14px" }}>
-                  <span style={{ fontSize: "12px", fontWeight: 700, color: "var(--color-primary)" }}>TRUSTED</span>
-                </div>
-                <FaBuilding style={{ fontSize: "56px", marginBottom: "16px", opacity: 0.9 }} />
-                <h3 style={{ fontSize: "22px", fontWeight: 700, color: "#fff", marginBottom: "8px" }}>
-                  250+ Companies Formed
-                </h3>
-                <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
-                  30+ Countries Served
-                </p>
-                <div style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
-                  {[
-                    { val: "7-10", label: "Days" },
-                    { val: "US & UK", label: "Formation" },
-                    { val: "A-Z", label: "Setup" },
-                  ].map((s) => (
-                    <div key={s.label} style={{ textAlign: "center" }}>
-                      <div style={{ fontSize: "20px", fontWeight: 800, color: "var(--color-primary)" }}>{s.val}</div>
-                      <div style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)" }}>{s.label}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -315,24 +281,29 @@ export default function CompanyFilingPage() {
             <p className="typo-subtext">We&apos;re not a generic LegalZoom. We&apos;re ecommerce specialists.</p>
           </div>
 
-          <div style={{ maxWidth: "700px", margin: "32px auto 0" }}>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr auto auto", gap: "0", backgroundColor: "#fff", borderRadius: "12px", overflow: "hidden", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
-              <div style={{ padding: "12px 16px", fontWeight: 700, backgroundColor: "#f6f7f9", fontSize: "13px" }}>Feature</div>
-              <div style={{ padding: "12px 20px", fontWeight: 700, backgroundColor: "var(--color-primary)", color: "#fff", textAlign: "center", fontSize: "13px", minWidth: "120px" }}>EcomGarden</div>
-              <div style={{ padding: "12px 20px", fontWeight: 700, backgroundColor: "#f6f7f9", textAlign: "center", fontSize: "13px", minWidth: "120px" }}>Others</div>
-
-              {comparisonData.map((row) => (
-                <React.Fragment key={row.feature}>
-                  <div style={{ padding: "10px 16px", fontSize: "13px", borderBottom: "1px solid #f5f5f5" }}>{row.feature}</div>
-                  <div style={{ padding: "10px 20px", textAlign: "center", borderBottom: "1px solid #f5f5f5", backgroundColor: "rgba(22,163,74,0.03)" }}>
-                    {row.us === true ? <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "16px" }} /> : <span style={{ fontSize: "13px", color: "var(--color-primary)", fontWeight: 600 }}>{row.us}</span>}
-                  </div>
-                  <div style={{ padding: "10px 20px", textAlign: "center", borderBottom: "1px solid #f5f5f5" }}>
-                    {row.them === false ? <FaTimesCircle style={{ color: "#dc2626", fontSize: "16px" }} /> : <span style={{ fontSize: "13px", color: "#999" }}>{row.them}</span>}
-                  </div>
-                </React.Fragment>
-              ))}
-            </div>
+          <div style={{ maxWidth: "750px", margin: "32px auto 0", overflowX: "auto" }}>
+            <table style={{ width: "100%", borderCollapse: "separate", borderSpacing: "0", borderRadius: "12px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.08)", border: "1px solid #e5e7eb" }}>
+              <thead>
+                <tr>
+                  <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, fontSize: "13px", backgroundColor: "#f6f7f9", borderBottom: "2px solid #e8e8e8" }}>Feature</th>
+                  <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, fontSize: "13px", backgroundColor: "var(--color-primary)", color: "#fff", borderBottom: "2px solid var(--color-primary-dark)", minWidth: "130px" }}>EcomGarden</th>
+                  <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, fontSize: "13px", backgroundColor: "#f6f7f9", borderBottom: "2px solid #e8e8e8", minWidth: "130px" }}>Others</th>
+                </tr>
+              </thead>
+              <tbody>
+                {comparisonData.map((row, i) => (
+                  <tr key={row.feature} style={{ backgroundColor: i % 2 === 0 ? "#fff" : "#fafbfc" }}>
+                    <td style={{ padding: "12px 20px", fontSize: "13px", fontWeight: 500, textAlign: "center", borderBottom: "1px solid #f0f0f0", verticalAlign: "middle" }}>{row.feature}</td>
+                    <td style={{ padding: "12px 20px", textAlign: "center", borderBottom: "1px solid #f0f0f0", backgroundColor: i % 2 === 0 ? "rgba(22,163,74,0.04)" : "rgba(22,163,74,0.07)", verticalAlign: "middle" }}>
+                      {row.us === true ? <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "18px", display: "inline-block", verticalAlign: "middle" }} /> : <span style={{ fontSize: "13px", color: "var(--color-primary)", fontWeight: 600 }}>{row.us}</span>}
+                    </td>
+                    <td style={{ padding: "12px 20px", textAlign: "center", borderBottom: "1px solid #f0f0f0", verticalAlign: "middle" }}>
+                      {row.them === false ? <FaTimesCircle style={{ color: "#dc2626", fontSize: "18px", display: "inline-block", verticalAlign: "middle" }} /> : <span style={{ fontSize: "13px", color: "#888" }}>{row.them}</span>}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
@@ -342,11 +313,11 @@ export default function CompanyFilingPage() {
         <div className="container-main">
           <div className="section-header">
             <span className="typo-label">OUR PACKAGES</span>
-            <h2 className="typo-h2">Choose Your Formation Package</h2>
-            <p className="typo-subtext">Contact us on WhatsApp for exact pricing — no hidden fees.</p>
+            <h2 className="typo-h2">Transparent Pricing — No Hidden Fees</h2>
+            <p className="typo-subtext">Choose the service you need. Bundle for the best value.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5" style={{ marginTop: "32px" }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5" style={{ marginTop: "32px" }}>
             {packages.map((pkg) => (
               <div
                 key={pkg.name}
@@ -354,7 +325,7 @@ export default function CompanyFilingPage() {
                 style={{
                   backgroundColor: pkg.popular ? "var(--color-dark)" : "#f6f7f9",
                   borderRadius: "12px",
-                  padding: "28px 24px",
+                  padding: "24px 20px",
                   position: "relative",
                   border: pkg.popular ? "none" : "1px solid rgba(0,0,0,0.04)",
                 }}
@@ -372,12 +343,16 @@ export default function CompanyFilingPage() {
                     borderRadius: "20px",
                     textTransform: "uppercase",
                   }}>
-                    Most Popular
+                    Best Value
                   </span>
                 )}
-                <h3 className="typo-h3" style={{ color: pkg.popular ? "#fff" : "var(--color-dark)", marginBottom: "16px" }}>
+                <h3 className="typo-h4" style={{ color: pkg.popular ? "#fff" : "var(--color-dark)", marginBottom: "4px" }}>
                   {pkg.name}
                 </h3>
+                <div style={{ marginBottom: "14px" }}>
+                  <span style={{ fontSize: "28px", fontWeight: 800, color: pkg.popular ? "var(--color-primary)" : "var(--color-dark)" }}>{pkg.price}</span>
+                  <span style={{ fontSize: "12px", color: pkg.popular ? "rgba(255,255,255,0.6)" : "#999", marginLeft: "6px" }}>{pkg.priceNote}</span>
+                </div>
                 <div style={{ display: "flex", flexDirection: "column", gap: "8px", marginBottom: "20px" }}>
                   {pkg.features.map((f) => (
                     <div key={f} style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>

@@ -6,29 +6,29 @@ import { FaChevronDown } from "react-icons/fa";
 
 const benefitItems = [
   {
-    title: "Time and Resource Savings",
+    title: "Complete A-Z Management",
     content:
-      "EcomGarden's virtual assistants work remotely, cutting out the need for physical office space and associated overhead costs. This leads to substantial cost savings. By handling routine tasks, they free up your time for strategic priorities, ultimately boosting productivity.",
+      "Our team handles every aspect of your store — from product research and listing to order fulfillment and customer support. You stay focused on growing your business while we manage the daily operations.",
   },
   {
-    title: "Flexibility Work",
+    title: "Dedicated Account Manager",
     content:
-      "Hire virtual assistants on a part-time or project basis for flexible working hours and workload, ideal for businesses with varying work demands.",
+      "You get a personal account manager who knows your business inside out. Direct WhatsApp communication, regular updates, and strategic recommendations tailored to your goals.",
   },
   {
-    title: "24/7 Availability Service",
+    title: "Risk-Free Growth Model",
     content:
-      "Our virtual assistant will provide you 24/7 support. Its doesn't matter weekend or holiday.",
+      "We believe in results, not promises. Our profit-sharing model means you only pay when you see actual results. Zero upfront risk, full accountability from our side.",
   },
   {
-    title: "Focus on Your Main Business",
+    title: "24/7 Support & Monitoring",
     content:
-      "Our team will handle A-Z tasks on your store. Just get profit from your store and keep focus on your main business. Never miss your cash cow.",
+      "Your store never sleeps, and neither do we. Our team provides round-the-clock monitoring, customer support handling, and issue resolution — weekends and holidays included.",
   },
   {
-    title: "Scalability, Efficiency and Productivity",
+    title: "Scalable & Flexible Service",
     content:
-      "Our virtual assistants provide a scalable solution, allowing you to adjust their workload or hire more as your business expands. Their ability to handle multiple tasks simultaneously enhances efficiency and productivity, ensuring prompt and accurate completion of routine tasks.",
+      "Whether you are just starting or managing a multi-channel operation, our services scale with your business. Hire on a per-store basis, add new marketplaces anytime, and adjust workload as needed.",
   },
 ];
 
@@ -40,16 +40,12 @@ export default function ServiceBenefits() {
       <div className="container-main">
         <div className="section-header">
           <span className="typo-label">Why Choose Us</span>
-          <h2 className="typo-h2">Benefits of getting our service</h2>
+          <h2 className="typo-h2">Benefits of Working With EcomGarden</h2>
           <p className="typo-subtext" style={{ maxWidth: "780px", margin: "0 auto" }}>
-            Our Amazon Virtual Assistant at EcomGarden efficiently launches and
-            manages your Amazon Business worldwide, saving you time and ensuring
-            progress. From setting up an Amazon store, product research, and
-            listings to SEO optimization, account management, customer support,
-            and sales boosting, we handle it all. Our services aim to boost your
-            sales and profits comprehensively. Trust our experts at EcomGarden to
-            enhance your eCommerce business and make it profitable. Here are some
-            key advantages:
+            EcomGarden is more than a service provider — we are your dedicated ecommerce growth partner.
+            From Amazon and Walmart to Shopify, eBay, and Etsy, our team manages your entire store
+            operations so you can focus on what matters most. With 250+ happy clients, 55+ active stores,
+            and $12M+ in managed revenue, here is what makes working with us different:
           </p>
         </div>
 
