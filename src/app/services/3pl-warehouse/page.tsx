@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp, FaWarehouse, FaBoxOpen, FaTruck, FaMapMarkerAlt, FaCheck, FaShippingFast, FaCubes } from "react-icons/fa";
+import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp, FaMapMarkerAlt } from "react-icons/fa";
 import ServiceBenefits from "@/components/services/ServiceBenefits";
 import ServiceConfidence from "@/components/services/ServiceConfidence";
 import CTASection from "@/components/home/CTASection";
@@ -21,12 +21,12 @@ const comparisonData = [
 ];
 
 const whatYouGet = [
-  { icon: <FaBoxOpen />, title: "Receiving & Inspection", desc: "We receive your items from any source — wholesale suppliers, manufacturers, retail stores, or returns. Every item is inspected and logged into our inventory system upon arrival." },
-  { icon: <FaCubes />, title: "Storage & Inventory", desc: "Secure, climate-controlled storage with real-time inventory tracking through our web-based management software. Know exactly what you have, where it is, and when to reorder." },
-  { icon: <FaShippingFast />, title: "Pick, Pack & Ship", desc: "Fast order processing with same-day fulfillment for orders received before cutoff. Professional packaging with your branding, shipping labels, and tracking numbers uploaded automatically." },
-  { icon: <FaWarehouse />, title: "FBA & WFS Prep", desc: "Complete Amazon FBA and Walmart WFS preparation — labeling, bundling, poly bagging, bubble wrapping, and carton packing per marketplace requirements. $0.50 per item." },
-  { icon: <FaTruck />, title: "2-Step Dropshipping", desc: "Receive supplier shipments at our warehouse, repackage with your branding, and ship to your customers. Remove supplier invoices and add your marketing materials." },
-  { icon: <FaMapMarkerAlt />, title: "Return Processing", desc: "Receive customer returns, inspect condition, repackage for resale or FBA re-shipment, and update your inventory. Simple $2 per return flat rate." },
+  { icon: "/images/services/icons/order-fulfillment.png", title: "Receiving & Inspection", desc: "We receive your items from any source — wholesale suppliers, manufacturers, retail stores, or returns. Every item is inspected and logged into our inventory system upon arrival." },
+  { icon: "/images/services/icons/inventory.png", title: "Storage & Inventory", desc: "Secure, climate-controlled storage with real-time inventory tracking through our web-based management software. Know exactly what you have, where it is, and when to reorder." },
+  { icon: "/images/services/icons/order-fulfillment.png", title: "Pick, Pack & Ship", desc: "Fast order processing with same-day fulfillment for orders received before cutoff. Professional packaging with your branding, shipping labels, and tracking numbers uploaded automatically." },
+  { icon: "/images/services/icons/inventory.png", title: "FBA & WFS Prep", desc: "Complete Amazon FBA and Walmart WFS preparation — labeling, bundling, poly bagging, bubble wrapping, and carton packing per marketplace requirements. $0.50 per item." },
+  { icon: "/images/services/icons/order-fulfillment.png", title: "2-Step Dropshipping", desc: "Receive supplier shipments at our warehouse, repackage with your branding, and ship to your customers. Remove supplier invoices and add your marketing materials." },
+  { icon: "/images/services/icons/return-handling.png", title: "Return Processing", desc: "Receive customer returns, inspect condition, repackage for resale or FBA re-shipment, and update your inventory. Simple $2 per return flat rate." },
 ];
 
 const warehouseLocations = [
@@ -92,46 +92,58 @@ export default function ThreePLWarehousePage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section style={{ padding: "70px 0 80px", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main" style={{ textAlign: "center" }}>
-          <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>3PL WAREHOUSE</span>
-          <h1 className="typo-h1" style={{ marginBottom: "14px", maxWidth: "700px", marginLeft: "auto", marginRight: "auto" }}>
-            Our Own Warehouses in 3 US Locations. Not Third-Party. Ours.
-          </h1>
-          <p className="typo-body" style={{ maxWidth: "600px", margin: "0 auto 12px", fontSize: "17px" }}>
-            FBA prep, WFS prep, 2-step dropshipping, storage, and direct-to-customer shipping from <strong>our own facilities</strong> in New York, Florida, and Connecticut. Flat rate pricing. No monthly fees.
-          </p>
-          <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
-            Same-day processing. Web-based inventory tracking. No hidden charges.
-          </p>
-          <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
-            <a
-              href="https://wa.link/m2ac6m"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary btn-primary-pulse"
-              style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
-            >
-              <FaWhatsapp style={{ fontSize: "18px" }} />
-              Get Free Consultation
-            </a>
-            <Link href="/pricing" className="btn-outline">
-              View Pricing
-            </Link>
-          </div>
-
-          {/* Trust badges */}
-          <div style={{ display: "flex", gap: "24px", justifyContent: "center", marginTop: "32px", flexWrap: "wrap" }}>
-            {[
-              { icon: <FaWarehouse />, text: "3 Own US Warehouses" },
-              { icon: <FaShippingFast />, text: "Same-Day Processing" },
-              { icon: <FaTruck />, text: "No Monthly Fees" },
-            ].map((badge) => (
-              <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
-                <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
-                {badge.text}
+      <section style={{ padding: "55px 0 70px", backgroundColor: "#f6f7f9" }}>
+        <div className="container-main">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>3PL WAREHOUSE</span>
+              <h1 className="typo-h1" style={{ marginBottom: "14px" }}>
+                Our Own Warehouses in 3 US Locations. Not Third-Party. Ours.
+              </h1>
+              <p className="typo-body" style={{ marginBottom: "12px", fontSize: "17px" }}>
+                FBA prep, WFS prep, 2-step dropshipping, storage, and direct-to-customer shipping from <strong>our own facilities</strong> in New York, Florida, and Connecticut. Flat rate pricing. No monthly fees.
+              </p>
+              <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
+                Same-day processing. Web-based inventory tracking. No hidden charges.
+              </p>
+              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+                <a
+                  href="https://wa.link/m2ac6m"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary btn-primary-pulse"
+                  style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+                >
+                  <FaWhatsapp style={{ fontSize: "18px" }} />
+                  Get Free Consultation
+                </a>
+                <Link href="/pricing" className="btn-outline">
+                  View Pricing
+                </Link>
               </div>
-            ))}
+              <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap" }}>
+                {["3 Own US Warehouses", "Same-Day Processing", "No Monthly Fees"].map((text) => (
+                  <div key={text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
+                    <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "13px" }} />
+                    {text}
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="hidden lg:flex items-center justify-center">
+              <div style={{
+                width: "100%", maxWidth: "460px", aspectRatio: "1/1",
+                borderRadius: "16px",
+                background: "linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%)",
+                display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
+                padding: "40px", color: "#fff", textAlign: "center",
+              }}>
+                <img src="/images/services/icons/inventory.png" alt="3PL Warehouse" style={{ width: "80px", height: "80px", objectFit: "contain", marginBottom: "24px" }} />
+                <div style={{ fontSize: "48px", fontWeight: 800, lineHeight: 1, marginBottom: "8px" }}>3</div>
+                <div style={{ fontSize: "16px", opacity: 0.85, marginBottom: "16px" }}>Own US Warehouse Locations</div>
+                <div style={{ fontSize: "14px", opacity: 0.7, maxWidth: "280px" }}>New York, Florida, Connecticut — flat rate pricing, no monthly fees</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -194,7 +206,7 @@ export default function ThreePLWarehousePage() {
                   border: "1px solid rgba(0,0,0,0.04)",
                 }}
               >
-                <div style={{ fontSize: "22px", color: "var(--color-primary)", marginBottom: "12px" }}>{item.icon}</div>
+                <div style={{ marginBottom: "12px" }}><img src={item.icon} alt={item.title} style={{ width: "48px", height: "48px", objectFit: "contain" }} /></div>
                 <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
                 <p className="typo-small">{item.desc}</p>
               </div>

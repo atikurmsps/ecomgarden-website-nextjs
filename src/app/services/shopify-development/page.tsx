@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp, FaStore, FaPaintBrush, FaPlug, FaCreditCard, FaSearch, FaShoppingCart, FaClock, FaHeadset } from "react-icons/fa";
+import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp } from "react-icons/fa";
 import CTASection from "@/components/home/CTASection";
 
 const comparisonData = [
@@ -58,46 +58,63 @@ export default function ShopifyDevelopmentPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section style={{ padding: "70px 0 80px", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main" style={{ textAlign: "center" }}>
-          <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>SHOPIFY DEVELOPMENT</span>
-          <h1 className="typo-h1" style={{ marginBottom: "14px", maxWidth: "700px", marginLeft: "auto", marginRight: "auto" }}>
-            Complete Shopify Store Development &amp; Management
-          </h1>
-          <p className="typo-body" style={{ maxWidth: "600px", margin: "0 auto 12px", fontSize: "17px" }}>
-            We&apos;ve built and managed <strong>200+ Shopify stores</strong> across every niche — from single-product brands to 10,000+ SKU catalogs.
-          </p>
-          <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
-            Ready-to-sell store in 5-10 business days. Zero technical headaches.
-          </p>
-          <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
-            <a
-              href="https://wa.link/m2ac6m"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary btn-primary-pulse"
-              style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
-            >
-              <FaWhatsapp style={{ fontSize: "18px" }} />
-              Get Free Consultation
-            </a>
-            <Link href="/pricing" className="btn-outline">
-              View Pricing
-            </Link>
-          </div>
-
-          {/* Trust badges */}
-          <div style={{ display: "flex", gap: "24px", justifyContent: "center", marginTop: "32px", flexWrap: "wrap" }}>
-            {[
-              { icon: <FaStore />, text: "200+ Stores Built" },
-              { icon: <FaShoppingCart />, text: "50+ Expert Team" },
-              { icon: <FaClock />, text: "5-10 Day Delivery" },
-            ].map((badge) => (
-              <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
-                <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
-                {badge.text}
+      <section style={{ padding: "55px 0 70px", backgroundColor: "#f6f7f9" }}>
+        <div className="container-main">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            {/* Left: Content */}
+            <div>
+              <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>SHOPIFY DEVELOPMENT</span>
+              <h1 className="typo-h1" style={{ marginBottom: "14px" }}>
+                Complete Shopify Store Development &amp; Management
+              </h1>
+              <p className="typo-body" style={{ marginBottom: "12px", fontSize: "17px" }}>
+                We&apos;ve built and managed <strong>200+ Shopify stores</strong> across every niche — from single-product brands to 10,000+ SKU catalogs.
+              </p>
+              <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
+                Ready-to-sell store in 5-10 business days. Zero technical headaches.
+              </p>
+              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+                <a
+                  href="https://wa.link/m2ac6m"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary btn-primary-pulse"
+                  style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+                >
+                  <FaWhatsapp style={{ fontSize: "18px" }} />
+                  Get Free Consultation
+                </a>
+                <Link href="/pricing" className="btn-outline">
+                  View Pricing
+                </Link>
               </div>
-            ))}
+
+              {/* Trust badges */}
+              <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap" }}>
+                {["200+ Stores Built", "50+ Expert Team", "5-10 Day Delivery"].map((text) => (
+                  <div key={text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
+                    <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "13px" }} />
+                    {text}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: Branded card */}
+            <div className="hidden lg:flex items-center justify-center">
+              <div style={{
+                width: "100%", maxWidth: "460px", aspectRatio: "1/1",
+                borderRadius: "16px",
+                background: "linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%)",
+                display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
+                padding: "40px", color: "#fff", textAlign: "center",
+              }}>
+                <img src="/images/services/icons/scalability.png" alt="Shopify Development" style={{ width: "80px", height: "80px", objectFit: "contain", marginBottom: "24px" }} />
+                <div style={{ fontSize: "48px", fontWeight: 800, lineHeight: 1, marginBottom: "8px" }}>200+</div>
+                <div style={{ fontSize: "16px", opacity: 0.85, marginBottom: "16px" }}>Shopify Stores Built</div>
+                <div style={{ fontSize: "14px", opacity: 0.7, maxWidth: "280px" }}>From single-product brands to enterprise catalogs with 10,000+ SKUs</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -113,12 +130,12 @@ export default function ShopifyDevelopmentPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ marginTop: "32px" }}>
             {[
-              { icon: <FaStore />, title: "Store Setup & Configuration", desc: "Complete A-Z Shopify store setup including domain, theme installation, navigation, pages, policies, shipping zones, and tax configuration. Ready to accept orders from day one." },
-              { icon: <FaPaintBrush />, title: "Theme Customization", desc: "Customize any Shopify theme to match your brand — colors, fonts, layouts, custom sections, and homepage design. Pixel-perfect implementation of your vision." },
-              { icon: <FaPlug />, title: "App Integration", desc: "Install and configure essential Shopify apps for email marketing, reviews, upsells, loyalty programs, subscriptions, and any third-party integrations your business needs." },
-              { icon: <FaCreditCard />, title: "Payment Gateway Setup", desc: "Configure Shopify Payments, PayPal, Stripe, and region-specific gateways. Multi-currency support, tax setup, and checkout optimization for maximum conversion." },
-              { icon: <FaSearch />, title: "SEO & Speed Optimization", desc: "On-page SEO setup with keyword-optimized meta tags, schema markup, image optimization, and Core Web Vitals tuning. Your store loads fast and ranks well from launch." },
-              { icon: <FaHeadset />, title: "Ongoing Management", desc: "Monthly store management including product updates, order processing, customer support, design tweaks, app updates, and performance monitoring by our dedicated team." },
+              { icon: "/images/services/icons/scalability.png", title: "Store Setup & Configuration", desc: "Complete A-Z Shopify store setup including domain, theme installation, navigation, pages, policies, shipping zones, and tax configuration. Ready to accept orders from day one." },
+              { icon: "/images/services/icons/marketing.png", title: "Theme Customization", desc: "Customize any Shopify theme to match your brand — colors, fonts, layouts, custom sections, and homepage design. Pixel-perfect implementation of your vision." },
+              { icon: "/images/services/icons/scalability.png", title: "App Integration", desc: "Install and configure essential Shopify apps for email marketing, reviews, upsells, loyalty programs, subscriptions, and any third-party integrations your business needs." },
+              { icon: "/images/services/icons/safety.png", title: "Payment Gateway Setup", desc: "Configure Shopify Payments, PayPal, Stripe, and region-specific gateways. Multi-currency support, tax setup, and checkout optimization for maximum conversion." },
+              { icon: "/images/services/icons/marketing.png", title: "SEO & Speed Optimization", desc: "On-page SEO setup with keyword-optimized meta tags, schema markup, image optimization, and Core Web Vitals tuning. Your store loads fast and ranks well from launch." },
+              { icon: "/images/services/icons/personal-manager.png", title: "Ongoing Management", desc: "Monthly store management including product updates, order processing, customer support, design tweaks, app updates, and performance monitoring by our dedicated team." },
             ].map((item) => (
               <div
                 key={item.title}
@@ -130,7 +147,7 @@ export default function ShopifyDevelopmentPage() {
                   border: "1px solid rgba(0,0,0,0.04)",
                 }}
               >
-                <div style={{ fontSize: "22px", color: "var(--color-primary)", marginBottom: "12px" }}>{item.icon}</div>
+                <div style={{ marginBottom: "12px" }}><img src={item.icon} alt={item.title} style={{ width: "48px", height: "48px", objectFit: "contain" }} /></div>
                 <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
                 <p className="typo-small">{item.desc}</p>
               </div>

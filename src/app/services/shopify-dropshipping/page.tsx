@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp, FaSearchDollar, FaTruckLoading, FaBoxOpen, FaCogs, FaPaintBrush, FaChartLine, FaClock, FaStore } from "react-icons/fa";
+import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp } from "react-icons/fa";
 import CTASection from "@/components/home/CTASection";
 
 const comparisonData = [
@@ -58,46 +58,58 @@ export default function ShopifyDropshippingPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section style={{ padding: "70px 0 80px", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main" style={{ textAlign: "center" }}>
-          <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>SHOPIFY DROPSHIPPING</span>
-          <h1 className="typo-h1" style={{ marginBottom: "14px", maxWidth: "700px", marginLeft: "auto", marginRight: "auto" }}>
-            Launch a Profitable Shopify Dropshipping Store
-          </h1>
-          <p className="typo-body" style={{ maxWidth: "600px", margin: "0 auto 12px", fontSize: "17px" }}>
-            Ready-to-sell dropshipping store with <strong>winning products, vetted suppliers, and automated fulfillment</strong>. Start selling from day one with zero inventory risk.
-          </p>
-          <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
-            Complete store setup in 5-10 days. No inventory, no warehouse, no hassle.
-          </p>
-          <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
-            <a
-              href="https://wa.link/m2ac6m"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary btn-primary-pulse"
-              style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
-            >
-              <FaWhatsapp style={{ fontSize: "18px" }} />
-              Get Free Consultation
-            </a>
-            <Link href="/pricing" className="btn-outline">
-              View Pricing
-            </Link>
-          </div>
-
-          {/* Trust badges */}
-          <div style={{ display: "flex", gap: "24px", justifyContent: "center", marginTop: "32px", flexWrap: "wrap" }}>
-            {[
-              { icon: <FaStore />, text: "150+ Stores Launched" },
-              { icon: <FaBoxOpen />, text: "Zero Inventory Risk" },
-              { icon: <FaClock />, text: "5-10 Day Setup" },
-            ].map((badge) => (
-              <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
-                <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
-                {badge.text}
+      <section style={{ padding: "55px 0 70px", backgroundColor: "#f6f7f9" }}>
+        <div className="container-main">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>SHOPIFY DROPSHIPPING</span>
+              <h1 className="typo-h1" style={{ marginBottom: "14px" }}>
+                Launch a Profitable Shopify Dropshipping Store
+              </h1>
+              <p className="typo-body" style={{ marginBottom: "12px", fontSize: "17px" }}>
+                Ready-to-sell dropshipping store with <strong>winning products, vetted suppliers, and automated fulfillment</strong>. Start selling from day one with zero inventory risk.
+              </p>
+              <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
+                Complete store setup in 5-10 days. No inventory, no warehouse, no hassle.
+              </p>
+              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+                <a
+                  href="https://wa.link/m2ac6m"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary btn-primary-pulse"
+                  style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+                >
+                  <FaWhatsapp style={{ fontSize: "18px" }} />
+                  Get Free Consultation
+                </a>
+                <Link href="/pricing" className="btn-outline">
+                  View Pricing
+                </Link>
               </div>
-            ))}
+              <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap" }}>
+                {["150+ Stores Launched", "Zero Inventory Risk", "5-10 Day Setup"].map((text) => (
+                  <div key={text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
+                    <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "13px" }} />
+                    {text}
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="hidden lg:flex items-center justify-center">
+              <div style={{
+                width: "100%", maxWidth: "460px", aspectRatio: "1/1",
+                borderRadius: "16px",
+                background: "linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%)",
+                display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
+                padding: "40px", color: "#fff", textAlign: "center",
+              }}>
+                <img src="/images/services/icons/zero-work.png" alt="Dropshipping" style={{ width: "80px", height: "80px", objectFit: "contain", marginBottom: "24px" }} />
+                <div style={{ fontSize: "48px", fontWeight: 800, lineHeight: 1, marginBottom: "8px" }}>150+</div>
+                <div style={{ fontSize: "16px", opacity: 0.85, marginBottom: "16px" }}>Dropshipping Stores Launched</div>
+                <div style={{ fontSize: "14px", opacity: 0.7, maxWidth: "280px" }}>Zero inventory, vetted suppliers, automated fulfillment from day one</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -113,12 +125,12 @@ export default function ShopifyDropshippingPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ marginTop: "32px" }}>
             {[
-              { icon: <FaSearchDollar />, title: "Niche & Product Research", desc: "Data-driven winning product research using trend analysis, competitor study, and profit margin calculations. We find high-demand, low-competition products with 25%+ margins." },
-              { icon: <FaTruckLoading />, title: "Supplier Vetting & Sourcing", desc: "We find reliable suppliers from AliExpress, CJ Dropshipping, Spocket, and US-based sources. Each supplier is vetted for quality, shipping speed, and reliability." },
-              { icon: <FaBoxOpen />, title: "Product Import & Optimization", desc: "Bulk product import with optimized titles, descriptions, images, and variants. SEO-friendly listings designed to convert visitors into paying customers." },
-              { icon: <FaCogs />, title: "Automated Fulfillment", desc: "Set up automated order processing so orders are sent to suppliers instantly. Tracking numbers sync automatically. Zero manual work after a sale." },
-              { icon: <FaPaintBrush />, title: "Branded Store Design", desc: "Professional storefront with custom logo, brand colors, trust badges, and conversion-focused layout. Your store looks like a premium brand, not a generic template." },
-              { icon: <FaChartLine />, title: "Sales Channel Integration", desc: "Connect your store to Facebook Shop, Instagram Shopping, TikTok, and Google Shopping. Maximize your product visibility across every platform." },
+              { icon: "/images/services/icons/product-research.png", title: "Niche & Product Research", desc: "Data-driven winning product research using trend analysis, competitor study, and profit margin calculations. We find high-demand, low-competition products with 25%+ margins." },
+              { icon: "/images/services/icons/inventory.png", title: "Supplier Vetting & Sourcing", desc: "We find reliable suppliers from AliExpress, CJ Dropshipping, Spocket, and US-based sources. Each supplier is vetted for quality, shipping speed, and reliability." },
+              { icon: "/images/services/icons/order-fulfillment.png", title: "Product Import & Optimization", desc: "Bulk product import with optimized titles, descriptions, images, and variants. SEO-friendly listings designed to convert visitors into paying customers." },
+              { icon: "/images/services/icons/zero-work.png", title: "Automated Fulfillment", desc: "Set up automated order processing so orders are sent to suppliers instantly. Tracking numbers sync automatically. Zero manual work after a sale." },
+              { icon: "/images/services/icons/marketing.png", title: "Branded Store Design", desc: "Professional storefront with custom logo, brand colors, trust badges, and conversion-focused layout. Your store looks like a premium brand, not a generic template." },
+              { icon: "/images/services/icons/scalability.png", title: "Sales Channel Integration", desc: "Connect your store to Facebook Shop, Instagram Shopping, TikTok, and Google Shopping. Maximize your product visibility across every platform." },
             ].map((item) => (
               <div
                 key={item.title}
@@ -130,7 +142,7 @@ export default function ShopifyDropshippingPage() {
                   border: "1px solid rgba(0,0,0,0.04)",
                 }}
               >
-                <div style={{ fontSize: "22px", color: "var(--color-primary)", marginBottom: "12px" }}>{item.icon}</div>
+                <div style={{ marginBottom: "12px" }}><img src={item.icon} alt={item.title} style={{ width: "48px", height: "48px", objectFit: "contain" }} /></div>
                 <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
                 <p className="typo-small">{item.desc}</p>
               </div>

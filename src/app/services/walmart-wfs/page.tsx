@@ -70,46 +70,94 @@ export default function WalmartWFSPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section style={{ padding: "70px 0 80px", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main" style={{ textAlign: "center" }}>
-          <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>WALMART WFS</span>
-          <h1 className="typo-h1" style={{ marginBottom: "14px", maxWidth: "700px", marginLeft: "auto", marginRight: "auto" }}>
-            Walmart WFS Management &mdash; 2-Day Delivery Badge That Sells
-          </h1>
-          <p className="typo-body" style={{ maxWidth: "600px", margin: "0 auto 12px", fontSize: "17px" }}>
-            Sellers using WFS see <strong>30-50% more sales</strong> with 2-day shipping badges, Walmart+ eligibility, and higher search rankings.
-          </p>
-          <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
-            First WFS shipment ready in 5-7 days. We handle prep, shipping &amp; replenishment.
-          </p>
-          <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
-            <a
-              href="https://wa.link/m2ac6m"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary btn-primary-pulse"
-              style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
-            >
-              <FaWhatsapp style={{ fontSize: "18px" }} />
-              Get Free Consultation
-            </a>
-            <Link href="/pricing" className="btn-outline">
-              View Pricing
-            </Link>
-          </div>
-
-          {/* Trust badges */}
-          <div style={{ display: "flex", gap: "24px", justifyContent: "center", marginTop: "32px", flexWrap: "wrap" }}>
-            {[
-              { icon: <FaWarehouse />, text: "WFS Certified Experts" },
-              { icon: <FaTruck />, text: "30-50% Sales Increase" },
-              { icon: <FaSyncAlt />, text: "Auto-Replenishment" },
-            ].map((badge) => (
-              <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
-                <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
-                {badge.text}
+      <section style={{ padding: "55px 0 70px", backgroundColor: "#f6f7f9" }}>
+        <div className="container-main">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            {/* Left: Content */}
+            <div>
+              <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>WALMART WFS</span>
+              <h1 className="typo-h1" style={{ marginBottom: "14px" }}>
+                Walmart WFS Management &mdash; 2-Day Delivery Badge That Sells
+              </h1>
+              <p className="typo-body" style={{ marginBottom: "12px", fontSize: "17px" }}>
+                Sellers using WFS see <strong>30-50% more sales</strong> with 2-day shipping badges, Walmart+ eligibility, and higher search rankings.
+              </p>
+              <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
+                First WFS shipment ready in 5-7 days. We handle prep, shipping &amp; replenishment.
+              </p>
+              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+                <a
+                  href="https://wa.link/m2ac6m"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary btn-primary-pulse"
+                  style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+                >
+                  <FaWhatsapp style={{ fontSize: "18px" }} />
+                  Get Free Consultation
+                </a>
+                <Link href="/pricing" className="btn-outline">
+                  View Pricing
+                </Link>
               </div>
-            ))}
+
+              {/* Trust badges */}
+              <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap" }}>
+                {[
+                  { icon: <FaWarehouse />, text: "WFS Certified Experts" },
+                  { icon: <FaTruck />, text: "30-50% Sales Increase" },
+                  { icon: <FaSyncAlt />, text: "Auto-Replenishment" },
+                ].map((badge) => (
+                  <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
+                    <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
+                    {badge.text}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: SVG Illustration */}
+            <div className="hidden lg:flex items-center justify-center">
+              <div style={{
+                width: "100%",
+                maxWidth: "460px",
+                aspectRatio: "1/1",
+                borderRadius: "16px",
+                background: "linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%)",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "40px",
+                color: "#fff",
+                textAlign: "center",
+                position: "relative",
+                overflow: "hidden",
+              }}>
+                <div style={{ position: "absolute", top: "20px", right: "20px", backgroundColor: "rgba(22,163,74,0.2)", borderRadius: "12px", padding: "6px 14px" }}>
+                  <span style={{ fontSize: "12px", fontWeight: 700, color: "var(--color-primary)" }}>2-DAY DELIVERY</span>
+                </div>
+                <FaWarehouse style={{ fontSize: "48px", marginBottom: "16px", opacity: 0.9 }} />
+                <h3 style={{ fontSize: "22px", fontWeight: 700, color: "#fff", marginBottom: "8px" }}>
+                  30-50% More Sales
+                </h3>
+                <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
+                  WFS badge, Walmart+ eligible &amp; higher rankings
+                </p>
+                <div style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
+                  {[
+                    { val: "2-Day", label: "Delivery" },
+                    { val: "W+", label: "Eligible" },
+                    { val: "5-7d", label: "Setup" },
+                  ].map((s) => (
+                    <div key={s.label} style={{ textAlign: "center" }}>
+                      <div style={{ fontSize: "20px", fontWeight: 800, color: "var(--color-primary)" }}>{s.val}</div>
+                      <div style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)" }}>{s.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -279,12 +327,12 @@ export default function WalmartWFSPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ marginTop: "32px" }}>
             {[
-              { icon: <FaBarcode />, title: "Product Prep & Labeling", desc: "Walmart barcode labeling, poly-bagging, bundling, and packaging that meets WFS receiving guidelines. Zero rejections, zero delays." },
-              { icon: <FaTruck />, title: "Inbound Shipment Management", desc: "We create shipment plans, coordinate carriers, and track every shipment until it is received and checked in at Walmart warehouses." },
-              { icon: <FaSyncAlt />, title: "Inventory Replenishment", desc: "Real-time inventory monitoring with automated replenishment triggers. Sales velocity forecasting ensures you never run out of stock." },
-              { icon: <FaChartBar />, title: "Listing Optimization", desc: "SEO-optimized titles, descriptions, and keywords plus enhanced content. WFS badge + optimized listing = maximum conversions." },
-              { icon: <FaWarehouse />, title: "Storage Fee Optimization", desc: "We optimize packaging dimensions to minimize WFS storage and fulfillment fees. Smart inventory planning avoids long-term storage charges." },
-              { icon: <FaShieldAlt />, title: "Account Health Monitoring", desc: "Continuous monitoring of seller metrics, return rates, and compliance. Proactive issue resolution keeps your account in top standing." },
+              { img: "/images/services/icons/order-fulfillment.png", title: "Product Prep & Labeling", desc: "Walmart barcode labeling, poly-bagging, bundling, and packaging that meets WFS receiving guidelines. Zero rejections, zero delays." },
+              { img: "/images/services/icons/inventory.png", title: "Inbound Shipment Management", desc: "We create shipment plans, coordinate carriers, and track every shipment until it is received and checked in at Walmart warehouses." },
+              { img: "/images/services/icons/scalability.png", title: "Inventory Replenishment", desc: "Real-time inventory monitoring with automated replenishment triggers. Sales velocity forecasting ensures you never run out of stock." },
+              { img: "/images/services/icons/marketing.png", title: "Listing Optimization", desc: "SEO-optimized titles, descriptions, and keywords plus enhanced content. WFS badge + optimized listing = maximum conversions." },
+              { img: "/images/services/icons/calculation.png", title: "Storage Fee Optimization", desc: "We optimize packaging dimensions to minimize WFS storage and fulfillment fees. Smart inventory planning avoids long-term storage charges." },
+              { img: "/images/services/icons/account-health.png", title: "Account Health Monitoring", desc: "Continuous monitoring of seller metrics, return rates, and compliance. Proactive issue resolution keeps your account in top standing." },
             ].map((item) => (
               <div
                 key={item.title}
@@ -296,7 +344,7 @@ export default function WalmartWFSPage() {
                   border: "1px solid rgba(0,0,0,0.04)",
                 }}
               >
-                <div style={{ fontSize: "22px", color: "var(--color-primary)", marginBottom: "12px" }}>{item.icon}</div>
+                <img src={item.img} alt={item.title} style={{ width: "48px", height: "48px", objectFit: "contain", marginBottom: "12px" }} />
                 <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
                 <p className="typo-small">{item.desc}</p>
               </div>

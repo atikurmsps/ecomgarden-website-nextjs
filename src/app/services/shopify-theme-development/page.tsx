@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp, FaCode, FaCubes, FaMobileAlt, FaTachometerAlt, FaPuzzlePiece, FaPaintBrush, FaClock, FaStore } from "react-icons/fa";
+import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp } from "react-icons/fa";
 import CTASection from "@/components/home/CTASection";
 
 const comparisonData = [
@@ -58,46 +58,58 @@ export default function ShopifyThemeDevelopmentPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section style={{ padding: "70px 0 80px", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main" style={{ textAlign: "center" }}>
-          <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>SHOPIFY THEME DEVELOPMENT</span>
-          <h1 className="typo-h1" style={{ marginBottom: "14px", maxWidth: "700px", marginLeft: "auto", marginRight: "auto" }}>
-            Custom Shopify Themes Built From Scratch
-          </h1>
-          <p className="typo-body" style={{ maxWidth: "600px", margin: "0 auto 12px", fontSize: "17px" }}>
-            Stop looking like every other Shopify store. Get a <strong>unique, brand-matching theme</strong> with Shopify 2.0 architecture and blazing-fast performance.
-          </p>
-          <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
-            Pixel-perfect. Performance-first. Built to convert.
-          </p>
-          <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
-            <a
-              href="https://wa.link/m2ac6m"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary btn-primary-pulse"
-              style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
-            >
-              <FaWhatsapp style={{ fontSize: "18px" }} />
-              Get Free Consultation
-            </a>
-            <Link href="/pricing" className="btn-outline">
-              View Pricing
-            </Link>
-          </div>
-
-          {/* Trust badges */}
-          <div style={{ display: "flex", gap: "24px", justifyContent: "center", marginTop: "32px", flexWrap: "wrap" }}>
-            {[
-              { icon: <FaStore />, text: "80+ Custom Themes Built" },
-              { icon: <FaCode />, text: "Shopify 2.0 Experts" },
-              { icon: <FaClock />, text: "4-8 Week Delivery" },
-            ].map((badge) => (
-              <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
-                <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
-                {badge.text}
+      <section style={{ padding: "55px 0 70px", backgroundColor: "#f6f7f9" }}>
+        <div className="container-main">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>SHOPIFY THEME DEVELOPMENT</span>
+              <h1 className="typo-h1" style={{ marginBottom: "14px" }}>
+                Custom Shopify Themes Built From Scratch
+              </h1>
+              <p className="typo-body" style={{ marginBottom: "12px", fontSize: "17px" }}>
+                Stop looking like every other Shopify store. Get a <strong>unique, brand-matching theme</strong> with Shopify 2.0 architecture and blazing-fast performance.
+              </p>
+              <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
+                Pixel-perfect. Performance-first. Built to convert.
+              </p>
+              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+                <a
+                  href="https://wa.link/m2ac6m"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary btn-primary-pulse"
+                  style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+                >
+                  <FaWhatsapp style={{ fontSize: "18px" }} />
+                  Get Free Consultation
+                </a>
+                <Link href="/pricing" className="btn-outline">
+                  View Pricing
+                </Link>
               </div>
-            ))}
+              <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap" }}>
+                {["80+ Custom Themes Built", "Shopify 2.0 Experts", "4-8 Week Delivery"].map((text) => (
+                  <div key={text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
+                    <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "13px" }} />
+                    {text}
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="hidden lg:flex items-center justify-center">
+              <div style={{
+                width: "100%", maxWidth: "460px", aspectRatio: "1/1",
+                borderRadius: "16px",
+                background: "linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%)",
+                display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
+                padding: "40px", color: "#fff", textAlign: "center",
+              }}>
+                <img src="/images/services/icons/marketing.png" alt="Theme Development" style={{ width: "80px", height: "80px", objectFit: "contain", marginBottom: "24px" }} />
+                <div style={{ fontSize: "48px", fontWeight: 800, lineHeight: 1, marginBottom: "8px" }}>80+</div>
+                <div style={{ fontSize: "16px", opacity: 0.85, marginBottom: "16px" }}>Custom Themes Built</div>
+                <div style={{ fontSize: "14px", opacity: 0.7, maxWidth: "280px" }}>Unique, pixel-perfect Shopify 2.0 themes that set your brand apart</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -113,12 +125,12 @@ export default function ShopifyThemeDevelopmentPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ marginTop: "32px" }}>
             {[
-              { icon: <FaCode />, title: "Custom Liquid Development", desc: "Expert Liquid template coding for dynamic content, custom sections, blocks, and metafield integration. Clean, maintainable code that follows Shopify best practices." },
-              { icon: <FaCubes />, title: "Shopify 2.0 Sections", desc: "Flexible, reusable sections with JSON templates and app blocks on every page. Drag, drop, and customize directly from the theme editor without touching code." },
-              { icon: <FaMobileAlt />, title: "Responsive Design", desc: "Pixel-perfect responsive layouts that adapt seamlessly across desktop, tablet, and mobile. Consistent brand experience on every device your customers use." },
-              { icon: <FaTachometerAlt />, title: "Performance Optimized", desc: "Lightweight, minimal code with no bloated frameworks. Lazy loading, optimized assets, and clean architecture deliver sub-2-second page loads consistently." },
-              { icon: <FaPuzzlePiece />, title: "Custom Sections & Blocks", desc: "Purpose-built sections for your specific needs — product configurators, lookbooks, size guides, testimonial carousels, and any custom functionality you require." },
-              { icon: <FaPaintBrush />, title: "Brand-Perfect Design", desc: "Custom visual design that matches your brand identity exactly — colors, typography, imagery style, and overall aesthetic. Your store, your way." },
+              { icon: "/images/services/icons/scalability.png", title: "Custom Liquid Development", desc: "Expert Liquid template coding for dynamic content, custom sections, blocks, and metafield integration. Clean, maintainable code that follows Shopify best practices." },
+              { icon: "/images/services/icons/scalability.png", title: "Shopify 2.0 Sections", desc: "Flexible, reusable sections with JSON templates and app blocks on every page. Drag, drop, and customize directly from the theme editor without touching code." },
+              { icon: "/images/services/icons/marketing.png", title: "Responsive Design", desc: "Pixel-perfect responsive layouts that adapt seamlessly across desktop, tablet, and mobile. Consistent brand experience on every device your customers use." },
+              { icon: "/images/services/icons/calculation.png", title: "Performance Optimized", desc: "Lightweight, minimal code with no bloated frameworks. Lazy loading, optimized assets, and clean architecture deliver sub-2-second page loads consistently." },
+              { icon: "/images/services/icons/scalability.png", title: "Custom Sections & Blocks", desc: "Purpose-built sections for your specific needs — product configurators, lookbooks, size guides, testimonial carousels, and any custom functionality you require." },
+              { icon: "/images/services/icons/marketing.png", title: "Brand-Perfect Design", desc: "Custom visual design that matches your brand identity exactly — colors, typography, imagery style, and overall aesthetic. Your store, your way." },
             ].map((item) => (
               <div
                 key={item.title}
@@ -130,7 +142,7 @@ export default function ShopifyThemeDevelopmentPage() {
                   border: "1px solid rgba(0,0,0,0.04)",
                 }}
               >
-                <div style={{ fontSize: "22px", color: "var(--color-primary)", marginBottom: "12px" }}>{item.icon}</div>
+                <div style={{ marginBottom: "12px" }}><img src={item.icon} alt={item.title} style={{ width: "48px", height: "48px", objectFit: "contain" }} /></div>
                 <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
                 <p className="typo-small">{item.desc}</p>
               </div>

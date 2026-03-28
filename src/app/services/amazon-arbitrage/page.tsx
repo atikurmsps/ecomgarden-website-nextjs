@@ -19,12 +19,12 @@ const comparisonData = [
 ];
 
 const whatYouGet = [
-  { icon: <FaSearch />, title: "Product Sourcing & Research", desc: "Our research team finds high-demand, high-margin products daily from Walmart, Target, Costco, and other retailers. Every product is validated for profitability before listing." },
-  { icon: <FaListAlt />, title: "Listing Optimization", desc: "Professional listing creation with keyword-optimized titles, bullet points, and competitive pricing. We monitor and adjust listings to maintain Buy Box share." },
-  { icon: <FaShoppingCart />, title: "Order Management", desc: "When customers order, our team purchases from the source, coordinates with the warehouse for reboxing, and ensures timely delivery — all within Amazon metrics." },
-  { icon: <FaUndoAlt />, title: "Returns Handling", desc: "Complete return management including warehouse receiving, restocking sellable items, and processing refunds. Every return is tracked and accounted for in your P&L." },
-  { icon: <FaShieldAlt />, title: "Account Safety", desc: "We follow strict compliance protocols — proper reboxing with Amazon-branded packaging, no third-party invoices, and proactive IP complaint monitoring to keep your account safe." },
-  { icon: <FaRocket />, title: "Scaling & Growth", desc: "Once your store is profitable, we scale by adding more SKUs, expanding to new categories, and optimizing pricing to increase daily order volume and profit." },
+  { img: "/images/services/icons/product-research.png", title: "Product Sourcing & Research", desc: "Our research team finds high-demand, high-margin products daily from Walmart, Target, Costco, and other retailers. Every product is validated for profitability before listing." },
+  { img: "/images/services/icons/order-fulfillment.png", title: "Listing Optimization", desc: "Professional listing creation with keyword-optimized titles, bullet points, and competitive pricing. We monitor and adjust listings to maintain Buy Box share." },
+  { img: "/images/services/icons/inventory.png", title: "Order Management", desc: "When customers order, our team purchases from the source, coordinates with the warehouse for reboxing, and ensures timely delivery — all within Amazon metrics." },
+  { img: "/images/services/icons/return-handling.png", title: "Returns Handling", desc: "Complete return management including warehouse receiving, restocking sellable items, and processing refunds. Every return is tracked and accounted for in your P&L." },
+  { img: "/images/services/icons/safety.png", title: "Account Safety", desc: "We follow strict compliance protocols — proper reboxing with Amazon-branded packaging, no third-party invoices, and proactive IP complaint monitoring to keep your account safe." },
+  { img: "/images/services/icons/scalability.png", title: "Scaling & Growth", desc: "Once your store is profitable, we scale by adding more SKUs, expanding to new categories, and optimizing pricing to increase daily order volume and profit." },
 ];
 
 const faqs = [
@@ -84,46 +84,94 @@ export default function AmazonArbitragePage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section style={{ padding: "70px 0 80px", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main" style={{ textAlign: "center" }}>
-          <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>AMAZON ARBITRAGE</span>
-          <h1 className="typo-h1" style={{ marginBottom: "14px", maxWidth: "700px", marginLeft: "auto", marginRight: "auto" }}>
-            Start Profiting From Amazon Within Your First Week
-          </h1>
-          <p className="typo-body" style={{ maxWidth: "600px", margin: "0 auto 12px", fontSize: "17px" }}>
-            The most popular zero-inventory model. <strong>No upfront stock needed</strong> — only buy when customers order. Profit from day one with 30-40% margins.
-          </p>
-          <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
-            100% risk-free. Pay only once you see profit with our profit sharing model.
-          </p>
-          <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
-            <a
-              href="https://wa.link/m2ac6m"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary btn-primary-pulse"
-              style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
-            >
-              <FaWhatsapp style={{ fontSize: "18px" }} />
-              Get Free Consultation
-            </a>
-            <Link href="/pricing" className="btn-outline">
-              View Pricing
-            </Link>
-          </div>
-
-          {/* Trust badges */}
-          <div style={{ display: "flex", gap: "24px", justifyContent: "center", marginTop: "32px", flexWrap: "wrap" }}>
-            {[
-              { icon: <FaRocket />, text: "Profit Within 7 Days" },
-              { icon: <FaShieldAlt />, text: "Zero Inventory Risk" },
-              { icon: <FaCheckCircle />, text: "35% Avg. ROI" },
-            ].map((badge) => (
-              <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
-                <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
-                {badge.text}
+      <section style={{ padding: "55px 0 70px", backgroundColor: "#f6f7f9" }}>
+        <div className="container-main">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            {/* Left: Content */}
+            <div>
+              <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>AMAZON ARBITRAGE</span>
+              <h1 className="typo-h1" style={{ marginBottom: "14px" }}>
+                Start Profiting From Amazon Within Your First Week
+              </h1>
+              <p className="typo-body" style={{ marginBottom: "12px", fontSize: "17px" }}>
+                The most popular zero-inventory model. <strong>No upfront stock needed</strong> — only buy when customers order. Profit from day one with 30-40% margins.
+              </p>
+              <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
+                100% risk-free. Pay only once you see profit with our profit sharing model.
+              </p>
+              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+                <a
+                  href="https://wa.link/m2ac6m"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary btn-primary-pulse"
+                  style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+                >
+                  <FaWhatsapp style={{ fontSize: "18px" }} />
+                  Get Free Consultation
+                </a>
+                <Link href="/pricing" className="btn-outline">
+                  View Pricing
+                </Link>
               </div>
-            ))}
+
+              {/* Trust badges */}
+              <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap" }}>
+                {[
+                  { icon: <FaRocket />, text: "Profit Within 7 Days" },
+                  { icon: <FaShieldAlt />, text: "Zero Inventory Risk" },
+                  { icon: <FaCheckCircle />, text: "35% Avg. ROI" },
+                ].map((badge) => (
+                  <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
+                    <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
+                    {badge.text}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: SVG Illustration */}
+            <div className="hidden lg:flex items-center justify-center">
+              <div style={{
+                width: "100%",
+                maxWidth: "460px",
+                aspectRatio: "1/1",
+                borderRadius: "16px",
+                background: "linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%)",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "40px",
+                color: "#fff",
+                textAlign: "center",
+                position: "relative",
+                overflow: "hidden",
+              }}>
+                <div style={{ position: "absolute", top: "20px", right: "20px", backgroundColor: "rgba(22,163,74,0.2)", borderRadius: "12px", padding: "6px 14px" }}>
+                  <span style={{ fontSize: "12px", fontWeight: 700, color: "var(--color-primary)" }}>ZERO RISK</span>
+                </div>
+                <FaRocket style={{ fontSize: "48px", marginBottom: "16px", opacity: 0.9 }} />
+                <h3 style={{ fontSize: "22px", fontWeight: 700, color: "#fff", marginBottom: "8px" }}>
+                  Profit in 7 Days
+                </h3>
+                <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
+                  No inventory needed. Buy only when customers order.
+                </p>
+                <div style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
+                  {[
+                    { val: "35%", label: "Avg ROI" },
+                    { val: "$0", label: "Upfront Stock" },
+                    { val: "24/7", label: "Support" },
+                  ].map((s) => (
+                    <div key={s.label} style={{ textAlign: "center" }}>
+                      <div style={{ fontSize: "20px", fontWeight: 800, color: "var(--color-primary)" }}>{s.val}</div>
+                      <div style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)" }}>{s.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -231,7 +279,7 @@ export default function AmazonArbitragePage() {
                   border: "1px solid rgba(0,0,0,0.04)",
                 }}
               >
-                <div style={{ fontSize: "22px", color: "var(--color-primary)", marginBottom: "12px" }}>{item.icon}</div>
+                <img src={item.img} alt={item.title} style={{ width: "48px", height: "48px", objectFit: "contain", marginBottom: "12px" }} />
                 <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
                 <p className="typo-small">{item.desc}</p>
               </div>

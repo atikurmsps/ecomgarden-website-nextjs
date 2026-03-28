@@ -19,12 +19,12 @@ const comparisonData = [
 ];
 
 const whatYouGet = [
-  { icon: <FaSearch />, title: "Product Research & Validation", desc: "Deep market analysis using Helium 10, Jungle Scout, and proprietary data to find products with strong demand, low competition, and healthy margins. Every product is validated before you invest a dollar." },
-  { icon: <FaBullhorn />, title: "PPC Management", desc: "Full Sponsored Products, Sponsored Brands, and Sponsored Display management. Daily bid optimization, keyword discovery, negative keyword pruning, and ACoS tracking to maximize your ad ROI." },
-  { icon: <FaListAlt />, title: "Listing Optimization", desc: "Professional listings with keyword-rich titles, compelling bullet points, A+ Enhanced Brand Content, and optimized backend search terms. We continuously test and improve conversion rates." },
-  { icon: <FaBoxes />, title: "Inventory Planning", desc: "Demand forecasting, reorder point calculations, and lead time tracking so you never run out of stock or tie up cash in excess inventory. We plan around seasonality and trends." },
-  { icon: <FaCopyright />, title: "Brand Registry & Protection", desc: "We help you register your brand with Amazon Brand Registry, set up IP protection, and access exclusive tools like A+ Content, Sponsored Brands, and Brand Analytics." },
-  { icon: <FaChartLine />, title: "Growth Strategy", desc: "Beyond day-to-day management — we plan product line expansion, international marketplace launches, and long-term brand positioning to build a valuable business asset." },
+  { img: "/images/services/icons/product-research.png", title: "Product Research & Validation", desc: "Deep market analysis using Helium 10, Jungle Scout, and proprietary data to find products with strong demand, low competition, and healthy margins. Every product is validated before you invest a dollar." },
+  { img: "/images/services/icons/marketing.png", title: "PPC Management", desc: "Full Sponsored Products, Sponsored Brands, and Sponsored Display management. Daily bid optimization, keyword discovery, negative keyword pruning, and ACoS tracking to maximize your ad ROI." },
+  { img: "/images/services/icons/order-fulfillment.png", title: "Listing Optimization", desc: "Professional listings with keyword-rich titles, compelling bullet points, A+ Enhanced Brand Content, and optimized backend search terms. We continuously test and improve conversion rates." },
+  { img: "/images/services/icons/inventory.png", title: "Inventory Planning", desc: "Demand forecasting, reorder point calculations, and lead time tracking so you never run out of stock or tie up cash in excess inventory. We plan around seasonality and trends." },
+  { img: "/images/services/icons/safety.png", title: "Brand Registry & Protection", desc: "We help you register your brand with Amazon Brand Registry, set up IP protection, and access exclusive tools like A+ Content, Sponsored Brands, and Brand Analytics." },
+  { img: "/images/services/icons/scalability.png", title: "Growth Strategy", desc: "Beyond day-to-day management — we plan product line expansion, international marketplace launches, and long-term brand positioning to build a valuable business asset." },
 ];
 
 const faqs = [
@@ -77,46 +77,94 @@ export default function AmazonFBAPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section style={{ padding: "70px 0 80px", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main" style={{ textAlign: "center" }}>
-          <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>AMAZON FBA</span>
-          <h1 className="typo-h1" style={{ marginBottom: "14px", maxWidth: "700px", marginLeft: "auto", marginRight: "auto" }}>
-            Build a Profitable Amazon Brand With Expert FBA Management
-          </h1>
-          <p className="typo-body" style={{ maxWidth: "600px", margin: "0 auto 12px", fontSize: "17px" }}>
-            End-to-end FBA management from product research to scaling. <strong>Private label expertise, PPC optimization, and inventory planning</strong> under one roof.
-          </p>
-          <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
-            Data-driven approach. Every decision backed by research, not guesswork.
-          </p>
-          <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
-            <a
-              href="https://wa.link/m2ac6m"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary btn-primary-pulse"
-              style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
-            >
-              <FaWhatsapp style={{ fontSize: "18px" }} />
-              Get Free Consultation
-            </a>
-            <Link href="/pricing" className="btn-outline">
-              View Pricing
-            </Link>
-          </div>
-
-          {/* Trust badges */}
-          <div style={{ display: "flex", gap: "24px", justifyContent: "center", marginTop: "32px", flexWrap: "wrap" }}>
-            {[
-              { icon: <FaCopyright />, text: "Brand Registry Experts" },
-              { icon: <FaBullhorn />, text: "PPC Optimization Daily" },
-              { icon: <FaChartLine />, text: "$10M+ Revenue Managed" },
-            ].map((badge) => (
-              <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
-                <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
-                {badge.text}
+      <section style={{ padding: "55px 0 70px", backgroundColor: "#f6f7f9" }}>
+        <div className="container-main">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            {/* Left: Content */}
+            <div>
+              <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>AMAZON FBA</span>
+              <h1 className="typo-h1" style={{ marginBottom: "14px" }}>
+                Build a Profitable Amazon Brand With Expert FBA Management
+              </h1>
+              <p className="typo-body" style={{ marginBottom: "12px", fontSize: "17px" }}>
+                End-to-end FBA management from product research to scaling. <strong>Private label expertise, PPC optimization, and inventory planning</strong> under one roof.
+              </p>
+              <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
+                Data-driven approach. Every decision backed by research, not guesswork.
+              </p>
+              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+                <a
+                  href="https://wa.link/m2ac6m"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary btn-primary-pulse"
+                  style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+                >
+                  <FaWhatsapp style={{ fontSize: "18px" }} />
+                  Get Free Consultation
+                </a>
+                <Link href="/pricing" className="btn-outline">
+                  View Pricing
+                </Link>
               </div>
-            ))}
+
+              {/* Trust badges */}
+              <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap" }}>
+                {[
+                  { icon: <FaCopyright />, text: "Brand Registry Experts" },
+                  { icon: <FaBullhorn />, text: "PPC Optimization Daily" },
+                  { icon: <FaChartLine />, text: "$10M+ Revenue Managed" },
+                ].map((badge) => (
+                  <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
+                    <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
+                    {badge.text}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: SVG Illustration */}
+            <div className="hidden lg:flex items-center justify-center">
+              <div style={{
+                width: "100%",
+                maxWidth: "460px",
+                aspectRatio: "1/1",
+                borderRadius: "16px",
+                background: "linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%)",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "40px",
+                color: "#fff",
+                textAlign: "center",
+                position: "relative",
+                overflow: "hidden",
+              }}>
+                <div style={{ position: "absolute", top: "20px", right: "20px", backgroundColor: "rgba(22,163,74,0.2)", borderRadius: "12px", padding: "6px 14px" }}>
+                  <span style={{ fontSize: "12px", fontWeight: 700, color: "var(--color-primary)" }}>FBA EXPERTS</span>
+                </div>
+                <FaBoxes style={{ fontSize: "48px", marginBottom: "16px", opacity: 0.9 }} />
+                <h3 style={{ fontSize: "22px", fontWeight: 700, color: "#fff", marginBottom: "8px" }}>
+                  $10M+ Revenue Managed
+                </h3>
+                <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
+                  Private label, PPC &amp; inventory planning under one roof
+                </p>
+                <div style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
+                  {[
+                    { val: "50+", label: "Brands" },
+                    { val: "Daily", label: "PPC Optimization" },
+                    { val: "A+", label: "Content" },
+                  ].map((s) => (
+                    <div key={s.label} style={{ textAlign: "center" }}>
+                      <div style={{ fontSize: "20px", fontWeight: 800, color: "var(--color-primary)" }}>{s.val}</div>
+                      <div style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)" }}>{s.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -225,7 +273,7 @@ export default function AmazonFBAPage() {
                   border: "1px solid rgba(0,0,0,0.04)",
                 }}
               >
-                <div style={{ fontSize: "22px", color: "var(--color-primary)", marginBottom: "12px" }}>{item.icon}</div>
+                <img src={item.img} alt={item.title} style={{ width: "48px", height: "48px", objectFit: "contain", marginBottom: "12px" }} />
                 <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
                 <p className="typo-small">{item.desc}</p>
               </div>

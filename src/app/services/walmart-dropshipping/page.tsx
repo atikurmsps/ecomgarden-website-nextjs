@@ -75,46 +75,94 @@ export default function WalmartDropshippingPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section style={{ padding: "70px 0 80px", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main" style={{ textAlign: "center" }}>
-          <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>WALMART DROPSHIPPING</span>
-          <h1 className="typo-h1" style={{ marginBottom: "14px", maxWidth: "700px", marginLeft: "auto", marginRight: "auto" }}>
-            2-Step Walmart Dropshipping &mdash; Zero Inventory, Maximum Profit
-          </h1>
-          <p className="typo-body" style={{ maxWidth: "600px", margin: "0 auto 12px", fontSize: "17px" }}>
-            Start with as little as <strong>$1,000</strong>. No upfront inventory. Our sellers average <strong>30-40% profit margins</strong> with compliant warehouse routing.
-          </p>
-          <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
-            Profit within the first week. 100% money-back guarantee if we don&apos;t deliver.
-          </p>
-          <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
-            <a
-              href="https://wa.link/m2ac6m"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary btn-primary-pulse"
-              style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
-            >
-              <FaWhatsapp style={{ fontSize: "18px" }} />
-              Get Free Consultation
-            </a>
-            <Link href="/pricing" className="btn-outline">
-              View Pricing
-            </Link>
-          </div>
-
-          {/* Trust badges */}
-          <div style={{ display: "flex", gap: "24px", justifyContent: "center", marginTop: "32px", flexWrap: "wrap" }}>
-            {[
-              { icon: <FaShieldAlt />, text: "100% Walmart Compliant" },
-              { icon: <FaSearchDollar />, text: "30-40% Avg. Profit" },
-              { icon: <FaWarehouse />, text: "Managed Warehouse Routing" },
-            ].map((badge) => (
-              <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
-                <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
-                {badge.text}
+      <section style={{ padding: "55px 0 70px", backgroundColor: "#f6f7f9" }}>
+        <div className="container-main">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            {/* Left: Content */}
+            <div>
+              <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>WALMART DROPSHIPPING</span>
+              <h1 className="typo-h1" style={{ marginBottom: "14px" }}>
+                2-Step Walmart Dropshipping &mdash; Zero Inventory, Maximum Profit
+              </h1>
+              <p className="typo-body" style={{ marginBottom: "12px", fontSize: "17px" }}>
+                Start with as little as <strong>$1,000</strong>. No upfront inventory. Our sellers average <strong>30-40% profit margins</strong> with compliant warehouse routing.
+              </p>
+              <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
+                Profit within the first week. 100% money-back guarantee if we don&apos;t deliver.
+              </p>
+              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+                <a
+                  href="https://wa.link/m2ac6m"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary btn-primary-pulse"
+                  style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+                >
+                  <FaWhatsapp style={{ fontSize: "18px" }} />
+                  Get Free Consultation
+                </a>
+                <Link href="/pricing" className="btn-outline">
+                  View Pricing
+                </Link>
               </div>
-            ))}
+
+              {/* Trust badges */}
+              <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap" }}>
+                {[
+                  { icon: <FaShieldAlt />, text: "100% Walmart Compliant" },
+                  { icon: <FaSearchDollar />, text: "30-40% Avg. Profit" },
+                  { icon: <FaWarehouse />, text: "Managed Warehouse Routing" },
+                ].map((badge) => (
+                  <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
+                    <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
+                    {badge.text}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: SVG Illustration */}
+            <div className="hidden lg:flex items-center justify-center">
+              <div style={{
+                width: "100%",
+                maxWidth: "460px",
+                aspectRatio: "1/1",
+                borderRadius: "16px",
+                background: "linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%)",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "40px",
+                color: "#fff",
+                textAlign: "center",
+                position: "relative",
+                overflow: "hidden",
+              }}>
+                <div style={{ position: "absolute", top: "20px", right: "20px", backgroundColor: "rgba(22,163,74,0.2)", borderRadius: "12px", padding: "6px 14px" }}>
+                  <span style={{ fontSize: "12px", fontWeight: 700, color: "var(--color-primary)" }}>ZERO RISK</span>
+                </div>
+                <FaExchangeAlt style={{ fontSize: "48px", marginBottom: "16px", opacity: 0.9 }} />
+                <h3 style={{ fontSize: "22px", fontWeight: 700, color: "#fff", marginBottom: "8px" }}>
+                  $0 Upfront Inventory
+                </h3>
+                <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
+                  Buy only when customers order. Compliant warehouse routing.
+                </p>
+                <div style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
+                  {[
+                    { val: "35%", label: "Avg ROI" },
+                    { val: "$1K", label: "Min Start" },
+                    { val: "7 Days", label: "To Profit" },
+                  ].map((s) => (
+                    <div key={s.label} style={{ textAlign: "center" }}>
+                      <div style={{ fontSize: "20px", fontWeight: 800, color: "var(--color-primary)" }}>{s.val}</div>
+                      <div style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)" }}>{s.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -285,12 +333,12 @@ export default function WalmartDropshippingPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ marginTop: "32px" }}>
             {[
-              { icon: <FaSearchDollar />, title: "Profit-Validated Product Research", desc: "We only list products with proven 30%+ margins after warehouse and shipping costs. Every item is profit-validated before listing." },
-              { icon: <FaShoppingCart />, title: "Multi-Source Procurement", desc: "We source from Amazon Prime, Sam's Club, Target, Home Depot, and Costco. Multiple sources means better pricing and availability." },
-              { icon: <FaWarehouse />, title: "Compliant Warehouse Routing", desc: "Products routed through our warehouse for Walmart-branded repackaging. All source invoices and branding removed for full compliance." },
-              { icon: <FaExchangeAlt />, title: "Same-Day Order Processing", desc: "Orders processed and purchased the same day they come in. No delays, no late shipments, no account health issues." },
-              { icon: <FaShieldAlt />, title: "Return & Refund Management", desc: "We handle all customer returns, refunds, and disputes. Our team manages the full reverse logistics process seamlessly." },
-              { icon: <FaHeadset />, title: "24/7 Dedicated Support", desc: "Your own virtual assistant available around the clock via WhatsApp. Real-time order updates and profit reports at your fingertips." },
+              { img: "/images/services/icons/product-research.png", title: "Profit-Validated Product Research", desc: "We only list products with proven 30%+ margins after warehouse and shipping costs. Every item is profit-validated before listing." },
+              { img: "/images/services/icons/order-fulfillment.png", title: "Multi-Source Procurement", desc: "We source from Amazon Prime, Sam's Club, Target, Home Depot, and Costco. Multiple sources means better pricing and availability." },
+              { img: "/images/services/icons/safety.png", title: "Compliant Warehouse Routing", desc: "Products routed through our warehouse for Walmart-branded repackaging. All source invoices and branding removed for full compliance." },
+              { img: "/images/services/icons/zero-work.png", title: "Same-Day Order Processing", desc: "Orders processed and purchased the same day they come in. No delays, no late shipments, no account health issues." },
+              { img: "/images/services/icons/return-handling.png", title: "Return & Refund Management", desc: "We handle all customer returns, refunds, and disputes. Our team manages the full reverse logistics process seamlessly." },
+              { img: "/images/services/icons/customer-support.png", title: "24/7 Dedicated Support", desc: "Your own virtual assistant available around the clock via WhatsApp. Real-time order updates and profit reports at your fingertips." },
             ].map((item) => (
               <div
                 key={item.title}
@@ -302,7 +350,7 @@ export default function WalmartDropshippingPage() {
                   border: "1px solid rgba(0,0,0,0.04)",
                 }}
               >
-                <div style={{ fontSize: "22px", color: "var(--color-primary)", marginBottom: "12px" }}>{item.icon}</div>
+                <img src={item.img} alt={item.title} style={{ width: "48px", height: "48px", objectFit: "contain", marginBottom: "12px" }} />
                 <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
                 <p className="typo-small">{item.desc}</p>
               </div>

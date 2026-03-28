@@ -70,46 +70,94 @@ export default function WalmartWholesalePage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section style={{ padding: "70px 0 80px", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main" style={{ textAlign: "center" }}>
-          <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>WALMART WHOLESALE</span>
-          <h1 className="typo-h1" style={{ marginBottom: "14px", maxWidth: "700px", marginLeft: "auto", marginRight: "auto" }}>
-            Walmart Wholesale Management &mdash; Higher Margins, Consistent Supply
-          </h1>
-          <p className="typo-body" style={{ maxWidth: "600px", margin: "0 auto 12px", fontSize: "17px" }}>
-            Wholesale sellers earn <strong>15-35% profit margins</strong> with authentic products, brand approvals, and predictable inventory costs.
-          </p>
-          <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
-            We handle supplier sourcing, brand approvals &amp; inventory management. You collect profits.
-          </p>
-          <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
-            <a
-              href="https://wa.link/m2ac6m"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary btn-primary-pulse"
-              style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
-            >
-              <FaWhatsapp style={{ fontSize: "18px" }} />
-              Get Free Consultation
-            </a>
-            <Link href="/pricing" className="btn-outline">
-              View Pricing
-            </Link>
-          </div>
-
-          {/* Trust badges */}
-          <div style={{ display: "flex", gap: "24px", justifyContent: "center", marginTop: "32px", flexWrap: "wrap" }}>
-            {[
-              { icon: <FaHandshake />, text: "50+ Verified Suppliers" },
-              { icon: <FaDollarSign />, text: "15-35% Profit Margins" },
-              { icon: <FaFileInvoice />, text: "100% Authentic Invoices" },
-            ].map((badge) => (
-              <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
-                <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
-                {badge.text}
+      <section style={{ padding: "55px 0 70px", backgroundColor: "#f6f7f9" }}>
+        <div className="container-main">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            {/* Left: Content */}
+            <div>
+              <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>WALMART WHOLESALE</span>
+              <h1 className="typo-h1" style={{ marginBottom: "14px" }}>
+                Walmart Wholesale Management &mdash; Higher Margins, Consistent Supply
+              </h1>
+              <p className="typo-body" style={{ marginBottom: "12px", fontSize: "17px" }}>
+                Wholesale sellers earn <strong>15-35% profit margins</strong> with authentic products, brand approvals, and predictable inventory costs.
+              </p>
+              <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
+                We handle supplier sourcing, brand approvals &amp; inventory management. You collect profits.
+              </p>
+              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+                <a
+                  href="https://wa.link/m2ac6m"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary btn-primary-pulse"
+                  style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+                >
+                  <FaWhatsapp style={{ fontSize: "18px" }} />
+                  Get Free Consultation
+                </a>
+                <Link href="/pricing" className="btn-outline">
+                  View Pricing
+                </Link>
               </div>
-            ))}
+
+              {/* Trust badges */}
+              <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap" }}>
+                {[
+                  { icon: <FaHandshake />, text: "50+ Verified Suppliers" },
+                  { icon: <FaDollarSign />, text: "15-35% Profit Margins" },
+                  { icon: <FaFileInvoice />, text: "100% Authentic Invoices" },
+                ].map((badge) => (
+                  <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
+                    <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
+                    {badge.text}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: SVG Illustration */}
+            <div className="hidden lg:flex items-center justify-center">
+              <div style={{
+                width: "100%",
+                maxWidth: "460px",
+                aspectRatio: "1/1",
+                borderRadius: "16px",
+                background: "linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%)",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "40px",
+                color: "#fff",
+                textAlign: "center",
+                position: "relative",
+                overflow: "hidden",
+              }}>
+                <div style={{ position: "absolute", top: "20px", right: "20px", backgroundColor: "rgba(22,163,74,0.2)", borderRadius: "12px", padding: "6px 14px" }}>
+                  <span style={{ fontSize: "12px", fontWeight: 700, color: "var(--color-primary)" }}>WHOLESALE</span>
+                </div>
+                <FaHandshake style={{ fontSize: "48px", marginBottom: "16px", opacity: 0.9 }} />
+                <h3 style={{ fontSize: "22px", fontWeight: 700, color: "#fff", marginBottom: "8px" }}>
+                  15-35% Profit Margins
+                </h3>
+                <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
+                  Authentic products from verified distributors
+                </p>
+                <div style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
+                  {[
+                    { val: "50+", label: "Suppliers" },
+                    { val: "100%", label: "Authentic" },
+                    { val: "Scalable", label: "Model" },
+                  ].map((s) => (
+                    <div key={s.label} style={{ textAlign: "center" }}>
+                      <div style={{ fontSize: "20px", fontWeight: 800, color: "var(--color-primary)" }}>{s.val}</div>
+                      <div style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)" }}>{s.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -282,12 +330,12 @@ export default function WalmartWholesalePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ marginTop: "32px" }}>
             {[
-              { icon: <FaSearchDollar />, title: "Product Research & Analysis", desc: "Deep market analysis to find wholesale products with strong demand, low competition, and healthy margins. Data-backed decisions, not guesswork." },
-              { icon: <FaHandshake />, title: "Supplier Sourcing & Negotiation", desc: "We connect you with verified distributors and negotiate wholesale pricing. All suppliers provide authentic invoices and brand authorization." },
-              { icon: <FaClipboardCheck />, title: "Brand Approval Management", desc: "We handle the entire brand approval process: applications, invoice submission, follow-ups, and authorization letters for restricted brands." },
-              { icon: <FaBoxes />, title: "Bulk Inventory Management", desc: "Inventory forecasting, reorder point automation, and multi-supplier coordination. Never overstock or run out of your best sellers." },
-              { icon: <FaDollarSign />, title: "Pricing & Repricing Strategy", desc: "Advanced repricing tools monitor competitors daily. We adjust prices to win the Buy Box while protecting your profit margins." },
-              { icon: <FaFileInvoice />, title: "Compliance & Documentation", desc: "All invoices, brand authorization letters, and product documentation organized and ready for Walmart compliance reviews." },
+              { img: "/images/services/icons/product-research.png", title: "Product Research & Analysis", desc: "Deep market analysis to find wholesale products with strong demand, low competition, and healthy margins. Data-backed decisions, not guesswork." },
+              { img: "/images/services/icons/personal-manager.png", title: "Supplier Sourcing & Negotiation", desc: "We connect you with verified distributors and negotiate wholesale pricing. All suppliers provide authentic invoices and brand authorization." },
+              { img: "/images/services/icons/safety.png", title: "Brand Approval Management", desc: "We handle the entire brand approval process: applications, invoice submission, follow-ups, and authorization letters for restricted brands." },
+              { img: "/images/services/icons/inventory.png", title: "Bulk Inventory Management", desc: "Inventory forecasting, reorder point automation, and multi-supplier coordination. Never overstock or run out of your best sellers." },
+              { img: "/images/services/icons/calculation.png", title: "Pricing & Repricing Strategy", desc: "Advanced repricing tools monitor competitors daily. We adjust prices to win the Buy Box while protecting your profit margins." },
+              { img: "/images/services/icons/account-health.png", title: "Compliance & Documentation", desc: "All invoices, brand authorization letters, and product documentation organized and ready for Walmart compliance reviews." },
             ].map((item) => (
               <div
                 key={item.title}
@@ -299,7 +347,7 @@ export default function WalmartWholesalePage() {
                   border: "1px solid rgba(0,0,0,0.04)",
                 }}
               >
-                <div style={{ fontSize: "22px", color: "var(--color-primary)", marginBottom: "12px" }}>{item.icon}</div>
+                <img src={item.img} alt={item.title} style={{ width: "48px", height: "48px", objectFit: "contain", marginBottom: "12px" }} />
                 <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
                 <p className="typo-small">{item.desc}</p>
               </div>

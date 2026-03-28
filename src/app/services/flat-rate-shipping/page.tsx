@@ -71,31 +71,96 @@ export default function FlatRateShippingPage() {
   return (
     <>
       {/* ── HERO SECTION ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main" style={{ textAlign: "center" }}>
-          <span className="typo-label">Flat Rate Shipping</span>
-          <h1 className="typo-h1" style={{ marginBottom: "10px" }}>
-            USPS Priority Mail Labels &mdash; Just $4 Per Label
-          </h1>
-          <p className="typo-subtext" style={{ maxWidth: "620px", margin: "0 auto 24px" }}>
-            Ship any weight to any US address for a flat $4 with USPS Priority
-            Mail. Also available: discounted UPS labels. No contracts, no
-            minimums &mdash; save 50-70% on every shipment.
-          </p>
-          <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
-            <a
-              href="https://wa.link/m2ac6m"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary"
-              style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
-            >
-              <FaWhatsapp style={{ fontSize: "18px" }} />
-              Quick WhatsApp
-            </a>
-            <Link href="/services" className="btn-outline">
-              Browse More Services
-            </Link>
+      <section style={{ padding: "55px 0 70px", backgroundColor: "#f6f7f9" }}>
+        <div className="container-main">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            {/* Left: Content */}
+            <div>
+              <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>FLAT RATE SHIPPING</span>
+              <h1 className="typo-h1" style={{ marginBottom: "14px" }}>
+                USPS Priority Mail Labels &mdash; Just $4 Per Label
+              </h1>
+              <p className="typo-body" style={{ marginBottom: "12px", fontSize: "17px" }}>
+                Ship any weight to any US address for a flat <strong>$4 with USPS Priority
+                Mail</strong>. Also available: discounted UPS labels. No contracts, no
+                minimums &mdash; save 50-70% on every shipment.
+              </p>
+              <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
+                No contracts. No minimums. No monthly fees.
+              </p>
+              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+                <a
+                  href="https://wa.link/m2ac6m"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary btn-primary-pulse"
+                  style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+                >
+                  <FaWhatsapp style={{ fontSize: "18px" }} />
+                  Quick WhatsApp
+                </a>
+                <Link href="/services" className="btn-outline">
+                  Browse More Services
+                </Link>
+              </div>
+
+              {/* Trust badges */}
+              <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap" }}>
+                {[
+                  { text: "USPS Priority Mail" },
+                  { text: "Full Tracking Included" },
+                  { text: "Same-Day Generation" },
+                ].map((badge) => (
+                  <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
+                    <span style={{ color: "var(--color-primary)", fontWeight: 700 }}>&#10003;</span>
+                    {badge.text}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: Branded illustration card */}
+            <div className="hidden lg:flex items-center justify-center">
+              <div style={{
+                width: "100%",
+                maxWidth: "460px",
+                aspectRatio: "1/1",
+                borderRadius: "16px",
+                background: "linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%)",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "40px",
+                color: "#fff",
+                textAlign: "center",
+                position: "relative",
+                overflow: "hidden",
+              }}>
+                <div style={{ position: "absolute", top: "20px", right: "20px", backgroundColor: "rgba(22,163,74,0.2)", borderRadius: "12px", padding: "6px 14px" }}>
+                  <span style={{ fontSize: "12px", fontWeight: 700, color: "var(--color-primary)" }}>FLAT RATE</span>
+                </div>
+                <div style={{ fontSize: "72px", fontWeight: 900, color: "var(--color-primary)", lineHeight: 1, marginBottom: "8px" }}>$4</div>
+                <h3 style={{ fontSize: "22px", fontWeight: 700, color: "#fff", marginBottom: "8px" }}>
+                  Per Label &mdash; Any Weight
+                </h3>
+                <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
+                  Save 50-70%
+                </p>
+                <div style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
+                  {[
+                    { val: "USPS", label: "Priority Mail" },
+                    { val: "Any", label: "Weight" },
+                    { val: "Full", label: "Tracking" },
+                  ].map((s) => (
+                    <div key={s.label} style={{ textAlign: "center" }}>
+                      <div style={{ fontSize: "20px", fontWeight: 800, color: "var(--color-primary)" }}>{s.val}</div>
+                      <div style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)" }}>{s.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

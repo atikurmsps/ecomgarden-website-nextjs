@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp, FaPaintBrush, FaSearch, FaTags, FaShoppingCart, FaHeadset, FaStar, FaStore, FaPalette, FaTruckLoading, FaSmile } from "react-icons/fa";
+import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp } from "react-icons/fa";
 import ServiceBenefits from "@/components/services/ServiceBenefits";
 import ServiceConfidence from "@/components/services/ServiceConfidence";
 import ServiceFAQ from "@/components/services/ServiceFAQ";
@@ -22,12 +22,12 @@ const comparisonData = [
 ];
 
 const whatYouGet = [
-  { icon: <FaPaintBrush />, title: "Original Design Creation", desc: "Our design team creates trending, marketable designs for print-on-demand products — t-shirts, mugs, wall art, tote bags, and personalized gifts that appeal to Etsy buyers." },
-  { icon: <FaSearch />, title: "Etsy SEO Optimization", desc: "Keyword research, optimized titles with long-tail keywords, all 13 tags utilized, detailed descriptions, accurate attributes, and competitive pricing for maximum Etsy search visibility." },
-  { icon: <FaTags />, title: "Print-on-Demand Setup", desc: "Full integration with Printful, Printify, Gooten, or CustomCat. We choose the best provider based on product quality, shipping speed, and profit margins for your product line." },
-  { icon: <FaShoppingCart />, title: "Complete Shop Management", desc: "Daily operations including listing creation, pricing strategy, inventory management, order processing, and shop policy updates to keep your store running smoothly." },
-  { icon: <FaHeadset />, title: "Customer Service & Reviews", desc: "We respond to buyer messages, handle order inquiries, manage returns and refunds, and actively maintain your shop's positive review rating and Star Seller status." },
-  { icon: <FaStar />, title: "Etsy Ads & Promotion", desc: "Strategic Etsy Ads campaigns, social media promotion, seasonal sale planning, and coupon management to drive traffic and boost sales during peak seasons." },
+  { icon: "/images/services/icons/marketing.png", title: "Original Design Creation", desc: "Our design team creates trending, marketable designs for print-on-demand products — t-shirts, mugs, wall art, tote bags, and personalized gifts that appeal to Etsy buyers." },
+  { icon: "/images/services/icons/product-research.png", title: "Etsy SEO Optimization", desc: "Keyword research, optimized titles with long-tail keywords, all 13 tags utilized, detailed descriptions, accurate attributes, and competitive pricing for maximum Etsy search visibility." },
+  { icon: "/images/services/icons/order-fulfillment.png", title: "Print-on-Demand Setup", desc: "Full integration with Printful, Printify, Gooten, or CustomCat. We choose the best provider based on product quality, shipping speed, and profit margins for your product line." },
+  { icon: "/images/services/icons/personal-manager.png", title: "Complete Shop Management", desc: "Daily operations including listing creation, pricing strategy, inventory management, order processing, and shop policy updates to keep your store running smoothly." },
+  { icon: "/images/services/icons/customer-support.png", title: "Customer Service & Reviews", desc: "We respond to buyer messages, handle order inquiries, manage returns and refunds, and actively maintain your shop's positive review rating and Star Seller status." },
+  { icon: "/images/services/icons/marketing.png", title: "Etsy Ads & Promotion", desc: "Strategic Etsy Ads campaigns, social media promotion, seasonal sale planning, and coupon management to drive traffic and boost sales during peak seasons." },
 ];
 
 const faqs = [
@@ -80,46 +80,58 @@ export default function EtsyDropshippingPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section style={{ padding: "70px 0 80px", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main" style={{ textAlign: "center" }}>
-          <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>ETSY DROPSHIPPING</span>
-          <h1 className="typo-h1" style={{ marginBottom: "14px", maxWidth: "700px", marginLeft: "auto", marginRight: "auto" }}>
-            Turn Etsy Into a Profitable Print-on-Demand Business
-          </h1>
-          <p className="typo-body" style={{ maxWidth: "600px", margin: "0 auto 12px", fontSize: "17px" }}>
-            We understand Etsy&apos;s unique marketplace culture — handmade aesthetics, vintage vibes, and the algorithm that drives discovery. <strong>90+ million active buyers</strong> are searching. Let us put your products in front of them.
-          </p>
-          <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
-            Zero inventory. Original designs. Full shop management.
-          </p>
-          <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
-            <a
-              href="https://wa.link/m2ac6m"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary btn-primary-pulse"
-              style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
-            >
-              <FaWhatsapp style={{ fontSize: "18px" }} />
-              Get Free Consultation
-            </a>
-            <Link href="/pricing" className="btn-outline">
-              View Pricing
-            </Link>
-          </div>
-
-          {/* Trust badges */}
-          <div style={{ display: "flex", gap: "24px", justifyContent: "center", marginTop: "32px", flexWrap: "wrap" }}>
-            {[
-              { icon: <FaPaintBrush />, text: "Original Design Team" },
-              { icon: <FaStar />, text: "Star Seller Experts" },
-              { icon: <FaSearch />, text: "Etsy SEO Specialists" },
-            ].map((badge) => (
-              <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
-                <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
-                {badge.text}
+      <section style={{ padding: "55px 0 70px", backgroundColor: "#f6f7f9" }}>
+        <div className="container-main">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>ETSY DROPSHIPPING</span>
+              <h1 className="typo-h1" style={{ marginBottom: "14px" }}>
+                Turn Etsy Into a Profitable Print-on-Demand Business
+              </h1>
+              <p className="typo-body" style={{ marginBottom: "12px", fontSize: "17px" }}>
+                We understand Etsy&apos;s unique marketplace culture — handmade aesthetics, vintage vibes, and the algorithm that drives discovery. <strong>90+ million active buyers</strong> are searching. Let us put your products in front of them.
+              </p>
+              <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
+                Zero inventory. Original designs. Full shop management.
+              </p>
+              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+                <a
+                  href="https://wa.link/m2ac6m"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary btn-primary-pulse"
+                  style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+                >
+                  <FaWhatsapp style={{ fontSize: "18px" }} />
+                  Get Free Consultation
+                </a>
+                <Link href="/pricing" className="btn-outline">
+                  View Pricing
+                </Link>
               </div>
-            ))}
+              <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap" }}>
+                {["Original Design Team", "Star Seller Experts", "Etsy SEO Specialists"].map((text) => (
+                  <div key={text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
+                    <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "13px" }} />
+                    {text}
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="hidden lg:flex items-center justify-center">
+              <div style={{
+                width: "100%", maxWidth: "460px", aspectRatio: "1/1",
+                borderRadius: "16px",
+                background: "linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%)",
+                display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
+                padding: "40px", color: "#fff", textAlign: "center",
+              }}>
+                <img src="/images/services/icons/zero-work.png" alt="Etsy Dropshipping" style={{ width: "80px", height: "80px", objectFit: "contain", marginBottom: "24px" }} />
+                <div style={{ fontSize: "48px", fontWeight: 800, lineHeight: 1, marginBottom: "8px" }}>90M+</div>
+                <div style={{ fontSize: "16px", opacity: 0.85, marginBottom: "16px" }}>Active Etsy Buyers</div>
+                <div style={{ fontSize: "14px", opacity: 0.7, maxWidth: "280px" }}>Original designs, print-on-demand fulfillment, zero inventory risk</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -194,10 +206,10 @@ export default function EtsyDropshippingPage() {
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "0", marginTop: "36px" }}>
             {[
-              { step: "01", icon: <FaStore style={{ fontSize: "28px", color: "var(--color-primary)" }} />, title: "Shop Setup", desc: "Create and optimize your Etsy shop with professional branding and policies" },
-              { step: "02", icon: <FaPalette style={{ fontSize: "28px", color: "var(--color-primary)" }} />, title: "Product Design", desc: "Design unique products and create SEO-optimized listings with high-quality mockups" },
-              { step: "03", icon: <FaTruckLoading style={{ fontSize: "28px", color: "var(--color-primary)" }} />, title: "Order Fulfillment", desc: "Print-on-demand partner manufactures and ships directly to your customer automatically" },
-              { step: "04", icon: <FaSmile style={{ fontSize: "28px", color: "var(--color-primary)" }} />, title: "Happy Customer", desc: "Customer receives a quality product with your branding and leaves a positive review" },
+              { step: "01", title: "Shop Setup", desc: "Create and optimize your Etsy shop with professional branding and policies" },
+              { step: "02", title: "Product Design", desc: "Design unique products and create SEO-optimized listings with high-quality mockups" },
+              { step: "03", title: "Order Fulfillment", desc: "Print-on-demand partner manufactures and ships directly to your customer automatically" },
+              { step: "04", title: "Happy Customer", desc: "Customer receives a quality product with your branding and leaves a positive review" },
             ].map((item) => (
               <div
                 key={item.step}
@@ -207,10 +219,16 @@ export default function EtsyDropshippingPage() {
                   position: "relative",
                 }}
               >
-                <div style={{ fontSize: "36px", fontWeight: 800, color: "var(--color-primary)", opacity: 0.15, lineHeight: 1 }}>
+                <div style={{
+                  fontSize: "36px",
+                  fontWeight: 800,
+                  color: "var(--color-primary)",
+                  opacity: 0.15,
+                  marginBottom: "8px",
+                  lineHeight: 1,
+                }}>
                   {item.step}
                 </div>
-                <div style={{ margin: "10px 0 8px" }}>{item.icon}</div>
                 <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
                 <p className="typo-small">{item.desc}</p>
               </div>
@@ -240,7 +258,7 @@ export default function EtsyDropshippingPage() {
                   border: "1px solid rgba(0,0,0,0.04)",
                 }}
               >
-                <div style={{ fontSize: "22px", color: "var(--color-primary)", marginBottom: "12px" }}>{item.icon}</div>
+                <div style={{ marginBottom: "12px" }}><img src={item.icon} alt={item.title} style={{ width: "48px", height: "48px", objectFit: "contain" }} /></div>
                 <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
                 <p className="typo-small">{item.desc}</p>
               </div>

@@ -70,46 +70,95 @@ export default function WalmartReinstatementPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section style={{ padding: "70px 0 80px", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main" style={{ textAlign: "center" }}>
-          <span className="typo-label" style={{ marginBottom: "8px", display: "block", color: "#dc2626" }}>ACCOUNT SUSPENDED?</span>
-          <h1 className="typo-h1" style={{ marginBottom: "14px", maxWidth: "750px", marginLeft: "auto", marginRight: "auto" }}>
-            Every Day Your Walmart Account Is Suspended, You&apos;re Losing Money
-          </h1>
-          <p className="typo-body" style={{ maxWidth: "600px", margin: "0 auto 12px", fontSize: "17px" }}>
-            We&apos;ve reinstated <strong>300+ suspended Walmart accounts</strong> with an <strong>85%+ success rate</strong>. Most cases resolved in 3-14 business days.
-          </p>
-          <p style={{ fontSize: "14px", color: "#dc2626", fontWeight: 600, marginBottom: "28px" }}>
-            Don&apos;t attempt a DIY appeal &mdash; one bad submission can permanently close your account.
-          </p>
-          <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
-            <a
-              href="https://wa.link/m2ac6m"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary btn-primary-pulse"
-              style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
-            >
-              <FaWhatsapp style={{ fontSize: "18px" }} />
-              Get Emergency Help Now
-            </a>
-            <Link href="/services" className="btn-outline">
-              Browse Services
-            </Link>
-          </div>
-
-          {/* Trust badges */}
-          <div style={{ display: "flex", gap: "24px", justifyContent: "center", marginTop: "32px", flexWrap: "wrap" }}>
-            {[
-              { icon: <FaShieldAlt />, text: "85%+ Success Rate" },
-              { icon: <FaClock />, text: "3-14 Day Resolution" },
-              { icon: <FaGavel />, text: "300+ Accounts Reinstated" },
-            ].map((badge) => (
-              <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
-                <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
-                {badge.text}
+      <section style={{ padding: "55px 0 70px", backgroundColor: "#f6f7f9" }}>
+        <div className="container-main">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            {/* Left: Content */}
+            <div>
+              <span className="typo-label" style={{ marginBottom: "8px", display: "block", color: "#dc2626" }}>ACCOUNT SUSPENDED?</span>
+              <h1 className="typo-h1" style={{ marginBottom: "14px" }}>
+                Every Day Your Walmart Account Is Suspended, You&apos;re Losing Money
+              </h1>
+              <p className="typo-body" style={{ marginBottom: "12px", fontSize: "17px" }}>
+                We&apos;ve reinstated <strong>300+ suspended Walmart accounts</strong> with an <strong>85%+ success rate</strong>. Most cases resolved in 3-14 business days.
+              </p>
+              <p style={{ fontSize: "14px", color: "#dc2626", fontWeight: 600, marginBottom: "28px" }}>
+                Don&apos;t attempt a DIY appeal &mdash; one bad submission can permanently close your account.
+              </p>
+              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+                <a
+                  href="https://wa.link/m2ac6m"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary btn-primary-pulse"
+                  style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+                >
+                  <FaWhatsapp style={{ fontSize: "18px" }} />
+                  Get Emergency Help Now
+                </a>
+                <Link href="/services" className="btn-outline">
+                  Browse Services
+                </Link>
               </div>
-            ))}
+
+              {/* Trust badges */}
+              <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap" }}>
+                {[
+                  { icon: <FaShieldAlt />, text: "85%+ Success Rate" },
+                  { icon: <FaClock />, text: "3-14 Day Resolution" },
+                  { icon: <FaGavel />, text: "300+ Accounts Reinstated" },
+                ].map((badge) => (
+                  <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
+                    <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
+                    {badge.text}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: SVG Illustration */}
+            <div className="hidden lg:flex items-center justify-center">
+              <div style={{
+                width: "100%",
+                maxWidth: "460px",
+                aspectRatio: "1/1",
+                borderRadius: "16px",
+                background: "linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%)",
+                border: "1px solid rgba(220,38,38,0.15)",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "40px",
+                color: "#fff",
+                textAlign: "center",
+                position: "relative",
+                overflow: "hidden",
+              }}>
+                <div style={{ position: "absolute", top: "20px", right: "20px", backgroundColor: "rgba(220,38,38,0.2)", borderRadius: "12px", padding: "6px 14px" }}>
+                  <span style={{ fontSize: "12px", fontWeight: 700, color: "#dc2626" }}>ACT NOW</span>
+                </div>
+                <FaGavel style={{ fontSize: "48px", marginBottom: "16px", opacity: 0.9, color: "#dc2626" }} />
+                <h3 style={{ fontSize: "22px", fontWeight: 700, color: "#fff", marginBottom: "8px" }}>
+                  85%+ Success Rate
+                </h3>
+                <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
+                  Professional appeal writing &amp; compliance audits
+                </p>
+                <div style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
+                  {[
+                    { val: "300+", label: "Reinstated" },
+                    { val: "3-14d", label: "Resolution" },
+                    { val: "Free", label: "Assessment" },
+                  ].map((s) => (
+                    <div key={s.label} style={{ textAlign: "center" }}>
+                      <div style={{ fontSize: "20px", fontWeight: 800, color: "var(--color-primary)" }}>{s.val}</div>
+                      <div style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)" }}>{s.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -274,12 +323,12 @@ export default function WalmartReinstatementPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ marginTop: "32px" }}>
             {[
-              { icon: <FaGavel />, title: "Root Cause Analysis", desc: "We identify exactly why Walmart suspended your account. Not surface-level guessing - deep analysis of every violation, metric, and policy breach." },
-              { icon: <FaFileAlt />, title: "Professional Appeal Drafting", desc: "Custom Plan of Action (POA) tailored to your specific case. Clear root cause, corrective actions taken, and preventive measures that Walmart wants to see." },
-              { icon: <FaShieldAlt />, title: "Full Compliance Audit", desc: "We review every listing, metric, and policy on your account. Every violation is identified and fixed before the appeal is submitted." },
-              { icon: <FaExclamationTriangle />, title: "IP Complaint Resolution", desc: "Specialized handling of intellectual property complaints. We work with brand owners and prepare proper documentation for IP-related suspensions." },
-              { icon: <FaChartLine />, title: "Account Health Restoration", desc: "After reinstatement, we fix all account health metrics - order defect rate, late shipment rate, and cancellation rate brought back to healthy levels." },
-              { icon: <FaClock />, title: "Ongoing Prevention Monitoring", desc: "Post-reinstatement monitoring catches potential issues before they escalate. We set up alerts and compliance checks to prevent future suspensions." },
+              { img: "/images/services/icons/product-research.png", title: "Root Cause Analysis", desc: "We identify exactly why Walmart suspended your account. Not surface-level guessing - deep analysis of every violation, metric, and policy breach." },
+              { img: "/images/services/icons/personal-manager.png", title: "Professional Appeal Drafting", desc: "Custom Plan of Action (POA) tailored to your specific case. Clear root cause, corrective actions taken, and preventive measures that Walmart wants to see." },
+              { img: "/images/services/icons/safety.png", title: "Full Compliance Audit", desc: "We review every listing, metric, and policy on your account. Every violation is identified and fixed before the appeal is submitted." },
+              { img: "/images/services/icons/account-health.png", title: "IP Complaint Resolution", desc: "Specialized handling of intellectual property complaints. We work with brand owners and prepare proper documentation for IP-related suspensions." },
+              { img: "/images/services/icons/scalability.png", title: "Account Health Restoration", desc: "After reinstatement, we fix all account health metrics - order defect rate, late shipment rate, and cancellation rate brought back to healthy levels." },
+              { img: "/images/services/icons/zero-work.png", title: "Ongoing Prevention Monitoring", desc: "Post-reinstatement monitoring catches potential issues before they escalate. We set up alerts and compliance checks to prevent future suspensions." },
             ].map((item) => (
               <div
                 key={item.title}
@@ -291,7 +340,7 @@ export default function WalmartReinstatementPage() {
                   border: "1px solid rgba(0,0,0,0.04)",
                 }}
               >
-                <div style={{ fontSize: "22px", color: "var(--color-primary)", marginBottom: "12px" }}>{item.icon}</div>
+                <img src={item.img} alt={item.title} style={{ width: "48px", height: "48px", objectFit: "contain", marginBottom: "12px" }} />
                 <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
                 <p className="typo-small">{item.desc}</p>
               </div>

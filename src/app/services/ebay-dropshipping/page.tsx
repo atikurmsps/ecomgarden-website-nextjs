@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp, FaSearch, FaShieldAlt, FaStar, FaSyncAlt, FaChartLine, FaHeadset, FaClipboardList, FaListAlt, FaTruck, FaSmile } from "react-icons/fa";
+import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp } from "react-icons/fa";
 import ServiceBenefits from "@/components/services/ServiceBenefits";
 import ServiceConfidence from "@/components/services/ServiceConfidence";
 import CTASection from "@/components/home/CTASection";
@@ -21,12 +21,12 @@ const comparisonData = [
 ];
 
 const whatYouGet = [
-  { icon: <FaSearch />, title: "Cassini SEO Optimization", desc: "We optimize every listing for eBay's Cassini search engine — keyword-rich titles, detailed item specifics, proper categorization, and competitive pricing that ranks your products higher." },
-  { icon: <FaSyncAlt />, title: "Automated Repricing", desc: "Real-time repricing tools that automatically adjust your prices to stay competitive while protecting profit margins. Win the Buy Box without constant manual monitoring." },
-  { icon: <FaStar />, title: "Top Rated Seller Strategy", desc: "We manage your account metrics to achieve and maintain Top Rated Seller status — 20% fee discount, priority search placement, and the trust badge that converts browsers into buyers." },
-  { icon: <FaShieldAlt />, title: "Account Health Management", desc: "Daily monitoring of defect rates, late shipment rates, cases closed without resolution, and policy compliance. We prevent issues before they become account restrictions." },
-  { icon: <FaChartLine />, title: "Product Research & Sourcing", desc: "Data-driven product research to find high-demand, profitable items from verified wholesale suppliers. We analyze sell-through rates, competition levels, and margin potential." },
-  { icon: <FaHeadset />, title: "Customer Service & Returns", desc: "Professional buyer communication within hours, return processing, refund management, and proactive feedback requests to build and maintain your seller reputation." },
+  { icon: "/images/services/icons/marketing.png", title: "Cassini SEO Optimization", desc: "We optimize every listing for eBay's Cassini search engine — keyword-rich titles, detailed item specifics, proper categorization, and competitive pricing that ranks your products higher." },
+  { icon: "/images/services/icons/calculation.png", title: "Automated Repricing", desc: "Real-time repricing tools that automatically adjust your prices to stay competitive while protecting profit margins. Win the Buy Box without constant manual monitoring." },
+  { icon: "/images/services/icons/account-health.png", title: "Top Rated Seller Strategy", desc: "We manage your account metrics to achieve and maintain Top Rated Seller status — 20% fee discount, priority search placement, and the trust badge that converts browsers into buyers." },
+  { icon: "/images/services/icons/safety.png", title: "Account Health Management", desc: "Daily monitoring of defect rates, late shipment rates, cases closed without resolution, and policy compliance. We prevent issues before they become account restrictions." },
+  { icon: "/images/services/icons/product-research.png", title: "Product Research & Sourcing", desc: "Data-driven product research to find high-demand, profitable items from verified wholesale suppliers. We analyze sell-through rates, competition levels, and margin potential." },
+  { icon: "/images/services/icons/customer-support.png", title: "Customer Service & Returns", desc: "Professional buyer communication within hours, return processing, refund management, and proactive feedback requests to build and maintain your seller reputation." },
 ];
 
 const faqs = [
@@ -79,46 +79,58 @@ export default function EbayDropshippingPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section style={{ padding: "70px 0 80px", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main" style={{ textAlign: "center" }}>
-          <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>EBAY DROPSHIPPING</span>
-          <h1 className="typo-h1" style={{ marginBottom: "14px", maxWidth: "700px", marginLeft: "auto", marginRight: "auto" }}>
-            Build a Profitable eBay Business With Expert Management
-          </h1>
-          <p className="typo-body" style={{ maxWidth: "600px", margin: "0 auto 12px", fontSize: "17px" }}>
-            <strong>130+ million active buyers</strong> on eBay. We handle Cassini SEO, repricing, account health, and daily operations so you can focus on scaling — not firefighting.
-          </p>
-          <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
-            Policy-compliant. Top Rated Seller focused. Full account management.
-          </p>
-          <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
-            <a
-              href="https://wa.link/m2ac6m"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary btn-primary-pulse"
-              style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
-            >
-              <FaWhatsapp style={{ fontSize: "18px" }} />
-              Get Free Consultation
-            </a>
-            <Link href="/pricing" className="btn-outline">
-              View Pricing
-            </Link>
-          </div>
-
-          {/* Trust badges */}
-          <div style={{ display: "flex", gap: "24px", justifyContent: "center", marginTop: "32px", flexWrap: "wrap" }}>
-            {[
-              { icon: <FaShieldAlt />, text: "Account Health Experts" },
-              { icon: <FaStar />, text: "Top Rated Seller Strategy" },
-              { icon: <FaSyncAlt />, text: "Automated Repricing" },
-            ].map((badge) => (
-              <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
-                <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
-                {badge.text}
+      <section style={{ padding: "55px 0 70px", backgroundColor: "#f6f7f9" }}>
+        <div className="container-main">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>EBAY DROPSHIPPING</span>
+              <h1 className="typo-h1" style={{ marginBottom: "14px" }}>
+                Build a Profitable eBay Business With Expert Management
+              </h1>
+              <p className="typo-body" style={{ marginBottom: "12px", fontSize: "17px" }}>
+                <strong>130+ million active buyers</strong> on eBay. We handle Cassini SEO, repricing, account health, and daily operations so you can focus on scaling — not firefighting.
+              </p>
+              <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
+                Policy-compliant. Top Rated Seller focused. Full account management.
+              </p>
+              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+                <a
+                  href="https://wa.link/m2ac6m"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary btn-primary-pulse"
+                  style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+                >
+                  <FaWhatsapp style={{ fontSize: "18px" }} />
+                  Get Free Consultation
+                </a>
+                <Link href="/pricing" className="btn-outline">
+                  View Pricing
+                </Link>
               </div>
-            ))}
+              <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap" }}>
+                {["Account Health Experts", "Top Rated Seller Strategy", "Automated Repricing"].map((text) => (
+                  <div key={text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
+                    <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "13px" }} />
+                    {text}
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="hidden lg:flex items-center justify-center">
+              <div style={{
+                width: "100%", maxWidth: "460px", aspectRatio: "1/1",
+                borderRadius: "16px",
+                background: "linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%)",
+                display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
+                padding: "40px", color: "#fff", textAlign: "center",
+              }}>
+                <img src="/images/services/icons/account-health.png" alt="eBay Dropshipping" style={{ width: "80px", height: "80px", objectFit: "contain", marginBottom: "24px" }} />
+                <div style={{ fontSize: "48px", fontWeight: 800, lineHeight: 1, marginBottom: "8px" }}>130M+</div>
+                <div style={{ fontSize: "16px", opacity: 0.85, marginBottom: "16px" }}>Active eBay Buyers</div>
+                <div style={{ fontSize: "14px", opacity: 0.7, maxWidth: "280px" }}>Cassini SEO, automated repricing, and full account management</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -192,10 +204,10 @@ export default function EbayDropshippingPage() {
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "0", marginTop: "36px" }}>
             {[
-              { step: "01", icon: <FaClipboardList style={{ fontSize: "28px", color: "var(--color-primary)" }} />, title: "Product Research", desc: "Find high-demand profitable products from trusted wholesale suppliers" },
-              { step: "02", icon: <FaListAlt style={{ fontSize: "28px", color: "var(--color-primary)" }} />, title: "List & Optimize", desc: "Create optimized eBay listings with SEO titles, descriptions, and competitive pricing" },
-              { step: "03", icon: <FaTruck style={{ fontSize: "28px", color: "var(--color-primary)" }} />, title: "Order Processing", desc: "Process orders immediately through suppliers with fast shipping and tracking updates" },
-              { step: "04", icon: <FaSmile style={{ fontSize: "28px", color: "var(--color-primary)" }} />, title: "Happy Customer", desc: "Customer receives quality product on time and your seller ratings stay excellent" },
+              { step: "01", title: "Product Research", desc: "Find high-demand profitable products from trusted wholesale suppliers" },
+              { step: "02", title: "List & Optimize", desc: "Create optimized eBay listings with SEO titles, descriptions, and competitive pricing" },
+              { step: "03", title: "Order Processing", desc: "Process orders immediately through suppliers with fast shipping and tracking updates" },
+              { step: "04", title: "Happy Customer", desc: "Customer receives quality product on time and your seller ratings stay excellent" },
             ].map((item) => (
               <div
                 key={item.step}
@@ -205,10 +217,16 @@ export default function EbayDropshippingPage() {
                   position: "relative",
                 }}
               >
-                <div style={{ fontSize: "36px", fontWeight: 800, color: "var(--color-primary)", opacity: 0.15, lineHeight: 1 }}>
+                <div style={{
+                  fontSize: "36px",
+                  fontWeight: 800,
+                  color: "var(--color-primary)",
+                  opacity: 0.15,
+                  marginBottom: "8px",
+                  lineHeight: 1,
+                }}>
                   {item.step}
                 </div>
-                <div style={{ margin: "10px 0 8px" }}>{item.icon}</div>
                 <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
                 <p className="typo-small">{item.desc}</p>
               </div>
@@ -238,7 +256,7 @@ export default function EbayDropshippingPage() {
                   border: "1px solid rgba(0,0,0,0.04)",
                 }}
               >
-                <div style={{ fontSize: "22px", color: "var(--color-primary)", marginBottom: "12px" }}>{item.icon}</div>
+                <div style={{ marginBottom: "12px" }}><img src={item.icon} alt={item.title} style={{ width: "48px", height: "48px", objectFit: "contain" }} /></div>
                 <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
                 <p className="typo-small">{item.desc}</p>
               </div>

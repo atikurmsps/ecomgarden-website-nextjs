@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp, FaSearch, FaGoogle, FaFacebookF, FaEnvelope, FaPenFancy, FaChartLine, FaClock, FaBullhorn } from "react-icons/fa";
+import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp } from "react-icons/fa";
 import CTASection from "@/components/home/CTASection";
 
 const comparisonData = [
@@ -58,46 +58,58 @@ export default function ShopifyMarketingPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section style={{ padding: "70px 0 80px", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main" style={{ textAlign: "center" }}>
-          <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>SHOPIFY MARKETING</span>
-          <h1 className="typo-h1" style={{ marginBottom: "14px", maxWidth: "700px", marginLeft: "auto", marginRight: "auto" }}>
-            Drive Traffic, Sales &amp; Revenue to Your Shopify Store
-          </h1>
-          <p className="typo-body" style={{ maxWidth: "600px", margin: "0 auto 12px", fontSize: "17px" }}>
-            Our clients average <strong>3-5x ROAS on paid ads</strong> and <strong>300% organic traffic growth</strong>. SEO, Google Ads, Meta Ads, email marketing — all under one roof.
-          </p>
-          <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
-            No long-term contracts. Transparent reporting. Real ROI.
-          </p>
-          <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
-            <a
-              href="https://wa.link/m2ac6m"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary btn-primary-pulse"
-              style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
-            >
-              <FaWhatsapp style={{ fontSize: "18px" }} />
-              Get Free Marketing Audit
-            </a>
-            <Link href="/pricing" className="btn-outline">
-              View Pricing
-            </Link>
-          </div>
-
-          {/* Trust badges */}
-          <div style={{ display: "flex", gap: "24px", justifyContent: "center", marginTop: "32px", flexWrap: "wrap" }}>
-            {[
-              { icon: <FaBullhorn />, text: "$2M+ Ad Spend Managed" },
-              { icon: <FaChartLine />, text: "3-5x Avg ROAS" },
-              { icon: <FaClock />, text: "Results in Week 1" },
-            ].map((badge) => (
-              <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
-                <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
-                {badge.text}
+      <section style={{ padding: "55px 0 70px", backgroundColor: "#f6f7f9" }}>
+        <div className="container-main">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>SHOPIFY MARKETING</span>
+              <h1 className="typo-h1" style={{ marginBottom: "14px" }}>
+                Drive Traffic, Sales &amp; Revenue to Your Shopify Store
+              </h1>
+              <p className="typo-body" style={{ marginBottom: "12px", fontSize: "17px" }}>
+                Our clients average <strong>3-5x ROAS on paid ads</strong> and <strong>300% organic traffic growth</strong>. SEO, Google Ads, Meta Ads, email marketing — all under one roof.
+              </p>
+              <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
+                No long-term contracts. Transparent reporting. Real ROI.
+              </p>
+              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+                <a
+                  href="https://wa.link/m2ac6m"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary btn-primary-pulse"
+                  style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+                >
+                  <FaWhatsapp style={{ fontSize: "18px" }} />
+                  Get Free Marketing Audit
+                </a>
+                <Link href="/pricing" className="btn-outline">
+                  View Pricing
+                </Link>
               </div>
-            ))}
+              <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap" }}>
+                {["$2M+ Ad Spend Managed", "3-5x Avg ROAS", "Results in Week 1"].map((text) => (
+                  <div key={text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
+                    <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "13px" }} />
+                    {text}
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="hidden lg:flex items-center justify-center">
+              <div style={{
+                width: "100%", maxWidth: "460px", aspectRatio: "1/1",
+                borderRadius: "16px",
+                background: "linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%)",
+                display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
+                padding: "40px", color: "#fff", textAlign: "center",
+              }}>
+                <img src="/images/services/icons/marketing.png" alt="Shopify Marketing" style={{ width: "80px", height: "80px", objectFit: "contain", marginBottom: "24px" }} />
+                <div style={{ fontSize: "48px", fontWeight: 800, lineHeight: 1, marginBottom: "8px" }}>3-5x</div>
+                <div style={{ fontSize: "16px", opacity: 0.85, marginBottom: "16px" }}>Average ROAS on Paid Ads</div>
+                <div style={{ fontSize: "14px", opacity: 0.7, maxWidth: "280px" }}>Full-funnel marketing: SEO, Google Ads, Meta Ads, and email automation</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -113,12 +125,12 @@ export default function ShopifyMarketingPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ marginTop: "32px" }}>
             {[
-              { icon: <FaSearch />, title: "Shopify SEO", desc: "On-page and technical SEO including keyword research, meta tags, site structure, schema markup, content strategy, and Core Web Vitals optimization for sustainable organic traffic growth." },
-              { icon: <FaGoogle />, title: "Google Ads & Shopping", desc: "Search, Shopping, Display, and Performance Max campaigns with keyword bidding, negative keywords, product feed optimization, and continuous ROAS improvement." },
-              { icon: <FaFacebookF />, title: "Facebook & Meta Ads", desc: "Data-driven Facebook and Instagram ad campaigns with audience targeting, creative testing, retargeting funnels, and conversion tracking for maximum return on ad spend." },
-              { icon: <FaEnvelope />, title: "Email Marketing", desc: "Automated email flows — welcome series, abandoned cart recovery, post-purchase upsells, win-back campaigns, and promotional newsletters using Klaviyo or your preferred platform." },
-              { icon: <FaPenFancy />, title: "Content Marketing", desc: "Blog content strategy, product descriptions, landing pages, and brand storytelling that drives organic traffic and positions your store as an authority in your niche." },
-              { icon: <FaChartLine />, title: "Analytics & CRO", desc: "Comprehensive tracking setup, A/B testing, landing page optimization, checkout improvements, and user behavior analysis to maximize revenue from existing traffic." },
+              { icon: "/images/services/icons/marketing.png", title: "Shopify SEO", desc: "On-page and technical SEO including keyword research, meta tags, site structure, schema markup, content strategy, and Core Web Vitals optimization for sustainable organic traffic growth." },
+              { icon: "/images/services/icons/marketing.png", title: "Google Ads & Shopping", desc: "Search, Shopping, Display, and Performance Max campaigns with keyword bidding, negative keywords, product feed optimization, and continuous ROAS improvement." },
+              { icon: "/images/services/icons/marketing.png", title: "Facebook & Meta Ads", desc: "Data-driven Facebook and Instagram ad campaigns with audience targeting, creative testing, retargeting funnels, and conversion tracking for maximum return on ad spend." },
+              { icon: "/images/services/icons/customer-support.png", title: "Email Marketing", desc: "Automated email flows — welcome series, abandoned cart recovery, post-purchase upsells, win-back campaigns, and promotional newsletters using Klaviyo or your preferred platform." },
+              { icon: "/images/services/icons/product-research.png", title: "Content Marketing", desc: "Blog content strategy, product descriptions, landing pages, and brand storytelling that drives organic traffic and positions your store as an authority in your niche." },
+              { icon: "/images/services/icons/calculation.png", title: "Analytics & CRO", desc: "Comprehensive tracking setup, A/B testing, landing page optimization, checkout improvements, and user behavior analysis to maximize revenue from existing traffic." },
             ].map((item) => (
               <div
                 key={item.title}
@@ -130,7 +142,7 @@ export default function ShopifyMarketingPage() {
                   border: "1px solid rgba(0,0,0,0.04)",
                 }}
               >
-                <div style={{ fontSize: "22px", color: "var(--color-primary)", marginBottom: "12px" }}>{item.icon}</div>
+                <div style={{ marginBottom: "12px" }}><img src={item.icon} alt={item.title} style={{ width: "48px", height: "48px", objectFit: "contain" }} /></div>
                 <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
                 <p className="typo-small">{item.desc}</p>
               </div>

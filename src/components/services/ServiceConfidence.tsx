@@ -3,10 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 
 const stats = [
-  { label: "Revenue Last Year", value: 12, prefix: "$", suffix: "M+" },
-  { label: "Profit Made", value: 2, prefix: "$", suffix: "M+" },
-  { label: "Active Stores", value: 55, prefix: "", suffix: "+" },
-  { label: "Happy Clients", value: 250, prefix: "", suffix: "+" },
+  { label: "Sales Last Year", value: 10, prefix: "$", suffix: " M" },
+  { label: "Profit Made", value: 5, prefix: "$", suffix: " M" },
+  { label: "Active Store", value: 15, prefix: "", suffix: " +" },
+  { label: "Happy Client", value: 150, prefix: "", suffix: " +" },
 ];
 
 export default function ServiceConfidence() {

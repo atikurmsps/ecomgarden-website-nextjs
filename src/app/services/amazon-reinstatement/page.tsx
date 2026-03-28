@@ -14,12 +14,12 @@ const successStats = [
 ];
 
 const whatYouGet = [
-  { icon: <FaFileAlt />, title: "Professional Appeal Writing", desc: "Every Plan of Action is custom-crafted for your specific violation. No templates, no generic language. We address the exact root cause, corrective actions, and preventive measures Amazon requires." },
-  { icon: <FaGavel />, title: "Amazon Policy Expertise", desc: "Our team stays current on every Amazon policy update. We know what Seller Performance looks for, what language triggers approvals, and what mistakes cause rejections." },
-  { icon: <FaShieldAlt />, title: "Evidence & Documentation", desc: "We gather and organize invoices, supplier documentation, authenticity certificates, and supporting evidence into a compelling case package that leaves no room for doubt." },
-  { icon: <FaClock />, title: "Urgent Case Handling", desc: "We understand every day costs you money. Your case begins immediately after consultation. Most appeals are submitted within 48-72 hours of us receiving your account access." },
-  { icon: <FaExclamationTriangle />, title: "Previously Denied Appeals", desc: "Had your appeal rejected once — or multiple times? We specialize in reopening denied cases. We identify weaknesses in past submissions and build a stronger, evidence-backed appeal." },
-  { icon: <FaHandshake />, title: "Post-Reinstatement Protection", desc: "Getting reinstated is step one. We help you implement compliance measures, performance monitoring, and operating procedures to prevent future suspensions." },
+  { img: "/images/services/icons/personal-manager.png", title: "Professional Appeal Writing", desc: "Every Plan of Action is custom-crafted for your specific violation. No templates, no generic language. We address the exact root cause, corrective actions, and preventive measures Amazon requires." },
+  { img: "/images/services/icons/safety.png", title: "Amazon Policy Expertise", desc: "Our team stays current on every Amazon policy update. We know what Seller Performance looks for, what language triggers approvals, and what mistakes cause rejections." },
+  { img: "/images/services/icons/account-health.png", title: "Evidence & Documentation", desc: "We gather and organize invoices, supplier documentation, authenticity certificates, and supporting evidence into a compelling case package that leaves no room for doubt." },
+  { img: "/images/services/icons/order-fulfillment.png", title: "Urgent Case Handling", desc: "We understand every day costs you money. Your case begins immediately after consultation. Most appeals are submitted within 48-72 hours of us receiving your account access." },
+  { img: "/images/services/icons/return-handling.png", title: "Previously Denied Appeals", desc: "Had your appeal rejected once — or multiple times? We specialize in reopening denied cases. We identify weaknesses in past submissions and build a stronger, evidence-backed appeal." },
+  { img: "/images/services/icons/scalability.png", title: "Post-Reinstatement Protection", desc: "Getting reinstated is step one. We help you implement compliance measures, performance monitoring, and operating procedures to prevent future suspensions." },
 ];
 
 const caseStudies = [
@@ -122,59 +122,108 @@ export default function AmazonReinstatementPage() {
   return (
     <>
       {/* ── HERO — URGENCY FOCUSED ── */}
-      <section style={{ padding: "70px 0 80px", backgroundColor: "#1a1a2e" }}>
-        <div className="container-main" style={{ textAlign: "center" }}>
-          <div style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "8px",
-            backgroundColor: "rgba(220,38,38,0.15)",
-            border: "1px solid rgba(220,38,38,0.3)",
-            borderRadius: "20px",
-            padding: "6px 16px",
-            marginBottom: "20px",
-          }}>
-            <FaExclamationTriangle style={{ color: "#dc2626", fontSize: "14px" }} />
-            <span style={{ color: "#dc2626", fontSize: "13px", fontWeight: 600 }}>ACCOUNT SUSPENDED? ACT NOW</span>
-          </div>
-
-          <h1 className="typo-h1" style={{ marginBottom: "14px", maxWidth: "750px", marginLeft: "auto", marginRight: "auto", color: "#fff" }}>
-            Every Day Your Account is Suspended Costs You Money
-          </h1>
-          <p style={{ maxWidth: "600px", margin: "0 auto 12px", fontSize: "17px", color: "rgba(255,255,255,0.8)" }}>
-            Professional Amazon account reinstatement with a <strong style={{ color: "#fff" }}>90%+ success rate</strong>. Expert appeal writing, evidence gathering, and direct communication with Seller Performance.
-          </p>
-          <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
-            Free case assessment. We only take cases we can win.
-          </p>
-          <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
-            <a
-              href="https://wa.link/m2ac6m"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary btn-primary-pulse"
-              style={{ display: "inline-flex", alignItems: "center", gap: "8px", fontSize: "16px", padding: "14px 28px" }}
-            >
-              <FaWhatsapp style={{ fontSize: "20px" }} />
-              Get Emergency Help Now
-            </a>
-            <Link href="/contact" className="btn-outline" style={{ borderColor: "rgba(255,255,255,0.3)", color: "#fff" }}>
-              Free Case Assessment
-            </Link>
-          </div>
-
-          {/* Trust badges */}
-          <div style={{ display: "flex", gap: "24px", justifyContent: "center", marginTop: "32px", flexWrap: "wrap" }}>
-            {[
-              { icon: <FaShieldAlt />, text: "90%+ Success Rate" },
-              { icon: <FaFileAlt />, text: "200+ Accounts Recovered" },
-              { icon: <FaClock />, text: "Appeal in 48-72 Hours" },
-            ].map((badge) => (
-              <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "rgba(255,255,255,0.7)" }}>
-                <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
-                {badge.text}
+      <section style={{ padding: "55px 0 70px", backgroundColor: "#1a1a2e" }}>
+        <div className="container-main">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            {/* Left: Content */}
+            <div>
+              <div style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
+                backgroundColor: "rgba(220,38,38,0.15)",
+                border: "1px solid rgba(220,38,38,0.3)",
+                borderRadius: "20px",
+                padding: "6px 16px",
+                marginBottom: "20px",
+              }}>
+                <FaExclamationTriangle style={{ color: "#dc2626", fontSize: "14px" }} />
+                <span style={{ color: "#dc2626", fontSize: "13px", fontWeight: 600 }}>ACCOUNT SUSPENDED? ACT NOW</span>
               </div>
-            ))}
+
+              <h1 className="typo-h1" style={{ marginBottom: "14px", color: "#fff" }}>
+                Every Day Your Account is Suspended Costs You Money
+              </h1>
+              <p style={{ marginBottom: "12px", fontSize: "17px", color: "rgba(255,255,255,0.8)" }}>
+                Professional Amazon account reinstatement with a <strong style={{ color: "#fff" }}>90%+ success rate</strong>. Expert appeal writing, evidence gathering, and direct communication with Seller Performance.
+              </p>
+              <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
+                Free case assessment. We only take cases we can win.
+              </p>
+              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+                <a
+                  href="https://wa.link/m2ac6m"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary btn-primary-pulse"
+                  style={{ display: "inline-flex", alignItems: "center", gap: "8px", fontSize: "16px", padding: "14px 28px" }}
+                >
+                  <FaWhatsapp style={{ fontSize: "20px" }} />
+                  Get Emergency Help Now
+                </a>
+                <Link href="/contact" className="btn-outline" style={{ borderColor: "rgba(255,255,255,0.3)", color: "#fff" }}>
+                  Free Case Assessment
+                </Link>
+              </div>
+
+              {/* Trust badges */}
+              <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap" }}>
+                {[
+                  { icon: <FaShieldAlt />, text: "90%+ Success Rate" },
+                  { icon: <FaFileAlt />, text: "200+ Accounts Recovered" },
+                  { icon: <FaClock />, text: "Appeal in 48-72 Hours" },
+                ].map((badge) => (
+                  <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "rgba(255,255,255,0.7)" }}>
+                    <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
+                    {badge.text}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: SVG Illustration */}
+            <div className="hidden lg:flex items-center justify-center">
+              <div style={{
+                width: "100%",
+                maxWidth: "460px",
+                aspectRatio: "1/1",
+                borderRadius: "16px",
+                background: "linear-gradient(135deg, #2d1a1a 0%, #1a1a2e 100%)",
+                border: "1px solid rgba(220,38,38,0.2)",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "40px",
+                color: "#fff",
+                textAlign: "center",
+                position: "relative",
+                overflow: "hidden",
+              }}>
+                <div style={{ position: "absolute", top: "20px", right: "20px", backgroundColor: "rgba(220,38,38,0.2)", borderRadius: "12px", padding: "6px 14px" }}>
+                  <span style={{ fontSize: "12px", fontWeight: 700, color: "#dc2626" }}>URGENT</span>
+                </div>
+                <FaShieldAlt style={{ fontSize: "48px", marginBottom: "16px", opacity: 0.9, color: "var(--color-primary)" }} />
+                <h3 style={{ fontSize: "22px", fontWeight: 700, color: "#fff", marginBottom: "8px" }}>
+                  90%+ Success Rate
+                </h3>
+                <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
+                  Expert appeal writing &amp; evidence gathering
+                </p>
+                <div style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
+                  {[
+                    { val: "200+", label: "Recovered" },
+                    { val: "48h", label: "Appeal Time" },
+                    { val: "14d", label: "Avg Resolution" },
+                  ].map((s) => (
+                    <div key={s.label} style={{ textAlign: "center" }}>
+                      <div style={{ fontSize: "20px", fontWeight: 800, color: "var(--color-primary)" }}>{s.val}</div>
+                      <div style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)" }}>{s.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -291,7 +340,7 @@ export default function AmazonReinstatementPage() {
                   border: "1px solid rgba(0,0,0,0.04)",
                 }}
               >
-                <div style={{ fontSize: "22px", color: "var(--color-primary)", marginBottom: "12px" }}>{item.icon}</div>
+                <img src={item.img} alt={item.title} style={{ width: "48px", height: "48px", objectFit: "contain", marginBottom: "12px" }} />
                 <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
                 <p className="typo-small">{item.desc}</p>
               </div>

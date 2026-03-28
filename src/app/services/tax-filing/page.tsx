@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp, FaCalculator, FaFileInvoiceDollar, FaChartLine, FaBalanceScale, FaShieldAlt, FaHandshake } from "react-icons/fa";
+import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp, FaCalculator, FaChartLine, FaShieldAlt, FaHandshake } from "react-icons/fa";
 import CTASection from "@/components/home/CTASection";
 
 const comparisonData = [
@@ -59,46 +59,94 @@ export default function TaxFilingPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section style={{ padding: "70px 0 80px", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main" style={{ textAlign: "center" }}>
-          <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>ECOMMERCE TAX FILING</span>
-          <h1 className="typo-h1" style={{ marginBottom: "14px", maxWidth: "700px", marginLeft: "auto", marginRight: "auto" }}>
-            Tax Filing Built for Amazon, Walmart &amp; Shopify Sellers
-          </h1>
-          <p className="typo-body" style={{ maxWidth: "600px", margin: "0 auto 12px", fontSize: "17px" }}>
-            Federal &amp; state returns, multi-state sales tax, bookkeeping, and year-round support from CPAs who <strong>only work with ecommerce businesses</strong>.
-          </p>
-          <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
-            250+ ecommerce businesses served. Flat-rate pricing. No surprises.
-          </p>
-          <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
-            <a
-              href="https://wa.link/m2ac6m"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary btn-primary-pulse"
-              style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
-            >
-              <FaWhatsapp style={{ fontSize: "18px" }} />
-              Get Free Tax Quote
-            </a>
-            <Link href="/pricing" className="btn-outline">
-              View Pricing
-            </Link>
-          </div>
-
-          {/* Trust badges */}
-          <div style={{ display: "flex", gap: "24px", justifyContent: "center", marginTop: "32px", flexWrap: "wrap" }}>
-            {[
-              { icon: <FaCalculator />, text: "250+ Businesses Filed" },
-              { icon: <FaShieldAlt />, text: "100% IRS Compliant" },
-              { icon: <FaHandshake />, text: "Flat-Rate Pricing" },
-            ].map((badge) => (
-              <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
-                <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
-                {badge.text}
+      <section style={{ padding: "55px 0 70px", backgroundColor: "#f6f7f9" }}>
+        <div className="container-main">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            {/* Left: Content */}
+            <div>
+              <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>ECOMMERCE TAX FILING</span>
+              <h1 className="typo-h1" style={{ marginBottom: "14px" }}>
+                Tax Filing Built for Amazon, Walmart &amp; Shopify Sellers
+              </h1>
+              <p className="typo-body" style={{ marginBottom: "12px", fontSize: "17px" }}>
+                Federal &amp; state returns, multi-state sales tax, bookkeeping, and year-round support from CPAs who <strong>only work with ecommerce businesses</strong>.
+              </p>
+              <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
+                250+ ecommerce businesses served. Flat-rate pricing. No surprises.
+              </p>
+              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+                <a
+                  href="https://wa.link/m2ac6m"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary btn-primary-pulse"
+                  style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+                >
+                  <FaWhatsapp style={{ fontSize: "18px" }} />
+                  Get Free Tax Quote
+                </a>
+                <Link href="/pricing" className="btn-outline">
+                  View Pricing
+                </Link>
               </div>
-            ))}
+
+              {/* Trust badges */}
+              <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap" }}>
+                {[
+                  { icon: <FaCalculator />, text: "250+ Businesses Filed" },
+                  { icon: <FaShieldAlt />, text: "100% IRS Compliant" },
+                  { icon: <FaHandshake />, text: "Flat-Rate Pricing" },
+                ].map((badge) => (
+                  <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
+                    <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
+                    {badge.text}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: Branded illustration card */}
+            <div className="hidden lg:flex items-center justify-center">
+              <div style={{
+                width: "100%",
+                maxWidth: "460px",
+                aspectRatio: "1/1",
+                borderRadius: "16px",
+                background: "linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%)",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "40px",
+                color: "#fff",
+                textAlign: "center",
+                position: "relative",
+                overflow: "hidden",
+              }}>
+                <div style={{ position: "absolute", top: "20px", right: "20px", backgroundColor: "rgba(22,163,74,0.2)", borderRadius: "12px", padding: "6px 14px" }}>
+                  <span style={{ fontSize: "12px", fontWeight: 700, color: "var(--color-primary)" }}>COMPLIANT</span>
+                </div>
+                <FaCalculator style={{ fontSize: "56px", marginBottom: "16px", opacity: 0.9 }} />
+                <h3 style={{ fontSize: "22px", fontWeight: 700, color: "#fff", marginBottom: "8px" }}>
+                  250+ Businesses Filed
+                </h3>
+                <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
+                  100% IRS Compliant
+                </p>
+                <div style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
+                  {[
+                    { val: "250+", label: "Filed" },
+                    { val: "100%", label: "Compliant" },
+                    { val: "Flat", label: "Rate Pricing" },
+                  ].map((s) => (
+                    <div key={s.label} style={{ textAlign: "center" }}>
+                      <div style={{ fontSize: "20px", fontWeight: 800, color: "var(--color-primary)" }}>{s.val}</div>
+                      <div style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)" }}>{s.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -114,12 +162,12 @@ export default function TaxFilingPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ marginTop: "32px" }}>
             {[
-              { icon: <FaFileInvoiceDollar />, title: "Federal & State Tax Returns", desc: "Annual income tax filing for your LLC, S-Corp, or sole proprietorship. Schedule C, Form 1065, Form 1120-S — we handle all entity types." },
-              { icon: <FaBalanceScale />, title: "Multi-State Sales Tax", desc: "Nexus analysis across all 50 states, registration, automated collection setup, and monthly/quarterly/annual return filing." },
-              { icon: <FaCalculator />, title: "Bookkeeping & P&L", desc: "Year-round bookkeeping for Amazon, Walmart, Shopify, eBay, and Etsy. Every transaction categorized and tax-ready." },
-              { icon: <FaChartLine />, title: "Quarterly Estimated Taxes", desc: "We calculate your quarterly payments, send reminders before each deadline, and prepare payment vouchers." },
-              { icon: <FaFileInvoiceDollar />, title: "1099 & 1099-K Reconciliation", desc: "We reconcile marketplace 1099-Ks against your actual net income — so you're not taxed on returns, refunds, or shipping." },
-              { icon: <FaShieldAlt />, title: "IRS Correspondence & Audit Support", desc: "CP2000 notices, penalty assessments, audits — we review, respond, and communicate with the IRS on your behalf." },
+              { img: "/images/services/icons/safety.png", title: "Federal & State Tax Returns", desc: "Annual income tax filing for your LLC, S-Corp, or sole proprietorship. Schedule C, Form 1065, Form 1120-S — we handle all entity types." },
+              { img: "/images/services/icons/calculation.png", title: "Multi-State Sales Tax", desc: "Nexus analysis across all 50 states, registration, automated collection setup, and monthly/quarterly/annual return filing." },
+              { img: "/images/services/icons/inventory.png", title: "Bookkeeping & P&L", desc: "Year-round bookkeeping for Amazon, Walmart, Shopify, eBay, and Etsy. Every transaction categorized and tax-ready." },
+              { img: "/images/services/icons/marketing.png", title: "Quarterly Estimated Taxes", desc: "We calculate your quarterly payments, send reminders before each deadline, and prepare payment vouchers." },
+              { img: "/images/services/icons/return-handling.png", title: "1099 & 1099-K Reconciliation", desc: "We reconcile marketplace 1099-Ks against your actual net income — so you're not taxed on returns, refunds, or shipping." },
+              { img: "/images/services/icons/account-health.png", title: "IRS Correspondence & Audit Support", desc: "CP2000 notices, penalty assessments, audits — we review, respond, and communicate with the IRS on your behalf." },
             ].map((item) => (
               <div
                 key={item.title}
@@ -131,7 +179,7 @@ export default function TaxFilingPage() {
                   border: "1px solid rgba(0,0,0,0.04)",
                 }}
               >
-                <div style={{ fontSize: "22px", color: "var(--color-primary)", marginBottom: "12px" }}>{item.icon}</div>
+                <img src={item.img} alt={item.title} style={{ width: "48px", height: "48px", objectFit: "contain", marginBottom: "12px" }} />
                 <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
                 <p className="typo-small">{item.desc}</p>
               </div>

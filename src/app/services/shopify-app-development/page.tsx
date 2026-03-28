@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp, FaLock, FaGlobe, FaPlug, FaCogs, FaShoppingCart, FaChartBar, FaClock, FaCode } from "react-icons/fa";
+import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp } from "react-icons/fa";
 import CTASection from "@/components/home/CTASection";
 
 const comparisonData = [
@@ -58,46 +58,58 @@ export default function ShopifyAppDevelopmentPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section style={{ padding: "70px 0 80px", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main" style={{ textAlign: "center" }}>
-          <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>SHOPIFY APP DEVELOPMENT</span>
-          <h1 className="typo-h1" style={{ marginBottom: "14px", maxWidth: "700px", marginLeft: "auto", marginRight: "auto" }}>
-            Custom Shopify Apps That Solve Real Business Problems
-          </h1>
-          <p className="typo-body" style={{ maxWidth: "600px", margin: "0 auto 12px", fontSize: "17px" }}>
-            When off-the-shelf apps fall short, we build <strong>custom solutions</strong>. Private apps, public apps, API integrations, and checkout extensions by Shopify specialists.
-          </p>
-          <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
-            Scalable. Secure. Built to grow with your business.
-          </p>
-          <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
-            <a
-              href="https://wa.link/m2ac6m"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary btn-primary-pulse"
-              style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
-            >
-              <FaWhatsapp style={{ fontSize: "18px" }} />
-              Discuss Your App Idea
-            </a>
-            <Link href="/pricing" className="btn-outline">
-              View Pricing
-            </Link>
-          </div>
-
-          {/* Trust badges */}
-          <div style={{ display: "flex", gap: "24px", justifyContent: "center", marginTop: "32px", flexWrap: "wrap" }}>
-            {[
-              { icon: <FaCode />, text: "50+ Apps Developed" },
-              { icon: <FaPlug />, text: "REST & GraphQL APIs" },
-              { icon: <FaClock />, text: "2-8 Week Delivery" },
-            ].map((badge) => (
-              <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
-                <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
-                {badge.text}
+      <section style={{ padding: "55px 0 70px", backgroundColor: "#f6f7f9" }}>
+        <div className="container-main">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>SHOPIFY APP DEVELOPMENT</span>
+              <h1 className="typo-h1" style={{ marginBottom: "14px" }}>
+                Custom Shopify Apps That Solve Real Business Problems
+              </h1>
+              <p className="typo-body" style={{ marginBottom: "12px", fontSize: "17px" }}>
+                When off-the-shelf apps fall short, we build <strong>custom solutions</strong>. Private apps, public apps, API integrations, and checkout extensions by Shopify specialists.
+              </p>
+              <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
+                Scalable. Secure. Built to grow with your business.
+              </p>
+              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+                <a
+                  href="https://wa.link/m2ac6m"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary btn-primary-pulse"
+                  style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+                >
+                  <FaWhatsapp style={{ fontSize: "18px" }} />
+                  Discuss Your App Idea
+                </a>
+                <Link href="/pricing" className="btn-outline">
+                  View Pricing
+                </Link>
               </div>
-            ))}
+              <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap" }}>
+                {["50+ Apps Developed", "REST & GraphQL APIs", "2-8 Week Delivery"].map((text) => (
+                  <div key={text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
+                    <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "13px" }} />
+                    {text}
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="hidden lg:flex items-center justify-center">
+              <div style={{
+                width: "100%", maxWidth: "460px", aspectRatio: "1/1",
+                borderRadius: "16px",
+                background: "linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%)",
+                display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
+                padding: "40px", color: "#fff", textAlign: "center",
+              }}>
+                <img src="/images/services/icons/scalability.png" alt="App Development" style={{ width: "80px", height: "80px", objectFit: "contain", marginBottom: "24px" }} />
+                <div style={{ fontSize: "48px", fontWeight: 800, lineHeight: 1, marginBottom: "8px" }}>50+</div>
+                <div style={{ fontSize: "16px", opacity: 0.85, marginBottom: "16px" }}>Custom Apps Developed</div>
+                <div style={{ fontSize: "14px", opacity: 0.7, maxWidth: "280px" }}>Private apps, public apps, API integrations, and checkout extensions</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -113,12 +125,12 @@ export default function ShopifyAppDevelopmentPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ marginTop: "32px" }}>
             {[
-              { icon: <FaLock />, title: "Private App Development", desc: "Custom private apps tailored to your specific business needs with secure API access and seamless Shopify admin integration. Built exclusively for your store." },
-              { icon: <FaGlobe />, title: "Public App Development", desc: "Develop and launch apps on the Shopify App Store with complete submission support, listing optimization, and monetization strategy. Reach millions of merchants." },
-              { icon: <FaPlug />, title: "API Integration", desc: "Connect Shopify with ERPs, CRMs, shipping carriers, accounting software, and custom backends via REST and GraphQL APIs. Real-time data sync across your stack." },
-              { icon: <FaShoppingCart />, title: "Checkout Extensions", desc: "Custom checkout UI extensions for personalized checkout experiences — custom fields, post-purchase upsells, payment customizations, and loyalty integrations." },
-              { icon: <FaCogs />, title: "Workflow Automation", desc: "Automate repetitive processes — order routing, inventory sync, customer tagging, email triggers, report generation, and complex business logic." },
-              { icon: <FaChartBar />, title: "Custom Dashboards", desc: "Custom analytics dashboards and reporting tools that give you deeper insights into store performance, customer behavior, and business metrics." },
+              { icon: "/images/services/icons/safety.png", title: "Private App Development", desc: "Custom private apps tailored to your specific business needs with secure API access and seamless Shopify admin integration. Built exclusively for your store." },
+              { icon: "/images/services/icons/scalability.png", title: "Public App Development", desc: "Develop and launch apps on the Shopify App Store with complete submission support, listing optimization, and monetization strategy. Reach millions of merchants." },
+              { icon: "/images/services/icons/scalability.png", title: "API Integration", desc: "Connect Shopify with ERPs, CRMs, shipping carriers, accounting software, and custom backends via REST and GraphQL APIs. Real-time data sync across your stack." },
+              { icon: "/images/services/icons/order-fulfillment.png", title: "Checkout Extensions", desc: "Custom checkout UI extensions for personalized checkout experiences — custom fields, post-purchase upsells, payment customizations, and loyalty integrations." },
+              { icon: "/images/services/icons/zero-work.png", title: "Workflow Automation", desc: "Automate repetitive processes — order routing, inventory sync, customer tagging, email triggers, report generation, and complex business logic." },
+              { icon: "/images/services/icons/calculation.png", title: "Custom Dashboards", desc: "Custom analytics dashboards and reporting tools that give you deeper insights into store performance, customer behavior, and business metrics." },
             ].map((item) => (
               <div
                 key={item.title}
@@ -130,7 +142,7 @@ export default function ShopifyAppDevelopmentPage() {
                   border: "1px solid rgba(0,0,0,0.04)",
                 }}
               >
-                <div style={{ fontSize: "22px", color: "var(--color-primary)", marginBottom: "12px" }}>{item.icon}</div>
+                <div style={{ marginBottom: "12px" }}><img src={item.icon} alt={item.title} style={{ width: "48px", height: "48px", objectFit: "contain" }} /></div>
                 <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
                 <p className="typo-small">{item.desc}</p>
               </div>

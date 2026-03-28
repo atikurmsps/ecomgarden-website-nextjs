@@ -78,46 +78,94 @@ export default function WalmartManagementPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section style={{ padding: "70px 0 80px", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main" style={{ textAlign: "center" }}>
-          <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>WALMART MANAGEMENT</span>
-          <h1 className="typo-h1" style={{ marginBottom: "14px", maxWidth: "700px", marginLeft: "auto", marginRight: "auto" }}>
-            Complete Walmart Store Management &mdash; From Listings to Profits
-          </h1>
-          <p className="typo-body" style={{ maxWidth: "600px", margin: "0 auto 12px", fontSize: "17px" }}>
-            We&apos;ve managed <strong>200+ Walmart stores</strong> with an average 30-40% profit margin using our proven 2-step dropshipping system.
-          </p>
-          <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
-            Profit within the first week. 100% money-back guarantee if we don&apos;t deliver.
-          </p>
-          <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
-            <a
-              href="https://wa.link/m2ac6m"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary btn-primary-pulse"
-              style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
-            >
-              <FaWhatsapp style={{ fontSize: "18px" }} />
-              Get Free Consultation
-            </a>
-            <Link href="/pricing" className="btn-outline">
-              View Pricing
-            </Link>
-          </div>
-
-          {/* Trust badges */}
-          <div style={{ display: "flex", gap: "24px", justifyContent: "center", marginTop: "32px", flexWrap: "wrap" }}>
-            {[
-              { icon: <FaChartLine />, text: "200+ Stores Managed" },
-              { icon: <FaBoxes />, text: "30-40% Avg. Profit Margin" },
-              { icon: <FaHeadset />, text: "24/7 Dedicated Support" },
-            ].map((badge) => (
-              <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
-                <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
-                {badge.text}
+      <section style={{ padding: "55px 0 70px", backgroundColor: "#f6f7f9" }}>
+        <div className="container-main">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            {/* Left: Content */}
+            <div>
+              <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>WALMART MANAGEMENT</span>
+              <h1 className="typo-h1" style={{ marginBottom: "14px" }}>
+                Complete Walmart Store Management &mdash; From Listings to Profits
+              </h1>
+              <p className="typo-body" style={{ marginBottom: "12px", fontSize: "17px" }}>
+                We&apos;ve managed <strong>200+ Walmart stores</strong> with an average 30-40% profit margin using our proven 2-step dropshipping system.
+              </p>
+              <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
+                Profit within the first week. 100% money-back guarantee if we don&apos;t deliver.
+              </p>
+              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+                <a
+                  href="https://wa.link/m2ac6m"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary btn-primary-pulse"
+                  style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+                >
+                  <FaWhatsapp style={{ fontSize: "18px" }} />
+                  Get Free Consultation
+                </a>
+                <Link href="/pricing" className="btn-outline">
+                  View Pricing
+                </Link>
               </div>
-            ))}
+
+              {/* Trust badges */}
+              <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap" }}>
+                {[
+                  { icon: <FaChartLine />, text: "200+ Stores Managed" },
+                  { icon: <FaBoxes />, text: "30-40% Avg. Profit Margin" },
+                  { icon: <FaHeadset />, text: "24/7 Dedicated Support" },
+                ].map((badge) => (
+                  <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
+                    <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
+                    {badge.text}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: SVG Illustration */}
+            <div className="hidden lg:flex items-center justify-center">
+              <div style={{
+                width: "100%",
+                maxWidth: "460px",
+                aspectRatio: "1/1",
+                borderRadius: "16px",
+                background: "linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%)",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "40px",
+                color: "#fff",
+                textAlign: "center",
+                position: "relative",
+                overflow: "hidden",
+              }}>
+                <div style={{ position: "absolute", top: "20px", right: "20px", backgroundColor: "rgba(22,163,74,0.2)", borderRadius: "12px", padding: "6px 14px" }}>
+                  <span style={{ fontSize: "12px", fontWeight: 700, color: "var(--color-primary)" }}>A-Z MANAGED</span>
+                </div>
+                <FaCogs style={{ fontSize: "48px", marginBottom: "16px", opacity: 0.9 }} />
+                <h3 style={{ fontSize: "22px", fontWeight: 700, color: "#fff", marginBottom: "8px" }}>
+                  200+ Stores Managed
+                </h3>
+                <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
+                  Complete store management with profit guarantee
+                </p>
+                <div style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
+                  {[
+                    { val: "35%", label: "Avg ROI" },
+                    { val: "200+", label: "Stores" },
+                    { val: "24/7", label: "Support" },
+                  ].map((s) => (
+                    <div key={s.label} style={{ textAlign: "center" }}>
+                      <div style={{ fontSize: "20px", fontWeight: 800, color: "var(--color-primary)" }}>{s.val}</div>
+                      <div style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)" }}>{s.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -289,12 +337,12 @@ export default function WalmartManagementPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ marginTop: "32px" }}>
             {[
-              { icon: <FaChartLine />, title: "Winning Product Research", desc: "Data-driven product selection focusing on high-demand, high-margin items. We analyze competition, sales velocity, and profitability before listing anything." },
-              { icon: <FaTags />, title: "Listing & SEO Optimization", desc: "Optimized titles, descriptions, and keywords that rank higher in Walmart search. Enhanced content and competitive pricing to win the Buy Box." },
-              { icon: <FaShoppingCart />, title: "Order & Purchase Management", desc: "Automated order processing with same-day purchase from source retailers. Zero missed orders, zero late shipments, 100% accuracy guaranteed." },
-              { icon: <FaBoxes />, title: "Warehouse & Shipping", desc: "Full warehouse coordination for Walmart-compliant repackaging. Products arrive in Walmart branding with proper invoicing and tracking." },
-              { icon: <FaCogs />, title: "Returns & Customer Support", desc: "We handle all customer inquiries, returns, and refund requests. Maintaining your seller metrics and account health is our top priority." },
-              { icon: <FaHeadset />, title: "24/7 Dedicated VA Support", desc: "Your own dedicated virtual assistant available around the clock. Direct WhatsApp access for real-time updates and questions about your store." },
+              { img: "/images/services/icons/product-research.png", title: "Winning Product Research", desc: "Data-driven product selection focusing on high-demand, high-margin items. We analyze competition, sales velocity, and profitability before listing anything." },
+              { img: "/images/services/icons/marketing.png", title: "Listing & SEO Optimization", desc: "Optimized titles, descriptions, and keywords that rank higher in Walmart search. Enhanced content and competitive pricing to win the Buy Box." },
+              { img: "/images/services/icons/order-fulfillment.png", title: "Order & Purchase Management", desc: "Automated order processing with same-day purchase from source retailers. Zero missed orders, zero late shipments, 100% accuracy guaranteed." },
+              { img: "/images/services/icons/inventory.png", title: "Warehouse & Shipping", desc: "Full warehouse coordination for Walmart-compliant repackaging. Products arrive in Walmart branding with proper invoicing and tracking." },
+              { img: "/images/services/icons/return-handling.png", title: "Returns & Customer Support", desc: "We handle all customer inquiries, returns, and refund requests. Maintaining your seller metrics and account health is our top priority." },
+              { img: "/images/services/icons/customer-support.png", title: "24/7 Dedicated VA Support", desc: "Your own dedicated virtual assistant available around the clock. Direct WhatsApp access for real-time updates and questions about your store." },
             ].map((item) => (
               <div
                 key={item.title}
@@ -306,7 +354,7 @@ export default function WalmartManagementPage() {
                   border: "1px solid rgba(0,0,0,0.04)",
                 }}
               >
-                <div style={{ fontSize: "22px", color: "var(--color-primary)", marginBottom: "12px" }}>{item.icon}</div>
+                <img src={item.img} alt={item.title} style={{ width: "48px", height: "48px", objectFit: "contain", marginBottom: "12px" }} />
                 <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
                 <p className="typo-small">{item.desc}</p>
               </div>

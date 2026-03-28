@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp, FaBuilding, FaFileAlt, FaUniversity, FaShieldAlt, FaGlobeAmericas, FaClock } from "react-icons/fa";
+import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp, FaBuilding, FaGlobeAmericas, FaClock } from "react-icons/fa";
 import CTASection from "@/components/home/CTASection";
 
 const packages = [
@@ -95,46 +95,94 @@ export default function CompanyFilingPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section style={{ padding: "70px 0 80px", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main" style={{ textAlign: "center" }}>
-          <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>COMPANY FORMATION</span>
-          <h1 className="typo-h1" style={{ marginBottom: "14px", maxWidth: "700px", marginLeft: "auto", marginRight: "auto" }}>
-            Start Your Ecommerce Business With a Proper US LLC or UK LTD
-          </h1>
-          <p className="typo-body" style={{ maxWidth: "600px", margin: "0 auto 12px", fontSize: "17px" }}>
-            We&apos;ve helped <strong>250+ international sellers</strong> form their companies and start selling on Amazon, Walmart, Shopify, eBay &amp; Etsy.
-          </p>
-          <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
-            Complete A-Z setup in 7-10 business days. No paperwork headaches.
-          </p>
-          <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
-            <a
-              href="https://wa.link/m2ac6m"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary btn-primary-pulse"
-              style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
-            >
-              <FaWhatsapp style={{ fontSize: "18px" }} />
-              Get Free Consultation
-            </a>
-            <Link href="/pricing" className="btn-outline">
-              View Pricing
-            </Link>
-          </div>
-
-          {/* Trust badges */}
-          <div style={{ display: "flex", gap: "24px", justifyContent: "center", marginTop: "32px", flexWrap: "wrap" }}>
-            {[
-              { icon: <FaBuilding />, text: "250+ Companies Formed" },
-              { icon: <FaGlobeAmericas />, text: "30+ Countries Served" },
-              { icon: <FaClock />, text: "7-10 Day Turnaround" },
-            ].map((badge) => (
-              <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
-                <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
-                {badge.text}
+      <section style={{ padding: "55px 0 70px", backgroundColor: "#f6f7f9" }}>
+        <div className="container-main">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            {/* Left: Content */}
+            <div>
+              <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>COMPANY FORMATION</span>
+              <h1 className="typo-h1" style={{ marginBottom: "14px" }}>
+                Start Your Ecommerce Business With a Proper US LLC or UK LTD
+              </h1>
+              <p className="typo-body" style={{ marginBottom: "12px", fontSize: "17px" }}>
+                We&apos;ve helped <strong>250+ international sellers</strong> form their companies and start selling on Amazon, Walmart, Shopify, eBay &amp; Etsy.
+              </p>
+              <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
+                Complete A-Z setup in 7-10 business days. No paperwork headaches.
+              </p>
+              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+                <a
+                  href="https://wa.link/m2ac6m"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary btn-primary-pulse"
+                  style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+                >
+                  <FaWhatsapp style={{ fontSize: "18px" }} />
+                  Get Free Consultation
+                </a>
+                <Link href="/pricing" className="btn-outline">
+                  View Pricing
+                </Link>
               </div>
-            ))}
+
+              {/* Trust badges */}
+              <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap" }}>
+                {[
+                  { icon: <FaBuilding />, text: "250+ Companies Formed" },
+                  { icon: <FaGlobeAmericas />, text: "30+ Countries Served" },
+                  { icon: <FaClock />, text: "7-10 Day Turnaround" },
+                ].map((badge) => (
+                  <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
+                    <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
+                    {badge.text}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: Branded illustration card */}
+            <div className="hidden lg:flex items-center justify-center">
+              <div style={{
+                width: "100%",
+                maxWidth: "460px",
+                aspectRatio: "1/1",
+                borderRadius: "16px",
+                background: "linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%)",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "40px",
+                color: "#fff",
+                textAlign: "center",
+                position: "relative",
+                overflow: "hidden",
+              }}>
+                <div style={{ position: "absolute", top: "20px", right: "20px", backgroundColor: "rgba(22,163,74,0.2)", borderRadius: "12px", padding: "6px 14px" }}>
+                  <span style={{ fontSize: "12px", fontWeight: 700, color: "var(--color-primary)" }}>TRUSTED</span>
+                </div>
+                <FaBuilding style={{ fontSize: "56px", marginBottom: "16px", opacity: 0.9 }} />
+                <h3 style={{ fontSize: "22px", fontWeight: 700, color: "#fff", marginBottom: "8px" }}>
+                  250+ Companies Formed
+                </h3>
+                <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
+                  30+ Countries Served
+                </p>
+                <div style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
+                  {[
+                    { val: "7-10", label: "Days" },
+                    { val: "US & UK", label: "Formation" },
+                    { val: "A-Z", label: "Setup" },
+                  ].map((s) => (
+                    <div key={s.label} style={{ textAlign: "center" }}>
+                      <div style={{ fontSize: "20px", fontWeight: 800, color: "var(--color-primary)" }}>{s.val}</div>
+                      <div style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)" }}>{s.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -150,12 +198,12 @@ export default function CompanyFilingPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ marginTop: "32px" }}>
             {[
-              { icon: <FaFileAlt />, title: "LLC / LTD Formation", desc: "Articles of Organization filed with your chosen state. Wyoming, Delaware, or New Mexico for US. Companies House for UK." },
-              { icon: <FaShieldAlt />, title: "EIN & ITIN Application", desc: "We apply for your EIN directly with the IRS. For non-residents, we handle ITIN applications with all required documentation." },
-              { icon: <FaBuilding />, title: "Registered Agent", desc: "Required by law — we provide a registered agent with a physical address in your state of formation for all legal correspondence." },
-              { icon: <FaUniversity />, title: "Business Bank Account", desc: "We connect you with ecommerce-friendly banks (Mercury, Relay) and guide you through opening your US business bank account remotely." },
-              { icon: <FaGlobeAmericas />, title: "Reseller Certificate", desc: "Sales Tax Permit so you can buy inventory without paying upfront sales tax. Required for Amazon FBA, wholesale, and most models." },
-              { icon: <FaFileAlt />, title: "Operating Agreement", desc: "Professionally drafted Operating Agreement that establishes your LLC structure, ownership, and operational rules." },
+              { img: "/images/services/icons/safety.png", title: "LLC / LTD Formation", desc: "Articles of Organization filed with your chosen state. Wyoming, Delaware, or New Mexico for US. Companies House for UK." },
+              { img: "/images/services/icons/account-health.png", title: "EIN & ITIN Application", desc: "We apply for your EIN directly with the IRS. For non-residents, we handle ITIN applications with all required documentation." },
+              { img: "/images/services/icons/personal-manager.png", title: "Registered Agent", desc: "Required by law — we provide a registered agent with a physical address in your state of formation for all legal correspondence." },
+              { img: "/images/services/icons/calculation.png", title: "Business Bank Account", desc: "We connect you with ecommerce-friendly banks (Mercury, Relay) and guide you through opening your US business bank account remotely." },
+              { img: "/images/services/icons/order-fulfillment.png", title: "Reseller Certificate", desc: "Sales Tax Permit so you can buy inventory without paying upfront sales tax. Required for Amazon FBA, wholesale, and most models." },
+              { img: "/images/services/icons/return-handling.png", title: "Operating Agreement", desc: "Professionally drafted Operating Agreement that establishes your LLC structure, ownership, and operational rules." },
             ].map((item) => (
               <div
                 key={item.title}
@@ -167,7 +215,7 @@ export default function CompanyFilingPage() {
                   border: "1px solid rgba(0,0,0,0.04)",
                 }}
               >
-                <div style={{ fontSize: "22px", color: "var(--color-primary)", marginBottom: "12px" }}>{item.icon}</div>
+                <img src={item.img} alt={item.title} style={{ width: "48px", height: "48px", objectFit: "contain", marginBottom: "12px" }} />
                 <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
                 <p className="typo-small">{item.desc}</p>
               </div>

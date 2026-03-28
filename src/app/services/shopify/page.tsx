@@ -9,11 +9,7 @@ import {
   FaChevronDown,
   FaChevronUp,
   FaShopify,
-  FaShoppingCart,
-  FaPaintBrush,
-  FaCode,
   FaCogs,
-  FaBullhorn,
   FaGlobeAmericas,
   FaUsers,
   FaChartLine,
@@ -31,31 +27,31 @@ const stats = [
 
 const services = [
   {
-    icon: <FaShoppingCart />,
+    img: "/images/services/icons/product-research.png",
     title: "Shopify Dropshipping Store",
     desc: "Complete done-for-you Shopify dropshipping store setup. We handle niche research, supplier sourcing, product importing, store design, and launch-ready configuration.",
     href: "/services/shopify-dropshipping",
   },
   {
-    icon: <FaPaintBrush />,
+    img: "/images/services/icons/scalability.png",
     title: "Shopify Store Redesign",
     desc: "Transform your existing Shopify store with a professional redesign. Improved UX, faster load times, better conversion rates, and a modern look that builds trust.",
     href: "/services/shopify-redesign",
   },
   {
-    icon: <FaCode />,
+    img: "/images/services/icons/zero-work.png",
     title: "Shopify Theme Development",
     desc: "Custom Shopify theme built from scratch to match your brand identity. Fully responsive, optimized for speed, and designed to convert visitors into customers.",
     href: "/services/shopify-theme-development",
   },
   {
-    icon: <FaCogs />,
+    img: "/images/services/icons/inventory.png",
     title: "Shopify App Development",
     desc: "Custom Shopify apps to extend your store's functionality. From inventory management to custom checkout flows, we build exactly what your business needs.",
     href: "/services/shopify-app-development",
   },
   {
-    icon: <FaBullhorn />,
+    img: "/images/services/icons/marketing.png",
     title: "Shopify Store Marketing",
     desc: "Drive traffic and sales with our comprehensive Shopify marketing services. Facebook Ads, Google Ads, SEO, email marketing, and social media management.",
     href: "/services/shopify-marketing",
@@ -107,46 +103,98 @@ export default function ShopifyPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section style={{ padding: "70px 0 80px", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main" style={{ textAlign: "center" }}>
-          <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>SHOPIFY SERVICES</span>
-          <h1 className="typo-h1" style={{ marginBottom: "14px", maxWidth: "750px", marginLeft: "auto", marginRight: "auto" }}>
-            Shopify Development &amp; Marketing Services
-          </h1>
-          <p className="typo-body" style={{ maxWidth: "620px", margin: "0 auto 12px", fontSize: "17px" }}>
-            Build, design, and grow your <strong>own ecommerce brand</strong> on the world&apos;s most popular ecommerce platform. From store setup to driving sales — we handle it all.
-          </p>
-          <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
-            Own your store. Own your data. Own your brand.
-          </p>
-          <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
-            <a
-              href="https://wa.link/m2ac6m"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary btn-primary-pulse"
-              style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
-            >
-              <FaWhatsapp style={{ fontSize: "18px" }} />
-              Get Free Consultation
-            </a>
-            <Link href="/pricing" className="btn-outline">
-              View Pricing
-            </Link>
-          </div>
-
-          {/* Trust badges */}
-          <div style={{ display: "flex", gap: "24px", justifyContent: "center", marginTop: "32px", flexWrap: "wrap" }}>
-            {[
-              { icon: <FaShopify />, text: "Shopify Experts" },
-              { icon: <FaTrophy />, text: "400+ Stores Built" },
-              { icon: <FaUsers />, text: "Dedicated Design Team" },
-            ].map((badge) => (
-              <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
-                <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
-                {badge.text}
+      <section style={{ padding: "55px 0 70px", backgroundColor: "#f6f7f9" }}>
+        <div className="container-main">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            {/* Left: Content */}
+            <div>
+              <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>SHOPIFY SERVICES</span>
+              <h1 className="typo-h1" style={{ marginBottom: "14px" }}>
+                Shopify Development &amp; Marketing Services
+              </h1>
+              <p className="typo-body" style={{ marginBottom: "12px", fontSize: "17px" }}>
+                Build, design, and grow your <strong>own ecommerce brand</strong> on the world&apos;s most popular ecommerce platform. From store setup to driving sales — we handle it all.
+              </p>
+              <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
+                Own your store. Own your data. Own your brand.
+              </p>
+              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+                <a
+                  href="https://wa.link/m2ac6m"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary btn-primary-pulse"
+                  style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+                >
+                  <FaWhatsapp style={{ fontSize: "18px" }} />
+                  Get Free Consultation
+                </a>
+                <Link href="/pricing" className="btn-outline">
+                  View Pricing
+                </Link>
               </div>
-            ))}
+
+              {/* Trust badges */}
+              <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap" }}>
+                {[
+                  { icon: <FaShopify />, text: "Shopify Experts" },
+                  { icon: <FaTrophy />, text: "400+ Stores Built" },
+                  { icon: <FaUsers />, text: "Dedicated Design Team" },
+                ].map((badge) => (
+                  <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
+                    <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
+                    {badge.text}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: Branded illustration card */}
+            <div className="hidden lg:flex items-center justify-center">
+              <div style={{
+                width: "100%",
+                maxWidth: "460px",
+                aspectRatio: "1/1",
+                borderRadius: "16px",
+                background: "linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%)",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "40px",
+                color: "#fff",
+                textAlign: "center",
+                position: "relative",
+                overflow: "hidden",
+              }}>
+                <div style={{ position: "absolute", top: "20px", right: "20px", backgroundColor: "rgba(22,163,74,0.2)", borderRadius: "12px", padding: "6px 14px" }}>
+                  <span style={{ fontSize: "12px", fontWeight: 700, color: "var(--color-primary)" }}>EXPERTS</span>
+                </div>
+                {/* Shopify bag icon */}
+                <svg width="56" height="56" viewBox="0 0 64 64" fill="none" style={{ marginBottom: "16px", opacity: 0.9 }}>
+                  <path d="M42 12s-1.5-4-6-5c-.5 0-1 0-1.5.1-.3-.5-1-1.5-2-2.1-2.5-1.5-5-.5-6.5.5 0 0-4 2.5-3.5 8l-8 2.5s-1 .3-1.2.8c-.2.5-5.3 16-8 24.2-.3.8.1 1.5.9 1.8L32 52l20-6s.5-.2.7-.7c.2-.5-2.7-31.3-2.7-31.3l-8-2z" fill="rgba(255,255,255,0.15)" />
+                  <path d="M32 20v24M24 28h16" stroke="#fff" strokeWidth="3" strokeLinecap="round" />
+                </svg>
+                <h3 style={{ fontSize: "22px", fontWeight: 700, color: "#fff", marginBottom: "8px" }}>
+                  4.4M+ Stores
+                </h3>
+                <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
+                  Own Your Brand
+                </p>
+                <div style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
+                  {[
+                    { val: "400+", label: "Built" },
+                    { val: "$444B+", label: "Platform GMV" },
+                    { val: "100%", label: "Customizable" },
+                  ].map((s) => (
+                    <div key={s.label} style={{ textAlign: "center" }}>
+                      <div style={{ fontSize: "20px", fontWeight: 800, color: "var(--color-primary)" }}>{s.val}</div>
+                      <div style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)" }}>{s.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -210,7 +258,7 @@ export default function ShopifyPage() {
                     flexDirection: "column",
                   }}
                 >
-                  <div style={{ fontSize: "24px", color: "var(--color-primary)", marginBottom: "14px" }}>{service.icon}</div>
+                  <img src={service.img} alt={service.title} style={{ width: "48px", height: "48px", objectFit: "contain", marginBottom: "14px" }} />
                   <h3 className="typo-h3" style={{ marginBottom: "8px" }}>{service.title}</h3>
                   <p className="typo-body" style={{ marginBottom: "16px", flex: 1 }}>{service.desc}</p>
                   <span style={{ color: "var(--color-primary)", fontWeight: 600, fontSize: "14px" }}>
