@@ -17,6 +17,15 @@ const comparisonData = [
   { feature: "No long-term contracts", us: true, them: "6-12 mo lock-in" },
 ];
 
+const marketingChannels = [
+  { icon: "/images/services/icons/product-research.png", title: "SEO", desc: "On-page, technical, and content SEO to drive sustainable organic traffic growth and reduce dependency on paid ads." },
+  { icon: "/images/services/icons/marketing.png", title: "Google Ads", desc: "Search, Shopping, Display, and Performance Max campaigns with continuous ROAS optimization and negative keyword management." },
+  { icon: "/images/services/icons/scalability.png", title: "Facebook / Meta", desc: "Data-driven Facebook and Instagram ad campaigns with audience targeting, creative testing, and retargeting funnels." },
+  { icon: "/images/services/icons/customer-support.png", title: "Email Marketing", desc: "Automated flows via Klaviyo — welcome series, abandoned cart, post-purchase upsells, win-back, and promotional campaigns." },
+  { icon: "/images/services/icons/zero-work.png", title: "TikTok Ads", desc: "Short-form video ad campaigns targeting younger demographics with viral creative formats and conversion tracking." },
+  { icon: "/images/services/icons/calculation.png", title: "SMS Marketing", desc: "Direct-to-phone campaigns for flash sales, cart recovery, and VIP offers with high open rates and instant engagement." },
+];
+
 const faqs = [
   {
     q: "Which marketing channel is best for my Shopify store?",
@@ -57,81 +66,62 @@ export default function ShopifyMarketingPage() {
 
   return (
     <>
-      {/* ── HERO ── */}
+      {/* ── HERO (Centered) ── */}
       <section style={{ padding: "55px 0 70px", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div>
-              <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>SHOPIFY MARKETING</span>
-              <h1 className="typo-h1" style={{ marginBottom: "14px" }}>
-                Drive Traffic, Sales &amp; Revenue to Your Shopify Store
-              </h1>
-              <p className="typo-body" style={{ marginBottom: "12px", fontSize: "17px" }}>
-                Our clients average <strong>3-5x ROAS on paid ads</strong> and <strong>300% organic traffic growth</strong>. SEO, Google Ads, Meta Ads, email marketing — all under one roof.
-              </p>
-              <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
-                No long-term contracts. Transparent reporting. Real ROI.
-              </p>
-              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
-                <a
-                  href="https://wa.link/m2ac6m"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary btn-primary-pulse"
-                  style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
-                >
-                  <FaWhatsapp style={{ fontSize: "18px" }} />
-                  Get Free Marketing Audit
-                </a>
-                <Link href="/pricing" className="btn-outline">
-                  View Pricing
-                </Link>
-              </div>
-              <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap" }}>
-                {["$2M+ Ad Spend Managed", "3-5x Avg ROAS", "Results in Week 1"].map((text) => (
-                  <div key={text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
-                    <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "13px" }} />
-                    {text}
-                  </div>
-                ))}
-              </div>
+        <div className="container-main" style={{ textAlign: "center" }}>
+          <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>SHOPIFY MARKETING</span>
+          <h1 className="typo-h1" style={{ marginBottom: "14px", maxWidth: "850px", marginLeft: "auto", marginRight: "auto" }}>
+            Drive Traffic, Sales &amp; Revenue to Your Shopify Store
+          </h1>
+          <p className="typo-body" style={{ marginBottom: "12px", fontSize: "17px", maxWidth: "750px", marginLeft: "auto", marginRight: "auto" }}>
+            Our clients average <strong>3-5x ROAS on paid ads</strong> and <strong>300% organic traffic growth</strong>. SEO, Google Ads, Meta Ads, email marketing — all under one roof.
+          </p>
+          <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "24px" }}>
+            No long-term contracts. Transparent reporting. Real ROI.
+          </p>
+          <div style={{ marginBottom: "24px" }}>
+            <div style={{ backgroundColor: "var(--color-dark)", borderRadius: "10px", padding: "16px 24px", display: "inline-block" }}>
+              <span style={{ color: "var(--color-primary)", fontSize: "24px", fontWeight: 800 }}>3-5x</span>
+              <span style={{ color: "#fff", fontSize: "14px", marginLeft: "8px" }}>Average ROAS for our Shopify clients</span>
             </div>
-            <div className="hidden lg:flex items-center justify-center">
-              <div style={{
-                width: "100%", maxWidth: "460px", aspectRatio: "1/1",
-                borderRadius: "16px",
-                background: "linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%)",
-                display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-                padding: "40px", color: "#fff", textAlign: "center",
-              }}>
-                <img src="/images/services/icons/marketing.png" alt="Shopify Marketing" style={{ width: "80px", height: "80px", objectFit: "contain", marginBottom: "24px" }} />
-                <div style={{ fontSize: "48px", fontWeight: 800, lineHeight: 1, marginBottom: "8px" }}>3-5x</div>
-                <div style={{ fontSize: "16px", opacity: 0.85, marginBottom: "16px" }}>Average ROAS on Paid Ads</div>
-                <div style={{ fontSize: "14px", opacity: 0.7, maxWidth: "280px" }}>Full-funnel marketing: SEO, Google Ads, Meta Ads, and email automation</div>
+          </div>
+          <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", justifyContent: "center" }}>
+            <a
+              href="https://wa.link/m2ac6m"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary btn-primary-pulse"
+              style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+            >
+              <FaWhatsapp style={{ fontSize: "18px" }} />
+              Get Free Marketing Audit
+            </a>
+            <Link href="/pricing" className="btn-outline">
+              View Pricing
+            </Link>
+          </div>
+          <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap", justifyContent: "center" }}>
+            {["$2M+ Ad Spend Managed", "3-5x Avg ROAS", "Results in Week 1"].map((text) => (
+              <div key={text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
+                <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "13px" }} />
+                {text}
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ── SERVICES ── */}
+      {/* ── MARKETING CHANNELS WE COVER ── */}
       <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
           <div className="section-header">
-            <span className="typo-label">OUR SERVICES</span>
-            <h2 className="typo-h2">Full-Funnel Marketing for Shopify Stores</h2>
+            <span className="typo-label">OUR CHANNELS</span>
+            <h2 className="typo-h2">Marketing Channels We Cover</h2>
             <p className="typo-subtext">Multi-channel marketing strategy customized to your products, audience, and goals.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ marginTop: "32px" }}>
-            {[
-              { icon: "/images/services/icons/marketing.png", title: "Shopify SEO", desc: "On-page and technical SEO including keyword research, meta tags, site structure, schema markup, content strategy, and Core Web Vitals optimization for sustainable organic traffic growth." },
-              { icon: "/images/services/icons/marketing.png", title: "Google Ads & Shopping", desc: "Search, Shopping, Display, and Performance Max campaigns with keyword bidding, negative keywords, product feed optimization, and continuous ROAS improvement." },
-              { icon: "/images/services/icons/marketing.png", title: "Facebook & Meta Ads", desc: "Data-driven Facebook and Instagram ad campaigns with audience targeting, creative testing, retargeting funnels, and conversion tracking for maximum return on ad spend." },
-              { icon: "/images/services/icons/customer-support.png", title: "Email Marketing", desc: "Automated email flows — welcome series, abandoned cart recovery, post-purchase upsells, win-back campaigns, and promotional newsletters using Klaviyo or your preferred platform." },
-              { icon: "/images/services/icons/product-research.png", title: "Content Marketing", desc: "Blog content strategy, product descriptions, landing pages, and brand storytelling that drives organic traffic and positions your store as an authority in your niche." },
-              { icon: "/images/services/icons/calculation.png", title: "Analytics & CRO", desc: "Comprehensive tracking setup, A/B testing, landing page optimization, checkout improvements, and user behavior analysis to maximize revenue from existing traffic." },
-            ].map((item) => (
+            {marketingChannels.map((item) => (
               <div
                 key={item.title}
                 className="card-hover"
@@ -140,52 +130,18 @@ export default function ShopifyMarketingPage() {
                   borderRadius: "10px",
                   padding: "24px",
                   border: "1px solid rgba(0,0,0,0.04)",
+                  display: "flex",
+                  alignItems: "flex-start",
+                  gap: "16px",
                 }}
               >
-                <div style={{ marginBottom: "12px" }}><img src={item.icon} alt={item.title} style={{ width: "48px", height: "48px", objectFit: "contain" }} /></div>
-                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
-                <p className="typo-small">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── HOW IT WORKS ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main">
-          <div className="section-header">
-            <span className="typo-label">OUR PROCESS</span>
-            <h2 className="typo-h2">From Audit to Revenue Growth in 4 Steps</h2>
-          </div>
-
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "0", marginTop: "36px" }}>
-            {[
-              { step: "01", title: "Audit & Strategy", desc: "Analyze your current marketing, competitors, and target audience to build a custom growth strategy." },
-              { step: "02", title: "Channel Setup", desc: "Set up and configure all marketing channels, tracking pixels, analytics, and attribution tools." },
-              { step: "03", title: "Launch & Optimize", desc: "Launch campaigns with targeted audiences, compelling creatives, and daily performance monitoring." },
-              { step: "04", title: "Scale & Report", desc: "Scale winning campaigns, cut underperformers, and deliver detailed monthly performance reports." },
-            ].map((item) => (
-              <div
-                key={item.step}
-                style={{
-                  padding: "28px 24px",
-                  textAlign: "center",
-                  position: "relative",
-                }}
-              >
-                <div style={{
-                  fontSize: "36px",
-                  fontWeight: 800,
-                  color: "var(--color-primary)",
-                  opacity: 0.15,
-                  marginBottom: "8px",
-                  lineHeight: 1,
-                }}>
-                  {item.step}
+                <div style={{ flexShrink: 0 }}>
+                  <img src={item.icon} alt={item.title} style={{ width: "48px", height: "48px", objectFit: "contain" }} />
                 </div>
-                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
-                <p className="typo-small">{item.desc}</p>
+                <div>
+                  <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
+                  <p className="typo-small">{item.desc}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -193,7 +149,7 @@ export default function ShopifyMarketingPage() {
       </section>
 
       {/* ── COMPARISON ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
+      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
           <div className="section-header">
             <span className="typo-label">WHY CHOOSE US</span>
@@ -224,41 +180,6 @@ export default function ShopifyMarketingPage() {
                 ))}
               </tbody>
             </table>
-          </div>
-        </div>
-      </section>
-
-      {/* ── WHY ECOMGARDEN ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main">
-          <div className="section-header">
-            <span className="typo-label">THE ECOMGARDEN DIFFERENCE</span>
-            <h2 className="typo-h2">Why Shopify Brands Choose Our Marketing Team</h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ marginTop: "32px" }}>
-            {[
-              { title: "Ecommerce-Native Team", desc: "We only market ecommerce stores. We understand purchase intent, product-market fit, ROAS targets, and Shopify-specific conversion funnels. No generic digital marketing fluff." },
-              { title: "Full-Funnel Approach", desc: "SEO, paid ads, email, and content working together — not siloed. Top-of-funnel awareness feeds mid-funnel retargeting feeds bottom-funnel conversions. Every channel reinforces the others." },
-              { title: "Transparent Reporting", desc: "No vanity metrics. We report on revenue, ROAS, CPA, and customer lifetime value. You know exactly what every marketing dollar returns. Monthly reports with actionable recommendations." },
-              { title: "No Long-Term Contracts", desc: "Month-to-month engagement. If we are not delivering results, you can leave. We earn your business every month with performance, not contracts." },
-              { title: "Creative Team Included", desc: "Ad creative design, video production, and copywriting included. No extra agency fees for creative work. We test multiple variations and scale what works." },
-              { title: "Shopify Analytics Setup", desc: "Proper tracking is everything. We set up Facebook Pixel, GA4, GTM, server-side tracking, and Shopify attribution correctly from day one. No data gaps, no attribution guessing." },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="card-hover"
-                style={{
-                  backgroundColor: "#fff",
-                  borderRadius: "10px",
-                  padding: "24px",
-                  border: "1px solid rgba(0,0,0,0.04)",
-                }}
-              >
-                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
-                <p className="typo-small">{item.desc}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>

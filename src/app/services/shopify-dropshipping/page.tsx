@@ -17,6 +17,15 @@ const comparisonData = [
   { feature: "WhatsApp direct support", us: true, them: false },
 ];
 
+const problemSolutions = [
+  { problem: "Don't know which niche?", solution: "We do data-driven niche research using trend analysis, competition mapping, and margin calculations to find your perfect market." },
+  { problem: "Supplier reliability issues?", solution: "We vet every supplier for quality, shipping speed, and reliability. We order samples and verify before connecting them to your store." },
+  { problem: "Store looks unprofessional?", solution: "We design branded, conversion-focused stores with custom logos, trust badges, and premium layouts that build customer confidence." },
+  { problem: "No traffic after launch?", solution: "We configure SEO, social channels, and optional ad campaigns so your store starts attracting visitors from day one." },
+  { problem: "Order fulfillment headaches?", solution: "We set up fully automated fulfillment — orders go to suppliers instantly, tracking syncs automatically. Zero manual work." },
+  { problem: "Can't scale past first sales?", solution: "We build scalable infrastructure with analytics, upsell funnels, and retargeting ready so you can grow without rebuilding." },
+];
+
 const faqs = [
   {
     q: "What is Shopify dropshipping and how does it work?",
@@ -57,65 +66,94 @@ export default function ShopifyDropshippingPage() {
 
   return (
     <>
-      {/* ── HERO ── */}
+      {/* ── HERO (Centered) ── */}
       <section style={{ padding: "55px 0 70px", backgroundColor: "#f6f7f9" }}>
+        <div className="container-main" style={{ textAlign: "center" }}>
+          <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>SHOPIFY DROPSHIPPING</span>
+          <h1 className="typo-h1" style={{ marginBottom: "14px", maxWidth: "850px", marginLeft: "auto", marginRight: "auto" }}>
+            Launch a Profitable Shopify Dropshipping Store
+          </h1>
+          <p className="typo-body" style={{ marginBottom: "12px", fontSize: "17px", maxWidth: "750px", marginLeft: "auto", marginRight: "auto" }}>
+            Ready-to-sell dropshipping store with <strong>winning products, vetted suppliers, and automated fulfillment</strong>. Start selling from day one with zero inventory risk.
+          </p>
+          <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "24px" }}>
+            Complete store setup in 5-10 days. No inventory, no warehouse, no hassle.
+          </p>
+          <div style={{ display: "flex", gap: "16px", justifyContent: "center", marginBottom: "24px", flexWrap: "wrap" }}>
+            {[
+              { value: "$0", label: "Inventory Needed", bg: "#dcfce7" },
+              { value: "7 Days", label: "Store Ready", bg: "#dbeafe" },
+              { value: "100%", label: "Done-For-You", bg: "#fef3c7" },
+            ].map((s) => (
+              <div key={s.label} style={{ backgroundColor: s.bg, borderRadius: "10px", padding: "12px 20px", textAlign: "center" }}>
+                <div style={{ fontSize: "20px", fontWeight: 800, color: "var(--color-dark)" }}>{s.value}</div>
+                <div style={{ fontSize: "11px", color: "#555" }}>{s.label}</div>
+              </div>
+            ))}
+          </div>
+          <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", justifyContent: "center" }}>
+            <a
+              href="https://wa.link/m2ac6m"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary btn-primary-pulse"
+              style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+            >
+              <FaWhatsapp style={{ fontSize: "18px" }} />
+              Get Free Consultation
+            </a>
+            <Link href="/pricing" className="btn-outline">
+              View Pricing
+            </Link>
+          </div>
+          <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap", justifyContent: "center" }}>
+            {["150+ Stores Launched", "Zero Inventory Risk", "5-10 Day Setup"].map((text) => (
+              <div key={text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
+                <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "13px" }} />
+                {text}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── PROBLEM → SOLUTION ── */}
+      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div>
-              <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>SHOPIFY DROPSHIPPING</span>
-              <h1 className="typo-h1" style={{ marginBottom: "14px" }}>
-                Launch a Profitable Shopify Dropshipping Store
-              </h1>
-              <p className="typo-body" style={{ marginBottom: "12px", fontSize: "17px" }}>
-                Ready-to-sell dropshipping store with <strong>winning products, vetted suppliers, and automated fulfillment</strong>. Start selling from day one with zero inventory risk.
-              </p>
-              <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
-                Complete store setup in 5-10 days. No inventory, no warehouse, no hassle.
-              </p>
-              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
-                <a
-                  href="https://wa.link/m2ac6m"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary btn-primary-pulse"
-                  style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
-                >
-                  <FaWhatsapp style={{ fontSize: "18px" }} />
-                  Get Free Consultation
-                </a>
-                <Link href="/pricing" className="btn-outline">
-                  View Pricing
-                </Link>
+          <div className="section-header">
+            <span className="typo-label">COMMON PROBLEMS, SOLVED</span>
+            <h2 className="typo-h2">Struggling With Dropshipping? We Fix That.</h2>
+            <p className="typo-subtext">Every challenge new dropshippers face — we have a proven solution for it.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ marginTop: "32px" }}>
+            {problemSolutions.map((item) => (
+              <div
+                key={item.problem}
+                className="card-hover"
+                style={{
+                  backgroundColor: "#f6f7f9",
+                  borderRadius: "10px",
+                  padding: "24px",
+                  border: "1px solid rgba(0,0,0,0.04)",
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "flex-start", gap: "8px", marginBottom: "14px" }}>
+                  <span style={{ color: "#dc2626", fontSize: "16px", fontWeight: 700, lineHeight: 1.3, flexShrink: 0 }}>&#10007;</span>
+                  <span style={{ fontSize: "15px", fontWeight: 700, color: "#dc2626", lineHeight: 1.3 }}>{item.problem}</span>
+                </div>
+                <div style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
+                  <span style={{ color: "var(--color-primary)", fontSize: "16px", fontWeight: 700, lineHeight: 1.4, flexShrink: 0 }}>&rarr;</span>
+                  <p className="typo-small" style={{ lineHeight: 1.5 }}>{item.solution}</p>
+                </div>
               </div>
-              <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap" }}>
-                {["150+ Stores Launched", "Zero Inventory Risk", "5-10 Day Setup"].map((text) => (
-                  <div key={text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
-                    <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "13px" }} />
-                    {text}
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="hidden lg:flex items-center justify-center">
-              <div style={{
-                width: "100%", maxWidth: "460px", aspectRatio: "1/1",
-                borderRadius: "16px",
-                background: "linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%)",
-                display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-                padding: "40px", color: "#fff", textAlign: "center",
-              }}>
-                <img src="/images/services/icons/zero-work.png" alt="Dropshipping" style={{ width: "80px", height: "80px", objectFit: "contain", marginBottom: "24px" }} />
-                <div style={{ fontSize: "48px", fontWeight: 800, lineHeight: 1, marginBottom: "8px" }}>150+</div>
-                <div style={{ fontSize: "16px", opacity: 0.85, marginBottom: "16px" }}>Dropshipping Stores Launched</div>
-                <div style={{ fontSize: "14px", opacity: 0.7, maxWidth: "280px" }}>Zero inventory, vetted suppliers, automated fulfillment from day one</div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ── WHAT'S INCLUDED ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
+      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
           <div className="section-header">
             <span className="typo-label">WHAT&apos;S INCLUDED</span>
@@ -136,54 +174,13 @@ export default function ShopifyDropshippingPage() {
                 key={item.title}
                 className="card-hover"
                 style={{
-                  backgroundColor: "#f6f7f9",
+                  backgroundColor: "#fff",
                   borderRadius: "10px",
                   padding: "24px",
                   border: "1px solid rgba(0,0,0,0.04)",
                 }}
               >
                 <div style={{ marginBottom: "12px" }}><img src={item.icon} alt={item.title} style={{ width: "48px", height: "48px", objectFit: "contain" }} /></div>
-                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
-                <p className="typo-small">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── HOW IT WORKS ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main">
-          <div className="section-header">
-            <span className="typo-label">SIMPLE PROCESS</span>
-            <h2 className="typo-h2">From Zero to Selling in 4 Steps</h2>
-          </div>
-
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "0", marginTop: "36px" }}>
-            {[
-              { step: "01", title: "Niche Selection", desc: "We analyze market trends and help you pick a profitable niche with high demand and manageable competition." },
-              { step: "02", title: "Store & Supplier Setup", desc: "Build your branded store, source reliable suppliers, import products, and configure all automation." },
-              { step: "03", title: "Testing & Optimization", desc: "Test checkout flow, payment processing, fulfillment automation, and mobile experience before launch." },
-              { step: "04", title: "Launch & Scale", desc: "Your store goes live. We provide 30 days of support and optional marketing to drive your first sales." },
-            ].map((item) => (
-              <div
-                key={item.step}
-                style={{
-                  padding: "28px 24px",
-                  textAlign: "center",
-                  position: "relative",
-                }}
-              >
-                <div style={{
-                  fontSize: "36px",
-                  fontWeight: 800,
-                  color: "var(--color-primary)",
-                  opacity: 0.15,
-                  marginBottom: "8px",
-                  lineHeight: 1,
-                }}>
-                  {item.step}
-                </div>
                 <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
                 <p className="typo-small">{item.desc}</p>
               </div>
@@ -228,43 +225,8 @@ export default function ShopifyDropshippingPage() {
         </div>
       </section>
 
-      {/* ── WHY ECOMGARDEN ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main">
-          <div className="section-header">
-            <span className="typo-label">THE ECOMGARDEN DIFFERENCE</span>
-            <h2 className="typo-h2">Why Smart Dropshippers Choose EcomGarden</h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ marginTop: "32px" }}>
-            {[
-              { title: "Proven Product Research", desc: "We do not guess. Our research team uses data tools to find products with proven demand, healthy margins, and low competition. You start with winners, not experiments." },
-              { title: "Vetted Suppliers Only", desc: "Every supplier is tested for product quality, shipping speed, and reliability. We order samples, check reviews, and verify processing times before connecting them to your store." },
-              { title: "Revenue-Focused Design", desc: "Your store is designed to convert, not just look nice. Trust badges, urgency elements, upsell funnels, and a streamlined checkout — all built to maximize revenue per visitor." },
-              { title: "True Automation", desc: "Orders flow to suppliers automatically. Tracking updates sync to customers automatically. You focus on marketing and growth while the backend runs itself." },
-              { title: "Zero Risk Launch", desc: "No inventory to buy upfront. No warehouse to rent. You only pay for products after a customer has paid you. The smartest way to start an ecommerce business." },
-              { title: "Ongoing Growth Support", desc: "We do not just build and leave. Monthly management, product refresh, supplier updates, and marketing add-ons available to scale your store after launch." },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="card-hover"
-                style={{
-                  backgroundColor: "#fff",
-                  borderRadius: "10px",
-                  padding: "24px",
-                  border: "1px solid rgba(0,0,0,0.04)",
-                }}
-              >
-                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
-                <p className="typo-small">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── FAQ ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
+      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
           <div className="section-header">
             <span className="typo-label">FAQ</span>
@@ -276,7 +238,7 @@ export default function ShopifyDropshippingPage() {
               <div
                 key={i}
                 style={{
-                  backgroundColor: "#f6f7f9",
+                  backgroundColor: "#fff",
                   borderRadius: "8px",
                   marginBottom: "8px",
                   overflow: "hidden",

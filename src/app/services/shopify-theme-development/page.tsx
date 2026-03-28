@@ -17,6 +17,30 @@ const comparisonData = [
   { feature: "WhatsApp direct support", us: true, them: false },
 ];
 
+const includedItems = [
+  "Custom Liquid template development",
+  "Shopify 2.0 JSON templates & app blocks",
+  "Responsive design (mobile, tablet, desktop)",
+  "Custom homepage sections & blocks",
+  "Product page with gallery & variants",
+  "Collection page with filtering & sorting",
+  "Cart drawer / cart page",
+  "Header & footer with mega menu",
+  "Blog templates & article pages",
+  "Speed optimization (90+ Lighthouse)",
+  "SEO-friendly semantic HTML & schema",
+  "Theme editor documentation & training",
+];
+
+const notIncludedItems = [
+  "Ongoing content writing or copywriting",
+  "Product photography or image creation",
+  "Third-party app subscriptions",
+  "Marketing campaign setup or management",
+  "Inventory management or order fulfillment",
+  "Domain purchase or hosting fees",
+];
+
 const faqs = [
   {
     q: "Why should I get a custom theme instead of a pre-built one?",
@@ -57,144 +81,112 @@ export default function ShopifyThemeDevelopmentPage() {
 
   return (
     <>
-      {/* ── HERO ── */}
+      {/* ── HERO (Centered) ── */}
       <section style={{ padding: "55px 0 70px", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div>
-              <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>SHOPIFY THEME DEVELOPMENT</span>
-              <h1 className="typo-h1" style={{ marginBottom: "14px" }}>
-                Custom Shopify Themes Built From Scratch
-              </h1>
-              <p className="typo-body" style={{ marginBottom: "12px", fontSize: "17px" }}>
-                Stop looking like every other Shopify store. Get a <strong>unique, brand-matching theme</strong> with Shopify 2.0 architecture and blazing-fast performance.
-              </p>
-              <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
-                Pixel-perfect. Performance-first. Built to convert.
-              </p>
-              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
-                <a
-                  href="https://wa.link/m2ac6m"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary btn-primary-pulse"
-                  style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
-                >
-                  <FaWhatsapp style={{ fontSize: "18px" }} />
-                  Get Free Consultation
-                </a>
-                <Link href="/pricing" className="btn-outline">
-                  View Pricing
-                </Link>
+        <div className="container-main" style={{ textAlign: "center" }}>
+          <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>SHOPIFY THEME DEVELOPMENT</span>
+          <h1 className="typo-h1" style={{ marginBottom: "14px", maxWidth: "850px", marginLeft: "auto", marginRight: "auto" }}>
+            Custom Shopify Themes Built From Scratch
+          </h1>
+          <p className="typo-body" style={{ marginBottom: "12px", fontSize: "17px", maxWidth: "750px", marginLeft: "auto", marginRight: "auto" }}>
+            Stop looking like every other Shopify store. Get a <strong>unique, brand-matching theme</strong> with Shopify 2.0 architecture and blazing-fast performance.
+          </p>
+          <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "20px" }}>
+            Pixel-perfect. Performance-first. Built to convert.
+          </p>
+          <div style={{ display: "flex", gap: "8px", justifyContent: "center", flexWrap: "wrap", marginBottom: "24px" }}>
+            {["Liquid Expert", "Shopify 2.0", "Responsive", "Performance First", "Custom Sections"].map((tag) => (
+              <span key={tag} style={{ backgroundColor: "#fff", border: "1px solid #e5e7eb", borderRadius: "20px", padding: "6px 14px", fontSize: "12px", fontWeight: 600, color: "#555" }}>
+                {tag}
+              </span>
+            ))}
+          </div>
+          <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", justifyContent: "center" }}>
+            <a
+              href="https://wa.link/m2ac6m"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary btn-primary-pulse"
+              style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+            >
+              <FaWhatsapp style={{ fontSize: "18px" }} />
+              Get Free Consultation
+            </a>
+            <Link href="/pricing" className="btn-outline">
+              View Pricing
+            </Link>
+          </div>
+          <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap", justifyContent: "center" }}>
+            {["80+ Custom Themes Built", "Shopify 2.0 Experts", "4-8 Week Delivery"].map((text) => (
+              <div key={text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
+                <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "13px" }} />
+                {text}
               </div>
-              <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap" }}>
-                {["80+ Custom Themes Built", "Shopify 2.0 Experts", "4-8 Week Delivery"].map((text) => (
-                  <div key={text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
-                    <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "13px" }} />
-                    {text}
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── WHAT'S INCLUDED CHECKLIST ── */}
+      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
+        <div className="container-main">
+          <div className="section-header">
+            <span className="typo-label">SCOPE OF WORK</span>
+            <h2 className="typo-h2">What&apos;s Included in Your Custom Theme</h2>
+            <p className="typo-subtext">Clear expectations — here is exactly what you get and what falls outside the scope.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8" style={{ marginTop: "32px", maxWidth: "850px", marginLeft: "auto", marginRight: "auto" }}>
+            {/* Included */}
+            <div style={{
+              backgroundColor: "#f6f7f9",
+              borderRadius: "12px",
+              padding: "28px",
+              border: "1px solid rgba(22,163,74,0.15)",
+            }}>
+              <h3 className="typo-h4" style={{ marginBottom: "16px", color: "var(--color-primary)" }}>
+                <FaCheckCircle style={{ marginRight: "8px", fontSize: "16px", verticalAlign: "middle" }} />
+                Included
+              </h3>
+              <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                {includedItems.map((item) => (
+                  <div key={item} style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
+                    <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "13px", marginTop: "3px", flexShrink: 0 }} />
+                    <span className="typo-small">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="hidden lg:flex items-center justify-center">
-              <div style={{
-                width: "100%", maxWidth: "460px", aspectRatio: "1/1",
-                borderRadius: "16px",
-                background: "linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%)",
-                display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-                padding: "40px", color: "#fff", textAlign: "center",
-              }}>
-                <img src="/images/services/icons/marketing.png" alt="Theme Development" style={{ width: "80px", height: "80px", objectFit: "contain", marginBottom: "24px" }} />
-                <div style={{ fontSize: "48px", fontWeight: 800, lineHeight: 1, marginBottom: "8px" }}>80+</div>
-                <div style={{ fontSize: "16px", opacity: 0.85, marginBottom: "16px" }}>Custom Themes Built</div>
-                <div style={{ fontSize: "14px", opacity: 0.7, maxWidth: "280px" }}>Unique, pixel-perfect Shopify 2.0 themes that set your brand apart</div>
+
+            {/* Not Included */}
+            <div style={{
+              backgroundColor: "#fefefe",
+              borderRadius: "12px",
+              padding: "28px",
+              border: "1px solid rgba(220,38,38,0.1)",
+            }}>
+              <h3 className="typo-h4" style={{ marginBottom: "16px", color: "#dc2626" }}>
+                <FaTimesCircle style={{ marginRight: "8px", fontSize: "16px", verticalAlign: "middle" }} />
+                Not Included
+              </h3>
+              <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                {notIncludedItems.map((item) => (
+                  <div key={item} style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
+                    <FaTimesCircle style={{ color: "#dc2626", fontSize: "13px", marginTop: "3px", flexShrink: 0 }} />
+                    <span className="typo-small">{item}</span>
+                  </div>
+                ))}
               </div>
+              <p className="typo-small" style={{ marginTop: "16px", color: "#888", fontStyle: "italic" }}>
+                These can be added as separate services if needed.
+              </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── WHAT'S INCLUDED ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
-        <div className="container-main">
-          <div className="section-header">
-            <span className="typo-label">WHAT WE BUILD</span>
-            <h2 className="typo-h2">Custom Theme Development That Sets You Apart</h2>
-            <p className="typo-subtext">Every theme is unique — built specifically for your brand, products, and customers.</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ marginTop: "32px" }}>
-            {[
-              { icon: "/images/services/icons/scalability.png", title: "Custom Liquid Development", desc: "Expert Liquid template coding for dynamic content, custom sections, blocks, and metafield integration. Clean, maintainable code that follows Shopify best practices." },
-              { icon: "/images/services/icons/scalability.png", title: "Shopify 2.0 Sections", desc: "Flexible, reusable sections with JSON templates and app blocks on every page. Drag, drop, and customize directly from the theme editor without touching code." },
-              { icon: "/images/services/icons/marketing.png", title: "Responsive Design", desc: "Pixel-perfect responsive layouts that adapt seamlessly across desktop, tablet, and mobile. Consistent brand experience on every device your customers use." },
-              { icon: "/images/services/icons/calculation.png", title: "Performance Optimized", desc: "Lightweight, minimal code with no bloated frameworks. Lazy loading, optimized assets, and clean architecture deliver sub-2-second page loads consistently." },
-              { icon: "/images/services/icons/scalability.png", title: "Custom Sections & Blocks", desc: "Purpose-built sections for your specific needs — product configurators, lookbooks, size guides, testimonial carousels, and any custom functionality you require." },
-              { icon: "/images/services/icons/marketing.png", title: "Brand-Perfect Design", desc: "Custom visual design that matches your brand identity exactly — colors, typography, imagery style, and overall aesthetic. Your store, your way." },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="card-hover"
-                style={{
-                  backgroundColor: "#f6f7f9",
-                  borderRadius: "10px",
-                  padding: "24px",
-                  border: "1px solid rgba(0,0,0,0.04)",
-                }}
-              >
-                <div style={{ marginBottom: "12px" }}><img src={item.icon} alt={item.title} style={{ width: "48px", height: "48px", objectFit: "contain" }} /></div>
-                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
-                <p className="typo-small">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── HOW IT WORKS ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main">
-          <div className="section-header">
-            <span className="typo-label">OUR PROCESS</span>
-            <h2 className="typo-h2">From Concept to Custom Theme in 5 Steps</h2>
-          </div>
-
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "0", marginTop: "36px" }}>
-            {[
-              { step: "01", title: "Requirements", desc: "Understand your brand, audience, design preferences, and specific functionality needs." },
-              { step: "02", title: "Design", desc: "Create wireframes and high-fidelity mockups for all key pages for your review." },
-              { step: "03", title: "Development", desc: "Build the theme with Shopify 2.0 architecture, clean Liquid code, and modular sections." },
-              { step: "04", title: "Testing", desc: "Cross-browser and device testing, performance optimization, and quality assurance." },
-              { step: "05", title: "Deploy & Train", desc: "Deploy to your live store, provide documentation and training on customization." },
-            ].map((item) => (
-              <div
-                key={item.step}
-                style={{
-                  padding: "28px 20px",
-                  textAlign: "center",
-                  position: "relative",
-                }}
-              >
-                <div style={{
-                  fontSize: "36px",
-                  fontWeight: 800,
-                  color: "var(--color-primary)",
-                  opacity: 0.15,
-                  marginBottom: "8px",
-                  lineHeight: 1,
-                }}>
-                  {item.step}
-                </div>
-                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
-                <p className="typo-small">{item.desc}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
 
       {/* ── COMPARISON ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
+      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
           <div className="section-header">
             <span className="typo-label">WHY CUSTOM</span>
@@ -225,41 +217,6 @@ export default function ShopifyThemeDevelopmentPage() {
                 ))}
               </tbody>
             </table>
-          </div>
-        </div>
-      </section>
-
-      {/* ── WHY ECOMGARDEN ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main">
-          <div className="section-header">
-            <span className="typo-label">THE ECOMGARDEN DIFFERENCE</span>
-            <h2 className="typo-h2">Why Brands Choose Us for Custom Themes</h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ marginTop: "32px" }}>
-            {[
-              { title: "Shopify 2.0 Specialists", desc: "We do not build themes the old way. Every theme uses JSON templates, app blocks, and dynamic sections — giving you maximum flexibility in the theme editor." },
-              { title: "Performance Obsessed", desc: "Our themes score 90+ on Lighthouse. No bloated CSS frameworks, no jQuery dependencies, no unnecessary JavaScript. Just clean, fast code that loads instantly." },
-              { title: "Conversion Built-In", desc: "Sticky add-to-cart, quick view, recently viewed products, smart recommendations — conversion features are built into the theme, not bolted on with apps." },
-              { title: "Future-Proof Code", desc: "Clean, documented, modular code that is easy to maintain and extend. When Shopify releases new features, your theme is ready to adopt them." },
-              { title: "Figma to Shopify Experts", desc: "We convert Figma, Adobe XD, Sketch, and PSD designs into pixel-perfect Shopify themes. Your designer's vision, perfectly implemented." },
-              { title: "Training & Documentation", desc: "Comprehensive documentation and personalized training so your team can confidently manage and update the theme without ongoing developer costs." },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="card-hover"
-                style={{
-                  backgroundColor: "#fff",
-                  borderRadius: "10px",
-                  padding: "24px",
-                  border: "1px solid rgba(0,0,0,0.04)",
-                }}
-              >
-                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
-                <p className="typo-small">{item.desc}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
