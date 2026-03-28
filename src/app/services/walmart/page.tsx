@@ -2,27 +2,10 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import {
-  FaWhatsapp,
-  FaCheckCircle,
-  FaTimesCircle,
-  FaChevronDown,
-  FaChevronUp,
-  FaStore,
-  FaGlobeAmericas,
-  FaUsers,
-  FaChartLine,
-  FaTrophy,
-  FaRocket,
-} from "react-icons/fa";
+import { FaWhatsapp, FaChevronDown, FaChevronUp } from "react-icons/fa";
+import FeaturesGrid from "@/components/home/FeaturesGrid";
+import ServiceBenefits from "@/components/services/ServiceBenefits";
 import CTASection from "@/components/home/CTASection";
-
-const stats = [
-  { value: "120M+", label: "Monthly Visitors", icon: <FaUsers /> },
-  { value: "#1", label: "Fastest Growing Marketplace", icon: <FaRocket /> },
-  { value: "Lower", label: "Competition Than Amazon", icon: <FaChartLine /> },
-  { value: "$0", label: "Monthly Seller Fees", icon: <FaStore /> },
-];
 
 const services = [
   {
@@ -49,18 +32,6 @@ const services = [
     desc: "Walmart account suspended or deactivated? We analyze the issue, prepare a detailed appeal, and work with Walmart's team to restore your selling privileges.",
     href: "/services/walmart-reinstatement",
   },
-];
-
-const comparisonData = [
-  { feature: "Dedicated Walmart account managers", us: true, them: false },
-  { feature: "Product research & sourcing included", us: true, them: false },
-  { feature: "Complete store setup & optimization", us: true, them: false },
-  { feature: "Walmart-specific listing optimization", us: true, them: false },
-  { feature: "Transparent pricing, no hidden fees", us: true, them: false },
-  { feature: "Advertising & sponsored products", us: true, them: "Extra fees" },
-  { feature: "Response time", us: "Within 2 hours", them: "24-72 hours" },
-  { feature: "Proven Walmart seller experience", us: true, them: false },
-  { feature: "WhatsApp direct support", us: true, them: false },
 ];
 
 const faqs = [
@@ -96,138 +67,37 @@ export default function WalmartPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section style={{ padding: "55px 0 70px", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            {/* Left: Content */}
-            <div>
-              <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>WALMART MARKETPLACE SERVICES</span>
-              <h1 className="typo-h1" style={{ marginBottom: "14px" }}>
-                Walmart Marketplace Services — Complete Store Management
-              </h1>
-              <p className="typo-body" style={{ marginBottom: "12px", fontSize: "17px" }}>
-                Walmart is the <strong>fastest-growing ecommerce marketplace</strong> with 120M+ monthly visitors and significantly lower competition than Amazon. Get in early.
-              </p>
-              <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
-                No monthly seller fees. Lower competition. Massive customer base.
-              </p>
-              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
-                <a
-                  href="https://wa.link/m2ac6m"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary btn-primary-pulse"
-                  style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
-                >
-                  <FaWhatsapp style={{ fontSize: "18px" }} />
-                  Get Free Consultation
-                </a>
-                <Link href="/pricing" className="btn-outline">
-                  View Pricing
-                </Link>
-              </div>
-
-              {/* Trust badges */}
-              <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap" }}>
-                {[
-                  { icon: <FaStore />, text: "Walmart Approved Sellers" },
-                  { icon: <FaTrophy />, text: "300+ Walmart Stores Managed" },
-                  { icon: <FaUsers />, text: "Dedicated Account Managers" },
-                ].map((badge) => (
-                  <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
-                    <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
-                    {badge.text}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Right: Branded illustration card */}
-            <div className="hidden lg:flex items-center justify-center">
-              <div style={{
-                width: "100%",
-                maxWidth: "460px",
-                aspectRatio: "1/1",
-                borderRadius: "16px",
-                background: "linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%)",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                padding: "40px",
-                color: "#fff",
-                textAlign: "center",
-                position: "relative",
-                overflow: "hidden",
-              }}>
-                <div style={{ position: "absolute", top: "20px", right: "20px", backgroundColor: "rgba(22,163,74,0.2)", borderRadius: "12px", padding: "6px 14px" }}>
-                  <span style={{ fontSize: "12px", fontWeight: 700, color: "var(--color-primary)" }}>GROWING</span>
-                </div>
-                {/* Walmart spark icon */}
-                <svg width="56" height="56" viewBox="0 0 64 64" fill="none" style={{ marginBottom: "16px", opacity: 0.9 }}>
-                  <g fill="#fff">
-                    <rect x="29" y="4" width="6" height="18" rx="3" />
-                    <rect x="29" y="42" width="6" height="18" rx="3" />
-                    <rect x="4" y="29" width="18" height="6" rx="3" />
-                    <rect x="42" y="29" width="18" height="6" rx="3" />
-                    <rect x="10.3" y="10.3" width="6" height="18" rx="3" transform="rotate(-45 13.3 13.3)" />
-                    <rect x="39.4" y="39.4" width="6" height="18" rx="3" transform="rotate(-45 42.4 42.4)" />
-                    <rect x="10.3" y="47.7" width="6" height="18" rx="3" transform="rotate(-135 13.3 50.7)" />
-                    <rect x="39.4" y="18.6" width="6" height="18" rx="3" transform="rotate(-135 42.4 21.6)" />
-                  </g>
-                </svg>
-                <h3 style={{ fontSize: "22px", fontWeight: 700, color: "#fff", marginBottom: "8px" }}>
-                  120M+ Monthly Visitors
-                </h3>
-                <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
-                  Fastest Growing Marketplace
-                </p>
-                <div style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
-                  {[
-                    { val: "300+", label: "Stores" },
-                    { val: "$0", label: "Monthly Fee" },
-                    { val: "Lower", label: "Competition" },
-                  ].map((s) => (
-                    <div key={s.label} style={{ textAlign: "center" }}>
-                      <div style={{ fontSize: "20px", fontWeight: 800, color: "var(--color-primary)" }}>{s.val}</div>
-                      <div style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)" }}>{s.label}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
+        <div className="container-main" style={{ textAlign: "center" }}>
+          <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>WALMART MARKETPLACE SERVICES</span>
+          <h1 className="typo-h1" style={{ marginBottom: "14px", maxWidth: "850px", marginLeft: "auto", marginRight: "auto" }}>
+            Walmart Marketplace Services — Complete Store Management
+          </h1>
+          <p className="typo-body" style={{ marginBottom: "24px", fontSize: "17px", maxWidth: "750px", marginLeft: "auto", marginRight: "auto" }}>
+            Tap into the fastest-growing ecommerce marketplace with 120M+ monthly visitors and significantly lower competition.
+          </p>
+          <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", justifyContent: "center" }}>
+            <a href="https://wa.link/m2ac6m" target="_blank" rel="noopener noreferrer" className="btn-primary btn-primary-pulse" style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}>
+              <FaWhatsapp style={{ fontSize: "18px" }} /> Get Free Consultation
+            </a>
+            <Link href="/pricing" className="btn-outline">View Pricing</Link>
           </div>
         </div>
       </section>
 
-      {/* ── WHY SELL ON WALMART ── */}
+      {/* ── PLATFORM INTRODUCTION ── */}
       <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
-        <div className="container-main">
-          <div className="section-header">
-            <span className="typo-label">WHY WALMART</span>
-            <h2 className="typo-h2">Why Sell on Walmart?</h2>
-            <p className="typo-subtext">Walmart Marketplace is the biggest untapped opportunity in ecommerce right now.</p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-5" style={{ marginTop: "32px" }}>
-            {stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="card-hover"
-                style={{
-                  backgroundColor: "#f6f7f9",
-                  borderRadius: "12px",
-                  padding: "28px 20px",
-                  textAlign: "center",
-                  border: "1px solid rgba(0,0,0,0.04)",
-                }}
-              >
-                <div style={{ fontSize: "24px", color: "var(--color-primary)", marginBottom: "12px" }}>{stat.icon}</div>
-                <div style={{ fontSize: "32px", fontWeight: 800, color: "var(--color-dark)", lineHeight: 1, marginBottom: "6px" }}>{stat.value}</div>
-                <p className="typo-small" style={{ fontWeight: 500 }}>{stat.label}</p>
-              </div>
-            ))}
-          </div>
+        <div className="container-main" style={{ maxWidth: "800px", marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>
+          <h2 className="typo-h2" style={{ marginBottom: "16px" }}>The Fastest-Growing Marketplace</h2>
+          <p className="typo-body" style={{ marginBottom: "14px", fontSize: "16px", lineHeight: 1.7 }}>
+            Walmart Marketplace attracts over 120 million unique monthly visitors and is rapidly expanding its third-party seller program. With no monthly seller fees and lower competition than Amazon, early movers have a massive advantage.
+          </p>
+          <p className="typo-body" style={{ marginBottom: "14px", fontSize: "16px", lineHeight: 1.7 }}>
+            Walmart&apos;s fulfillment infrastructure, trusted brand reputation, and growing online presence make it the ideal platform for sellers looking to diversify beyond Amazon or enter ecommerce for the first time.
+          </p>
+          <p className="typo-body" style={{ fontSize: "16px", lineHeight: 1.7 }}>
+            EcomGarden helps you navigate Walmart&apos;s approval process, set up your store, source products, and manage daily operations — giving you a head start on this rapidly growing platform.
+          </p>
         </div>
       </section>
 
@@ -240,7 +110,7 @@ export default function WalmartPage() {
             <p className="typo-subtext">Full-service Walmart Marketplace solutions to help you launch and scale.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5" style={{ marginTop: "32px" }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5" style={{ marginTop: "32px" }}>
             {services.map((service) => (
               <Link
                 key={service.title}
@@ -272,41 +142,11 @@ export default function WalmartPage() {
         </div>
       </section>
 
-      {/* ── WHY CHOOSE ECOMGARDEN ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
-        <div className="container-main">
-          <div className="section-header">
-            <span className="typo-label">WHY CHOOSE US</span>
-            <h2 className="typo-h2">EcomGarden vs Other Walmart Agencies</h2>
-            <p className="typo-subtext">Walmart requires specialized expertise — we&apos;ve been there from the start.</p>
-          </div>
+      {/* ── FEATURES GRID ── */}
+      <FeaturesGrid />
 
-          <div style={{ maxWidth: "750px", margin: "32px auto 0", overflowX: "auto" }}>
-            <table style={{ width: "100%", borderCollapse: "separate", borderSpacing: "0", borderRadius: "12px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.08)", border: "1px solid #e5e7eb" }}>
-              <thead>
-                <tr>
-                  <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, fontSize: "13px", backgroundColor: "#f6f7f9", borderBottom: "2px solid #e8e8e8" }}>Feature</th>
-                  <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, fontSize: "13px", backgroundColor: "var(--color-primary)", color: "#fff", borderBottom: "2px solid var(--color-primary-dark)", minWidth: "130px" }}>EcomGarden</th>
-                  <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, fontSize: "13px", backgroundColor: "#f6f7f9", borderBottom: "2px solid #e8e8e8", minWidth: "120px" }}>Others</th>
-                </tr>
-              </thead>
-              <tbody>
-                {comparisonData.map((row, i) => (
-                  <tr key={row.feature} style={{ backgroundColor: i % 2 === 0 ? "#fff" : "#fafbfc" }}>
-                    <td style={{ padding: "12px 20px", fontSize: "13px", fontWeight: 500, textAlign: "center", borderBottom: "1px solid #f0f0f0", verticalAlign: "middle" }}>{row.feature}</td>
-                    <td style={{ padding: "12px 20px", textAlign: "center", borderBottom: "1px solid #f0f0f0", backgroundColor: i % 2 === 0 ? "rgba(22,163,74,0.04)" : "rgba(22,163,74,0.07)", verticalAlign: "middle" }}>
-                      {row.us === true ? <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "18px", display: "inline-block", verticalAlign: "middle" }} /> : <span style={{ fontSize: "13px", color: "var(--color-primary)", fontWeight: 600 }}>{row.us}</span>}
-                    </td>
-                    <td style={{ padding: "12px 20px", textAlign: "center", borderBottom: "1px solid #f0f0f0", verticalAlign: "middle" }}>
-                      {row.them === false ? <FaTimesCircle style={{ color: "#dc2626", fontSize: "18px", display: "inline-block", verticalAlign: "middle" }} /> : <span style={{ fontSize: "13px", color: "#888" }}>{row.them}</span>}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
+      {/* ── SERVICE BENEFITS ── */}
+      <ServiceBenefits />
 
       {/* ── FAQ ── */}
       <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>

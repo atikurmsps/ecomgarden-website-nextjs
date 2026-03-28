@@ -2,28 +2,10 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import {
-  FaWhatsapp,
-  FaCheckCircle,
-  FaTimesCircle,
-  FaChevronDown,
-  FaChevronUp,
-  FaShopify,
-  FaCogs,
-  FaGlobeAmericas,
-  FaUsers,
-  FaChartLine,
-  FaTrophy,
-  FaDatabase,
-} from "react-icons/fa";
+import { FaWhatsapp, FaChevronDown, FaChevronUp } from "react-icons/fa";
+import FeaturesGrid from "@/components/home/FeaturesGrid";
+import ServiceBenefits from "@/components/services/ServiceBenefits";
 import CTASection from "@/components/home/CTASection";
-
-const stats = [
-  { value: "4.4M+", label: "Stores Worldwide", icon: <FaGlobeAmericas /> },
-  { value: "$444B+", label: "Total GMV", icon: <FaChartLine /> },
-  { value: "100%", label: "Customizable Platform", icon: <FaCogs /> },
-  { value: "Own", label: "Your Customer Data", icon: <FaDatabase /> },
-];
 
 const services = [
   {
@@ -56,18 +38,6 @@ const services = [
     desc: "Drive traffic and sales with our comprehensive Shopify marketing services. Facebook Ads, Google Ads, SEO, email marketing, and social media management.",
     href: "/services/shopify-marketing",
   },
-];
-
-const comparisonData = [
-  { feature: "Ecommerce-focused design expertise", us: true, them: false },
-  { feature: "Conversion-optimized store builds", us: true, them: false },
-  { feature: "Complete store setup (not just theme)", us: true, them: false },
-  { feature: "Product research & sourcing support", us: true, them: false },
-  { feature: "Ongoing marketing & growth support", us: true, them: false },
-  { feature: "Custom app development", us: true, them: "Extra fees" },
-  { feature: "Turnaround time", us: "5-10 days", them: "2-6 weeks" },
-  { feature: "Post-launch support included", us: true, them: false },
-  { feature: "WhatsApp direct support", us: true, them: false },
 ];
 
 const faqs = [
@@ -103,130 +73,37 @@ export default function ShopifyPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section style={{ padding: "55px 0 70px", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            {/* Left: Content */}
-            <div>
-              <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>SHOPIFY SERVICES</span>
-              <h1 className="typo-h1" style={{ marginBottom: "14px" }}>
-                Shopify Development &amp; Marketing Services
-              </h1>
-              <p className="typo-body" style={{ marginBottom: "12px", fontSize: "17px" }}>
-                Build, design, and grow your <strong>own ecommerce brand</strong> on the world&apos;s most popular ecommerce platform. From store setup to driving sales — we handle it all.
-              </p>
-              <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
-                Own your store. Own your data. Own your brand.
-              </p>
-              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
-                <a
-                  href="https://wa.link/m2ac6m"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary btn-primary-pulse"
-                  style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
-                >
-                  <FaWhatsapp style={{ fontSize: "18px" }} />
-                  Get Free Consultation
-                </a>
-                <Link href="/pricing" className="btn-outline">
-                  View Pricing
-                </Link>
-              </div>
-
-              {/* Trust badges */}
-              <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap" }}>
-                {[
-                  { icon: <FaShopify />, text: "Shopify Experts" },
-                  { icon: <FaTrophy />, text: "400+ Stores Built" },
-                  { icon: <FaUsers />, text: "Dedicated Design Team" },
-                ].map((badge) => (
-                  <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
-                    <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
-                    {badge.text}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Right: Branded illustration card */}
-            <div className="hidden lg:flex items-center justify-center">
-              <div style={{
-                width: "100%",
-                maxWidth: "460px",
-                aspectRatio: "1/1",
-                borderRadius: "16px",
-                background: "linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%)",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                padding: "40px",
-                color: "#fff",
-                textAlign: "center",
-                position: "relative",
-                overflow: "hidden",
-              }}>
-                <div style={{ position: "absolute", top: "20px", right: "20px", backgroundColor: "rgba(22,163,74,0.2)", borderRadius: "12px", padding: "6px 14px" }}>
-                  <span style={{ fontSize: "12px", fontWeight: 700, color: "var(--color-primary)" }}>EXPERTS</span>
-                </div>
-                {/* Shopify bag icon */}
-                <svg width="56" height="56" viewBox="0 0 64 64" fill="none" style={{ marginBottom: "16px", opacity: 0.9 }}>
-                  <path d="M42 12s-1.5-4-6-5c-.5 0-1 0-1.5.1-.3-.5-1-1.5-2-2.1-2.5-1.5-5-.5-6.5.5 0 0-4 2.5-3.5 8l-8 2.5s-1 .3-1.2.8c-.2.5-5.3 16-8 24.2-.3.8.1 1.5.9 1.8L32 52l20-6s.5-.2.7-.7c.2-.5-2.7-31.3-2.7-31.3l-8-2z" fill="rgba(255,255,255,0.15)" />
-                  <path d="M32 20v24M24 28h16" stroke="#fff" strokeWidth="3" strokeLinecap="round" />
-                </svg>
-                <h3 style={{ fontSize: "22px", fontWeight: 700, color: "#fff", marginBottom: "8px" }}>
-                  4.4M+ Stores
-                </h3>
-                <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
-                  Own Your Brand
-                </p>
-                <div style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
-                  {[
-                    { val: "400+", label: "Built" },
-                    { val: "$444B+", label: "Platform GMV" },
-                    { val: "100%", label: "Customizable" },
-                  ].map((s) => (
-                    <div key={s.label} style={{ textAlign: "center" }}>
-                      <div style={{ fontSize: "20px", fontWeight: 800, color: "var(--color-primary)" }}>{s.val}</div>
-                      <div style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)" }}>{s.label}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
+        <div className="container-main" style={{ textAlign: "center" }}>
+          <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>SHOPIFY SERVICES</span>
+          <h1 className="typo-h1" style={{ marginBottom: "14px", maxWidth: "850px", marginLeft: "auto", marginRight: "auto" }}>
+            Shopify Development &amp; Marketing Services
+          </h1>
+          <p className="typo-body" style={{ marginBottom: "24px", fontSize: "17px", maxWidth: "750px", marginLeft: "auto", marginRight: "auto" }}>
+            Build, design, and grow your own ecommerce brand on the world&apos;s most popular ecommerce platform.
+          </p>
+          <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", justifyContent: "center" }}>
+            <a href="https://wa.link/m2ac6m" target="_blank" rel="noopener noreferrer" className="btn-primary btn-primary-pulse" style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}>
+              <FaWhatsapp style={{ fontSize: "18px" }} /> Get Free Consultation
+            </a>
+            <Link href="/pricing" className="btn-outline">View Pricing</Link>
           </div>
         </div>
       </section>
 
-      {/* ── WHY CHOOSE SHOPIFY ── */}
+      {/* ── PLATFORM INTRODUCTION ── */}
       <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
-        <div className="container-main">
-          <div className="section-header">
-            <span className="typo-label">WHY SHOPIFY</span>
-            <h2 className="typo-h2">Why Choose Shopify?</h2>
-            <p className="typo-subtext">The world&apos;s leading ecommerce platform powering millions of businesses.</p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-5" style={{ marginTop: "32px" }}>
-            {stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="card-hover"
-                style={{
-                  backgroundColor: "#f6f7f9",
-                  borderRadius: "12px",
-                  padding: "28px 20px",
-                  textAlign: "center",
-                  border: "1px solid rgba(0,0,0,0.04)",
-                }}
-              >
-                <div style={{ fontSize: "24px", color: "var(--color-primary)", marginBottom: "12px" }}>{stat.icon}</div>
-                <div style={{ fontSize: "32px", fontWeight: 800, color: "var(--color-dark)", lineHeight: 1, marginBottom: "6px" }}>{stat.value}</div>
-                <p className="typo-small" style={{ fontWeight: 500 }}>{stat.label}</p>
-              </div>
-            ))}
-          </div>
+        <div className="container-main" style={{ maxWidth: "800px", marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>
+          <h2 className="typo-h2" style={{ marginBottom: "16px" }}>Own Your Brand, Own Your Store</h2>
+          <p className="typo-body" style={{ marginBottom: "14px", fontSize: "16px", lineHeight: 1.7 }}>
+            Shopify powers over 4.4 million stores worldwide and has processed more than $444 billion in total sales. Unlike selling on marketplaces, Shopify gives you full control over your brand, customer data, and store experience.
+          </p>
+          <p className="typo-body" style={{ marginBottom: "14px", fontSize: "16px", lineHeight: 1.7 }}>
+            With thousands of apps, fully customizable themes, and built-in payment processing, Shopify is the most versatile ecommerce platform available. Whether you&apos;re launching a dropshipping business or building a premium brand, it scales with you.
+          </p>
+          <p className="typo-body" style={{ fontSize: "16px", lineHeight: 1.7 }}>
+            EcomGarden offers end-to-end Shopify services — from store setup and custom theme development to marketing and ongoing management — so your store looks professional and drives real sales from day one.
+          </p>
         </div>
       </section>
 
@@ -271,41 +148,11 @@ export default function ShopifyPage() {
         </div>
       </section>
 
-      {/* ── WHY CHOOSE ECOMGARDEN ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
-        <div className="container-main">
-          <div className="section-header">
-            <span className="typo-label">WHY CHOOSE US</span>
-            <h2 className="typo-h2">EcomGarden vs Other Shopify Agencies</h2>
-            <p className="typo-subtext">We don&apos;t just build stores — we build profitable ecommerce businesses.</p>
-          </div>
+      {/* ── FEATURES GRID ── */}
+      <FeaturesGrid />
 
-          <div style={{ maxWidth: "750px", margin: "32px auto 0", overflowX: "auto" }}>
-            <table style={{ width: "100%", borderCollapse: "separate", borderSpacing: "0", borderRadius: "12px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.08)", border: "1px solid #e5e7eb" }}>
-              <thead>
-                <tr>
-                  <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, fontSize: "13px", backgroundColor: "#f6f7f9", borderBottom: "2px solid #e8e8e8" }}>Feature</th>
-                  <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, fontSize: "13px", backgroundColor: "var(--color-primary)", color: "#fff", borderBottom: "2px solid var(--color-primary-dark)", minWidth: "130px" }}>EcomGarden</th>
-                  <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, fontSize: "13px", backgroundColor: "#f6f7f9", borderBottom: "2px solid #e8e8e8", minWidth: "120px" }}>Others</th>
-                </tr>
-              </thead>
-              <tbody>
-                {comparisonData.map((row, i) => (
-                  <tr key={row.feature} style={{ backgroundColor: i % 2 === 0 ? "#fff" : "#fafbfc" }}>
-                    <td style={{ padding: "12px 20px", fontSize: "13px", fontWeight: 500, textAlign: "center", borderBottom: "1px solid #f0f0f0", verticalAlign: "middle" }}>{row.feature}</td>
-                    <td style={{ padding: "12px 20px", textAlign: "center", borderBottom: "1px solid #f0f0f0", backgroundColor: i % 2 === 0 ? "rgba(22,163,74,0.04)" : "rgba(22,163,74,0.07)", verticalAlign: "middle" }}>
-                      {row.us === true ? <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "18px", display: "inline-block", verticalAlign: "middle" }} /> : <span style={{ fontSize: "13px", color: "var(--color-primary)", fontWeight: 600 }}>{row.us}</span>}
-                    </td>
-                    <td style={{ padding: "12px 20px", textAlign: "center", borderBottom: "1px solid #f0f0f0", verticalAlign: "middle" }}>
-                      {row.them === false ? <FaTimesCircle style={{ color: "#dc2626", fontSize: "18px", display: "inline-block", verticalAlign: "middle" }} /> : <span style={{ fontSize: "13px", color: "#888" }}>{row.them}</span>}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
+      {/* ── SERVICE BENEFITS ── */}
+      <ServiceBenefits />
 
       {/* ── FAQ ── */}
       <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
