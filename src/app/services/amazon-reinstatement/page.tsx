@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { FaWhatsapp, FaCheckCircle, FaChevronDown, FaChevronUp, FaExclamationTriangle, FaShieldAlt, FaFileAlt, FaGavel, FaClock, FaHandshake } from "react-icons/fa";
+import { FaWhatsapp, FaCheckCircle, FaChevronDown, FaChevronUp, FaExclamationTriangle, FaShieldAlt, FaFileAlt, FaGavel, FaClock, FaHandshake, FaSearch, FaClipboardCheck } from "react-icons/fa";
 import ServiceConfidence from "@/components/services/ServiceConfidence";
 import CTASection from "@/components/home/CTASection";
 
@@ -71,32 +71,6 @@ const faqs = [
   },
 ];
 
-const processSteps = [
-  {
-    img: "/images/services/process/buy-items.png",
-    title: "Case Analysis",
-    description:
-      "We review your suspension notice, account health, and performance metrics to identify the root cause",
-  },
-  {
-    img: "/images/services/process/sell-items.png",
-    title: "Evidence Gathering",
-    description:
-      "Collect invoices, documentation, and supporting evidence needed for a compelling appeal",
-  },
-  {
-    img: "/images/services/process/shipping.png",
-    title: "Appeal Writing",
-    description:
-      "Craft a professional Plan of Action addressing root cause, corrective actions, and prevention steps",
-  },
-  {
-    img: "/images/services/process/happy-customer.png",
-    title: "Submit & Follow Up",
-    description:
-      "Submit the appeal to Amazon and actively follow up until your account is fully reinstated",
-  },
-];
 
 function AnimatedStat({ value, suffix }: { value: number; suffix: string }) {
   const [count, setCount] = useState(0);
@@ -230,17 +204,32 @@ export default function AmazonReinstatementPage() {
               </p>
             </div>
             <div className="flex justify-center">
-              <img
-                src="/images/services/hero/wholesale-hero.jpg"
-                alt="Amazon Account Reinstatement Services"
-                style={{
-                  width: "100%",
-                  maxWidth: "500px",
-                  height: "auto",
-                  borderRadius: "12px",
-                  boxShadow: "0 4px 24px rgba(0,0,0,0.10)",
-                }}
-              />
+              <div style={{
+                width: "100%",
+                borderRadius: "12px",
+                background: "linear-gradient(135deg, var(--color-dark) 0%, #2d2d3f 100%)",
+                padding: "32px",
+                color: "#fff",
+              }}>
+                <h3 style={{ color: "#fff", fontSize: "20px", fontWeight: 700, marginBottom: "16px" }}>
+                  Suspension Types We Handle
+                </h3>
+                <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                  {[
+                    "Inauthentic item claims",
+                    "Intellectual property violations",
+                    "Policy violations & restricted products",
+                    "Account health / ODR violations",
+                    "Linked account suspensions",
+                    "Previously denied appeals",
+                  ].map((item) => (
+                    <div key={item} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                      <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "14px", flexShrink: 0 }} />
+                      <span style={{ fontSize: "14px", color: "rgba(255,255,255,0.9)" }}>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -254,45 +243,27 @@ export default function AmazonReinstatementPage() {
             <h2 className="typo-h2">How Our Reinstatement Process Works</h2>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {processSteps.map((step, index) => (
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "0", marginTop: "36px" }}>
+            {[
+              { step: "01", icon: <FaSearch style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Case Analysis", desc: "We review your suspension notice, account health, and performance metrics to identify the root cause" },
+              { step: "02", icon: <FaClipboardCheck style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Evidence Gathering", desc: "Collect invoices, documentation, and supporting evidence needed for a compelling appeal" },
+              { step: "03", icon: <FaFileAlt style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Appeal Writing", desc: "Craft a professional Plan of Action addressing root cause, corrective actions, and prevention steps" },
+              { step: "04", icon: <FaShieldAlt style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Submit & Follow Up", desc: "Submit the appeal to Amazon and actively follow up until your account is fully reinstated" },
+            ].map((item) => (
               <div
-                key={step.title}
+                key={item.step}
                 style={{
-                  backgroundColor: "#ffffff",
-                  borderRadius: "12px",
-                  padding: "20px",
+                  padding: "28px 20px",
                   textAlign: "center",
+                  position: "relative",
                 }}
               >
-                <div style={{ display: "flex", justifyContent: "center", marginBottom: "14px" }}>
-                  <div style={{ position: "relative" }}>
-                    <img
-                      src={step.img}
-                      alt={step.title}
-                      style={{ width: "70px", height: "70px", objectFit: "contain" }}
-                    />
-                    <div
-                      style={{
-                        position: "absolute",
-                        top: "-6px",
-                        right: "-6px",
-                        width: "26px",
-                        height: "26px",
-                        borderRadius: "50%",
-                        backgroundColor: "var(--color-primary)",
-                        color: "#ffffff",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
-                      <span className="typo-small" style={{ color: "#ffffff" }}>{index + 1}</span>
-                    </div>
-                  </div>
+                <div style={{ fontSize: "36px", fontWeight: 800, color: "var(--color-primary)", opacity: 0.15, marginBottom: "8px", lineHeight: 1 }}>
+                  {item.step}
                 </div>
-                <h3 className="typo-h3" style={{ marginBottom: "6px" }}>{step.title}</h3>
-                <p className="typo-small">{step.description}</p>
+                <div style={{ marginBottom: "10px" }}>{item.icon}</div>
+                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
+                <p className="typo-small">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -411,16 +382,35 @@ export default function AmazonReinstatementPage() {
       <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div className="flex justify-center">
-              <img
-                src="/images/services/management/ecommerce-fulfilment.jpg"
-                alt="Expert Account Recovery With EcomGarden"
-                style={{
-                  width: "100%",
-                  borderRadius: "12px",
-                  boxShadow: "0 4px 24px rgba(0,0,0,0.10)",
-                }}
-              />
+            <div>
+              <div style={{
+                width: "100%",
+                borderRadius: "12px",
+                background: "linear-gradient(135deg, var(--color-dark) 0%, #2d2d3f 100%)",
+                padding: "32px",
+                color: "#fff",
+              }}>
+                <h3 style={{ color: "#fff", fontSize: "20px", fontWeight: 700, marginBottom: "16px" }}>
+                  Our Recovery Process Includes
+                </h3>
+                <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                  {[
+                    "Custom Plan of Action (no templates)",
+                    "Root cause analysis & evidence gathering",
+                    "Direct communication with Seller Performance",
+                    "Multiple appeal attempts if needed",
+                    "Post-reinstatement compliance setup",
+                    "Ongoing account health monitoring",
+                    "IP complaint resolution & prevention",
+                    "Performance metric restoration",
+                  ].map((item) => (
+                    <div key={item} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                      <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "14px", flexShrink: 0 }} />
+                      <span style={{ fontSize: "14px", color: "rgba(255,255,255,0.9)" }}>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
             <div>
               <h2 className="typo-h2" style={{ marginBottom: "16px" }}>

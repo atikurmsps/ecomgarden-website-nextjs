@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp, FaHandshake, FaFileInvoice, FaBoxes, FaDollarSign, FaSearchDollar, FaClipboardCheck } from "react-icons/fa";
+import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp, FaHandshake, FaFileInvoice, FaBoxes, FaDollarSign, FaSearchDollar, FaClipboardCheck, FaSearch, FaTruck, FaChartLine, FaListAlt } from "react-icons/fa";
 import ServiceBenefits from "@/components/services/ServiceBenefits";
 import ServiceConfidence from "@/components/services/ServiceConfidence";
 import CTASection from "@/components/home/CTASection";
@@ -63,37 +63,6 @@ const faqs = [
   },
 ];
 
-const processSteps = [
-  {
-    img: "/images/services/process/sell-items.png",
-    title: "Product Research",
-    description: "Identify high-demand, profitable wholesale products with strong sales potential on Walmart",
-  },
-  {
-    img: "/images/services/process/buy-items.png",
-    title: "Brand Approval",
-    description:
-      "Secure brand authorizations and establish relationships with authorized distributors",
-  },
-  {
-    img: "/images/services/process/shipping.png",
-    title: "Bulk Purchase",
-    description:
-      "Purchase inventory in bulk at wholesale pricing and coordinate shipping to your warehouse or WFS",
-  },
-  {
-    img: "/images/services/process/happy-customer.png",
-    title: "List & Optimize",
-    description:
-      "Create optimized listings with SEO keywords, competitive pricing, and enhanced content",
-  },
-  {
-    img: "/images/services/process/get-payout.png",
-    title: "Scale & Profit",
-    description:
-      "Monitor performance, replenish inventory, and scale winning products for maximum profitability",
-  },
-];
 
 export default function WalmartWholesalePage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -172,17 +141,32 @@ export default function WalmartWholesalePage() {
               </p>
             </div>
             <div className="flex justify-center">
-              <img
-                src="/images/services/hero/walmart-hero.jpg"
-                alt="Walmart Wholesale Management Services"
-                style={{
-                  width: "100%",
-                  maxWidth: "500px",
-                  height: "auto",
-                  borderRadius: "12px",
-                  boxShadow: "0 4px 24px rgba(0,0,0,0.10)",
-                }}
-              />
+              <div style={{
+                width: "100%",
+                borderRadius: "12px",
+                background: "linear-gradient(135deg, var(--color-dark) 0%, #2d2d3f 100%)",
+                padding: "32px",
+                color: "#fff",
+              }}>
+                <h3 style={{ color: "#fff", fontSize: "20px", fontWeight: 700, marginBottom: "16px" }}>
+                  Key Highlights
+                </h3>
+                <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                  {[
+                    "15-35% profit margins on authentic products",
+                    "50+ verified wholesale suppliers",
+                    "Brand approvals handled by our team",
+                    "100% authentic invoices & documentation",
+                    "Predictable inventory costs",
+                    "Scalable long-term business model",
+                  ].map((item) => (
+                    <div key={item} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                      <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "14px", flexShrink: 0 }} />
+                      <span style={{ fontSize: "14px", color: "rgba(255,255,255,0.9)" }}>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -196,45 +180,28 @@ export default function WalmartWholesalePage() {
             <h2 className="typo-h2">How Walmart Wholesale Works</h2>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
-            {processSteps.map((step, index) => (
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "0", marginTop: "36px" }}>
+            {[
+              { step: "01", icon: <FaSearch style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Product Research", desc: "Identify high-demand, profitable wholesale products with strong sales potential on Walmart" },
+              { step: "02", icon: <FaHandshake style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Brand Approval", desc: "Secure brand authorizations and establish relationships with authorized distributors" },
+              { step: "03", icon: <FaTruck style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Bulk Purchase", desc: "Purchase inventory in bulk at wholesale pricing and coordinate shipping to your warehouse or WFS" },
+              { step: "04", icon: <FaListAlt style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "List & Optimize", desc: "Create optimized listings with SEO keywords, competitive pricing, and enhanced content" },
+              { step: "05", icon: <FaChartLine style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Scale & Profit", desc: "Monitor performance, replenish inventory, and scale winning products for maximum profitability" },
+            ].map((item) => (
               <div
-                key={step.title}
+                key={item.step}
                 style={{
-                  backgroundColor: "#ffffff",
-                  borderRadius: "12px",
-                  padding: "20px",
+                  padding: "28px 20px",
                   textAlign: "center",
+                  position: "relative",
                 }}
               >
-                <div style={{ display: "flex", justifyContent: "center", marginBottom: "14px" }}>
-                  <div style={{ position: "relative" }}>
-                    <img
-                      src={step.img}
-                      alt={step.title}
-                      style={{ width: "70px", height: "70px", objectFit: "contain" }}
-                    />
-                    <div
-                      style={{
-                        position: "absolute",
-                        top: "-6px",
-                        right: "-6px",
-                        width: "26px",
-                        height: "26px",
-                        borderRadius: "50%",
-                        backgroundColor: "var(--color-primary)",
-                        color: "#ffffff",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
-                      <span className="typo-small" style={{ color: "#ffffff" }}>{index + 1}</span>
-                    </div>
-                  </div>
+                <div style={{ fontSize: "36px", fontWeight: 800, color: "var(--color-primary)", opacity: 0.15, marginBottom: "8px", lineHeight: 1 }}>
+                  {item.step}
                 </div>
-                <h3 className="typo-h3" style={{ marginBottom: "6px" }}>{step.title}</h3>
-                <p className="typo-small">{step.description}</p>
+                <div style={{ marginBottom: "10px" }}>{item.icon}</div>
+                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
+                <p className="typo-small">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -245,16 +212,35 @@ export default function WalmartWholesalePage() {
       <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div className="flex justify-center">
-              <img
-                src="/images/services/hero/walmart-secondary.jpg"
-                alt="Wholesale Account Management With EcomGarden"
-                style={{
-                  width: "100%",
-                  borderRadius: "12px",
-                  boxShadow: "0 4px 24px rgba(0,0,0,0.10)",
-                }}
-              />
+            <div>
+              <div style={{
+                width: "100%",
+                borderRadius: "12px",
+                background: "linear-gradient(135deg, var(--color-dark) 0%, #2d2d3f 100%)",
+                padding: "32px",
+                color: "#fff",
+              }}>
+                <h3 style={{ color: "#fff", fontSize: "20px", fontWeight: 700, marginBottom: "16px" }}>
+                  Our Wholesale Management Covers
+                </h3>
+                <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                  {[
+                    "Supplier sourcing & price negotiation",
+                    "Brand approval applications",
+                    "Bulk inventory ordering & tracking",
+                    "Listing creation & SEO optimization",
+                    "Competitive repricing strategy",
+                    "Buy Box optimization",
+                    "Invoice & compliance documentation",
+                    "Account health monitoring",
+                  ].map((item) => (
+                    <div key={item} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                      <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "14px", flexShrink: 0 }} />
+                      <span style={{ fontSize: "14px", color: "rgba(255,255,255,0.9)" }}>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
             <div>
               <h2 className="typo-h2" style={{ marginBottom: "16px" }}>

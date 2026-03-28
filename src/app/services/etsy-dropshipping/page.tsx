@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp, FaPaintBrush, FaSearch, FaTags, FaShoppingCart, FaHeadset, FaStar } from "react-icons/fa";
+import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp, FaPaintBrush, FaSearch, FaTags, FaShoppingCart, FaHeadset, FaStar, FaStore, FaPalette, FaTruckLoading, FaSmile } from "react-icons/fa";
 import ServiceBenefits from "@/components/services/ServiceBenefits";
 import ServiceConfidence from "@/components/services/ServiceConfidence";
 import ServiceFAQ from "@/components/services/ServiceFAQ";
@@ -73,31 +73,6 @@ const faqs = [
   },
 ];
 
-const processSteps = [
-  {
-    img: "/images/services/process/sell-items.png",
-    title: "Shop Setup",
-    description: "Create and optimize your Etsy shop with professional branding and policies",
-  },
-  {
-    img: "/images/services/process/buy-items.png",
-    title: "Product Design",
-    description:
-      "Design unique products and create SEO-optimized listings with high-quality mockups",
-  },
-  {
-    img: "/images/services/process/shipping.png",
-    title: "Order Fulfillment",
-    description:
-      "Print-on-demand partner manufactures and ships directly to your customer automatically",
-  },
-  {
-    img: "/images/services/process/happy-customer.png",
-    title: "Happy Customer",
-    description:
-      "Customer receives a quality product with your branding and leaves a positive review",
-  },
-];
 
 export default function EtsyDropshippingPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -178,17 +153,32 @@ export default function EtsyDropshippingPage() {
               </p>
             </div>
             <div className="flex justify-center">
-              <img
-                src="/images/services/hero/arbitrage-hero.jpg"
-                alt="Etsy Dropshipping Management Services"
+              <div
                 style={{
+                  background: "linear-gradient(135deg, var(--color-dark) 0%, #1a2332 100%)",
+                  borderRadius: "14px",
+                  padding: "32px 28px",
+                  maxWidth: "440px",
                   width: "100%",
-                  maxWidth: "500px",
-                  height: "auto",
-                  borderRadius: "12px",
-                  boxShadow: "0 4px 24px rgba(0,0,0,0.10)",
                 }}
-              />
+              >
+                <h3 style={{ color: "#fff", fontSize: "17px", fontWeight: 700, marginBottom: "18px" }}>
+                  Why Sellers Choose Etsy
+                </h3>
+                {[
+                  "90+ million active buyers worldwide",
+                  "Print-on-demand — zero inventory risk",
+                  "Low startup cost ($50-100 to begin)",
+                  "Original designs that stand out",
+                  "Star Seller badge optimization",
+                  "Full Etsy SEO & algorithm expertise",
+                ].map((item) => (
+                  <div key={item} style={{ display: "flex", alignItems: "flex-start", gap: "10px", marginBottom: "10px" }}>
+                    <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "14px", marginTop: "3px", flexShrink: 0 }} />
+                    <span style={{ color: "rgba(255,255,255,0.85)", fontSize: "14px" }}>{item}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -203,27 +193,26 @@ export default function EtsyDropshippingPage() {
           </div>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "0", marginTop: "36px" }}>
-            {processSteps.map((step, index) => (
+            {[
+              { step: "01", icon: <FaStore style={{ fontSize: "28px", color: "var(--color-primary)" }} />, title: "Shop Setup", desc: "Create and optimize your Etsy shop with professional branding and policies" },
+              { step: "02", icon: <FaPalette style={{ fontSize: "28px", color: "var(--color-primary)" }} />, title: "Product Design", desc: "Design unique products and create SEO-optimized listings with high-quality mockups" },
+              { step: "03", icon: <FaTruckLoading style={{ fontSize: "28px", color: "var(--color-primary)" }} />, title: "Order Fulfillment", desc: "Print-on-demand partner manufactures and ships directly to your customer automatically" },
+              { step: "04", icon: <FaSmile style={{ fontSize: "28px", color: "var(--color-primary)" }} />, title: "Happy Customer", desc: "Customer receives a quality product with your branding and leaves a positive review" },
+            ].map((item) => (
               <div
-                key={step.title}
+                key={item.step}
                 style={{
                   padding: "28px 24px",
                   textAlign: "center",
                   position: "relative",
                 }}
               >
-                <div style={{
-                  fontSize: "36px",
-                  fontWeight: 800,
-                  color: "var(--color-primary)",
-                  opacity: 0.15,
-                  marginBottom: "8px",
-                  lineHeight: 1,
-                }}>
-                  {String(index + 1).padStart(2, "0")}
+                <div style={{ fontSize: "36px", fontWeight: 800, color: "var(--color-primary)", opacity: 0.15, lineHeight: 1 }}>
+                  {item.step}
                 </div>
-                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{step.title}</h3>
-                <p className="typo-small">{step.description}</p>
+                <div style={{ margin: "10px 0 8px" }}>{item.icon}</div>
+                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
+                <p className="typo-small">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -265,15 +254,31 @@ export default function EtsyDropshippingPage() {
         <div className="container-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div className="flex justify-center">
-              <img
-                src="/images/services/management/ecommerce-fulfilment.jpg"
-                alt="Manage Etsy Shop With EcomGarden"
+              <div
                 style={{
+                  background: "linear-gradient(135deg, var(--color-dark) 0%, #1a2332 100%)",
+                  borderRadius: "14px",
+                  padding: "32px 28px",
                   width: "100%",
-                  borderRadius: "12px",
-                  boxShadow: "0 4px 24px rgba(0,0,0,0.10)",
                 }}
-              />
+              >
+                <h3 style={{ color: "#fff", fontSize: "17px", fontWeight: 700, marginBottom: "18px" }}>
+                  Our Etsy Expertise
+                </h3>
+                {[
+                  "Etsy search algorithm mastery",
+                  "All 13 tags optimized per listing",
+                  "Original trend-driven designs",
+                  "Star Seller badge strategy",
+                  "Seasonal sale planning & execution",
+                  "Shop trust score optimization",
+                ].map((item) => (
+                  <div key={item} style={{ display: "flex", alignItems: "flex-start", gap: "10px", marginBottom: "10px" }}>
+                    <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "14px", marginTop: "3px", flexShrink: 0 }} />
+                    <span style={{ color: "rgba(255,255,255,0.85)", fontSize: "14px" }}>{item}</span>
+                  </div>
+                ))}
+              </div>
             </div>
             <div>
               <h2 className="typo-h2" style={{ marginBottom: "16px" }}>

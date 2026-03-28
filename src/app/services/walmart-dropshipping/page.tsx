@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp, FaShieldAlt, FaWarehouse, FaShoppingCart, FaSearchDollar, FaExchangeAlt, FaHeadset } from "react-icons/fa";
+import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp, FaShieldAlt, FaWarehouse, FaShoppingCart, FaSearchDollar, FaExchangeAlt, FaHeadset, FaListAlt, FaTruck, FaSmile, FaMoneyBillWave } from "react-icons/fa";
 import ServiceBenefits from "@/components/services/ServiceBenefits";
 import ServiceConfidence from "@/components/services/ServiceConfidence";
 import CTASection from "@/components/home/CTASection";
@@ -68,37 +68,6 @@ const faqs = [
   },
 ];
 
-const processSteps = [
-  {
-    img: "/images/services/process/sell-items.png",
-    title: "List Products",
-    description: "Research and list profitable products on your Walmart seller account",
-  },
-  {
-    img: "/images/services/process/buy-items.png",
-    title: "Customer Orders",
-    description:
-      "When a customer orders, purchase the product from a retail source at a lower price",
-  },
-  {
-    img: "/images/services/process/shipping.png",
-    title: "Ship to Warehouse",
-    description:
-      "Product ships to warehouse for repackaging with Walmart-branded packaging",
-  },
-  {
-    img: "/images/services/process/happy-customer.png",
-    title: "Deliver to Customer",
-    description:
-      "Warehouse ships the repackaged product directly to the customer with Walmart branding",
-  },
-  {
-    img: "/images/services/process/get-payout.png",
-    title: "Collect Profit",
-    description:
-      "Walmart sends payout every 14 days after delivery. Profit goes directly to your bank",
-  },
-];
 
 export default function WalmartDropshippingPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -177,17 +146,32 @@ export default function WalmartDropshippingPage() {
               </p>
             </div>
             <div className="flex justify-center">
-              <img
-                src="/images/services/hero/walmart-hero.jpg"
-                alt="2 Step Walmart Dropshipping"
-                style={{
-                  width: "100%",
-                  maxWidth: "500px",
-                  height: "auto",
-                  borderRadius: "12px",
-                  boxShadow: "0 4px 24px rgba(0,0,0,0.10)",
-                }}
-              />
+              <div style={{
+                width: "100%",
+                borderRadius: "12px",
+                background: "linear-gradient(135deg, var(--color-dark) 0%, #2d2d3f 100%)",
+                padding: "32px",
+                color: "#fff",
+              }}>
+                <h3 style={{ color: "#fff", fontSize: "20px", fontWeight: 700, marginBottom: "16px" }}>
+                  Key Highlights
+                </h3>
+                <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                  {[
+                    "Start with as little as $1,000",
+                    "No upfront inventory required",
+                    "30-40% average profit margins",
+                    "100% Walmart-compliant process",
+                    "Profit within the first week",
+                    "100% money-back profit guarantee",
+                  ].map((item) => (
+                    <div key={item} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                      <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "14px", flexShrink: 0 }} />
+                      <span style={{ fontSize: "14px", color: "rgba(255,255,255,0.9)" }}>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -201,45 +185,28 @@ export default function WalmartDropshippingPage() {
             <h2 className="typo-h2">How 2 Step Dropshipping Works</h2>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
-            {processSteps.map((step, index) => (
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "0", marginTop: "36px" }}>
+            {[
+              { step: "01", icon: <FaListAlt style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "List Products", desc: "Research and list profitable products on your Walmart seller account" },
+              { step: "02", icon: <FaShoppingCart style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Customer Orders", desc: "When a customer orders, purchase the product from a retail source at a lower price" },
+              { step: "03", icon: <FaWarehouse style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Ship to Warehouse", desc: "Product ships to warehouse for repackaging with Walmart-branded packaging" },
+              { step: "04", icon: <FaSmile style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Deliver to Customer", desc: "Warehouse ships the repackaged product directly to the customer with Walmart branding" },
+              { step: "05", icon: <FaMoneyBillWave style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Collect Profit", desc: "Walmart sends payout every 14 days after delivery. Profit goes directly to your bank" },
+            ].map((item) => (
               <div
-                key={step.title}
+                key={item.step}
                 style={{
-                  backgroundColor: "#ffffff",
-                  borderRadius: "12px",
-                  padding: "20px",
+                  padding: "28px 20px",
                   textAlign: "center",
+                  position: "relative",
                 }}
               >
-                <div style={{ display: "flex", justifyContent: "center", marginBottom: "14px" }}>
-                  <div style={{ position: "relative" }}>
-                    <img
-                      src={step.img}
-                      alt={step.title}
-                      style={{ width: "70px", height: "70px", objectFit: "contain" }}
-                    />
-                    <div
-                      style={{
-                        position: "absolute",
-                        top: "-6px",
-                        right: "-6px",
-                        width: "26px",
-                        height: "26px",
-                        borderRadius: "50%",
-                        backgroundColor: "var(--color-primary)",
-                        color: "#ffffff",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
-                      <span className="typo-small" style={{ color: "#ffffff" }}>{index + 1}</span>
-                    </div>
-                  </div>
+                <div style={{ fontSize: "36px", fontWeight: 800, color: "var(--color-primary)", opacity: 0.15, marginBottom: "8px", lineHeight: 1 }}>
+                  {item.step}
                 </div>
-                <h3 className="typo-h3" style={{ marginBottom: "6px" }}>{step.title}</h3>
-                <p className="typo-small">{step.description}</p>
+                <div style={{ marginBottom: "10px" }}>{item.icon}</div>
+                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
+                <p className="typo-small">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -250,16 +217,35 @@ export default function WalmartDropshippingPage() {
       <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div className="flex justify-center">
-              <img
-                src="/images/services/hero/walmart-secondary.jpg"
-                alt="Dropshipping Store Management With EcomGarden"
-                style={{
-                  width: "100%",
-                  borderRadius: "12px",
-                  boxShadow: "0 4px 24px rgba(0,0,0,0.10)",
-                }}
-              />
+            <div>
+              <div style={{
+                width: "100%",
+                borderRadius: "12px",
+                background: "linear-gradient(135deg, var(--color-dark) 0%, #2d2d3f 100%)",
+                padding: "32px",
+                color: "#fff",
+              }}>
+                <h3 style={{ color: "#fff", fontSize: "20px", fontWeight: 700, marginBottom: "16px" }}>
+                  Our Management Covers
+                </h3>
+                <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                  {[
+                    "Profit-validated product research",
+                    "Multi-source procurement (Amazon, Target, etc.)",
+                    "Walmart-compliant warehouse routing",
+                    "Same-day order processing",
+                    "Return & refund management",
+                    "Customer support & inquiries",
+                    "Listing optimization & SEO",
+                    "Account health monitoring",
+                  ].map((item) => (
+                    <div key={item} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                      <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "14px", flexShrink: 0 }} />
+                      <span style={{ fontSize: "14px", color: "rgba(255,255,255,0.9)" }}>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
             <div>
               <h2 className="typo-h2" style={{ marginBottom: "16px" }}>

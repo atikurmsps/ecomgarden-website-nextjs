@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp, FaSearch, FaShieldAlt, FaStar, FaSyncAlt, FaChartLine, FaHeadset } from "react-icons/fa";
+import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp, FaSearch, FaShieldAlt, FaStar, FaSyncAlt, FaChartLine, FaHeadset, FaClipboardList, FaListAlt, FaTruck, FaSmile } from "react-icons/fa";
 import ServiceBenefits from "@/components/services/ServiceBenefits";
 import ServiceConfidence from "@/components/services/ServiceConfidence";
 import CTASection from "@/components/home/CTASection";
@@ -72,31 +72,6 @@ const faqs = [
   },
 ];
 
-const processSteps = [
-  {
-    img: "/images/services/process/sell-items.png",
-    title: "Product Research",
-    description: "Find high-demand profitable products from trusted wholesale suppliers",
-  },
-  {
-    img: "/images/services/process/buy-items.png",
-    title: "List & Optimize",
-    description:
-      "Create optimized eBay listings with SEO titles, descriptions, and competitive pricing",
-  },
-  {
-    img: "/images/services/process/shipping.png",
-    title: "Order Processing",
-    description:
-      "Process orders immediately through suppliers with fast shipping and tracking updates",
-  },
-  {
-    img: "/images/services/process/happy-customer.png",
-    title: "Happy Customer",
-    description:
-      "Customer receives quality product on time and your seller ratings stay excellent",
-  },
-];
 
 export default function EbayDropshippingPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -176,17 +151,32 @@ export default function EbayDropshippingPage() {
               </p>
             </div>
             <div className="flex justify-center">
-              <img
-                src="/images/services/hero/arbitrage-hero.jpg"
-                alt="eBay Dropshipping Management Services"
+              <div
                 style={{
+                  background: "linear-gradient(135deg, var(--color-dark) 0%, #1a2332 100%)",
+                  borderRadius: "14px",
+                  padding: "32px 28px",
+                  maxWidth: "440px",
                   width: "100%",
-                  maxWidth: "500px",
-                  height: "auto",
-                  borderRadius: "12px",
-                  boxShadow: "0 4px 24px rgba(0,0,0,0.10)",
                 }}
-              />
+              >
+                <h3 style={{ color: "#fff", fontSize: "17px", fontWeight: 700, marginBottom: "18px" }}>
+                  Why eBay Dropshipping Works
+                </h3>
+                {[
+                  "130+ million active buyers globally",
+                  "No inventory — suppliers ship direct",
+                  "Multiple marketplaces (US, UK, AU)",
+                  "Cassini SEO for maximum visibility",
+                  "Automated repricing tools",
+                  "Top Rated Seller fee discounts",
+                ].map((item) => (
+                  <div key={item} style={{ display: "flex", alignItems: "flex-start", gap: "10px", marginBottom: "10px" }}>
+                    <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "14px", marginTop: "3px", flexShrink: 0 }} />
+                    <span style={{ color: "rgba(255,255,255,0.85)", fontSize: "14px" }}>{item}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -201,27 +191,26 @@ export default function EbayDropshippingPage() {
           </div>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "0", marginTop: "36px" }}>
-            {processSteps.map((step, index) => (
+            {[
+              { step: "01", icon: <FaClipboardList style={{ fontSize: "28px", color: "var(--color-primary)" }} />, title: "Product Research", desc: "Find high-demand profitable products from trusted wholesale suppliers" },
+              { step: "02", icon: <FaListAlt style={{ fontSize: "28px", color: "var(--color-primary)" }} />, title: "List & Optimize", desc: "Create optimized eBay listings with SEO titles, descriptions, and competitive pricing" },
+              { step: "03", icon: <FaTruck style={{ fontSize: "28px", color: "var(--color-primary)" }} />, title: "Order Processing", desc: "Process orders immediately through suppliers with fast shipping and tracking updates" },
+              { step: "04", icon: <FaSmile style={{ fontSize: "28px", color: "var(--color-primary)" }} />, title: "Happy Customer", desc: "Customer receives quality product on time and your seller ratings stay excellent" },
+            ].map((item) => (
               <div
-                key={step.title}
+                key={item.step}
                 style={{
                   padding: "28px 24px",
                   textAlign: "center",
                   position: "relative",
                 }}
               >
-                <div style={{
-                  fontSize: "36px",
-                  fontWeight: 800,
-                  color: "var(--color-primary)",
-                  opacity: 0.15,
-                  marginBottom: "8px",
-                  lineHeight: 1,
-                }}>
-                  {String(index + 1).padStart(2, "0")}
+                <div style={{ fontSize: "36px", fontWeight: 800, color: "var(--color-primary)", opacity: 0.15, lineHeight: 1 }}>
+                  {item.step}
                 </div>
-                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{step.title}</h3>
-                <p className="typo-small">{step.description}</p>
+                <div style={{ margin: "10px 0 8px" }}>{item.icon}</div>
+                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
+                <p className="typo-small">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -263,15 +252,31 @@ export default function EbayDropshippingPage() {
         <div className="container-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div className="flex justify-center">
-              <img
-                src="/images/services/management/ecommerce-fulfilment.jpg"
-                alt="Manage eBay Store With EcomGarden"
+              <div
                 style={{
+                  background: "linear-gradient(135deg, var(--color-dark) 0%, #1a2332 100%)",
+                  borderRadius: "14px",
+                  padding: "32px 28px",
                   width: "100%",
-                  borderRadius: "12px",
-                  boxShadow: "0 4px 24px rgba(0,0,0,0.10)",
                 }}
-              />
+              >
+                <h3 style={{ color: "#fff", fontSize: "17px", fontWeight: 700, marginBottom: "18px" }}>
+                  Our eBay Compliance Edge
+                </h3>
+                {[
+                  "Daily account health monitoring",
+                  "Defect rate & late shipment tracking",
+                  "VeRO strike prevention",
+                  "Cassini algorithm optimization",
+                  "24/7 automated repricing",
+                  "Top Rated Seller badge strategy",
+                ].map((item) => (
+                  <div key={item} style={{ display: "flex", alignItems: "flex-start", gap: "10px", marginBottom: "10px" }}>
+                    <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "14px", marginTop: "3px", flexShrink: 0 }} />
+                    <span style={{ color: "rgba(255,255,255,0.85)", fontSize: "14px" }}>{item}</span>
+                  </div>
+                ))}
+              </div>
             </div>
             <div>
               <h2 className="typo-h2" style={{ marginBottom: "16px" }}>

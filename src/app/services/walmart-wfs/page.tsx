@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp, FaWarehouse, FaTruck, FaBarcode, FaChartBar, FaSyncAlt, FaShieldAlt } from "react-icons/fa";
+import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp, FaWarehouse, FaTruck, FaBarcode, FaChartBar, FaSyncAlt, FaShieldAlt, FaSearch, FaBoxOpen, FaMoneyBillWave } from "react-icons/fa";
 import ServiceBenefits from "@/components/services/ServiceBenefits";
 import ServiceConfidence from "@/components/services/ServiceConfidence";
 import CTASection from "@/components/home/CTASection";
@@ -63,37 +63,6 @@ const faqs = [
   },
 ];
 
-const processSteps = [
-  {
-    img: "/images/services/process/sell-items.png",
-    title: "Product Sourcing",
-    description: "Source profitable products and prepare optimized listings for Walmart marketplace",
-  },
-  {
-    img: "/images/services/process/buy-items.png",
-    title: "Product Prep",
-    description:
-      "Label, poly-bag, and package products to meet Walmart WFS receiving requirements",
-  },
-  {
-    img: "/images/services/process/shipping.png",
-    title: "Ship to WFS",
-    description:
-      "Create inbound shipments and ship inventory to Walmart fulfillment centers",
-  },
-  {
-    img: "/images/services/process/happy-customer.png",
-    title: "Walmart Fulfills",
-    description:
-      "Walmart stores, picks, packs, and ships orders with 2-day delivery to customers",
-  },
-  {
-    img: "/images/services/process/get-payout.png",
-    title: "Get Paid",
-    description:
-      "Receive payouts from Walmart while we manage inventory replenishment and optimization",
-  },
-];
 
 export default function WalmartWFSPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -171,17 +140,32 @@ export default function WalmartWFSPage() {
               </p>
             </div>
             <div className="flex justify-center">
-              <img
-                src="/images/services/hero/walmart-hero.jpg"
-                alt="Walmart WFS Management Services"
-                style={{
-                  width: "100%",
-                  maxWidth: "500px",
-                  height: "auto",
-                  borderRadius: "12px",
-                  boxShadow: "0 4px 24px rgba(0,0,0,0.10)",
-                }}
-              />
+              <div style={{
+                width: "100%",
+                borderRadius: "12px",
+                background: "linear-gradient(135deg, var(--color-dark) 0%, #2d2d3f 100%)",
+                padding: "32px",
+                color: "#fff",
+              }}>
+                <h3 style={{ color: "#fff", fontSize: "20px", fontWeight: 700, marginBottom: "16px" }}>
+                  Key Highlights
+                </h3>
+                <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                  {[
+                    "2-day delivery badge for all products",
+                    "Walmart+ eligibility for premium shoppers",
+                    "30-50% sales increase with WFS",
+                    "Higher search rankings on Walmart",
+                    "Walmart handles returns & customer service",
+                    "First shipment ready in 5-7 days",
+                  ].map((item) => (
+                    <div key={item} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                      <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "14px", flexShrink: 0 }} />
+                      <span style={{ fontSize: "14px", color: "rgba(255,255,255,0.9)" }}>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -195,45 +179,28 @@ export default function WalmartWFSPage() {
             <h2 className="typo-h2">How WFS Management Works</h2>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
-            {processSteps.map((step, index) => (
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "0", marginTop: "36px" }}>
+            {[
+              { step: "01", icon: <FaSearch style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Product Sourcing", desc: "Source profitable products and prepare optimized listings for Walmart marketplace" },
+              { step: "02", icon: <FaBarcode style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Product Prep", desc: "Label, poly-bag, and package products to meet Walmart WFS receiving requirements" },
+              { step: "03", icon: <FaTruck style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Ship to WFS", desc: "Create inbound shipments and ship inventory to Walmart fulfillment centers" },
+              { step: "04", icon: <FaBoxOpen style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Walmart Fulfills", desc: "Walmart stores, picks, packs, and ships orders with 2-day delivery to customers" },
+              { step: "05", icon: <FaMoneyBillWave style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Get Paid", desc: "Receive payouts from Walmart while we manage inventory replenishment and optimization" },
+            ].map((item) => (
               <div
-                key={step.title}
+                key={item.step}
                 style={{
-                  backgroundColor: "#ffffff",
-                  borderRadius: "12px",
-                  padding: "20px",
+                  padding: "28px 20px",
                   textAlign: "center",
+                  position: "relative",
                 }}
               >
-                <div style={{ display: "flex", justifyContent: "center", marginBottom: "14px" }}>
-                  <div style={{ position: "relative" }}>
-                    <img
-                      src={step.img}
-                      alt={step.title}
-                      style={{ width: "70px", height: "70px", objectFit: "contain" }}
-                    />
-                    <div
-                      style={{
-                        position: "absolute",
-                        top: "-6px",
-                        right: "-6px",
-                        width: "26px",
-                        height: "26px",
-                        borderRadius: "50%",
-                        backgroundColor: "var(--color-primary)",
-                        color: "#ffffff",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
-                      <span className="typo-small" style={{ color: "#ffffff" }}>{index + 1}</span>
-                    </div>
-                  </div>
+                <div style={{ fontSize: "36px", fontWeight: 800, color: "var(--color-primary)", opacity: 0.15, marginBottom: "8px", lineHeight: 1 }}>
+                  {item.step}
                 </div>
-                <h3 className="typo-h3" style={{ marginBottom: "6px" }}>{step.title}</h3>
-                <p className="typo-small">{step.description}</p>
+                <div style={{ marginBottom: "10px" }}>{item.icon}</div>
+                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
+                <p className="typo-small">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -244,16 +211,35 @@ export default function WalmartWFSPage() {
       <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div className="flex justify-center">
-              <img
-                src="/images/services/hero/walmart-secondary.jpg"
-                alt="WFS Inventory Management With EcomGarden"
-                style={{
-                  width: "100%",
-                  borderRadius: "12px",
-                  boxShadow: "0 4px 24px rgba(0,0,0,0.10)",
-                }}
-              />
+            <div>
+              <div style={{
+                width: "100%",
+                borderRadius: "12px",
+                background: "linear-gradient(135deg, var(--color-dark) 0%, #2d2d3f 100%)",
+                padding: "32px",
+                color: "#fff",
+              }}>
+                <h3 style={{ color: "#fff", fontSize: "20px", fontWeight: 700, marginBottom: "16px" }}>
+                  Our WFS Management Covers
+                </h3>
+                <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                  {[
+                    "Product prep, labeling & packaging",
+                    "Inbound shipment creation & tracking",
+                    "Inventory replenishment automation",
+                    "Listing optimization & enhanced content",
+                    "Storage fee optimization",
+                    "Carrier coordination & logistics",
+                    "Account health monitoring",
+                    "Performance reporting & analytics",
+                  ].map((item) => (
+                    <div key={item} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                      <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "14px", flexShrink: 0 }} />
+                      <span style={{ fontSize: "14px", color: "rgba(255,255,255,0.9)" }}>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
             <div>
               <h2 className="typo-h2" style={{ marginBottom: "16px" }}>

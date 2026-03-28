@@ -66,32 +66,6 @@ const faqs = [
   },
 ];
 
-const processSteps = [
-  {
-    icon: <FaBoxOpen style={{ fontSize: "36px", color: "var(--color-primary)" }} />,
-    title: "Share Order Details",
-    description:
-      "Provide your shipment details including recipient address and package weight. No account setup required.",
-  },
-  {
-    icon: <FaDollarSign style={{ fontSize: "36px", color: "var(--color-primary)" }} />,
-    title: "Pay $4 Per Label",
-    description:
-      "Each USPS Priority Mail label is a flat $4. No surprises, no surcharges, no weight-based calculations.",
-  },
-  {
-    icon: <FaPrint style={{ fontSize: "36px", color: "var(--color-primary)" }} />,
-    title: "Print Your Label",
-    description:
-      "Receive your shipping label with full tracking. Print it on any standard printer and attach to your package.",
-  },
-  {
-    icon: <FaTruck style={{ fontSize: "36px", color: "var(--color-primary)" }} />,
-    title: "Ship & Save",
-    description:
-      "Drop off your package at any USPS location. Save 50-70% on every shipment compared to retail rates.",
-  },
-];
 
 export default function FlatRateShippingPage() {
   return (
@@ -211,68 +185,32 @@ export default function FlatRateShippingPage() {
       {/* ── HOW IT WORKS ── */}
       <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
-          <div className="section-header" style={{ textAlign: "center", marginBottom: "36px" }}>
-            <span className="typo-label">Process</span>
+          <div className="section-header">
+            <span className="typo-label">SIMPLE PROCESS</span>
             <h2 className="typo-h2">How Flat Rate Shipping Works</h2>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {processSteps.map((step, index) => (
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "0", marginTop: "36px" }}>
+            {[
+              { step: "01", icon: <FaBoxOpen style={{ fontSize: "28px", color: "var(--color-primary)" }} />, title: "Share Order Details", desc: "Provide your shipment details including recipient address and package weight. No account setup required." },
+              { step: "02", icon: <FaDollarSign style={{ fontSize: "28px", color: "var(--color-primary)" }} />, title: "Pay $4 Per Label", desc: "Each USPS Priority Mail label is a flat $4. No surprises, no surcharges, no weight-based calculations." },
+              { step: "03", icon: <FaPrint style={{ fontSize: "28px", color: "var(--color-primary)" }} />, title: "Print Your Label", desc: "Receive your shipping label with full tracking. Print it on any standard printer and attach to your package." },
+              { step: "04", icon: <FaTruck style={{ fontSize: "28px", color: "var(--color-primary)" }} />, title: "Ship & Save", desc: "Drop off your package at any USPS location. Save 50-70% on every shipment compared to retail rates." },
+            ].map((item) => (
               <div
-                key={step.title}
+                key={item.step}
                 style={{
-                  backgroundColor: "#ffffff",
-                  borderRadius: "12px",
-                  padding: "24px 20px",
+                  padding: "28px 24px",
                   textAlign: "center",
+                  position: "relative",
                 }}
               >
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    marginBottom: "14px",
-                  }}
-                >
-                  <div style={{ position: "relative" }}>
-                    <div
-                      style={{
-                        width: "70px",
-                        height: "70px",
-                        borderRadius: "50%",
-                        backgroundColor: "#f0f7ff",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
-                      {step.icon}
-                    </div>
-                    <div
-                      style={{
-                        position: "absolute",
-                        top: "-6px",
-                        right: "-6px",
-                        width: "26px",
-                        height: "26px",
-                        borderRadius: "50%",
-                        backgroundColor: "var(--color-primary)",
-                        color: "#ffffff",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
-                      <span className="typo-small" style={{ color: "#ffffff" }}>
-                        {index + 1}
-                      </span>
-                    </div>
-                  </div>
+                <div style={{ fontSize: "36px", fontWeight: 800, color: "var(--color-primary)", opacity: 0.15, lineHeight: 1 }}>
+                  {item.step}
                 </div>
-                <h3 className="typo-h3" style={{ marginBottom: "6px" }}>
-                  {step.title}
-                </h3>
-                <p className="typo-small">{step.description}</p>
+                <div style={{ margin: "10px 0 8px" }}>{item.icon}</div>
+                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
+                <p className="typo-small">{item.desc}</p>
               </div>
             ))}
           </div>

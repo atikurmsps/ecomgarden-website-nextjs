@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp, FaSearch, FaListAlt, FaShoppingCart, FaUndoAlt, FaShieldAlt, FaRocket } from "react-icons/fa";
+import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp, FaSearch, FaListAlt, FaShoppingCart, FaUndoAlt, FaShieldAlt, FaRocket, FaTruck, FaSmile } from "react-icons/fa";
 import ServiceConfidence from "@/components/services/ServiceConfidence";
 import CTASection from "@/components/home/CTASection";
 
@@ -77,31 +77,6 @@ const faqs = [
   },
 ];
 
-const processSteps = [
-  {
-    img: "/images/services/process/sell-items.png",
-    title: "Sell Items",
-    description: "List catalog on Amazon and start selling items",
-  },
-  {
-    img: "/images/services/process/buy-items.png",
-    title: "Buy Items",
-    description:
-      "Purchase items from Walmart thats customer ordered and shipping to warehouse",
-  },
-  {
-    img: "/images/services/process/shipping.png",
-    title: "Shipping",
-    description:
-      "Warehouse will remove Walmart branding and repackaging Amazon branding and ship to customer",
-  },
-  {
-    img: "/images/services/process/happy-customer.png",
-    title: "Happy Customer",
-    description:
-      "Customer will receive Amazon branded parcel and Amazon invoice. Happy with their order",
-  },
-];
 
 export default function AmazonArbitragePage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -169,17 +144,32 @@ export default function AmazonArbitragePage() {
               </p>
             </div>
             <div className="flex justify-center">
-              <img
-                src="/images/services/hero/arbitrage-hero.jpg"
-                alt="Amazon Arbitrage 2 Step Dropshipping"
-                style={{
-                  width: "100%",
-                  maxWidth: "500px",
-                  height: "auto",
-                  borderRadius: "12px",
-                  boxShadow: "0 4px 24px rgba(0,0,0,0.10)",
-                }}
-              />
+              <div style={{
+                width: "100%",
+                borderRadius: "12px",
+                background: "linear-gradient(135deg, var(--color-dark) 0%, #2d2d3f 100%)",
+                padding: "32px",
+                color: "#fff",
+              }}>
+                <h3 style={{ color: "#fff", fontSize: "20px", fontWeight: 700, marginBottom: "16px" }}>
+                  Key Highlights
+                </h3>
+                <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                  {[
+                    "No upfront inventory required",
+                    "Profit within the first week",
+                    "30-40% average profit margins",
+                    "Zero inventory risk",
+                    "Profit sharing model available",
+                    "Complete A-Z account management",
+                  ].map((item) => (
+                    <div key={item} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                      <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "14px", flexShrink: 0 }} />
+                      <span style={{ fontSize: "14px", color: "rgba(255,255,255,0.9)" }}>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -193,45 +183,27 @@ export default function AmazonArbitragePage() {
             <h2 className="typo-h2">How 2 Step Dropshipping Works</h2>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {processSteps.map((step, index) => (
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "0", marginTop: "36px" }}>
+            {[
+              { step: "01", icon: <FaListAlt style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Sell Items", desc: "List catalog on Amazon and start selling items" },
+              { step: "02", icon: <FaShoppingCart style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Buy Items", desc: "Purchase items from Walmart thats customer ordered and shipping to warehouse" },
+              { step: "03", icon: <FaTruck style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Shipping", desc: "Warehouse will remove Walmart branding and repackaging Amazon branding and ship to customer" },
+              { step: "04", icon: <FaSmile style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Happy Customer", desc: "Customer will receive Amazon branded parcel and Amazon invoice. Happy with their order" },
+            ].map((item) => (
               <div
-                key={step.title}
+                key={item.step}
                 style={{
-                  backgroundColor: "#ffffff",
-                  borderRadius: "12px",
-                  padding: "20px",
+                  padding: "28px 20px",
                   textAlign: "center",
+                  position: "relative",
                 }}
               >
-                <div style={{ display: "flex", justifyContent: "center", marginBottom: "14px" }}>
-                  <div style={{ position: "relative" }}>
-                    <img
-                      src={step.img}
-                      alt={step.title}
-                      style={{ width: "70px", height: "70px", objectFit: "contain" }}
-                    />
-                    <div
-                      style={{
-                        position: "absolute",
-                        top: "-6px",
-                        right: "-6px",
-                        width: "26px",
-                        height: "26px",
-                        borderRadius: "50%",
-                        backgroundColor: "var(--color-primary)",
-                        color: "#ffffff",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
-                      <span className="typo-small" style={{ color: "#ffffff" }}>{index + 1}</span>
-                    </div>
-                  </div>
+                <div style={{ fontSize: "36px", fontWeight: 800, color: "var(--color-primary)", opacity: 0.15, marginBottom: "8px", lineHeight: 1 }}>
+                  {item.step}
                 </div>
-                <h3 className="typo-h3" style={{ marginBottom: "6px" }}>{step.title}</h3>
-                <p className="typo-small">{step.description}</p>
+                <div style={{ marginBottom: "10px" }}>{item.icon}</div>
+                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
+                <p className="typo-small">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -300,16 +272,35 @@ export default function AmazonArbitragePage() {
       <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div className="flex justify-center">
-              <img
-                src="/images/services/management/ecommerce-fulfilment.jpg"
-                alt="Manage Amazon Seller Account With EcomGarden"
-                style={{
-                  width: "100%",
-                  borderRadius: "12px",
-                  boxShadow: "0 4px 24px rgba(0,0,0,0.10)",
-                }}
-              />
+            <div>
+              <div style={{
+                width: "100%",
+                borderRadius: "12px",
+                background: "linear-gradient(135deg, var(--color-dark) 0%, #2d2d3f 100%)",
+                padding: "32px",
+                color: "#fff",
+              }}>
+                <h3 style={{ color: "#fff", fontSize: "20px", fontWeight: 700, marginBottom: "16px" }}>
+                  Our Management Covers
+                </h3>
+                <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                  {[
+                    "Daily product sourcing & research",
+                    "Order processing & purchasing",
+                    "Warehouse coordination & reboxing",
+                    "Listing optimization & SEO",
+                    "Customer support & returns",
+                    "Account health monitoring",
+                    "Shipping tracking & management",
+                    "PPC advertising & marketing",
+                  ].map((item) => (
+                    <div key={item} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                      <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "14px", flexShrink: 0 }} />
+                      <span style={{ fontSize: "14px", color: "rgba(255,255,255,0.9)" }}>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
             <div>
               <h2 className="typo-h2" style={{ marginBottom: "16px" }}>

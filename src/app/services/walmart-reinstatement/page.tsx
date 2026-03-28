@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp, FaExclamationTriangle, FaGavel, FaFileAlt, FaShieldAlt, FaChartLine, FaClock } from "react-icons/fa";
+import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp, FaExclamationTriangle, FaGavel, FaFileAlt, FaShieldAlt, FaChartLine, FaClock, FaSearch, FaClipboardCheck } from "react-icons/fa";
 import ServiceBenefits from "@/components/services/ServiceBenefits";
 import ServiceConfidence from "@/components/services/ServiceConfidence";
 import CTASection from "@/components/home/CTASection";
@@ -63,37 +63,6 @@ const faqs = [
   },
 ];
 
-const processSteps = [
-  {
-    img: "/images/services/process/sell-items.png",
-    title: "Case Review",
-    description: "Analyze suspension notice, account history, and identify the root cause of suspension",
-  },
-  {
-    img: "/images/services/process/buy-items.png",
-    title: "Compliance Audit",
-    description:
-      "Review all listings, policies, and account metrics to find every violation that needs resolution",
-  },
-  {
-    img: "/images/services/process/shipping.png",
-    title: "Appeal Preparation",
-    description:
-      "Draft a professional appeal letter with corrective actions and a detailed prevention plan",
-  },
-  {
-    img: "/images/services/process/happy-customer.png",
-    title: "Submit & Follow Up",
-    description:
-      "Submit the appeal to Walmart and actively follow up until a decision is reached",
-  },
-  {
-    img: "/images/services/process/get-payout.png",
-    title: "Account Restored",
-    description:
-      "Account reinstated and selling privileges restored. Ongoing monitoring to prevent future issues",
-  },
-];
 
 export default function WalmartReinstatementPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -189,17 +158,32 @@ export default function WalmartReinstatementPage() {
               </p>
             </div>
             <div className="flex justify-center">
-              <img
-                src="/images/services/hero/walmart-hero.jpg"
-                alt="Walmart Account Reinstatement Services"
-                style={{
-                  width: "100%",
-                  maxWidth: "500px",
-                  height: "auto",
-                  borderRadius: "12px",
-                  boxShadow: "0 4px 24px rgba(0,0,0,0.10)",
-                }}
-              />
+              <div style={{
+                width: "100%",
+                borderRadius: "12px",
+                background: "linear-gradient(135deg, var(--color-dark) 0%, #2d2d3f 100%)",
+                padding: "32px",
+                color: "#fff",
+              }}>
+                <h3 style={{ color: "#fff", fontSize: "20px", fontWeight: 700, marginBottom: "16px" }}>
+                  Suspension Types We Handle
+                </h3>
+                <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                  {[
+                    "Policy violations & restricted items",
+                    "High order defect rate (ODR)",
+                    "Late shipment rate violations",
+                    "Intellectual property complaints",
+                    "Account integrity issues",
+                    "Previously denied appeals",
+                  ].map((item) => (
+                    <div key={item} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                      <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "14px", flexShrink: 0 }} />
+                      <span style={{ fontSize: "14px", color: "rgba(255,255,255,0.9)" }}>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -251,45 +235,28 @@ export default function WalmartReinstatementPage() {
             <h2 className="typo-h2">How Our Reinstatement Process Works</h2>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
-            {processSteps.map((step, index) => (
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "0", marginTop: "36px" }}>
+            {[
+              { step: "01", icon: <FaSearch style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Case Review", desc: "Analyze suspension notice, account history, and identify the root cause of suspension" },
+              { step: "02", icon: <FaClipboardCheck style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Compliance Audit", desc: "Review all listings, policies, and account metrics to find every violation that needs resolution" },
+              { step: "03", icon: <FaFileAlt style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Appeal Preparation", desc: "Draft a professional appeal letter with corrective actions and a detailed prevention plan" },
+              { step: "04", icon: <FaGavel style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Submit & Follow Up", desc: "Submit the appeal to Walmart and actively follow up until a decision is reached" },
+              { step: "05", icon: <FaShieldAlt style={{ fontSize: "24px", color: "var(--color-primary)" }} />, title: "Account Restored", desc: "Account reinstated and selling privileges restored. Ongoing monitoring to prevent future issues" },
+            ].map((item) => (
               <div
-                key={step.title}
+                key={item.step}
                 style={{
-                  backgroundColor: "#f6f7f9",
-                  borderRadius: "12px",
-                  padding: "20px",
+                  padding: "28px 20px",
                   textAlign: "center",
+                  position: "relative",
                 }}
               >
-                <div style={{ display: "flex", justifyContent: "center", marginBottom: "14px" }}>
-                  <div style={{ position: "relative" }}>
-                    <img
-                      src={step.img}
-                      alt={step.title}
-                      style={{ width: "70px", height: "70px", objectFit: "contain" }}
-                    />
-                    <div
-                      style={{
-                        position: "absolute",
-                        top: "-6px",
-                        right: "-6px",
-                        width: "26px",
-                        height: "26px",
-                        borderRadius: "50%",
-                        backgroundColor: "var(--color-primary)",
-                        color: "#ffffff",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
-                      <span className="typo-small" style={{ color: "#ffffff" }}>{index + 1}</span>
-                    </div>
-                  </div>
+                <div style={{ fontSize: "36px", fontWeight: 800, color: "var(--color-primary)", opacity: 0.15, marginBottom: "8px", lineHeight: 1 }}>
+                  {item.step}
                 </div>
-                <h3 className="typo-h3" style={{ marginBottom: "6px" }}>{step.title}</h3>
-                <p className="typo-small">{step.description}</p>
+                <div style={{ marginBottom: "10px" }}>{item.icon}</div>
+                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
+                <p className="typo-small">{item.desc}</p>
               </div>
             ))}
           </div>
