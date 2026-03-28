@@ -96,8 +96,8 @@ export default function ShopifyMarketingPage() {
               <FaWhatsapp style={{ fontSize: "18px" }} />
               Get Free Marketing Audit
             </a>
-            <Link href="/pricing" className="btn-outline">
-              View Pricing
+            <Link href="/contact" className="btn-outline">
+              Get Pricing
             </Link>
           </div>
           <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap", justifyContent: "center" }}>

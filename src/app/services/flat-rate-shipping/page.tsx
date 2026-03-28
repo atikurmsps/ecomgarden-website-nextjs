@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { FaWhatsapp, FaCheckCircle } from "react-icons/fa";
+import { FaCheckCircle } from "react-icons/fa";
 import ServiceBenefits from "@/components/services/ServiceBenefits";
 import ServiceFAQ from "@/components/services/ServiceFAQ";
 import ServiceConfidence from "@/components/services/ServiceConfidence";
@@ -77,22 +76,7 @@ export default function FlatRateShippingPage() {
           <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
             No contracts. No minimums. No monthly fees.
           </p>
-          <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", justifyContent: "center" }}>
-            <a
-              href="https://wa.link/m2ac6m"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary btn-primary-pulse"
-              style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
-            >
-              <FaWhatsapp style={{ fontSize: "18px" }} />
-              Quick WhatsApp
-            </a>
-            <Link href="/services" className="btn-outline">
-              Browse More Services
-            </Link>
-          </div>
-          <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap", justifyContent: "center" }}>
+          <div style={{ display: "flex", gap: "24px", marginTop: "8px", flexWrap: "wrap", justifyContent: "center" }}>
             {["USPS Priority Mail", "Full Tracking Included", "Same-Day Generation"].map((text) => (
               <div key={text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
                 <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "13px" }} />

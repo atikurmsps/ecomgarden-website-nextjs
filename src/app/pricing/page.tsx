@@ -57,49 +57,85 @@ const additionalServices = [
 
 const managementServices = [
   {
+    img: "/images/pricing/amazon-arbitrage-icon.webp",
+    title: "Amazon 2-Step Dropshipping",
+    description:
+      "No upfront inventory. Zero-risk model — buy only when customers order. 30-40% margins. Profit within the first week.",
+    href: "/services/amazon-arbitrage",
+  },
+  {
     img: "/images/pricing/amazon-wholesale-icon.webp",
     title: "Amazon Wholesale",
     description:
-      "Official authentic branded products from authorized distributors. 100% suspension risk free with brand approval letters.",
+      "Sell established brands from authorized distributors. 100% suspension risk free with brand approval letters. 35% avg ROI.",
     href: "/services/amazon-wholesale",
-  },
-  {
-    img: "/images/pricing/walmart-icon.png",
-    title: "Walmart Management",
-    description:
-      "Complete Walmart store management — product research, listings, order fulfillment, pricing optimization, and daily operations.",
-    href: "/services/walmart-management",
-  },
-  {
-    img: "/images/pricing/amazon-arbitrage-icon.webp",
-    title: "Amazon Arbitrage",
-    subtitle: "(2-Step Dropshipping)",
-    description:
-      "No upfront inventory required. Zero-risk, quickly profitable business model — start generating profit within the first week.",
-    href: "/services/amazon-arbitrage",
   },
   {
     img: "/images/pricing/amazon-fba-icon.webp",
     title: "Amazon FBA",
     description:
-      "Full FBA management — product listings, optimization, PPC campaigns, inventory management, and customer service handled for you.",
-    href: "https://wa.link/m2ac6m",
-    external: true,
+      "Full FBA brand management — product research, PPC, listing optimization, inventory planning, and Brand Registry.",
+    href: "/services/amazon-fba",
+  },
+  {
+    img: "/images/pricing/walmart-icon.png",
+    title: "Walmart Management",
+    description:
+      "Complete Walmart store management — listings, Buy Box, order fulfillment, pricing, and daily operations.",
+    href: "/services/walmart-management",
   },
   {
     img: "/images/pricing/walmart-wfs-icon.png",
     title: "Walmart WFS",
     description:
-      "Walmart Fulfillment Services management — product prep, shipping to WFS warehouses, listing optimization, and order management.",
-    href: "https://wa.link/m2ac6m",
-    external: true,
+      "Walmart Fulfillment Services — product prep, WFS shipping, inventory planning, and Pro Seller badge optimization.",
+    href: "/services/walmart-wfs",
   },
   {
     img: "/images/pricing/ebay-icon.webp",
-    title: "eBay Management",
+    title: "eBay Dropshipping",
     description:
-      "Complete eBay store management — listing creation, pricing strategy, order fulfillment, customer support, and returns handling.",
-    href: "/services/amazon-arbitrage",
+      "Complete eBay store management — Cassini SEO, repricing, Top Rated Seller strategy, and account health.",
+    href: "/services/ebay-dropshipping",
+  },
+];
+
+const otherServices = [
+  {
+    title: "Company Filing LLC & LTD",
+    price: "$100 + State Fee",
+    description: "US LLC formation, EIN ($50), ITIN ($250), registered agent, bank account setup.",
+    href: "/services/company-filing",
+  },
+  {
+    title: "Tax Filing",
+    price: "From $100",
+    description: "Federal & state returns, sales tax, bookkeeping for all business types.",
+    href: "/services/tax-filing",
+  },
+  {
+    title: "Account Reinstatement",
+    price: "Case-based",
+    description: "Amazon & Walmart suspended account recovery. 85-90%+ success rate.",
+    href: "/services/amazon-reinstatement",
+  },
+  {
+    title: "Shopify Services",
+    price: "Project-based",
+    description: "Store setup, redesign, theme development, app development, and marketing.",
+    href: "/services/shopify",
+  },
+  {
+    title: "Etsy Dropshipping",
+    price: "Contact us",
+    description: "Complete Etsy store management — SEO, print-on-demand, and fulfillment.",
+    href: "/services/etsy-dropshipping",
+  },
+  {
+    title: "Walmart Wholesale & Dropshipping",
+    price: "Contact us",
+    description: "Walmart wholesale sourcing and 2-step dropshipping management.",
+    href: "/services/walmart-wholesale",
   },
 ];
 
@@ -323,11 +359,6 @@ export default function PricingPage() {
                   />
                   <div>
                     <h3 className="typo-h3" style={{ fontSize: "17px" }}>{service.title}</h3>
-                    {"subtitle" in service && service.subtitle && (
-                      <p className="typo-small" style={{ color: "var(--color-primary)", fontWeight: 600 }}>
-                        {service.subtitle}
-                      </p>
-                    )}
                   </div>
                 </div>
 
@@ -364,6 +395,41 @@ export default function PricingPage() {
                   </Link>
                 )}
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Other Services */}
+      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
+        <div className="container-main">
+          <div className="section-header">
+            <span className="typo-label">More Services</span>
+            <h2 className="typo-h2">Other Services &amp; Pricing</h2>
+            <p className="typo-subtext">Company formation, tax filing, account reinstatement, Shopify, and more.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ marginTop: "28px" }}>
+            {otherServices.map((service) => (
+              <Link
+                key={service.title}
+                href={service.href}
+                style={{
+                  backgroundColor: "#f6f7f9",
+                  borderRadius: "10px",
+                  padding: "22px",
+                  border: "1px solid rgba(0,0,0,0.04)",
+                  textDecoration: "none",
+                  transition: "all 0.2s",
+                }}
+                className="card-hover"
+              >
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "8px" }}>
+                  <h3 className="typo-h4" style={{ margin: 0 }}>{service.title}</h3>
+                  <span style={{ fontSize: "14px", fontWeight: 700, color: "var(--color-primary)", whiteSpace: "nowrap", marginLeft: "12px" }}>{service.price}</span>
+                </div>
+                <p className="typo-small" style={{ margin: 0 }}>{service.description}</p>
+              </Link>
             ))}
           </div>
         </div>

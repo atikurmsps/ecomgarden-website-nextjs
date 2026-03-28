@@ -1,8 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp, FaMapMarkerAlt } from "react-icons/fa";
+import { FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp, FaMapMarkerAlt } from "react-icons/fa";
 import ServiceBenefits from "@/components/services/ServiceBenefits";
 import ServiceConfidence from "@/components/services/ServiceConfidence";
 import CTASection from "@/components/home/CTASection";
@@ -104,22 +103,7 @@ export default function ThreePLWarehousePage() {
           <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
             Same-day processing. Web-based inventory tracking. No hidden charges.
           </p>
-          <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", justifyContent: "center" }}>
-            <a
-              href="https://wa.link/m2ac6m"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary btn-primary-pulse"
-              style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
-            >
-              <FaWhatsapp style={{ fontSize: "18px" }} />
-              Get Free Consultation
-            </a>
-            <Link href="/pricing" className="btn-outline">
-              View Pricing
-            </Link>
-          </div>
-          <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap", justifyContent: "center" }}>
+          <div style={{ display: "flex", gap: "24px", marginTop: "8px", flexWrap: "wrap", justifyContent: "center" }}>
             {["3 Own US Warehouses", "Same-Day Processing", "No Monthly Fees"].map((text) => (
               <div key={text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
                 <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "13px" }} />

@@ -72,57 +72,36 @@ export default function WalmartWholesalePage() {
     <>
       {/* ── HERO ── */}
       <section style={{ padding: "55px 0 70px", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div>
-              <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>WALMART WHOLESALE</span>
-              <h1 className="typo-h1" style={{ marginBottom: "14px" }}>
-                Sell Branded Products on Walmart. <span style={{ color: "#0071dc" }}>Wholesale Margins, Growing Platform.</span>
-              </h1>
-              <p className="typo-body" style={{ marginBottom: "16px", fontSize: "17px" }}>
-                Source from authorized distributors, sell established brands on Walmart Marketplace. Reliable supply chains, consistent 20-35% margins, and a platform with less competition than Amazon.
-              </p>
-
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6px 16px", marginBottom: "20px" }}>
-                {[
-                  "Authorized distributors",
-                  "Brand approval experts",
-                  "20-35% profit margins",
-                  "Reliable supply chains",
-                  "Pay from profits only",
-                  "A-Z wholesale management",
-                ].map((item) => (
-                  <div key={item} style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                    <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "12px", flexShrink: 0 }} />
-                    <span style={{ fontSize: "13px", color: "#555" }}>{item}</span>
-                  </div>
-                ))}
+        <div className="container-main" style={{ textAlign: "center" }}>
+          <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>WALMART WHOLESALE</span>
+          <h1 className="typo-h1" style={{ marginBottom: "14px", maxWidth: "850px", marginLeft: "auto", marginRight: "auto" }}>
+            Sell Branded Products on Walmart. <span style={{ color: "#0071dc" }}>Wholesale Margins, Growing Platform.</span>
+          </h1>
+          <p className="typo-body" style={{ marginBottom: "24px", fontSize: "17px", maxWidth: "750px", marginLeft: "auto", marginRight: "auto" }}>
+            Source from authorized distributors, sell established brands on Walmart Marketplace. Reliable supply chains, consistent 20-35% margins, and a platform with less competition than Amazon.
+          </p>
+          <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", justifyContent: "center" }}>
+            <a
+              href="https://wa.link/m2ac6m"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary btn-primary-pulse"
+              style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+            >
+              <FaWhatsapp style={{ fontSize: "18px" }} />
+              Start Earning — Free Consultation
+            </a>
+            <Link href="/pricing" className="btn-outline">
+              See Pricing
+            </Link>
+          </div>
+          <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap", justifyContent: "center" }}>
+            {["Authorized distributors", "Brand approval experts", "20-35% profit margins", "Reliable supply chains", "Pay from profits only", "A-Z wholesale management"].map((item) => (
+              <div key={item} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
+                <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "12px" }} />
+                {item}
               </div>
-
-              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
-                <a
-                  href="https://wa.link/m2ac6m"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary btn-primary-pulse"
-                  style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
-                >
-                  <FaWhatsapp style={{ fontSize: "18px" }} />
-                  Start Earning — Free Consultation
-                </a>
-                <Link href="/pricing" className="btn-outline">
-                  See Pricing
-                </Link>
-              </div>
-            </div>
-
-            <div className="hidden lg:flex items-center justify-center">
-              <img
-                src="/svg/wholesale.svg"
-                alt="Walmart Wholesale Services"
-                style={{ width: "100%", maxWidth: "600px", height: "auto" }}
-              />
-            </div>
+            ))}
           </div>
         </div>
       </section>

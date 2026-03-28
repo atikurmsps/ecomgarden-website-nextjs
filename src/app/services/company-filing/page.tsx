@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
 import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp, FaBuilding, FaGlobeAmericas, FaClock } from "react-icons/fa";
 import CTASection from "@/components/home/CTASection";
 
@@ -134,9 +133,9 @@ export default function CompanyFilingPage() {
               <FaWhatsapp style={{ fontSize: "18px" }} />
               Get Free Consultation
             </a>
-            <Link href="/pricing" className="btn-outline">
+            <a href="#packages" className="btn-outline">
               View Pricing
-            </Link>
+            </a>
           </div>
           <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap", justifyContent: "center" }}>
             {[
@@ -309,7 +308,7 @@ export default function CompanyFilingPage() {
       </section>
 
       {/* ── PACKAGES ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
+      <section id="packages" style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
           <div className="section-header">
             <span className="typo-label">OUR PACKAGES</span>

@@ -102,8 +102,8 @@ export default function ShopifyDropshippingPage() {
               <FaWhatsapp style={{ fontSize: "18px" }} />
               Get Free Consultation
             </a>
-            <Link href="/pricing" className="btn-outline">
-              View Pricing
+            <Link href="/contact" className="btn-outline">
+              Get Pricing
             </Link>
           </div>
           <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap", justifyContent: "center" }}>

@@ -86,7 +86,7 @@ export default function ShopifyPage() {
             <a href="https://wa.link/m2ac6m" target="_blank" rel="noopener noreferrer" className="btn-primary btn-primary-pulse" style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}>
               <FaWhatsapp style={{ fontSize: "18px" }} /> Get Free Consultation
             </a>
-            <Link href="/pricing" className="btn-outline">View Pricing</Link>
+            <Link href="/contact" className="btn-outline">Get Pricing</Link>
           </div>
         </div>
       </section>

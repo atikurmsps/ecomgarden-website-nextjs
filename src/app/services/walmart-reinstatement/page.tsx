@@ -255,8 +255,26 @@ export default function WalmartReinstatementPage() {
         </div>
       </section>
 
+      {/* ── EMERGENCY CTA ── */}
+      <section style={{ padding: "50px 0", backgroundColor: "#1a1a2e" }}>
+        <div className="container-main" style={{ textAlign: "center" }}>
+          <h2 style={{ fontSize: "24px", fontWeight: 700, color: "#fff", marginBottom: "6px" }}>
+            Don&apos;t Wait Another Day. <span style={{ color: "#dc2626" }}>Get Your Walmart Account Back.</span>
+          </h2>
+          <p style={{ color: "rgba(255,255,255,0.7)", fontSize: "15px", maxWidth: "500px", margin: "0 auto 24px" }}>
+            Free case assessment within 2 hours. Money-back guarantee if we can&apos;t reinstate.
+          </p>
+          <a href="https://wa.link/m2ac6m" target="_blank" rel="noopener noreferrer"
+            className="btn-primary btn-primary-pulse"
+            style={{ display: "inline-flex", alignItems: "center", gap: "8px", fontSize: "16px", padding: "14px 28px" }}>
+            <FaWhatsapp style={{ fontSize: "20px" }} />
+            Get Emergency Help Now
+          </a>
+        </div>
+      </section>
+
       {/* ── FAQ ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
+      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
           <div className="section-header">
             <span className="typo-label">GOT QUESTIONS?</span>
@@ -266,7 +284,7 @@ export default function WalmartReinstatementPage() {
           <div style={{ maxWidth: "750px", margin: "24px auto 0" }}>
             {faqs.map((faq, i) => (
               <div key={i} style={{
-                backgroundColor: "#f6f7f9", borderRadius: "8px", marginBottom: "8px",
+                backgroundColor: "#fff", borderRadius: "8px", marginBottom: "8px",
                 overflow: "hidden", border: "1px solid rgba(0,0,0,0.04)",
               }}>
                 <button
@@ -286,24 +304,6 @@ export default function WalmartReinstatementPage() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ── EMERGENCY CTA ── */}
-      <section style={{ padding: "50px 0", backgroundColor: "#1a1a2e" }}>
-        <div className="container-main" style={{ textAlign: "center" }}>
-          <h2 style={{ fontSize: "24px", fontWeight: 700, color: "#fff", marginBottom: "6px" }}>
-            Don&apos;t Wait Another Day. <span style={{ color: "#dc2626" }}>Get Your Walmart Account Back.</span>
-          </h2>
-          <p style={{ color: "rgba(255,255,255,0.7)", fontSize: "15px", maxWidth: "500px", margin: "0 auto 24px" }}>
-            Free case assessment within 2 hours. Money-back guarantee if we can&apos;t reinstate.
-          </p>
-          <a href="https://wa.link/m2ac6m" target="_blank" rel="noopener noreferrer"
-            className="btn-primary btn-primary-pulse"
-            style={{ display: "inline-flex", alignItems: "center", gap: "8px", fontSize: "16px", padding: "14px 28px" }}>
-            <FaWhatsapp style={{ fontSize: "20px" }} />
-            Get Emergency Help Now
-          </a>
         </div>
       </section>
 

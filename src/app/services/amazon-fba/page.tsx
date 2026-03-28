@@ -72,61 +72,39 @@ export default function AmazonFBAPage() {
     <>
       {/* ── HERO ── */}
       <section style={{ padding: "55px 0 70px", backgroundColor: "#f6f7f9" }}>
-        <div className="container-main">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div>
-              <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>AMAZON FBA MANAGEMENT</span>
-              <h1 className="typo-h1" style={{ marginBottom: "14px" }}>
-                Launch Your Amazon Brand. We Handle Everything From <span style={{ color: "var(--color-primary)" }}>Research to Revenue</span>.
-              </h1>
-              <p className="typo-body" style={{ marginBottom: "16px", fontSize: "17px" }}>
-                Product research, supplier sourcing, listing creation, PPC campaigns, inventory planning, Brand Registry — all handled by our team daily. You own the brand. We grow it into a sellable asset.
-              </p>
-
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6px 16px", marginBottom: "20px" }}>
-                {[
-                  "Data-driven research",
-                  "Daily PPC optimization",
-                  "A+ Content included",
-                  "Brand Registry setup",
-                  "Pay from profits only",
-                  "A-Z brand management",
-                ].map((item) => (
-                  <div key={item} style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                    <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "12px", flexShrink: 0 }} />
-                    <span style={{ fontSize: "13px", color: "#555" }}>{item}</span>
-                  </div>
-                ))}
+        <div className="container-main" style={{ textAlign: "center" }}>
+          <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>AMAZON FBA MANAGEMENT</span>
+          <h1 className="typo-h1" style={{ marginBottom: "14px", maxWidth: "850px", marginLeft: "auto", marginRight: "auto" }}>
+            Launch Your Amazon Brand. We Handle Everything From <span style={{ color: "var(--color-primary)" }}>Research to Revenue</span>.
+          </h1>
+          <p className="typo-body" style={{ marginBottom: "16px", fontSize: "17px", maxWidth: "750px", marginLeft: "auto", marginRight: "auto" }}>
+            Product research, supplier sourcing, listing creation, PPC campaigns, inventory planning, Brand Registry — all handled by our team daily. You own the brand. We grow it into a sellable asset.
+          </p>
+          <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "24px" }}>
+            $10M+ revenue managed across 50+ brands. Your brand could be next.
+          </p>
+          <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", justifyContent: "center" }}>
+            <a
+              href="https://wa.link/m2ac6m"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary btn-primary-pulse"
+              style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+            >
+              <FaWhatsapp style={{ fontSize: "18px" }} />
+              Launch Your Brand — Free Consultation
+            </a>
+            <Link href="/pricing" className="btn-outline">
+              See Pricing
+            </Link>
+          </div>
+          <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap", justifyContent: "center" }}>
+            {["Data-driven research", "Daily PPC optimization", "A+ Content included", "Brand Registry setup", "Pay from profits only", "A-Z brand management"].map((item) => (
+              <div key={item} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
+                <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "12px" }} />
+                {item}
               </div>
-
-              <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "20px" }}>
-                $10M+ revenue managed across 50+ brands. Your brand could be next.
-              </p>
-
-              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
-                <a
-                  href="https://wa.link/m2ac6m"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary btn-primary-pulse"
-                  style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
-                >
-                  <FaWhatsapp style={{ fontSize: "18px" }} />
-                  Launch Your Brand — Free Consultation
-                </a>
-                <Link href="/pricing" className="btn-outline">
-                  See Pricing
-                </Link>
-              </div>
-            </div>
-
-            <div className="hidden lg:flex items-center justify-center">
-              <img
-                src="/svg/dropshipping_hero_v4.svg"
-                alt="Amazon FBA Services"
-                style={{ width: "100%", maxWidth: "600px", height: "auto" }}
-              />
-            </div>
+            ))}
           </div>
         </div>
       </section>

@@ -81,8 +81,8 @@ export default function ShopifyRedesignPage() {
               <FaWhatsapp style={{ fontSize: "18px" }} />
               Get Free Store Audit
             </a>
-            <Link href="/pricing" className="btn-outline" style={{ borderColor: "rgba(255,255,255,0.3)", color: "#fff" }}>
-              View Pricing
+            <Link href="/contact" className="btn-outline-white">
+              Get Pricing
             </Link>
           </div>
           <div style={{ display: "flex", gap: "24px", marginTop: "32px", flexWrap: "wrap", justifyContent: "center" }}>
