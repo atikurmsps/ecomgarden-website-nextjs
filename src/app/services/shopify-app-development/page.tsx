@@ -1,376 +1,298 @@
+"use client";
+
+import React, { useState } from "react";
 import Link from "next/link";
-import { FaWhatsapp } from "react-icons/fa";
-import ServiceBenefits from "@/components/services/ServiceBenefits";
-import ServiceFAQ from "@/components/services/ServiceFAQ";
+import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp, FaLock, FaGlobe, FaPlug, FaCogs, FaShoppingCart, FaChartBar, FaClock, FaCode } from "react-icons/fa";
 import CTASection from "@/components/home/CTASection";
 
-export const metadata = {
-  title: "Shopify App Development Services | EcomGarden",
-  description:
-    "Custom Shopify app development, API integrations, workflow automation, and custom functionality. Build private or public apps tailored to your business.",
-};
-
-const appFeatures = [
-  {
-    icon: "/images/services/shopify/custom-app.png",
-    title: "Private App Development",
-    description:
-      "Build custom private apps tailored to your specific business needs with secure API access and seamless integration into your Shopify admin.",
-  },
-  {
-    icon: "/images/services/shopify/store-development.png",
-    title: "Public App Development",
-    description:
-      "Develop and launch public Shopify apps on the App Store with complete submission support, listing optimization, and monetization strategy.",
-  },
-  {
-    icon: "/images/services/shopify/migration.png",
-    title: "API Integration",
-    description:
-      "Connect Shopify with third-party services including ERPs, CRMs, shipping carriers, accounting software, and custom backends via REST and GraphQL APIs.",
-  },
-  {
-    icon: "/images/services/icons/inventory.png",
-    title: "Workflow Automation",
-    description:
-      "Automate repetitive business processes like order routing, inventory sync, customer tagging, email triggers, and report generation.",
-  },
-  {
-    icon: "/images/services/shopify/theme-customization.png",
-    title: "Admin Extensions",
-    description:
-      "Build custom admin UI extensions that add new functionality directly into the Shopify admin panel for streamlined store management.",
-  },
-  {
-    icon: "/images/services/shopify/products-listing.png",
-    title: "Checkout Extensions",
-    description:
-      "Develop custom checkout UI extensions for personalized checkout experiences including custom fields, upsells, and payment customizations.",
-  },
-  {
-    icon: "/images/services/shopify/custom-theme.png",
-    title: "Storefront API Apps",
-    description:
-      "Build headless commerce experiences using the Storefront API for custom storefronts, mobile apps, and unique shopping experiences.",
-  },
-  {
-    icon: "/images/services/shopify/speed-optimization.png",
-    title: "Webhook Integration",
-    description:
-      "Set up real-time event-driven workflows using Shopify webhooks for instant order notifications, inventory updates, and data synchronization.",
-  },
-  {
-    icon: "/images/services/shopify/social-media.png",
-    title: "Multi-Channel Sync",
-    description:
-      "Build apps that synchronize products, orders, and inventory across multiple sales channels including Amazon, eBay, and social platforms.",
-  },
-  {
-    icon: "/images/services/shopify/redesign.png",
-    title: "Custom Dashboard",
-    description:
-      "Create custom analytics dashboards and reporting tools that give you deeper insights into your store performance and customer behavior.",
-  },
-  {
-    icon: "/images/services/shopify/bug-fixing.png",
-    title: "App Maintenance",
-    description:
-      "Ongoing app maintenance including bug fixes, API version updates, performance optimization, and compatibility with Shopify platform changes.",
-  },
-  {
-    icon: "/images/services/icons/personal-manager.png",
-    title: "Dedicated Support",
-    description:
-      "Dedicated developer support for your custom apps with SLA-backed response times, monitoring, and proactive issue resolution.",
-  },
-];
-
-const howWeWorkSteps = [
-  {
-    img: "/images/services/shopify/discussion.png",
-    title: "Discovery",
-    description:
-      "Understand your business requirements, technical needs, and define the app scope and architecture",
-  },
-  {
-    img: "/images/services/shopify/get-access.png",
-    title: "Architecture",
-    description:
-      "Design the app architecture, database schema, API endpoints, and user interface wireframes",
-  },
-  {
-    img: "/images/services/shopify/planning.png",
-    title: "Development",
-    description:
-      "Agile development with regular demos, using Node.js, React, and Shopify APIs best practices",
-  },
-  {
-    img: "/images/services/shopify/implement.png",
-    title: "Testing & QA",
-    description:
-      "Comprehensive testing including unit tests, integration tests, and real-store testing environments",
-  },
-  {
-    img: "/images/services/shopify/live-handover.png",
-    title: "Deploy & Monitor",
-    description:
-      "Deploy the app, set up monitoring and alerts, and provide documentation and training",
-  },
-];
-
-const portfolioItems = [
-  {
-    img: "/images/services/portfolio/porto-shopify-theme.webp",
-    title: "Inventory Sync App",
-    description: "Real-time inventory synchronization between Shopify and warehouse management system",
-  },
-  {
-    img: "/images/services/portfolio/porto-shopify-theme.webp",
-    title: "Custom Pricing App",
-    description: "Volume-based pricing engine with customer group discounts and wholesale tiers",
-  },
-  {
-    img: "/images/services/portfolio/porto-shopify-theme.webp",
-    title: "Order Routing App",
-    description: "Intelligent order routing to multiple fulfillment centers based on location and stock",
-  },
-  {
-    img: "/images/services/portfolio/porto-shopify-theme.webp",
-    title: "Loyalty Rewards App",
-    description: "Points-based loyalty program with referral rewards and VIP tier management",
-  },
+const comparisonData = [
+  { feature: "Shopify API specialists", us: true, them: "Generalists" },
+  { feature: "Shopify 2.0 & Checkout extensions", us: true, them: false },
+  { feature: "Full lifecycle (design to deploy)", us: true, them: "Code only" },
+  { feature: "App Store submission support", us: true, them: "Extra cost" },
+  { feature: "Security best practices (OAuth, HMAC)", us: true, them: "Basic" },
+  { feature: "Post-launch monitoring", us: true, them: false },
+  { feature: "Turnaround time", us: "2-8 weeks", them: "2-6 months" },
+  { feature: "Ongoing maintenance plans", us: true, them: "Hourly billing" },
+  { feature: "WhatsApp direct support", us: true, them: false },
 ];
 
 const faqs = [
   {
-    question: "What types of Shopify apps can you build?",
-    answer:
-      "We build all types of Shopify apps including private custom apps, public apps for the Shopify App Store, embedded admin apps, checkout extensions, theme app extensions, and headless commerce solutions using the Storefront API. We can build any custom functionality your business requires.",
+    q: "What types of Shopify apps can you build?",
+    a: "We build all types — private custom apps, public apps for the App Store, embedded admin apps, checkout extensions, theme app extensions, and headless commerce solutions using the Storefront API. If Shopify supports it, we can build it.",
   },
   {
-    question: "What technologies do you use for Shopify app development?",
-    answer:
-      "We use the official Shopify tech stack including Node.js with Express or Remix, React for frontend, Prisma for database, and the Shopify API libraries. We work with both REST Admin API and GraphQL Admin API, plus the Storefront API for headless solutions.",
+    q: "What technologies do you use for Shopify app development?",
+    a: "We use the official Shopify tech stack: Node.js with Express or Remix, React for frontend, Prisma for database, and Shopify API libraries. We work with both REST Admin API and GraphQL Admin API, plus the Storefront API for headless solutions.",
   },
   {
-    question: "How long does it take to develop a custom Shopify app?",
-    answer:
-      "Development timeline depends on complexity. Simple apps with basic functionality take 2-4 weeks. Medium-complexity apps with integrations and custom UI take 4-8 weeks. Complex enterprise-grade apps with multiple integrations may take 8-16 weeks.",
+    q: "How long does it take to develop a custom Shopify app?",
+    a: "Simple apps with basic functionality take 2-4 weeks. Medium-complexity apps with integrations and custom UI take 4-8 weeks. Complex enterprise-grade apps with multiple integrations may take 8-16 weeks. We provide accurate estimates after understanding your requirements.",
   },
   {
-    question: "Can you integrate Shopify with my existing systems?",
-    answer:
-      "Yes, we specialize in Shopify integrations with ERPs like NetSuite and SAP, CRMs like Salesforce and HubSpot, shipping carriers, accounting software like QuickBooks, and custom internal tools via APIs and webhooks.",
+    q: "Can you integrate Shopify with my existing systems?",
+    a: "Yes. We specialize in integrations with ERPs like NetSuite and SAP, CRMs like Salesforce and HubSpot, shipping carriers, accounting software like QuickBooks, and custom internal tools via APIs and webhooks.",
   },
   {
-    question: "Do you help with Shopify App Store submission?",
-    answer:
-      "Yes, we handle the entire App Store submission process including meeting Shopify review requirements, creating app listing content, screenshots, demo stores, and responding to reviewer feedback until your app is approved and published.",
+    q: "Do you help with Shopify App Store submission?",
+    a: "Yes. We handle the entire submission process — meeting Shopify review requirements, creating app listing content, screenshots, demo stores, and responding to reviewer feedback until your app is approved and published.",
   },
   {
-    question: "How do you handle app security and data privacy?",
-    answer:
-      "Security is built into our development process. We implement OAuth 2.0 authentication, HMAC verification, encrypted data storage, rate limiting, and follow Shopify security best practices. We ensure GDPR and CCPA compliance for user data handling.",
+    q: "How do you handle app security and data privacy?",
+    a: "Security is built into our process. We implement OAuth 2.0 authentication, HMAC verification, encrypted data storage, rate limiting, and follow Shopify security best practices. We ensure GDPR and CCPA compliance for user data handling.",
   },
   {
-    question: "Can you maintain and update the app after launch?",
-    answer:
-      "Yes, we offer ongoing maintenance packages that include API version updates when Shopify releases new versions, bug fixes, performance optimization, new feature development, and 24/7 monitoring with alert-based incident response.",
+    q: "Can you maintain and update the app after launch?",
+    a: "Yes. We offer maintenance packages that include API version updates when Shopify releases new versions, bug fixes, performance optimization, new feature development, and 24/7 monitoring with alert-based incident response.",
   },
   {
-    question: "What is the cost of custom Shopify app development?",
-    answer:
-      "App development costs vary based on scope and complexity. Simple apps start around $2,000-5,000, medium-complexity apps range from $5,000-15,000, and enterprise solutions can be $15,000+. We provide detailed quotes after understanding your requirements.",
+    q: "What is the cost of custom Shopify app development?",
+    a: "Simple apps start around $2,000-5,000, medium-complexity apps range from $5,000-15,000, and enterprise solutions can be $15,000+. We provide detailed quotes after understanding your specific requirements and scope.",
   },
 ];
 
 export default function ShopifyAppDevelopmentPage() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
   return (
     <>
-      {/* Hero Section */}
-      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
+      {/* ── HERO ── */}
+      <section style={{ padding: "70px 0 80px", backgroundColor: "#f6f7f9" }}>
         <div className="container-main" style={{ textAlign: "center" }}>
-          <span className="typo-label">Shopify App Development</span>
-          <h1 className="typo-h1" style={{ marginBottom: "10px" }}>
-            Shopify App Development Services
+          <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>SHOPIFY APP DEVELOPMENT</span>
+          <h1 className="typo-h1" style={{ marginBottom: "14px", maxWidth: "700px", marginLeft: "auto", marginRight: "auto" }}>
+            Custom Shopify Apps That Solve Real Business Problems
           </h1>
-          <p className="typo-subtext" style={{ maxWidth: "560px", margin: "0 auto 24px" }}>
-            Build custom Shopify apps that extend your store functionality,
-            automate workflows, and integrate with third-party systems.
-            Private and public app development with expert hands.
+          <p className="typo-body" style={{ maxWidth: "600px", margin: "0 auto 12px", fontSize: "17px" }}>
+            When off-the-shelf apps fall short, we build <strong>custom solutions</strong>. Private apps, public apps, API integrations, and checkout extensions by Shopify specialists.
+          </p>
+          <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
+            Scalable. Secure. Built to grow with your business.
           </p>
           <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
             <a
               href="https://wa.link/m2ac6m"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary"
+              className="btn-primary btn-primary-pulse"
               style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
             >
-              <FaWhatsapp />
-              Quick Whatsapp
+              <FaWhatsapp style={{ fontSize: "18px" }} />
+              Discuss Your App Idea
             </a>
-            <Link href="/services" className="btn-outline">
-              Browse More Services
+            <Link href="/pricing" className="btn-outline">
+              View Pricing
             </Link>
           </div>
+
+          {/* Trust badges */}
+          <div style={{ display: "flex", gap: "24px", justifyContent: "center", marginTop: "32px", flexWrap: "wrap" }}>
+            {[
+              { icon: <FaCode />, text: "50+ Apps Developed" },
+              { icon: <FaPlug />, text: "REST & GraphQL APIs" },
+              { icon: <FaClock />, text: "2-8 Week Delivery" },
+            ].map((badge) => (
+              <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
+                <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
+                {badge.text}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Intro Section */}
+      {/* ── WHAT WE BUILD ── */}
       <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "40px", alignItems: "center" }}>
-            {/* Left - Text */}
-            <div>
-              <p className="typo-body" style={{ marginBottom: "16px" }}>
-                When off-the-shelf Shopify apps do not meet your business
-                needs, a custom app is the solution. Our development team
-                builds tailored Shopify applications that solve your specific
-                challenges, whether it is automating complex workflows,
-                integrating with external systems, or adding unique
-                functionality to your store.
-              </p>
-              <p className="typo-body">
-                We work with the latest Shopify APIs and development
-                frameworks to build robust, scalable, and secure apps. From
-                private apps for internal use to public apps for the Shopify
-                App Store, our team handles the full development lifecycle
-                including architecture design, development, testing,
-                deployment, and ongoing maintenance.
-              </p>
-            </div>
+          <div className="section-header">
+            <span className="typo-label">WHAT WE BUILD</span>
+            <h2 className="typo-h2">Custom App Development Services</h2>
+            <p className="typo-subtext">From simple integrations to complex enterprise solutions — we build it all.</p>
+          </div>
 
-            {/* Right - Image */}
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <img
-                src="/images/services/hero/shopify-hero.svg"
-                alt="Shopify App Development Services"
-                style={{ borderRadius: "12px", width: "100%", maxWidth: "500px", height: "auto" }}
-              />
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ marginTop: "32px" }}>
+            {[
+              { icon: <FaLock />, title: "Private App Development", desc: "Custom private apps tailored to your specific business needs with secure API access and seamless Shopify admin integration. Built exclusively for your store." },
+              { icon: <FaGlobe />, title: "Public App Development", desc: "Develop and launch apps on the Shopify App Store with complete submission support, listing optimization, and monetization strategy. Reach millions of merchants." },
+              { icon: <FaPlug />, title: "API Integration", desc: "Connect Shopify with ERPs, CRMs, shipping carriers, accounting software, and custom backends via REST and GraphQL APIs. Real-time data sync across your stack." },
+              { icon: <FaShoppingCart />, title: "Checkout Extensions", desc: "Custom checkout UI extensions for personalized checkout experiences — custom fields, post-purchase upsells, payment customizations, and loyalty integrations." },
+              { icon: <FaCogs />, title: "Workflow Automation", desc: "Automate repetitive processes — order routing, inventory sync, customer tagging, email triggers, report generation, and complex business logic." },
+              { icon: <FaChartBar />, title: "Custom Dashboards", desc: "Custom analytics dashboards and reporting tools that give you deeper insights into store performance, customer behavior, and business metrics." },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="card-hover"
+                style={{
+                  backgroundColor: "#f6f7f9",
+                  borderRadius: "10px",
+                  padding: "24px",
+                  border: "1px solid rgba(0,0,0,0.04)",
+                }}
+              >
+                <div style={{ fontSize: "22px", color: "var(--color-primary)", marginBottom: "12px" }}>{item.icon}</div>
+                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
+                <p className="typo-small">{item.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Service Features */}
+      {/* ── HOW IT WORKS ── */}
       <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
-          <div className="section-header" style={{ textAlign: "left" }}>
-            <span className="typo-label">Services</span>
-            <h2 className="typo-h2" style={{ marginBottom: "32px" }}>Our App Development Services</h2>
+          <div className="section-header">
+            <span className="typo-label">OUR PROCESS</span>
+            <h2 className="typo-h2">From Idea to Deployed App in 5 Steps</h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "24px" }}>
-            {appFeatures.map((feature) => (
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "0", marginTop: "36px" }}>
+            {[
+              { step: "01", title: "Discovery", desc: "Understand your business requirements, technical needs, and define app scope and architecture." },
+              { step: "02", title: "Architecture", desc: "Design app architecture, database schema, API endpoints, and user interface wireframes." },
+              { step: "03", title: "Development", desc: "Agile development with regular demos using Node.js, React, and Shopify API best practices." },
+              { step: "04", title: "Testing & QA", desc: "Unit tests, integration tests, security audit, and real-store testing environments." },
+              { step: "05", title: "Deploy & Monitor", desc: "Deploy the app, set up monitoring and alerts, provide documentation and training." },
+            ].map((item) => (
               <div
-                key={feature.title}
+                key={item.step}
                 style={{
-                  backgroundColor: "#fff",
-                  borderRadius: "12px",
-                  padding: "24px 16px",
+                  padding: "28px 20px",
                   textAlign: "center",
+                  position: "relative",
                 }}
               >
-                <div style={{ display: "flex", justifyContent: "center", marginBottom: "16px" }}>
-                  <img
-                    src={feature.icon}
-                    alt={feature.title}
-                    style={{ width: "80px", height: "80px", objectFit: "contain" }}
-                  />
+                <div style={{
+                  fontSize: "36px",
+                  fontWeight: 800,
+                  color: "var(--color-primary)",
+                  opacity: 0.15,
+                  marginBottom: "8px",
+                  lineHeight: 1,
+                }}>
+                  {item.step}
                 </div>
-                <h3 className="typo-h3" style={{ marginBottom: "6px" }}>
-                  {feature.title}
-                </h3>
-                <p className="typo-small">
-                  {feature.description}
-                </p>
+                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
+                <p className="typo-small">{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* How We Work */}
+      {/* ── COMPARISON ── */}
       <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
-          <div className="section-header" style={{ textAlign: "left" }}>
-            <span className="typo-label">Process</span>
-            <h2 className="typo-h2" style={{ marginBottom: "32px" }}>How we develop your Shopify app</h2>
+          <div className="section-header">
+            <span className="typo-label">WHY CHOOSE US</span>
+            <h2 className="typo-h2">EcomGarden vs Generic Developers</h2>
+            <p className="typo-subtext">Shopify app development requires Shopify expertise, not just coding skills.</p>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "24px" }}>
-            {howWeWorkSteps.map((step, index) => (
-              <div key={step.title} style={{ textAlign: "center" }}>
-                <div style={{ display: "flex", justifyContent: "center", marginBottom: "16px" }}>
-                  <div style={{ position: "relative" }}>
-                    <img
-                      src={step.img}
-                      alt={step.title}
-                      style={{ width: "80px", height: "80px", objectFit: "contain" }}
-                    />
-                    <div
-                      style={{
-                        position: "absolute",
-                        top: "-8px",
-                        right: "-8px",
-                        width: "28px",
-                        height: "28px",
-                        borderRadius: "50%",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        color: "#fff",
-                        backgroundColor: "var(--color-primary)",
-                      }}
-                    >
-                      {index + 1}
-                    </div>
+
+          <div style={{ maxWidth: "700px", margin: "32px auto 0" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr auto auto", gap: "0", backgroundColor: "#fff", borderRadius: "12px", overflow: "hidden", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
+              <div style={{ padding: "12px 16px", fontWeight: 700, backgroundColor: "#f6f7f9", fontSize: "13px" }}>Feature</div>
+              <div style={{ padding: "12px 20px", fontWeight: 700, backgroundColor: "var(--color-primary)", color: "#fff", textAlign: "center", fontSize: "13px", minWidth: "120px" }}>EcomGarden</div>
+              <div style={{ padding: "12px 20px", fontWeight: 700, backgroundColor: "#f6f7f9", textAlign: "center", fontSize: "13px", minWidth: "120px" }}>Generic Devs</div>
+
+              {comparisonData.map((row) => (
+                <React.Fragment key={row.feature}>
+                  <div style={{ padding: "10px 16px", fontSize: "13px", borderBottom: "1px solid #f5f5f5" }}>{row.feature}</div>
+                  <div style={{ padding: "10px 20px", textAlign: "center", borderBottom: "1px solid #f5f5f5", backgroundColor: "rgba(22,163,74,0.03)" }}>
+                    {row.us === true ? <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "16px" }} /> : <span style={{ fontSize: "13px", color: "var(--color-primary)", fontWeight: 600 }}>{row.us}</span>}
                   </div>
-                </div>
-                <h3 className="typo-h3" style={{ marginBottom: "6px" }}>
-                  {step.title}
-                </h3>
-                <p className="typo-small">
-                  {step.description}
-                </p>
-              </div>
-            ))}
+                  <div style={{ padding: "10px 20px", textAlign: "center", borderBottom: "1px solid #f5f5f5" }}>
+                    {row.them === false ? <FaTimesCircle style={{ color: "#dc2626", fontSize: "16px" }} /> : <span style={{ fontSize: "13px", color: "#999" }}>{row.them}</span>}
+                  </div>
+                </React.Fragment>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Portfolio */}
+      {/* ── WHY ECOMGARDEN ── */}
       <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
-          <div className="section-header" style={{ textAlign: "left" }}>
-            <span className="typo-label">Portfolio</span>
-            <h2 className="typo-h2" style={{ marginBottom: "32px" }}>Custom apps we have developed</h2>
+          <div className="section-header">
+            <span className="typo-label">THE ECOMGARDEN DIFFERENCE</span>
+            <h2 className="typo-h2">Why Merchants Trust Us With Custom Apps</h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "24px" }}>
-            {portfolioItems.map((item, index) => (
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ marginTop: "32px" }}>
+            {[
+              { title: "Shopify API Experts", desc: "We do not dabble in Shopify — we specialize in it. Our team knows the Admin API, Storefront API, webhooks, and checkout extensibility inside out. No learning curve on your project." },
+              { title: "Security First", desc: "OAuth 2.0, HMAC verification, encrypted storage, rate limiting, and GDPR compliance built into every app. Your data and your customers' data are protected by design." },
+              { title: "Eliminate App Subscription Fees", desc: "A custom app replaces multiple monthly subscriptions. One-time investment, zero recurring app costs. Most clients save $200-500/month in app fees." },
+              { title: "Agile Development", desc: "Regular demos, transparent progress updates, and iterative development. You see your app taking shape every sprint and can provide feedback before it is too late to change." },
+              { title: "App Store Expertise", desc: "If you are building a public app, we handle the entire App Store submission, review process, listing optimization, and launch strategy. We know what Shopify reviewers look for." },
+              { title: "Long-Term Support", desc: "Apps need maintenance — API version updates, bug fixes, performance tuning. Our maintenance plans keep your app running smoothly as Shopify evolves." },
+            ].map((item) => (
               <div
-                key={index}
+                key={item.title}
+                className="card-hover"
                 style={{
                   backgroundColor: "#fff",
-                  borderRadius: "12px",
-                  overflow: "hidden",
-                  boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
+                  borderRadius: "10px",
+                  padding: "24px",
+                  border: "1px solid rgba(0,0,0,0.04)",
                 }}
               >
-                <img
-                  src={item.img}
-                  alt={item.title}
-                  style={{ width: "100%", height: "auto", objectFit: "cover" }}
-                />
-                <div style={{ padding: "16px" }}>
-                  <h3 className="typo-h3" style={{ marginBottom: "6px" }}>
-                    {item.title}
-                  </h3>
-                  <p className="typo-small" style={{ marginBottom: "10px" }}>
-                    {item.description}
-                  </p>
-                  <Link href="/contact" className="typo-label">
-                    View Details
-                  </Link>
+                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
+                <p className="typo-small">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ── */}
+      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
+        <div className="container-main">
+          <div className="section-header">
+            <span className="typo-label">FAQ</span>
+            <h2 className="typo-h2">Frequently Asked Questions</h2>
+          </div>
+
+          <div style={{ maxWidth: "750px", margin: "24px auto 0" }}>
+            {faqs.map((faq, i) => (
+              <div
+                key={i}
+                style={{
+                  backgroundColor: "#f6f7f9",
+                  borderRadius: "8px",
+                  marginBottom: "8px",
+                  overflow: "hidden",
+                  border: "1px solid rgba(0,0,0,0.04)",
+                }}
+              >
+                <button
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    width: "100%",
+                    padding: "14px 18px",
+                    background: "none",
+                    border: "none",
+                    cursor: "pointer",
+                    fontSize: "15px",
+                    fontWeight: 600,
+                    color: "var(--color-dark)",
+                    textAlign: "left",
+                  }}
+                >
+                  {faq.q}
+                  {openFaq === i ? <FaChevronUp style={{ fontSize: "12px", flexShrink: 0 }} /> : <FaChevronDown style={{ fontSize: "12px", flexShrink: 0 }} />}
+                </button>
+                <div style={{
+                  maxHeight: openFaq === i ? "300px" : "0",
+                  overflow: "hidden",
+                  transition: "max-height 0.3s ease",
+                }}>
+                  <p className="typo-body" style={{ padding: "0 18px 14px" }}>{faq.a}</p>
                 </div>
               </div>
             ))}
@@ -378,34 +300,7 @@ export default function ShopifyAppDevelopmentPage() {
         </div>
       </section>
 
-      {/* Risk Free Section */}
-      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
-        <div className="container-main" style={{ textAlign: "center" }}>
-          <h2 className="typo-h2" style={{ marginBottom: "8px" }}>
-            Custom Solutions for Complex Problems
-          </h2>
-          <p className="typo-label" style={{ marginBottom: "20px" }}>
-            When off-the-shelf apps fall short, we build what you need
-          </p>
-          <h3 className="typo-h3" style={{ marginBottom: "16px", color: "var(--color-accent)" }}>
-            Scalable, secure, and built to grow with your business.
-          </h3>
-          <p className="typo-body" style={{ maxWidth: "720px", margin: "0 auto" }}>
-            A custom Shopify app eliminates monthly subscription fees for
-            multiple third-party apps, gives you full control over your data
-            and functionality, and provides a competitive advantage that
-            off-the-shelf solutions simply cannot match.
-          </p>
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <ServiceBenefits />
-
-      {/* FAQ Section */}
-      <ServiceFAQ faqs={faqs} />
-
-      {/* Final CTA */}
+      {/* ── CTA ── */}
       <CTASection />
     </>
   );

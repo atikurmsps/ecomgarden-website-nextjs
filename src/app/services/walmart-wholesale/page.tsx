@@ -1,17 +1,24 @@
+"use client";
+
+import React, { useState } from "react";
 import Link from "next/link";
-import { FaWhatsapp } from "react-icons/fa";
-import ServiceFeaturesGrid from "@/components/services/ServiceFeaturesGrid";
+import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp, FaHandshake, FaFileInvoice, FaBoxes, FaDollarSign, FaSearchDollar, FaClipboardCheck } from "react-icons/fa";
 import ServiceBenefits from "@/components/services/ServiceBenefits";
-import ServiceFAQ from "@/components/services/ServiceFAQ";
 import ServiceConfidence from "@/components/services/ServiceConfidence";
-import ServiceProsCons from "@/components/services/ServiceProsCons";
 import CTASection from "@/components/home/CTASection";
 
-export const metadata = {
-  title: "Walmart Wholesale Management Services | EcomGarden",
-  description:
-    "Professional wholesale product sourcing for Walmart marketplace. Brand approvals, bulk inventory management, pricing optimization, and complete store management.",
-};
+const comparisonData = [
+  { feature: "Verified supplier sourcing", us: true, self: "You find suppliers", others: "Limited database" },
+  { feature: "Brand approval handling", us: true, self: "You negotiate", others: "Extra fee" },
+  { feature: "Wholesale pricing negotiation", us: true, self: "No leverage", others: "Basic" },
+  { feature: "Invoice & documentation management", us: true, self: "You manage", others: "Partial" },
+  { feature: "Bulk inventory forecasting", us: true, self: false, others: false },
+  { feature: "Competitive repricing tools", us: true, self: false, others: "Extra fee" },
+  { feature: "Buy Box optimization", us: true, self: false, others: "Basic" },
+  { feature: "Multi-supplier coordination", us: true, self: "Overwhelming", others: "Extra fee" },
+  { feature: "Account health monitoring", us: true, self: "You monitor", others: "Basic" },
+  { feature: "Average profit margin", us: "15-35%", self: "5-15%", others: "10-20%" },
+];
 
 const faqs = [
   {
@@ -89,34 +96,51 @@ const processSteps = [
 ];
 
 export default function WalmartWholesalePage() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
   return (
     <>
-      {/* ── HERO SECTION ── */}
-      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
+      {/* ── HERO ── */}
+      <section style={{ padding: "70px 0 80px", backgroundColor: "#f6f7f9" }}>
         <div className="container-main" style={{ textAlign: "center" }}>
-          <span className="typo-label">Walmart Wholesale</span>
-          <h1 className="typo-h1" style={{ marginBottom: "10px" }}>
-            Walmart Wholesale Management Services
+          <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>WALMART WHOLESALE</span>
+          <h1 className="typo-h1" style={{ marginBottom: "14px", maxWidth: "700px", marginLeft: "auto", marginRight: "auto" }}>
+            Walmart Wholesale Management &mdash; Higher Margins, Consistent Supply
           </h1>
-          <p className="typo-subtext" style={{ maxWidth: "560px", margin: "0 auto 24px" }}>
-            Build a sustainable, high-margin Walmart business with wholesale
-            product sourcing, brand approvals, bulk inventory management, and
-            expert pricing optimization.
+          <p className="typo-body" style={{ maxWidth: "600px", margin: "0 auto 12px", fontSize: "17px" }}>
+            Wholesale sellers earn <strong>15-35% profit margins</strong> with authentic products, brand approvals, and predictable inventory costs.
+          </p>
+          <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
+            We handle supplier sourcing, brand approvals &amp; inventory management. You collect profits.
           </p>
           <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
             <a
               href="https://wa.link/m2ac6m"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary"
+              className="btn-primary btn-primary-pulse"
               style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
             >
               <FaWhatsapp style={{ fontSize: "18px" }} />
-              Quick WhatsApp
+              Get Free Consultation
             </a>
-            <Link href="/services" className="btn-outline">
-              Browse More Services
+            <Link href="/pricing" className="btn-outline">
+              View Pricing
             </Link>
+          </div>
+
+          {/* Trust badges */}
+          <div style={{ display: "flex", gap: "24px", justifyContent: "center", marginTop: "32px", flexWrap: "wrap" }}>
+            {[
+              { icon: <FaHandshake />, text: "50+ Verified Suppliers" },
+              { icon: <FaDollarSign />, text: "15-35% Profit Margins" },
+              { icon: <FaFileInvoice />, text: "100% Authentic Invoices" },
+            ].map((badge) => (
+              <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
+                <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
+                {badge.text}
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -125,7 +149,6 @@ export default function WalmartWholesalePage() {
       <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            {/* Left - Text */}
             <div>
               <p className="typo-body" style={{ marginBottom: "16px" }}>
                 Wholesale selling on Walmart is one of the most reliable and
@@ -148,8 +171,6 @@ export default function WalmartWholesalePage() {
                 up quickly to substantial monthly revenue.
               </p>
             </div>
-
-            {/* Right - Image */}
             <div className="flex justify-center">
               <img
                 src="/images/services/hero/walmart-hero.jpg"
@@ -186,22 +207,12 @@ export default function WalmartWholesalePage() {
                   textAlign: "center",
                 }}
               >
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    marginBottom: "14px",
-                  }}
-                >
+                <div style={{ display: "flex", justifyContent: "center", marginBottom: "14px" }}>
                   <div style={{ position: "relative" }}>
                     <img
                       src={step.img}
                       alt={step.title}
-                      style={{
-                        width: "70px",
-                        height: "70px",
-                        objectFit: "contain",
-                      }}
+                      style={{ width: "70px", height: "70px", objectFit: "contain" }}
                     />
                     <div
                       style={{
@@ -222,9 +233,7 @@ export default function WalmartWholesalePage() {
                     </div>
                   </div>
                 </div>
-                <h3 className="typo-h3" style={{ marginBottom: "6px" }}>
-                  {step.title}
-                </h3>
+                <h3 className="typo-h3" style={{ marginBottom: "6px" }}>{step.title}</h3>
                 <p className="typo-small">{step.description}</p>
               </div>
             ))}
@@ -236,7 +245,6 @@ export default function WalmartWholesalePage() {
       <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            {/* Left - Image */}
             <div className="flex justify-center">
               <img
                 src="/images/services/hero/walmart-secondary.jpg"
@@ -248,8 +256,6 @@ export default function WalmartWholesalePage() {
                 }}
               />
             </div>
-
-            {/* Right - Text */}
             <div>
               <h2 className="typo-h2" style={{ marginBottom: "16px" }}>
                 Wholesale Account Management With EcomGarden
@@ -279,34 +285,177 @@ export default function WalmartWholesalePage() {
         </div>
       </section>
 
+      {/* ── WHAT YOU GET ── */}
+      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
+        <div className="container-main">
+          <div className="section-header">
+            <span className="typo-label">WHAT YOU GET</span>
+            <h2 className="typo-h2">Complete Wholesale Management</h2>
+            <p className="typo-subtext">From supplier sourcing to profit optimization &mdash; we handle everything.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ marginTop: "32px" }}>
+            {[
+              { icon: <FaSearchDollar />, title: "Product Research & Analysis", desc: "Deep market analysis to find wholesale products with strong demand, low competition, and healthy margins. Data-backed decisions, not guesswork." },
+              { icon: <FaHandshake />, title: "Supplier Sourcing & Negotiation", desc: "We connect you with verified distributors and negotiate wholesale pricing. All suppliers provide authentic invoices and brand authorization." },
+              { icon: <FaClipboardCheck />, title: "Brand Approval Management", desc: "We handle the entire brand approval process: applications, invoice submission, follow-ups, and authorization letters for restricted brands." },
+              { icon: <FaBoxes />, title: "Bulk Inventory Management", desc: "Inventory forecasting, reorder point automation, and multi-supplier coordination. Never overstock or run out of your best sellers." },
+              { icon: <FaDollarSign />, title: "Pricing & Repricing Strategy", desc: "Advanced repricing tools monitor competitors daily. We adjust prices to win the Buy Box while protecting your profit margins." },
+              { icon: <FaFileInvoice />, title: "Compliance & Documentation", desc: "All invoices, brand authorization letters, and product documentation organized and ready for Walmart compliance reviews." },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="card-hover"
+                style={{
+                  backgroundColor: "#fff",
+                  borderRadius: "10px",
+                  padding: "24px",
+                  border: "1px solid rgba(0,0,0,0.04)",
+                }}
+              >
+                <div style={{ fontSize: "22px", color: "var(--color-primary)", marginBottom: "12px" }}>{item.icon}</div>
+                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
+                <p className="typo-small">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── ECOMGARDEN VS OTHERS ── */}
+      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
+        <div className="container-main">
+          <div className="section-header">
+            <span className="typo-label">WHY CHOOSE US</span>
+            <h2 className="typo-h2">EcomGarden vs Self-Managing vs Other Agencies</h2>
+            <p className="typo-subtext">Wholesale requires supplier relationships and expertise. Here&apos;s who delivers.</p>
+          </div>
+
+          <div style={{ maxWidth: "850px", margin: "32px auto 0", overflowX: "auto" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr auto auto auto", gap: "0", backgroundColor: "#fff", borderRadius: "12px", overflow: "hidden", boxShadow: "0 2px 12px rgba(0,0,0,0.06)", minWidth: "600px" }}>
+              <div style={{ padding: "12px 16px", fontWeight: 700, backgroundColor: "#f6f7f9", fontSize: "13px" }}>Feature</div>
+              <div style={{ padding: "12px 20px", fontWeight: 700, backgroundColor: "var(--color-primary)", color: "#fff", textAlign: "center", fontSize: "13px", minWidth: "110px" }}>EcomGarden</div>
+              <div style={{ padding: "12px 20px", fontWeight: 700, backgroundColor: "#f6f7f9", textAlign: "center", fontSize: "13px", minWidth: "110px" }}>Self-Managing</div>
+              <div style={{ padding: "12px 20px", fontWeight: 700, backgroundColor: "#f6f7f9", textAlign: "center", fontSize: "13px", minWidth: "110px" }}>Other Agencies</div>
+
+              {comparisonData.map((row) => (
+                <React.Fragment key={row.feature}>
+                  <div style={{ padding: "10px 16px", fontSize: "13px", borderBottom: "1px solid #f5f5f5" }}>{row.feature}</div>
+                  <div style={{ padding: "10px 20px", textAlign: "center", borderBottom: "1px solid #f5f5f5", backgroundColor: "rgba(22,163,74,0.03)" }}>
+                    {row.us === true ? <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "16px" }} /> : <span style={{ fontSize: "13px", color: "var(--color-primary)", fontWeight: 600 }}>{row.us}</span>}
+                  </div>
+                  <div style={{ padding: "10px 20px", textAlign: "center", borderBottom: "1px solid #f5f5f5" }}>
+                    {row.self === false ? <FaTimesCircle style={{ color: "#dc2626", fontSize: "16px" }} /> : <span style={{ fontSize: "13px", color: "#999" }}>{row.self}</span>}
+                  </div>
+                  <div style={{ padding: "10px 20px", textAlign: "center", borderBottom: "1px solid #f5f5f5" }}>
+                    {row.others === false ? <FaTimesCircle style={{ color: "#dc2626", fontSize: "16px" }} /> : <span style={{ fontSize: "13px", color: "#999" }}>{row.others}</span>}
+                  </div>
+                </React.Fragment>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── WHY CHOOSE US ── */}
+      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
+        <div className="container-main">
+          <div className="section-header">
+            <span className="typo-label">THE WHOLESALE ADVANTAGE</span>
+            <h2 className="typo-h2">Why Wholesale With EcomGarden Wins</h2>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "0", marginTop: "36px" }}>
+            {[
+              { step: "01", title: "Verified Suppliers Only", desc: "We work with authorized distributors and manufacturers. Every product comes with authentic invoices, eliminating IP complaint risks." },
+              { step: "02", title: "Brand Approvals Handled", desc: "Our team secures brand authorization for restricted categories. More approved brands means more products and more revenue." },
+              { step: "03", title: "Scalable & Predictable", desc: "Unlike arbitrage, wholesale gives you consistent supply and predictable costs. Scale up winning products without sourcing headaches." },
+              { step: "04", title: "Higher Margins, Lower Risk", desc: "Bulk pricing means better margins. Authentic products mean fewer returns and zero risk of counterfeit claims." },
+            ].map((item) => (
+              <div
+                key={item.step}
+                style={{
+                  padding: "28px 24px",
+                  textAlign: "center",
+                  position: "relative",
+                }}
+              >
+                <div style={{
+                  fontSize: "36px",
+                  fontWeight: 800,
+                  color: "var(--color-primary)",
+                  opacity: 0.15,
+                  marginBottom: "8px",
+                  lineHeight: 1,
+                }}>
+                  {item.step}
+                </div>
+                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
+                <p className="typo-small">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Confidence Stats */}
       <ServiceConfidence />
-
-      {/* Pros & Cons */}
-      <ServiceProsCons
-        heading="Pros & Cons of Walmart Wholesale"
-        pros={[
-          "Higher profit margins than dropshipping",
-          "Consistent and reliable product supply",
-          "Build long-term supplier relationships",
-          "Authorized products reduce IP complaint risks",
-          "Scalable with predictable inventory costs",
-          "Better account health with authentic invoices",
-        ]}
-        cons={[
-          "Requires upfront inventory investment",
-          "Need storage space or 3PL warehouse",
-        ]}
-      />
-
-      {/* Service Features Grid */}
-      <ServiceFeaturesGrid />
 
       {/* Benefits Section */}
       <ServiceBenefits />
 
-      {/* FAQ Section */}
-      <ServiceFAQ faqs={faqs} />
+      {/* ── FAQ ── */}
+      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
+        <div className="container-main">
+          <div className="section-header">
+            <span className="typo-label">FAQ</span>
+            <h2 className="typo-h2">Frequently Asked Questions</h2>
+          </div>
+
+          <div style={{ maxWidth: "750px", margin: "24px auto 0" }}>
+            {faqs.map((faq, i) => (
+              <div
+                key={i}
+                style={{
+                  backgroundColor: "#fff",
+                  borderRadius: "8px",
+                  marginBottom: "8px",
+                  overflow: "hidden",
+                  border: "1px solid rgba(0,0,0,0.04)",
+                }}
+              >
+                <button
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    width: "100%",
+                    padding: "14px 18px",
+                    background: "none",
+                    border: "none",
+                    cursor: "pointer",
+                    fontSize: "15px",
+                    fontWeight: 600,
+                    color: "var(--color-dark)",
+                    textAlign: "left",
+                  }}
+                >
+                  {faq.question}
+                  {openFaq === i ? <FaChevronUp style={{ fontSize: "12px", flexShrink: 0 }} /> : <FaChevronDown style={{ fontSize: "12px", flexShrink: 0 }} />}
+                </button>
+                <div style={{
+                  maxHeight: openFaq === i ? "300px" : "0",
+                  overflow: "hidden",
+                  transition: "max-height 0.3s ease",
+                }}>
+                  <p className="typo-body" style={{ padding: "0 18px 14px" }}>{faq.answer}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Final CTA */}
       <CTASection />

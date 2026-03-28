@@ -1,401 +1,297 @@
+"use client";
+
+import React, { useState } from "react";
 import Link from "next/link";
-import { FaWhatsapp } from "react-icons/fa";
-import ServiceBenefits from "@/components/services/ServiceBenefits";
-import ServiceFAQ from "@/components/services/ServiceFAQ";
+import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp, FaStore, FaPaintBrush, FaPlug, FaCreditCard, FaSearch, FaShoppingCart, FaClock, FaHeadset } from "react-icons/fa";
 import CTASection from "@/components/home/CTASection";
 
-const shopifyFeatures = [
-  {
-    icon: "/images/services/shopify/store-development.png",
-    title: "Store Development",
-    description:
-      "Our team will handle A-Z development tasks on your store and deliver a complete store with all requirement done.",
-  },
-  {
-    icon: "/images/services/shopify/redesign.png",
-    title: "Redesign Store",
-    description:
-      "Having a outdated design, our expert UX UI designer waiting for you. Get a custom and modern design for your right audiences.",
-  },
-  {
-    icon: "/images/services/shopify/theme-customization.png",
-    title: "Theme Customization",
-    description:
-      "Need extra features with your exist design? No worry. Our expert hand ready for customize your store as needed.",
-  },
-  {
-    icon: "/images/services/shopify/migration.png",
-    title: "Store Migration",
-    description:
-      "Expert hand for move your exist inventory, orders, customer data, design and all data into Shopify from any platform.",
-  },
-  {
-    icon: "/images/services/shopify/dropshipping.png",
-    title: "Dropshipping Setup",
-    description:
-      "Don't want to get inventory? Dropshipping is right for you. Get faster branded supplier and product and live your risk free business.",
-  },
-  {
-    icon: "/images/services/shopify/va-service.png",
-    title: "VA Service",
-    description:
-      "Our expert virtual assistant available for any kinds of order fullfillment, manual data process, response customer support.",
-  },
-  {
-    icon: "/images/services/icons/product-research.png",
-    title: "Product Research",
-    description:
-      "Start your brand with unique and high demand product. Our expert dropshipper ready to pick right product based on your criteria.",
-  },
-  {
-    icon: "/images/services/shopify/products-listing.png",
-    title: "Products Listing",
-    description:
-      "Listing products on your store using CSV, Excel, custom API, data scrapper from any website, any sources or even manual entry.",
-  },
-  {
-    icon: "/images/services/shopify/custom-app.png",
-    title: "Custom App Develop",
-    description:
-      "Get custom features with our custom app development service. Private and public app both services are available.",
-  },
-  {
-    icon: "/images/services/shopify/custom-theme.png",
-    title: "Custom Theme Develop",
-    description:
-      "We make your ideas into reality. Our custom theme development service provide you exact pixel perfect design thats you thinking.",
-  },
-  {
-    icon: "/images/services/shopify/speed-optimization.png",
-    title: "Speed Optimization",
-    description:
-      "Slow website and higher bounce rate? Our team will audit your store and make your store lighting fast.",
-  },
-  {
-    icon: "/images/services/shopify/bug-fixing.png",
-    title: "Bug Fixing",
-    description:
-      "Facing issues on your current setup? We are happy to audit your full setup and fix any kinds of bugs with expert hand.",
-  },
-  {
-    icon: "/images/services/icons/account-health.png",
-    title: "Conversion Optimize",
-    description:
-      "Getting traffics but not converting? We provide complete solution to update your store design, redesign products for highest conversion rate",
-  },
-  {
-    icon: "/images/services/shopify/social-media.png",
-    title: "Social Media",
-    description:
-      "Sale on any platform using Shopify. Make your Shopify all in one tools. We will setup and integrate all social media sales channel with your store.",
-  },
-  {
-    icon: "/images/services/icons/personal-manager.png",
-    title: "Customer Support",
-    description:
-      "Response on customer query is the main key of satisfaction. Our support team will 24/7 online to answer customer messages.",
-  },
-  {
-    icon: "/images/services/icons/inventory.png",
-    title: "Store Automation",
-    description:
-      "Having much repeat tasks? Shopify custom automation tools will help you to fulfilment orders, tracking, chatbot, supply chain.",
-  },
-];
-
-const howWeWorkSteps = [
-  {
-    img: "/images/services/shopify/discussion.png",
-    title: "Discussion",
-    description:
-      "Discuss your requirements with us. Make agreement for your needs and pricing",
-  },
-  {
-    img: "/images/services/shopify/get-access.png",
-    title: "Get Access",
-    description:
-      "Send your store access to us. As well others portal's access based on requirements",
-  },
-  {
-    img: "/images/services/shopify/planning.png",
-    title: "Planning",
-    description:
-      "We will make plan to reach highest quality service and fulfilment your requirements",
-  },
-  {
-    img: "/images/services/shopify/implement.png",
-    title: "Implement",
-    description:
-      "We will implement plan into reality, beta testing updates, fixing bugs if needed",
-  },
-  {
-    img: "/images/services/shopify/live-handover.png",
-    title: "Live & Handover",
-    description:
-      "After all beta testing, we will live the update and handover you everything",
-  },
-];
-
-const portfolioItems = [
-  {
-    img: "/images/services/portfolio/porto-shopify-theme.webp",
-    title: "Test Website",
-    description: "We worked on this website and completed everything",
-  },
-  {
-    img: "/images/services/portfolio/porto-shopify-theme.webp",
-    title: "Test Website",
-    description: "We worked on this website and completed everything",
-  },
-  {
-    img: "/images/services/portfolio/porto-shopify-theme.webp",
-    title: "Test Website",
-    description: "We worked on this website and completed everything",
-  },
-  {
-    img: "/images/services/portfolio/porto-shopify-theme.webp",
-    title: "Test Website",
-    description: "We worked on this website and completed everything",
-  },
+const comparisonData = [
+  { feature: "Ecommerce-specialized team", us: true, them: false },
+  { feature: "Shopify Partner certified", us: true, them: "Rarely" },
+  { feature: "Full store setup (A-Z)", us: true, them: "Partial" },
+  { feature: "Payment gateway configuration", us: true, them: "Extra cost" },
+  { feature: "SEO setup included", us: true, them: false },
+  { feature: "Speed optimization included", us: true, them: "Extra $500+" },
+  { feature: "Turnaround time", us: "5-10 days", them: "2-6 weeks" },
+  { feature: "Post-launch support", us: "30 days free", them: "Hourly billing" },
+  { feature: "WhatsApp direct support", us: true, them: false },
 ];
 
 const faqs = [
   {
-    question: "Does 2 Step Dropshipping Legal?",
-    answer:
-      "Yes, 2 step dropshipping is legal. You will never face any legal issue with 2 step dropshipping model.",
+    q: "How long does it take to build a Shopify store?",
+    a: "A complete Shopify store setup takes 5-10 business days depending on complexity. This includes theme setup, product listing, payment gateway, shipping configuration, and SEO basics. Custom features or large product catalogs may extend the timeline by a few days.",
   },
   {
-    question: "How Safe 2 Step Dropshipping Business?",
-    answer:
-      "Its 100% safe business model. Amazon required sending products with Amazon's branded packaging or white branding. As well, no 3rd party retailer invoice into the parcel. Our warehouse will remove the walmart invoice and repackaging products with Amazon branded box.",
+    q: "Do you handle product listing and content?",
+    a: "Yes. We handle bulk product import via CSV, manual entry, or data scraping from any source. Each listing gets optimized titles, descriptions, images, and variants. SEO-friendly product content is included in our setup service.",
   },
   {
-    question:
-      "Does 2 Step Dropshipping profitable after shipping and warehouse cost?",
-    answer:
-      "Yes. Its fully profitable. When we do products research, we pick products thats only have good profit margin and it will cover our warehouse & shipping cost.",
+    q: "Can you migrate my store from another platform to Shopify?",
+    a: "Absolutely. We migrate stores from WooCommerce, Magento, BigCommerce, Wix, Squarespace, and any other platform. We transfer products, customers, orders, blog content, and URL redirects to preserve your SEO rankings.",
   },
   {
-    question: "How much ROI (Return ON Investment) can I get?",
-    answer:
-      "Our average ROI is 35%. You will get 30-40% PROFIT MARGIN after all expense (shipping, warehouse and all other fees)",
+    q: "What payment gateways do you set up?",
+    a: "We configure Shopify Payments, PayPal, Stripe, and any region-specific gateways your business needs. We also set up multi-currency support and tax configurations based on your selling regions.",
   },
   {
-    question:
-      "Why I Need Investment Where Dropshipping Not Required any upfront?",
-    answer:
-      "Good question. Amazon will send you payout after 14 days of order delivery. So you need purchase products using your own funds. Then you will get payment from Amazon. So you need capital to purchase products when customer will order.",
+    q: "Do you offer ongoing store management?",
+    a: "Yes. We offer monthly management packages that include product updates, order processing, customer support, design tweaks, app management, and performance monitoring. Our team acts as your dedicated Shopify operations partner.",
   },
   {
-    question: "Can I use my address as warehouse?",
-    answer:
-      "Yes, If you can handle products receiving and shipping to customer, then why you will pay 3rd party warehouse!",
+    q: "What is included in the SEO setup?",
+    a: "Our SEO setup includes keyword research, meta title and description optimization for all pages, image alt tags, sitemap submission, Google Search Console setup, schema markup, and site speed optimization for Core Web Vitals.",
   },
   {
-    question: "Where do you source products?",
-    answer:
-      "We use authentic products sources only and use sourcing where its cheapest. We use Walmart, Amazon Prime, Sams Club, Target, Home Depot, Costco Wholesale.",
+    q: "Can you integrate third-party apps and tools?",
+    a: "Yes. We install, configure, and customize any Shopify app including email marketing (Klaviyo), reviews (Judge.me), upsells, subscriptions, loyalty programs, and custom API integrations with your existing business tools.",
   },
   {
-    question: "Will you guys manage my whole business?",
-    answer:
-      "Yes, We provide A-Z management including products research, sourcing, order management, shipping, return handling, customer support, promotion.",
-  },
-  {
-    question: "What if I can not create any profit?",
-    answer:
-      "Our working method is 100% profit guarantee. You will get full refund of any charge with no question ask.",
+    q: "Do you provide post-launch support?",
+    a: "Every project includes 30 days of free post-launch support for bug fixes, minor adjustments, and questions. After that, we offer affordable monthly retainer packages for ongoing development and management.",
   },
 ];
 
 export default function ShopifyDevelopmentPage() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
   return (
     <>
-      {/* Hero Section */}
-      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
+      {/* ── HERO ── */}
+      <section style={{ padding: "70px 0 80px", backgroundColor: "#f6f7f9" }}>
         <div className="container-main" style={{ textAlign: "center" }}>
-          <span className="typo-label">Shopify Development</span>
-          <h1 className="typo-h1" style={{ marginBottom: "10px" }}>
-            Shopify Store Development &amp; Management
+          <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>SHOPIFY DEVELOPMENT</span>
+          <h1 className="typo-h1" style={{ marginBottom: "14px", maxWidth: "700px", marginLeft: "auto", marginRight: "auto" }}>
+            Complete Shopify Store Development &amp; Management
           </h1>
-          <p className="typo-subtext" style={{ maxWidth: "560px", margin: "0 auto 24px" }}>
-            Complete Shopify solutions including store development, redesign,
-            custom theme and app development, speed optimization, and monthly
-            management with 50+ expert hands.
+          <p className="typo-body" style={{ maxWidth: "600px", margin: "0 auto 12px", fontSize: "17px" }}>
+            We&apos;ve built and managed <strong>200+ Shopify stores</strong> across every niche — from single-product brands to 10,000+ SKU catalogs.
+          </p>
+          <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
+            Ready-to-sell store in 5-10 business days. Zero technical headaches.
           </p>
           <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
             <a
               href="https://wa.link/m2ac6m"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary"
+              className="btn-primary btn-primary-pulse"
               style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
             >
-              <FaWhatsapp />
-              Quick Whatsapp
+              <FaWhatsapp style={{ fontSize: "18px" }} />
+              Get Free Consultation
             </a>
-            <Link href="/services" className="btn-outline">
-              Browse More Services
+            <Link href="/pricing" className="btn-outline">
+              View Pricing
             </Link>
           </div>
+
+          {/* Trust badges */}
+          <div style={{ display: "flex", gap: "24px", justifyContent: "center", marginTop: "32px", flexWrap: "wrap" }}>
+            {[
+              { icon: <FaStore />, text: "200+ Stores Built" },
+              { icon: <FaShoppingCart />, text: "50+ Expert Team" },
+              { icon: <FaClock />, text: "5-10 Day Delivery" },
+            ].map((badge) => (
+              <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
+                <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
+                {badge.text}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Intro Section */}
+      {/* ── WHAT'S INCLUDED ── */}
       <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "40px", alignItems: "center" }}>
-            {/* Left - Text */}
-            <div>
-              <p className="typo-body" style={{ marginBottom: "16px" }}>
-                Shopify, world largest cloud based eCommerce platform. Provide
-                complete solutions including millions of traffics handle and zero
-                downtime payment processing. Looking for extend your business
-                into Shopify ? Your on the right place. We provide a complete
-                solution for Shopify development.
-              </p>
-              <p className="typo-body">
-                Our service including store development, redesign, dropshipping
-                development, supplier finding, custom theme and application
-                development, bud fixing, theme customoziation, speed
-                optimization and all kinds of development support. As well we
-                provide monthly management for order processing, customer
-                support. Our dedicated 50+ expert hand always available to make
-                your Shopify business success.
-              </p>
-            </div>
+          <div className="section-header">
+            <span className="typo-label">WHAT WE DO</span>
+            <h2 className="typo-h2">Complete Shopify Solutions Under One Roof</h2>
+            <p className="typo-subtext">From store setup to ongoing management — everything your Shopify business needs.</p>
+          </div>
 
-            {/* Right - Image */}
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <img
-                src="/images/services/hero/shopify-hero.svg"
-                alt="Shopify Store Development & Management"
-                style={{ borderRadius: "12px", width: "100%", maxWidth: "500px", height: "auto" }}
-              />
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ marginTop: "32px" }}>
+            {[
+              { icon: <FaStore />, title: "Store Setup & Configuration", desc: "Complete A-Z Shopify store setup including domain, theme installation, navigation, pages, policies, shipping zones, and tax configuration. Ready to accept orders from day one." },
+              { icon: <FaPaintBrush />, title: "Theme Customization", desc: "Customize any Shopify theme to match your brand — colors, fonts, layouts, custom sections, and homepage design. Pixel-perfect implementation of your vision." },
+              { icon: <FaPlug />, title: "App Integration", desc: "Install and configure essential Shopify apps for email marketing, reviews, upsells, loyalty programs, subscriptions, and any third-party integrations your business needs." },
+              { icon: <FaCreditCard />, title: "Payment Gateway Setup", desc: "Configure Shopify Payments, PayPal, Stripe, and region-specific gateways. Multi-currency support, tax setup, and checkout optimization for maximum conversion." },
+              { icon: <FaSearch />, title: "SEO & Speed Optimization", desc: "On-page SEO setup with keyword-optimized meta tags, schema markup, image optimization, and Core Web Vitals tuning. Your store loads fast and ranks well from launch." },
+              { icon: <FaHeadset />, title: "Ongoing Management", desc: "Monthly store management including product updates, order processing, customer support, design tweaks, app updates, and performance monitoring by our dedicated team." },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="card-hover"
+                style={{
+                  backgroundColor: "#f6f7f9",
+                  borderRadius: "10px",
+                  padding: "24px",
+                  border: "1px solid rgba(0,0,0,0.04)",
+                }}
+              >
+                <div style={{ fontSize: "22px", color: "var(--color-primary)", marginBottom: "12px" }}>{item.icon}</div>
+                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
+                <p className="typo-small">{item.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Shopify Service Features */}
+      {/* ── HOW IT WORKS ── */}
       <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
-          <div className="section-header" style={{ textAlign: "left" }}>
-            <span className="typo-label">Services</span>
-            <h2 className="typo-h2" style={{ marginBottom: "32px" }}>Our Shopify Services</h2>
+          <div className="section-header">
+            <span className="typo-label">SIMPLE PROCESS</span>
+            <h2 className="typo-h2">From Idea to Live Store in 4 Steps</h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "24px" }}>
-            {shopifyFeatures.map((feature) => (
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "0", marginTop: "36px" }}>
+            {[
+              { step: "01", title: "Free Consultation", desc: "We discuss your goals, niche, target audience, and outline the complete store setup roadmap." },
+              { step: "02", title: "Share Requirements", desc: "You provide your brand assets, product details, and preferences. We handle all the technical setup." },
+              { step: "03", title: "We Build Everything", desc: "Theme setup, product listing, payment gateway, apps, SEO — all handled by our expert team." },
+              { step: "04", title: "Launch & Support", desc: "Your store goes live. We provide 30 days of free support and optional ongoing management." },
+            ].map((item) => (
               <div
-                key={feature.title}
+                key={item.step}
                 style={{
-                  backgroundColor: "#fff",
-                  borderRadius: "12px",
-                  padding: "24px 16px",
+                  padding: "28px 24px",
                   textAlign: "center",
+                  position: "relative",
                 }}
               >
-                <div style={{ display: "flex", justifyContent: "center", marginBottom: "16px" }}>
-                  <img
-                    src={feature.icon}
-                    alt={feature.title}
-                    style={{ width: "80px", height: "80px", objectFit: "contain" }}
-                  />
+                <div style={{
+                  fontSize: "36px",
+                  fontWeight: 800,
+                  color: "var(--color-primary)",
+                  opacity: 0.15,
+                  marginBottom: "8px",
+                  lineHeight: 1,
+                }}>
+                  {item.step}
                 </div>
-                <h3 className="typo-h3" style={{ marginBottom: "6px" }}>
-                  {feature.title}
-                </h3>
-                <p className="typo-small">
-                  {feature.description}
-                </p>
+                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
+                <p className="typo-small">{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* How We Work */}
+      {/* ── WHY CHOOSE US / COMPARISON ── */}
       <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
-          <div className="section-header" style={{ textAlign: "left" }}>
-            <span className="typo-label">Process</span>
-            <h2 className="typo-h2" style={{ marginBottom: "32px" }}>How we work with Shopify project</h2>
+          <div className="section-header">
+            <span className="typo-label">WHY CHOOSE US</span>
+            <h2 className="typo-h2">EcomGarden vs Fiverr Freelancers</h2>
+            <p className="typo-subtext">We&apos;re not a random freelancer. We&apos;re a dedicated Shopify Partner team.</p>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "24px" }}>
-            {howWeWorkSteps.map((step, index) => (
-              <div key={step.title} style={{ textAlign: "center" }}>
-                <div style={{ display: "flex", justifyContent: "center", marginBottom: "16px" }}>
-                  <div style={{ position: "relative" }}>
-                    <img
-                      src={step.img}
-                      alt={step.title}
-                      style={{ width: "80px", height: "80px", objectFit: "contain" }}
-                    />
-                    <div
-                      style={{
-                        position: "absolute",
-                        top: "-8px",
-                        right: "-8px",
-                        width: "28px",
-                        height: "28px",
-                        borderRadius: "50%",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        color: "#fff",
-                        backgroundColor: "var(--color-primary)",
-                      }}
-                    >
-                      {index + 1}
-                    </div>
+
+          <div style={{ maxWidth: "700px", margin: "32px auto 0" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr auto auto", gap: "0", backgroundColor: "#fff", borderRadius: "12px", overflow: "hidden", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
+              <div style={{ padding: "12px 16px", fontWeight: 700, backgroundColor: "#f6f7f9", fontSize: "13px" }}>Feature</div>
+              <div style={{ padding: "12px 20px", fontWeight: 700, backgroundColor: "var(--color-primary)", color: "#fff", textAlign: "center", fontSize: "13px", minWidth: "120px" }}>EcomGarden</div>
+              <div style={{ padding: "12px 20px", fontWeight: 700, backgroundColor: "#f6f7f9", textAlign: "center", fontSize: "13px", minWidth: "120px" }}>Freelancers</div>
+
+              {comparisonData.map((row) => (
+                <React.Fragment key={row.feature}>
+                  <div style={{ padding: "10px 16px", fontSize: "13px", borderBottom: "1px solid #f5f5f5" }}>{row.feature}</div>
+                  <div style={{ padding: "10px 20px", textAlign: "center", borderBottom: "1px solid #f5f5f5", backgroundColor: "rgba(22,163,74,0.03)" }}>
+                    {row.us === true ? <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "16px" }} /> : <span style={{ fontSize: "13px", color: "var(--color-primary)", fontWeight: 600 }}>{row.us}</span>}
                   </div>
-                </div>
-                <h3 className="typo-h3" style={{ marginBottom: "6px" }}>
-                  {step.title}
-                </h3>
-                <p className="typo-small">
-                  {step.description}
-                </p>
-              </div>
-            ))}
+                  <div style={{ padding: "10px 20px", textAlign: "center", borderBottom: "1px solid #f5f5f5" }}>
+                    {row.them === false ? <FaTimesCircle style={{ color: "#dc2626", fontSize: "16px" }} /> : <span style={{ fontSize: "13px", color: "#999" }}>{row.them}</span>}
+                  </div>
+                </React.Fragment>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Portfolio */}
+      {/* ── WHY ECOMGARDEN ── */}
       <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
-          <div className="section-header" style={{ textAlign: "left" }}>
-            <span className="typo-label">Portfolio</span>
-            <h2 className="typo-h2" style={{ marginBottom: "32px" }}>Some recent work of our Shopify development</h2>
+          <div className="section-header">
+            <span className="typo-label">THE ECOMGARDEN DIFFERENCE</span>
+            <h2 className="typo-h2">Why 200+ Brands Trust Us With Their Shopify Stores</h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "24px" }}>
-            {portfolioItems.map((item, index) => (
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ marginTop: "32px" }}>
+            {[
+              { title: "Shopify Partner Expertise", desc: "Not generalist web developers. Our team specializes exclusively in Shopify and understands the platform inside out — themes, Liquid, APIs, and the ecosystem." },
+              { title: "Ecommerce-First Approach", desc: "Every decision is made to drive sales. We build stores that convert, not just look pretty. From product page layout to checkout flow — revenue is the priority." },
+              { title: "Fixed-Price, No Surprises", desc: "Clear pricing agreed upfront. No hourly billing surprises, no scope creep charges. You know exactly what you pay and what you get." },
+              { title: "Fast Turnaround", desc: "5-10 business days for a complete store. Our streamlined process and dedicated team mean you launch weeks faster than with freelancers or agencies." },
+              { title: "30 Days Free Support", desc: "Every project includes 30 days of post-launch support. Bug fixes, minor adjustments, questions — we are there until you are fully comfortable." },
+              { title: "Long-Term Partnership", desc: "We do not disappear after delivery. Monthly management, ongoing optimization, and growth strategy — we scale with your business." },
+            ].map((item) => (
               <div
-                key={index}
+                key={item.title}
+                className="card-hover"
                 style={{
                   backgroundColor: "#fff",
-                  borderRadius: "12px",
-                  overflow: "hidden",
-                  boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
+                  borderRadius: "10px",
+                  padding: "24px",
+                  border: "1px solid rgba(0,0,0,0.04)",
                 }}
               >
-                <img
-                  src={item.img}
-                  alt={item.title}
-                  style={{ width: "100%", height: "auto", objectFit: "cover" }}
-                />
-                <div style={{ padding: "16px" }}>
-                  <h3 className="typo-h3" style={{ marginBottom: "6px" }}>
-                    {item.title}
-                  </h3>
-                  <p className="typo-small" style={{ marginBottom: "10px" }}>
-                    {item.description}
-                  </p>
-                  <Link href="/contact" className="typo-label">
-                    View Details
-                  </Link>
+                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
+                <p className="typo-small">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ── */}
+      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
+        <div className="container-main">
+          <div className="section-header">
+            <span className="typo-label">FAQ</span>
+            <h2 className="typo-h2">Frequently Asked Questions</h2>
+          </div>
+
+          <div style={{ maxWidth: "750px", margin: "24px auto 0" }}>
+            {faqs.map((faq, i) => (
+              <div
+                key={i}
+                style={{
+                  backgroundColor: "#f6f7f9",
+                  borderRadius: "8px",
+                  marginBottom: "8px",
+                  overflow: "hidden",
+                  border: "1px solid rgba(0,0,0,0.04)",
+                }}
+              >
+                <button
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    width: "100%",
+                    padding: "14px 18px",
+                    background: "none",
+                    border: "none",
+                    cursor: "pointer",
+                    fontSize: "15px",
+                    fontWeight: 600,
+                    color: "var(--color-dark)",
+                    textAlign: "left",
+                  }}
+                >
+                  {faq.q}
+                  {openFaq === i ? <FaChevronUp style={{ fontSize: "12px", flexShrink: 0 }} /> : <FaChevronDown style={{ fontSize: "12px", flexShrink: 0 }} />}
+                </button>
+                <div style={{
+                  maxHeight: openFaq === i ? "300px" : "0",
+                  overflow: "hidden",
+                  transition: "max-height 0.3s ease",
+                }}>
+                  <p className="typo-body" style={{ padding: "0 18px 14px" }}>{faq.a}</p>
                 </div>
               </div>
             ))}
@@ -403,34 +299,7 @@ export default function ShopifyDevelopmentPage() {
         </div>
       </section>
 
-      {/* Vacation / Risk Free Section */}
-      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
-        <div className="container-main" style={{ textAlign: "center" }}>
-          <h2 className="typo-h2" style={{ marginBottom: "8px" }}>
-            Start Your Unlimited Vacation. Because
-          </h2>
-          <p className="typo-label" style={{ marginBottom: "20px" }}>
-            We provide service with profit sharing model
-          </p>
-          <h3 className="typo-h3" style={{ marginBottom: "16px", color: "var(--color-accent)" }}>
-            100% Risk Free. Pay only once you see profit.
-          </h3>
-          <p className="typo-body" style={{ maxWidth: "720px", margin: "0 auto" }}>
-            No one will offer profit sharing model and no payment before you get
-            profit. Because everyone can not handle risk and recover the dark
-            side of eCommerce. Our experienced and highly skilled team will
-            start profit within a week.
-          </p>
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <ServiceBenefits />
-
-      {/* FAQ Section */}
-      <ServiceFAQ faqs={faqs} />
-
-      {/* Final CTA */}
+      {/* ── CTA ── */}
       <CTASection />
     </>
   );

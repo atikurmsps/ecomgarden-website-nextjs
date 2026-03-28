@@ -1,377 +1,297 @@
+"use client";
+
+import React, { useState } from "react";
 import Link from "next/link";
-import { FaWhatsapp } from "react-icons/fa";
-import ServiceBenefits from "@/components/services/ServiceBenefits";
-import ServiceFAQ from "@/components/services/ServiceFAQ";
+import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp, FaSearchPlus, FaChartLine, FaTachometerAlt, FaMobileAlt, FaPalette, FaShoppingCart, FaClock, FaStore } from "react-icons/fa";
 import CTASection from "@/components/home/CTASection";
 
-export const metadata = {
-  title: "Shopify Store Redesign Services | EcomGarden",
-  description:
-    "Conversion-optimized Shopify store redesign with UX improvement, speed optimization, and mobile-first design. Transform your store into a sales machine.",
-};
-
-const redesignFeatures = [
-  {
-    icon: "/images/services/shopify/redesign.png",
-    title: "Complete Redesign",
-    description:
-      "Full store makeover with modern design trends, improved navigation, and a layout optimized to guide visitors toward making a purchase.",
-  },
-  {
-    icon: "/images/services/shopify/theme-customization.png",
-    title: "UX/UI Improvement",
-    description:
-      "User experience audit and redesign focused on reducing friction, simplifying the shopping journey, and increasing customer satisfaction.",
-  },
-  {
-    icon: "/images/services/shopify/speed-optimization.png",
-    title: "Speed Optimization",
-    description:
-      "Comprehensive performance tuning including image compression, code minification, lazy loading, and third-party script optimization.",
-  },
-  {
-    icon: "/images/services/shopify/store-development.png",
-    title: "Mobile-First Design",
-    description:
-      "Responsive design that prioritizes the mobile shopping experience, ensuring your store looks and works perfectly on every screen size.",
-  },
-  {
-    icon: "/images/services/icons/account-health.png",
-    title: "Conversion Rate Optimization",
-    description:
-      "Strategic placement of CTAs, trust signals, social proof, and urgency elements to maximize your store conversion rate.",
-  },
-  {
-    icon: "/images/services/shopify/products-listing.png",
-    title: "Product Page Redesign",
-    description:
-      "Enhanced product pages with better image galleries, compelling descriptions, size guides, and cross-sell recommendations.",
-  },
-  {
-    icon: "/images/services/shopify/custom-theme.png",
-    title: "Homepage Redesign",
-    description:
-      "Eye-catching homepage with hero banners, featured collections, testimonials, and brand storytelling sections that engage visitors.",
-  },
-  {
-    icon: "/images/services/shopify/migration.png",
-    title: "Navigation Overhaul",
-    description:
-      "Restructured menu, mega navigation, breadcrumbs, and search functionality to help customers find products quickly and easily.",
-  },
-  {
-    icon: "/images/services/shopify/social-media.png",
-    title: "Brand Consistency",
-    description:
-      "Unified visual identity across all pages with consistent typography, color palette, imagery style, and brand voice.",
-  },
-  {
-    icon: "/images/services/shopify/bug-fixing.png",
-    title: "Checkout Optimization",
-    description:
-      "Streamlined checkout process with fewer steps, guest checkout option, multiple payment methods, and trust-building elements.",
-  },
-  {
-    icon: "/images/services/icons/inventory.png",
-    title: "Collection Pages",
-    description:
-      "Redesigned collection pages with advanced filtering, sorting options, quick-view functionality, and optimized product grid layouts.",
-  },
-  {
-    icon: "/images/services/icons/personal-manager.png",
-    title: "Post-Launch Support",
-    description:
-      "Ongoing support after redesign launch including performance monitoring, A/B testing, bug fixes, and iterative improvements.",
-  },
-];
-
-const howWeWorkSteps = [
-  {
-    img: "/images/services/shopify/discussion.png",
-    title: "Audit & Analysis",
-    description:
-      "We audit your current store design, analytics, heatmaps, and user flow to identify conversion bottlenecks",
-  },
-  {
-    img: "/images/services/shopify/get-access.png",
-    title: "Strategy & Wireframe",
-    description:
-      "Create a redesign strategy with wireframes, mood boards, and a clear plan for every page improvement",
-  },
-  {
-    img: "/images/services/shopify/planning.png",
-    title: "Design Mockups",
-    description:
-      "Deliver high-fidelity design mockups for your approval before any development work begins",
-  },
-  {
-    img: "/images/services/shopify/implement.png",
-    title: "Development",
-    description:
-      "Implement the approved designs with clean code, responsive layouts, and performance optimization",
-  },
-  {
-    img: "/images/services/shopify/live-handover.png",
-    title: "Launch & Optimize",
-    description:
-      "Go live with the redesign, monitor key metrics, and optimize based on real user data",
-  },
-];
-
-const portfolioItems = [
-  {
-    img: "/images/services/portfolio/porto-shopify-theme.webp",
-    title: "Fashion Brand Redesign",
-    description: "Increased conversion rate by 45% with a complete mobile-first store redesign",
-  },
-  {
-    img: "/images/services/portfolio/porto-shopify-theme.webp",
-    title: "Beauty Store Makeover",
-    description: "Modern redesign with improved product pages and 60% faster page load times",
-  },
-  {
-    img: "/images/services/portfolio/porto-shopify-theme.webp",
-    title: "Electronics Retailer",
-    description: "Complete UX overhaul resulting in 35% reduction in cart abandonment rate",
-  },
-  {
-    img: "/images/services/portfolio/porto-shopify-theme.webp",
-    title: "Home & Garden Store",
-    description: "Brand refresh with new navigation and collection pages driving 50% more sales",
-  },
+const comparisonData = [
+  { feature: "Data-driven UX audit first", us: true, them: false },
+  { feature: "Conversion optimization focus", us: true, them: "Design only" },
+  { feature: "Speed optimization included", us: true, them: "Extra cost" },
+  { feature: "Mobile-first approach", us: true, them: "Desktop-first" },
+  { feature: "SEO preservation during redesign", us: true, them: false },
+  { feature: "Zero downtime migration", us: true, them: "Hours of downtime" },
+  { feature: "Turnaround time", us: "2-4 weeks", them: "6-12 weeks" },
+  { feature: "Post-launch A/B testing", us: true, them: false },
+  { feature: "WhatsApp direct support", us: true, them: false },
 ];
 
 const faqs = [
   {
-    question: "How long does a Shopify store redesign take?",
-    answer:
-      "A typical Shopify store redesign takes 2-4 weeks depending on the scope. Simple theme-based redesigns can be done in 1-2 weeks, while custom redesigns with unique layouts and features may take 3-4 weeks. We provide a detailed timeline after the initial audit.",
+    q: "How long does a Shopify store redesign take?",
+    a: "A typical redesign takes 2-4 weeks depending on scope. Simple theme-based redesigns can be done in 1-2 weeks, while custom redesigns with unique layouts and features may take 3-4 weeks. We provide a detailed timeline after the initial audit.",
   },
   {
-    question: "Will I lose my existing SEO rankings during the redesign?",
-    answer:
-      "No, we take great care to preserve your SEO during the redesign. We maintain all existing URLs, set up proper redirects where needed, preserve meta data, and ensure all on-page SEO elements are carried over or improved in the new design.",
+    q: "Will I lose my existing SEO rankings during the redesign?",
+    a: "No. We take great care to preserve your SEO. We maintain all existing URLs, set up proper redirects where needed, preserve meta data, and ensure all on-page SEO elements are carried over or improved. Your organic traffic is protected.",
   },
   {
-    question: "Can you redesign my store without changing the theme?",
-    answer:
-      "Yes, we can work within your existing theme by customizing the CSS, Liquid templates, and section configurations. However, if your current theme is outdated or limiting, we may recommend switching to a more modern, performance-optimized theme.",
+    q: "Can you redesign my store without changing the theme?",
+    a: "Yes. We can work within your existing theme by customizing the CSS, Liquid templates, and section configurations. However, if your current theme is outdated or limiting performance, we may recommend switching to a modern, optimized theme.",
   },
   {
-    question: "How do you ensure the redesign improves conversions?",
-    answer:
-      "We start with a data-driven audit of your current store using analytics, heatmaps, and user behavior data. Every design decision is based on conversion optimization best practices including strategic CTA placement, simplified navigation, and mobile optimization.",
+    q: "How do you ensure the redesign improves conversions?",
+    a: "We start with a data-driven audit using analytics, heatmaps, and user behavior data. Every design decision is based on conversion best practices — strategic CTA placement, simplified navigation, trust signals, and mobile optimization.",
   },
   {
-    question: "Will my store have downtime during the redesign?",
-    answer:
-      "No, we work on a development or duplicate theme so your live store continues operating normally. Once the redesign is complete and approved, we publish the new design in minutes with zero downtime.",
+    q: "Will my store have downtime during the redesign?",
+    a: "No. We work on a development or duplicate theme so your live store continues operating normally. Once the redesign is approved, we publish the new design in minutes with zero downtime.",
   },
   {
-    question: "Do you provide mobile-responsive designs?",
-    answer:
-      "Absolutely. All our redesigns follow a mobile-first approach since over 70% of eCommerce traffic comes from mobile devices. We test on multiple devices and screen sizes to ensure a seamless shopping experience everywhere.",
+    q: "Do you provide mobile-responsive designs?",
+    a: "All our redesigns follow a mobile-first approach since over 70% of ecommerce traffic comes from mobile devices. We test on multiple devices and screen sizes to ensure a seamless shopping experience everywhere.",
   },
   {
-    question: "What if I do not like the redesign?",
-    answer:
-      "We involve you at every stage with design mockups and revisions before development. We offer up to 3 rounds of revisions on the design phase. Your existing store remains untouched until you approve the final redesign.",
+    q: "What if I do not like the redesign?",
+    a: "We involve you at every stage with design mockups and revisions before any development. We offer up to 3 rounds of revisions on the design phase. Your existing store remains untouched until you approve the final redesign.",
   },
   {
-    question: "Can you also improve my store speed during the redesign?",
-    answer:
-      "Yes, speed optimization is a core part of our redesign process. We optimize images, minimize code, implement lazy loading, audit third-party apps, and ensure your redesigned store loads in under 3 seconds on mobile.",
+    q: "Can you also improve my store speed during the redesign?",
+    a: "Speed optimization is a core part of our redesign process. We optimize images, minimize code, implement lazy loading, audit third-party apps, and ensure your redesigned store loads in under 3 seconds on mobile.",
   },
 ];
 
 export default function ShopifyRedesignPage() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
   return (
     <>
-      {/* Hero Section */}
-      <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
+      {/* ── HERO ── */}
+      <section style={{ padding: "70px 0 80px", backgroundColor: "#f6f7f9" }}>
         <div className="container-main" style={{ textAlign: "center" }}>
-          <span className="typo-label">Shopify Redesign</span>
-          <h1 className="typo-h1" style={{ marginBottom: "10px" }}>
-            Shopify Store Redesign Services
+          <span className="typo-label" style={{ marginBottom: "8px", display: "block" }}>SHOPIFY REDESIGN</span>
+          <h1 className="typo-h1" style={{ marginBottom: "14px", maxWidth: "700px", marginLeft: "auto", marginRight: "auto" }}>
+            Transform Your Shopify Store Into a Conversion Machine
           </h1>
-          <p className="typo-subtext" style={{ maxWidth: "560px", margin: "0 auto 24px" }}>
-            Transform your underperforming Shopify store into a
-            conversion-optimized sales machine with modern design, improved
-            UX, faster speeds, and a mobile-first approach.
+          <p className="typo-body" style={{ maxWidth: "600px", margin: "0 auto 12px", fontSize: "17px" }}>
+            Our redesigns deliver an average <strong>40% increase in conversion rate</strong>. Data-driven UX, modern design, and mobile-first approach.
+          </p>
+          <p style={{ fontSize: "14px", color: "var(--color-primary)", fontWeight: 600, marginBottom: "28px" }}>
+            Zero downtime. SEO preserved. Results in 2-4 weeks.
           </p>
           <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
             <a
               href="https://wa.link/m2ac6m"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary"
+              className="btn-primary btn-primary-pulse"
               style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
             >
-              <FaWhatsapp />
-              Quick Whatsapp
+              <FaWhatsapp style={{ fontSize: "18px" }} />
+              Get Free Store Audit
             </a>
-            <Link href="/services" className="btn-outline">
-              Browse More Services
+            <Link href="/pricing" className="btn-outline">
+              View Pricing
             </Link>
           </div>
+
+          {/* Trust badges */}
+          <div style={{ display: "flex", gap: "24px", justifyContent: "center", marginTop: "32px", flexWrap: "wrap" }}>
+            {[
+              { icon: <FaStore />, text: "100+ Stores Redesigned" },
+              { icon: <FaChartLine />, text: "40% Avg Conversion Lift" },
+              { icon: <FaClock />, text: "2-4 Week Turnaround" },
+            ].map((badge) => (
+              <div key={badge.text} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#555" }}>
+                <span style={{ color: "var(--color-primary)" }}>{badge.icon}</span>
+                {badge.text}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Intro Section */}
+      {/* ── WHAT'S INCLUDED ── */}
       <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "40px", alignItems: "center" }}>
-            {/* Left - Text */}
-            <div>
-              <p className="typo-body" style={{ marginBottom: "16px" }}>
-                Your Shopify store design is the first impression customers
-                have of your brand. An outdated or confusing layout costs you
-                sales every single day. Our redesign service transforms your
-                existing store into a modern, high-converting shopping
-                experience that keeps customers engaged and drives more
-                revenue.
-              </p>
-              <p className="typo-body">
-                We combine data-driven UX research with stunning visual design
-                to create stores that not only look beautiful but perform
-                exceptionally. From homepage to checkout, every page is
-                optimized for speed, mobile responsiveness, and conversions.
-                Our redesign process preserves your SEO rankings while
-                delivering a fresh, professional storefront that reflects your
-                brand identity.
-              </p>
-            </div>
+          <div className="section-header">
+            <span className="typo-label">WHAT&apos;S INCLUDED</span>
+            <h2 className="typo-h2">Complete Redesign That Drives Revenue</h2>
+            <p className="typo-subtext">Every redesign decision is backed by data, not guesswork.</p>
+          </div>
 
-            {/* Right - Image */}
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <img
-                src="/images/services/hero/shopify-hero.svg"
-                alt="Shopify Store Redesign Services"
-                style={{ borderRadius: "12px", width: "100%", maxWidth: "500px", height: "auto" }}
-              />
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ marginTop: "32px" }}>
+            {[
+              { icon: <FaSearchPlus />, title: "UX Audit & Analysis", desc: "Deep-dive audit of your current store using analytics, heatmaps, session recordings, and user flow analysis to identify exactly where you are losing sales." },
+              { icon: <FaChartLine />, title: "Conversion Optimization", desc: "Strategic placement of CTAs, trust signals, social proof, urgency elements, and simplified checkout flow. Every element is positioned to maximize revenue." },
+              { icon: <FaTachometerAlt />, title: "Speed Optimization", desc: "Comprehensive performance tuning — image compression, code minification, lazy loading, app audit, and third-party script cleanup for sub-3-second load times." },
+              { icon: <FaMobileAlt />, title: "Mobile-First Design", desc: "Responsive design that prioritizes the mobile shopping experience. 70%+ of your traffic is mobile — your store needs to perform perfectly on every screen size." },
+              { icon: <FaPalette />, title: "Brand Alignment", desc: "Unified visual identity across every page — consistent typography, colors, imagery, and brand voice. Your redesigned store reflects your brand at its best." },
+              { icon: <FaShoppingCart />, title: "Product & Checkout Pages", desc: "Enhanced product pages with better galleries, compelling copy, and cross-sell recommendations. Streamlined checkout with fewer steps and trust elements." },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="card-hover"
+                style={{
+                  backgroundColor: "#f6f7f9",
+                  borderRadius: "10px",
+                  padding: "24px",
+                  border: "1px solid rgba(0,0,0,0.04)",
+                }}
+              >
+                <div style={{ fontSize: "22px", color: "var(--color-primary)", marginBottom: "12px" }}>{item.icon}</div>
+                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
+                <p className="typo-small">{item.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Service Features */}
+      {/* ── HOW IT WORKS ── */}
       <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
-          <div className="section-header" style={{ textAlign: "left" }}>
-            <span className="typo-label">Services</span>
-            <h2 className="typo-h2" style={{ marginBottom: "32px" }}>Our Shopify Redesign Services</h2>
+          <div className="section-header">
+            <span className="typo-label">SIMPLE PROCESS</span>
+            <h2 className="typo-h2">From Audit to Launch in 4 Steps</h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "24px" }}>
-            {redesignFeatures.map((feature) => (
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "0", marginTop: "36px" }}>
+            {[
+              { step: "01", title: "UX Audit", desc: "We audit your current store design, analytics, heatmaps, and user flow to identify every conversion bottleneck." },
+              { step: "02", title: "Strategy & Mockups", desc: "Create a redesign strategy with wireframes, mood boards, and high-fidelity mockups for your approval." },
+              { step: "03", title: "Development", desc: "Implement approved designs with clean code, responsive layouts, and performance optimization on a staging theme." },
+              { step: "04", title: "Launch & Optimize", desc: "Go live with zero downtime, monitor key metrics, and A/B test to continuously improve conversions." },
+            ].map((item) => (
               <div
-                key={feature.title}
+                key={item.step}
                 style={{
-                  backgroundColor: "#fff",
-                  borderRadius: "12px",
-                  padding: "24px 16px",
+                  padding: "28px 24px",
                   textAlign: "center",
+                  position: "relative",
                 }}
               >
-                <div style={{ display: "flex", justifyContent: "center", marginBottom: "16px" }}>
-                  <img
-                    src={feature.icon}
-                    alt={feature.title}
-                    style={{ width: "80px", height: "80px", objectFit: "contain" }}
-                  />
+                <div style={{
+                  fontSize: "36px",
+                  fontWeight: 800,
+                  color: "var(--color-primary)",
+                  opacity: 0.15,
+                  marginBottom: "8px",
+                  lineHeight: 1,
+                }}>
+                  {item.step}
                 </div>
-                <h3 className="typo-h3" style={{ marginBottom: "6px" }}>
-                  {feature.title}
-                </h3>
-                <p className="typo-small">
-                  {feature.description}
-                </p>
+                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
+                <p className="typo-small">{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* How We Work */}
+      {/* ── COMPARISON ── */}
       <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
         <div className="container-main">
-          <div className="section-header" style={{ textAlign: "left" }}>
-            <span className="typo-label">Process</span>
-            <h2 className="typo-h2" style={{ marginBottom: "32px" }}>How we redesign your Shopify store</h2>
+          <div className="section-header">
+            <span className="typo-label">WHY CHOOSE US</span>
+            <h2 className="typo-h2">EcomGarden vs Other Redesign Services</h2>
+            <p className="typo-subtext">We don&apos;t just make stores pretty. We make them profitable.</p>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "24px" }}>
-            {howWeWorkSteps.map((step, index) => (
-              <div key={step.title} style={{ textAlign: "center" }}>
-                <div style={{ display: "flex", justifyContent: "center", marginBottom: "16px" }}>
-                  <div style={{ position: "relative" }}>
-                    <img
-                      src={step.img}
-                      alt={step.title}
-                      style={{ width: "80px", height: "80px", objectFit: "contain" }}
-                    />
-                    <div
-                      style={{
-                        position: "absolute",
-                        top: "-8px",
-                        right: "-8px",
-                        width: "28px",
-                        height: "28px",
-                        borderRadius: "50%",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        color: "#fff",
-                        backgroundColor: "var(--color-primary)",
-                      }}
-                    >
-                      {index + 1}
-                    </div>
+
+          <div style={{ maxWidth: "700px", margin: "32px auto 0" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr auto auto", gap: "0", backgroundColor: "#fff", borderRadius: "12px", overflow: "hidden", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
+              <div style={{ padding: "12px 16px", fontWeight: 700, backgroundColor: "#f6f7f9", fontSize: "13px" }}>Feature</div>
+              <div style={{ padding: "12px 20px", fontWeight: 700, backgroundColor: "var(--color-primary)", color: "#fff", textAlign: "center", fontSize: "13px", minWidth: "120px" }}>EcomGarden</div>
+              <div style={{ padding: "12px 20px", fontWeight: 700, backgroundColor: "#f6f7f9", textAlign: "center", fontSize: "13px", minWidth: "120px" }}>Others</div>
+
+              {comparisonData.map((row) => (
+                <React.Fragment key={row.feature}>
+                  <div style={{ padding: "10px 16px", fontSize: "13px", borderBottom: "1px solid #f5f5f5" }}>{row.feature}</div>
+                  <div style={{ padding: "10px 20px", textAlign: "center", borderBottom: "1px solid #f5f5f5", backgroundColor: "rgba(22,163,74,0.03)" }}>
+                    {row.us === true ? <FaCheckCircle style={{ color: "var(--color-primary)", fontSize: "16px" }} /> : <span style={{ fontSize: "13px", color: "var(--color-primary)", fontWeight: 600 }}>{row.us}</span>}
                   </div>
-                </div>
-                <h3 className="typo-h3" style={{ marginBottom: "6px" }}>
-                  {step.title}
-                </h3>
-                <p className="typo-small">
-                  {step.description}
-                </p>
-              </div>
-            ))}
+                  <div style={{ padding: "10px 20px", textAlign: "center", borderBottom: "1px solid #f5f5f5" }}>
+                    {row.them === false ? <FaTimesCircle style={{ color: "#dc2626", fontSize: "16px" }} /> : <span style={{ fontSize: "13px", color: "#999" }}>{row.them}</span>}
+                  </div>
+                </React.Fragment>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Portfolio */}
+      {/* ── WHY ECOMGARDEN ── */}
       <section style={{ padding: "55px 0", backgroundColor: "#f6f7f9" }}>
         <div className="container-main">
-          <div className="section-header" style={{ textAlign: "left" }}>
-            <span className="typo-label">Portfolio</span>
-            <h2 className="typo-h2" style={{ marginBottom: "32px" }}>Recent store redesign projects</h2>
+          <div className="section-header">
+            <span className="typo-label">THE ECOMGARDEN DIFFERENCE</span>
+            <h2 className="typo-h2">Why Our Redesigns Outperform the Competition</h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "24px" }}>
-            {portfolioItems.map((item, index) => (
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ marginTop: "32px" }}>
+            {[
+              { title: "Data Before Design", desc: "We never redesign based on opinion. Every change is backed by analytics, heatmap data, and user behavior insights. The result is a store that converts, not just one that looks different." },
+              { title: "Conversion-First Mindset", desc: "Pretty designs are everywhere. We focus on designs that sell. Strategic CTA placement, trust signal positioning, and friction reduction throughout the buying journey." },
+              { title: "SEO-Safe Process", desc: "Your organic traffic is an asset. We preserve all URLs, implement redirects, maintain structured data, and protect your search rankings throughout the entire redesign process." },
+              { title: "Zero Downtime Launch", desc: "We build on a staging theme while your live store runs normally. The switchover happens in minutes — your customers never experience any disruption." },
+              { title: "Mobile-First Always", desc: "70%+ of ecommerce traffic is mobile. We design for mobile first and scale up to desktop, ensuring the majority of your customers get the best possible experience." },
+              { title: "Satisfaction Guaranteed", desc: "Up to 3 rounds of design revisions before development begins. Your existing store stays untouched until you approve the final design. No risk, no surprises." },
+            ].map((item) => (
               <div
-                key={index}
+                key={item.title}
+                className="card-hover"
                 style={{
                   backgroundColor: "#fff",
-                  borderRadius: "12px",
-                  overflow: "hidden",
-                  boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
+                  borderRadius: "10px",
+                  padding: "24px",
+                  border: "1px solid rgba(0,0,0,0.04)",
                 }}
               >
-                <img
-                  src={item.img}
-                  alt={item.title}
-                  style={{ width: "100%", height: "auto", objectFit: "cover" }}
-                />
-                <div style={{ padding: "16px" }}>
-                  <h3 className="typo-h3" style={{ marginBottom: "6px" }}>
-                    {item.title}
-                  </h3>
-                  <p className="typo-small" style={{ marginBottom: "10px" }}>
-                    {item.description}
-                  </p>
-                  <Link href="/contact" className="typo-label">
-                    View Details
-                  </Link>
+                <h3 className="typo-h4" style={{ marginBottom: "6px" }}>{item.title}</h3>
+                <p className="typo-small">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ── */}
+      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
+        <div className="container-main">
+          <div className="section-header">
+            <span className="typo-label">FAQ</span>
+            <h2 className="typo-h2">Frequently Asked Questions</h2>
+          </div>
+
+          <div style={{ maxWidth: "750px", margin: "24px auto 0" }}>
+            {faqs.map((faq, i) => (
+              <div
+                key={i}
+                style={{
+                  backgroundColor: "#f6f7f9",
+                  borderRadius: "8px",
+                  marginBottom: "8px",
+                  overflow: "hidden",
+                  border: "1px solid rgba(0,0,0,0.04)",
+                }}
+              >
+                <button
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    width: "100%",
+                    padding: "14px 18px",
+                    background: "none",
+                    border: "none",
+                    cursor: "pointer",
+                    fontSize: "15px",
+                    fontWeight: 600,
+                    color: "var(--color-dark)",
+                    textAlign: "left",
+                  }}
+                >
+                  {faq.q}
+                  {openFaq === i ? <FaChevronUp style={{ fontSize: "12px", flexShrink: 0 }} /> : <FaChevronDown style={{ fontSize: "12px", flexShrink: 0 }} />}
+                </button>
+                <div style={{
+                  maxHeight: openFaq === i ? "300px" : "0",
+                  overflow: "hidden",
+                  transition: "max-height 0.3s ease",
+                }}>
+                  <p className="typo-body" style={{ padding: "0 18px 14px" }}>{faq.a}</p>
                 </div>
               </div>
             ))}
@@ -379,34 +299,7 @@ export default function ShopifyRedesignPage() {
         </div>
       </section>
 
-      {/* Risk Free Section */}
-      <section style={{ padding: "55px 0", backgroundColor: "#fff" }}>
-        <div className="container-main" style={{ textAlign: "center" }}>
-          <h2 className="typo-h2" style={{ marginBottom: "8px" }}>
-            Your Store Deserves a Modern Design
-          </h2>
-          <p className="typo-label" style={{ marginBottom: "20px" }}>
-            Outdated design is costing you sales every day
-          </p>
-          <h3 className="typo-h3" style={{ marginBottom: "16px", color: "var(--color-accent)" }}>
-            100% Satisfaction Guaranteed. We redesign until you love it.
-          </h3>
-          <p className="typo-body" style={{ maxWidth: "720px", margin: "0 auto" }}>
-            A professional store redesign pays for itself within weeks through
-            improved conversion rates and higher average order values. Our
-            data-driven approach ensures every design decision is backed by
-            proven UX principles and conversion optimization strategies.
-          </p>
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <ServiceBenefits />
-
-      {/* FAQ Section */}
-      <ServiceFAQ faqs={faqs} />
-
-      {/* Final CTA */}
+      {/* ── CTA ── */}
       <CTASection />
     </>
   );

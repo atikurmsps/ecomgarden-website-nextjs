@@ -16,7 +16,7 @@ const navLinks: NavItem[] = [
   { name: "Home", href: "/" },
   {
     name: "Amazon",
-    href: "/services/amazon-wholesale",
+    href: "/services/amazon",
     children: [
       { name: "Amazon FBA", href: "/services/amazon-fba", desc: "Private label & FBA management" },
       { name: "Amazon Wholesale", href: "/services/amazon-wholesale", desc: "Full-service wholesale management" },
@@ -26,7 +26,7 @@ const navLinks: NavItem[] = [
   },
   {
     name: "Walmart",
-    href: "/services/walmart-management",
+    href: "/services/walmart",
     children: [
       { name: "Walmart WFS", href: "/services/walmart-wfs", desc: "Walmart Fulfillment Services" },
       { name: "Walmart Wholesale", href: "/services/walmart-wholesale", desc: "Wholesale store management" },
@@ -36,7 +36,7 @@ const navLinks: NavItem[] = [
   },
   {
     name: "Shopify",
-    href: "/services/shopify-development",
+    href: "/services/shopify",
     children: [
       { name: "Shopify Dropshipping Store", href: "/services/shopify-dropshipping", desc: "Ready-to-sell dropship store" },
       { name: "Shopify Store Redesign", href: "/services/shopify-redesign", desc: "Conversion-optimized redesign" },
