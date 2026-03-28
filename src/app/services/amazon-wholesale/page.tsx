@@ -122,7 +122,7 @@ export default function AmazonWholesalePage() {
 
             <div className="hidden lg:flex items-center justify-center">
               <img
-                src="/svg/dropshipping_hero_v4.svg"
+                src="/svg/wholesale.svg"
                 alt="Amazon Wholesale Services"
                 style={{ width: "100%", maxWidth: "600px", height: "auto" }}
               />

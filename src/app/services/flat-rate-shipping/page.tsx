@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { FaWhatsapp, FaCheckCircle } from "react-icons/fa";
-import ServiceFeaturesGrid from "@/components/services/ServiceFeaturesGrid";
 import ServiceBenefits from "@/components/services/ServiceBenefits";
 import ServiceFAQ from "@/components/services/ServiceFAQ";
 import ServiceConfidence from "@/components/services/ServiceConfidence";
@@ -206,7 +205,6 @@ export default function FlatRateShippingPage() {
                 style={{
                   padding: "28px 24px",
                   textAlign: "center",
-                  position: "relative",
                 }}
               >
                 <div style={{ fontSize: "48px", fontWeight: 800, color: "var(--color-primary)", opacity: 0.12, lineHeight: 1, marginBottom: "10px" }}>
@@ -315,9 +313,6 @@ export default function FlatRateShippingPage() {
 
       {/* Confidence Stats */}
       <ServiceConfidence />
-
-      {/* Service Features Grid */}
-      <ServiceFeaturesGrid />
 
       {/* Benefits Section */}
       <ServiceBenefits />
