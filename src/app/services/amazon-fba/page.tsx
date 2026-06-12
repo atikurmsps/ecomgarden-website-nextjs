@@ -5,6 +5,7 @@ import Link from "next/link";
 import { FaWhatsapp, FaCheckCircle, FaTimesCircle, FaChevronDown, FaChevronUp } from "react-icons/fa";
 import ServiceConfidence from "@/components/services/ServiceConfidence";
 import CTASection from "@/components/home/CTASection";
+import LocalVideo from "@/components/LocalVideo";
 
 const comparisonData = [
   { feature: "Data-driven product validation before launch", us: true, diy: "Guesswork", others: "Basic tools" },
@@ -178,15 +179,13 @@ export default function AmazonFBAPage() {
             <p className="typo-subtext">Real stores. Real revenue. Real clients sharing their results publicly.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6" style={{ marginTop: "28px", maxWidth: "900px", marginLeft: "auto", marginRight: "auto" }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6" style={{ marginTop: "28px" }}>
             {/* Video 1 */}
             <div style={{ borderRadius: "12px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.08)", border: "1px solid rgba(0,0,0,0.06)" }}>
               <div style={{ position: "relative", paddingBottom: "56.25%", height: 0 }}>
-                <iframe
-                  src="https://www.youtube.com/embed/2TxAECYAyM0"
-                  style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
+                <LocalVideo
+                  src="/videos/yearsales.mp4"
+                  poster="/images/video-thumbs/yearsales.jpg"
                   title="Client Result - Amazon FBA"
                 />
               </div>
@@ -195,11 +194,9 @@ export default function AmazonFBAPage() {
             {/* Video 2 */}
             <div style={{ borderRadius: "12px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.08)", border: "1px solid rgba(0,0,0,0.06)" }}>
               <div style={{ position: "relative", paddingBottom: "56.25%", height: 0 }}>
-                <iframe
-                  src="https://www.youtube.com/embed/9DqDFAGLPrc"
-                  style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
+                <LocalVideo
+                  src="/videos/3months.mp4"
+                  poster="/images/video-thumbs/3months.jpg"
                   title="Client Result - Amazon FBA Revenue"
                 />
               </div>

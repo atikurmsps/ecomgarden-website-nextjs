@@ -11,6 +11,7 @@ import {
   FaHeadset,
   FaTimes,
 } from "react-icons/fa";
+import LocalVideo from "@/components/LocalVideo";
 
 const highlights = [
   {
@@ -340,19 +341,11 @@ export default function HeroSection() {
               <span style={{ fontSize: "14px", fontWeight: 600 }}>Close</span>
             </button>
             <div style={{ position: "relative", paddingBottom: "56.25%" }}>
-              <iframe
-                style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  width: "100%",
-                  height: "100%",
-                  border: "none",
-                }}
-                src="https://www.youtube.com/embed/9DqDFAGLPrc?autoplay=1"
+              <LocalVideo
+                src="/videos/3months.mp4"
+                poster="/images/video-thumbs/3months.jpg"
                 title="EcomGarden - Client Results"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
+                autoPlay
               />
             </div>
           </div>

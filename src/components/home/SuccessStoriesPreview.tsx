@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa";
+import LocalVideo from "@/components/LocalVideo";
 
 export default function SuccessStoriesPreview() {
   return (
@@ -23,7 +24,6 @@ export default function SuccessStoriesPreview() {
             display: "grid",
             gridTemplateColumns: "repeat(2, 1fr)",
             gap: "20px",
-            maxWidth: "900px",
             margin: "0 auto 28px",
           }}
           className="success-videos"
@@ -37,12 +37,10 @@ export default function SuccessStoriesPreview() {
               boxShadow: "0 4px 16px rgba(0,0,0,0.1)",
             }}
           >
-            <iframe
-              style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }}
-              src="https://www.youtube.com/embed/9DqDFAGLPrc"
+            <LocalVideo
+              src="/videos/3months.mp4"
+              poster="/images/video-thumbs/3months.jpg"
               title="Client Success Story"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
             />
           </div>
           <div
@@ -54,12 +52,10 @@ export default function SuccessStoriesPreview() {
               boxShadow: "0 4px 16px rgba(0,0,0,0.1)",
             }}
           >
-            <iframe
-              style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }}
-              src="https://www.youtube.com/embed/D8B-AKLZciA"
+            <LocalVideo
+              src="/videos/3days.mp4"
+              poster="/images/video-thumbs/3days.jpg"
               title="Client Success Story"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
             />
           </div>
         </div>
