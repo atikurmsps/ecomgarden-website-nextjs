@@ -7,7 +7,6 @@ import {
   FaChartLine,
   FaHeadset,
   FaWarehouse,
-  FaShippingFast,
 } from "react-icons/fa";
 import CTASection from "@/components/home/CTASection";
 
@@ -43,15 +42,6 @@ const additionalServices = [
       "Operating 3 dedicated warehouses in AZ, NY, CT. FBA prep, WFS prep, storage, 2-step dropshipping, and direct-to-customer shipping — all under one roof.",
     bullets: ["Same-day order processing", "Flat rate pricing, no hidden fees", "Web-based inventory software"],
     href: "/services/3pl-warehouse",
-  },
-  {
-    icon: FaShippingFast,
-    img: "/images/pricing/shipping-icon.webp",
-    title: "Flat Rate Shipping Labels",
-    description:
-      "Stop overpaying for shipping. Get discounted USPS & UPS labels at flat rates — no box size limits, no expiration, no hidden fees.",
-    bullets: ["USPS Priority Mail from $4.00", "UPS Next Day Air from $5.00", "No box size or weight limits"],
-    href: "/services/flat-rate-shipping",
   },
 ];
 

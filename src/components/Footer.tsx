@@ -22,7 +22,6 @@ const serviceLinks = [
   { name: "3PL Warehouse Service", href: "/services/3pl-warehouse" },
   { name: "Amazon Arbitrage", href: "/services/amazon-arbitrage" },
   { name: "Amazon Wholesale", href: "/services/amazon-wholesale" },
-  { name: "Flat Rate Shipping", href: "/services/flat-rate-shipping" },
   { name: "Walmart Management", href: "/services/walmart-management" },
   { name: "Shopify Development", href: "/services/shopify-development" },
 ];

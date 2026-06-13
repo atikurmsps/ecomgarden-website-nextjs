@@ -43,14 +43,6 @@ const services = [
       "Operating dedicated warehouses in New York, Florida, and Connecticut. Web-based software, flat-rate pricing, fast processing, and shipping-ready boxes for all your fulfillment needs. FBA prep, WFS prep, storage, 2-step dropshipping support.",
     href: "/services/3pl-warehouse",
   },
-  {
-    img: "/images/services/hero/shipping-hero.jpg",
-    title: "Flat Rate Shipping",
-    subtitle: "Cheap USPS & UPS Labels",
-    description:
-      "Discounted flat-rate shipping services for eCommerce businesses. USPS Priority Mail for $4 and UPS Next Day Air for $5. No box size limit. Save on shipping costs with our partnerships with major carriers across the United States.",
-    href: "/services/flat-rate-shipping",
-  },
 ];
 
 export default function ServicesPage() {
