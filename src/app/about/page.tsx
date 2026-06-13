@@ -1,6 +1,20 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { FaWhatsapp, FaCheckCircle } from "react-icons/fa";
 import CTASection from "@/components/home/CTASection";
+
+const TITLE = "About EcomGarden — Your Ecommerce Partner Since 2018";
+const DESC =
+  "Since 2018, EcomGarden has run done-for-you Amazon, Walmart, eBay, and Shopify stores — 250+ clients, $12M+ generated, and 3 US warehouses. Meet the team behind it.";
+const URL = "/about";
+
+export const metadata: Metadata = {
+  title: TITLE,
+  description: DESC,
+  alternates: { canonical: URL },
+  openGraph: { type: "website", siteName: "EcomGarden", url: URL, title: `${TITLE} | EcomGarden`, description: DESC },
+  twitter: { card: "summary_large_image", title: `${TITLE} | EcomGarden`, description: DESC },
+};
 
 const stats = [
   { value: "200+", label: "Clients Worldwide" },

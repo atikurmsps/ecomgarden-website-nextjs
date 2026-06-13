@@ -1,6 +1,20 @@
+import type { Metadata } from "next";
 import { FaCheckCircle } from "react-icons/fa";
 import CTASection from "@/components/home/CTASection";
 import LocalVideo from "@/components/LocalVideo";
+
+const TITLE = "Client Success Stories — Real EcomGarden Results";
+const DESC =
+  "See real EcomGarden client results: stores scaling to six figures with strong ROI. Over $12M generated for 250+ sellers through our done-for-you ecommerce management.";
+const URL = "/success-story";
+
+export const metadata: Metadata = {
+  title: TITLE,
+  description: DESC,
+  alternates: { canonical: URL },
+  openGraph: { type: "website", siteName: "EcomGarden", url: URL, title: `${TITLE} | EcomGarden`, description: DESC },
+  twitter: { card: "summary_large_image", title: `${TITLE} | EcomGarden`, description: DESC },
+};
 
 const clientStories = [
   {

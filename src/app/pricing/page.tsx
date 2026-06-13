@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import {
   FaWhatsapp,
@@ -9,6 +10,19 @@ import {
   FaWarehouse,
 } from "react-icons/fa";
 import CTASection from "@/components/home/CTASection";
+
+const TITLE = "EcomGarden Pricing — Done-for-You Ecommerce Plans";
+const DESC =
+  "Transparent pricing for EcomGarden's done-for-you Amazon, Walmart, eBay, and Shopify management. Pick a plan, hand off the work, and start your unlimited vacation.";
+const URL = "/pricing";
+
+export const metadata: Metadata = {
+  title: TITLE,
+  description: DESC,
+  alternates: { canonical: URL },
+  openGraph: { type: "website", siteName: "EcomGarden", url: URL, title: `${TITLE} | EcomGarden`, description: DESC },
+  twitter: { card: "summary_large_image", title: `${TITLE} | EcomGarden`, description: DESC },
+};
 
 const highlights = [
   {

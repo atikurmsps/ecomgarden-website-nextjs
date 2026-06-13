@@ -14,11 +14,32 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "EcomGarden - All-in-one Automated Ecommerce Management Services",
+  metadataBase: new URL("https://ecomgarden.com"),
+  title: {
+    default: "EcomGarden — All-in-One Ecommerce Management for Amazon, Walmart & Shopify",
+    template: "%s | EcomGarden",
+  },
   description:
-    "Start, Grow & Scale Your eCommerce Businesses with our All-in-one Automated Ecommerce Management Services. Amazon, Walmart, eBay, Shopify store management.",
+    "Start, grow & scale your eCommerce business with EcomGarden's done-for-you management. Amazon, Walmart, eBay & Shopify stores run by a 50+ person team and 3 US warehouses — $12M+ generated for 250+ clients.",
   keywords:
-    "ecommerce management, amazon wholesale, amazon arbitrage, walmart management, shopify development, 3pl warehouse",
+    "ecommerce management, amazon wholesale, amazon arbitrage, amazon dropshipping, walmart management, walmart wfs, shopify development, 3pl warehouse, fba prep",
+  applicationName: "EcomGarden",
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    siteName: "EcomGarden",
+    locale: "en_US",
+    url: "/",
+    title: "EcomGarden — All-in-One Ecommerce Management for Amazon, Walmart & Shopify",
+    description:
+      "Done-for-you Amazon, Walmart, eBay & Shopify store management. $12M+ generated for 250+ clients by a 50+ person team and 3 US warehouses.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "EcomGarden — All-in-One Ecommerce Management",
+    description:
+      "Done-for-you Amazon, Walmart, eBay & Shopify store management. $12M+ generated for 250+ clients.",
+  },
   icons: {
     icon: "/images/favicon.webp",
     apple: "/images/favicon.webp",

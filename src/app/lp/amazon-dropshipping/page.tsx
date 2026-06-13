@@ -17,7 +17,6 @@ import {
   FaChartLine,
   FaWarehouse,
   FaBullhorn,
-  FaPhoneAlt,
   FaEnvelope,
   FaExclamationTriangle,
   FaUserSlash,
@@ -201,11 +200,13 @@ export default function AmazonDropshippingFunnel() {
 
       {/* ── MINIMAL HEADER ── */}
       <header className="fnl-header">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/logo-white.webp" alt="EcomGarden" style={{ height: "32px", width: "auto" }} />
-        <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="fnl-btn fnl-btn-sm">
-          <FaWhatsapp /> Free Profit Plan
-        </a>
+        <div className="fnl-header-inner">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/images/logo-white.webp" alt="EcomGarden" style={{ height: "32px", width: "auto" }} />
+          <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="fnl-btn fnl-btn-sm">
+            <FaWhatsapp /> Free Profit Plan
+          </a>
+        </div>
       </header>
 
       {/* ── HERO / VSL ── */}
@@ -522,7 +523,6 @@ export default function AmazonDropshippingFunnel() {
           <FaWhatsapp style={{ fontSize: "20px" }} /> Start Risk-Free on WhatsApp
         </a>
         <div className="fnl-contact">
-          <span><FaPhoneAlt /> +1 307 205 5481</span>
           <span><FaEnvelope /> info@ecomgarden.com</span>
         </div>
       </section>
@@ -627,14 +627,19 @@ export default function AmazonDropshippingFunnel() {
         .fnl-header {
           background: rgba(11, 15, 26, 0.92);
           backdrop-filter: blur(10px);
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 14px 28px;
+          padding: 14px 20px;
           position: sticky;
           top: 0;
           z-index: 100;
           border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        }
+        .fnl-header-inner {
+          max-width: 1120px;
+          margin: 0 auto;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 16px;
         }
 
         /* buttons */
@@ -748,13 +753,13 @@ export default function AmazonDropshippingFunnel() {
         .fnl-edu-point { display: flex; gap: 18px; align-items: flex-start; }
         .fnl-edu-ico {
           flex-shrink: 0;
-          width: 46px;
-          height: 46px;
-          border-radius: 13px;
+          width: 52px;
+          height: 52px;
+          border-radius: 14px;
           background: #ecfdf3;
           border: 1px solid #bbf7d0;
           color: var(--green-d);
-          font-size: 19px;
+          font-size: 24px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -996,7 +1001,7 @@ export default function AmazonDropshippingFunnel() {
         }
         .fnl-split-we li { color: #d3d9e6; }
         .fnl-split-you li { color: #2b3346; font-weight: 600; }
-        .fnl-split-ico { color: var(--green); flex-shrink: 0; margin-top: 3px; font-size: 15px; }
+        .fnl-split-ico { color: var(--green); flex-shrink: 0; margin-top: 1px; font-size: 20px; }
         .fnl-split-you .fnl-split-ico { color: var(--green-d); }
         .fnl-split-note {
           margin-top: 20px;
@@ -1073,6 +1078,7 @@ export default function AmazonDropshippingFunnel() {
         .fnl-td-feature { text-align: left !important; font-weight: 600; color: var(--head-ink) !important; }
         .fnl-td-us { background: #f0fdf4; color: var(--green-d) !important; font-size: 16px !important; }
         .fnl-x { color: #dc2626; }
+        .fnl-table td svg { display: block; margin: 0 auto; vertical-align: middle; }
 
         /* faq */
         .fnl-faq {

@@ -1,6 +1,20 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 
 import CTASection from "@/components/home/CTASection";
+
+const TITLE = "All Ecommerce Services — Amazon, Walmart, eBay & More";
+const DESC =
+  "Explore every EcomGarden service: done-for-you Amazon, Walmart, eBay, Etsy, and Shopify management, plus 3PL fulfillment, company filing, and tax filing for sellers.";
+const URL = "/services";
+
+export const metadata: Metadata = {
+  title: TITLE,
+  description: DESC,
+  alternates: { canonical: URL },
+  openGraph: { type: "website", siteName: "EcomGarden", url: URL, title: `${TITLE} | EcomGarden`, description: DESC },
+  twitter: { card: "summary_large_image", title: `${TITLE} | EcomGarden`, description: DESC },
+};
 
 const services = [
   {
