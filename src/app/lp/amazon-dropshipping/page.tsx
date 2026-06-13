@@ -224,8 +224,8 @@ export default function AmazonDropshippingFunnel() {
         <div className="fnl-vsl">
           <div className="fnl-vsl-inner">
             <LocalVideo
-              src="/videos/3months.mp4"
-              poster="/images/video-thumbs/3months.jpg"
+              src="/videos/yearsales.mp4"
+              poster="/images/video-thumbs/yearsales.jpg"
               title="Watch: how Celena's store made $153,438 in 4 months"
             />
           </div>
