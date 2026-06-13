@@ -28,7 +28,25 @@ import {
 } from "react-icons/fa";
 import LocalVideo from "@/components/LocalVideo";
 
-const WHATSAPP = "https://wa.link/m2ac6m";
+const WA_NUMBER = "13072055481";
+const waLink = (msg: string) =>
+  `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+
+// Fires lead events into whatever analytics is present (Meta Pixel, GA4, GTM).
+// Safe no-op until those scripts are added — no IDs required here.
+function trackLead(source: string) {
+  if (typeof window === "undefined") return;
+  const w = window as unknown as {
+    dataLayer?: unknown[];
+    fbq?: (...a: unknown[]) => void;
+    gtag?: (...a: unknown[]) => void;
+  };
+  w.dataLayer?.push({ event: "lead", method: "whatsapp", source });
+  w.fbq?.("track", "Lead", { content_name: source });
+  w.gtag?.("event", "generate_lead", { method: "whatsapp", source });
+}
+
+const WA_MSG = "Hi EcomGarden, I'd like my free Amazon profit plan.";
 
 /* ---------- data ---------- */
 
@@ -203,7 +221,7 @@ export default function AmazonDropshippingFunnel() {
         <div className="fnl-header-inner">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/images/logo-white.webp" alt="EcomGarden" style={{ height: "32px", width: "auto" }} />
-          <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="fnl-btn fnl-btn-sm">
+          <a href={waLink(WA_MSG)} onClick={() => trackLead("header")} target="_blank" rel="noopener noreferrer" className="fnl-btn fnl-btn-sm">
             <FaWhatsapp /> Free Profit Plan
           </a>
         </div>
@@ -235,7 +253,7 @@ export default function AmazonDropshippingFunnel() {
           </p>
         </div>
 
-        <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="fnl-btn fnl-btn-xl">
+        <a href={waLink(WA_MSG)} onClick={() => trackLead("hero")} target="_blank" rel="noopener noreferrer" className="fnl-btn fnl-btn-xl">
           Get My Free Profit Plan <FaArrowRight />
         </a>
         <p className="fnl-micro">Free WhatsApp consult · No card needed · Reply in ~2 minutes</p>
@@ -384,7 +402,7 @@ export default function AmazonDropshippingFunnel() {
           ))}
         </div>
         <div className="fnl-center">
-          <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="fnl-btn fnl-btn-lg">
+          <a href={waLink("Hi EcomGarden, I want results like your client stores. Send me my free profit plan.")} onClick={() => trackLead("proof")} target="_blank" rel="noopener noreferrer" className="fnl-btn fnl-btn-lg">
             I Want Results Like These <FaArrowRight />
           </a>
         </div>
@@ -456,7 +474,7 @@ export default function AmazonDropshippingFunnel() {
         </div>
 
         <div className="fnl-center">
-          <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="fnl-btn fnl-btn-xl">
+          <a href={waLink("Hi EcomGarden, I'd like to claim my free profit plan — $0 upfront.")} onClick={() => trackLead("offer")} target="_blank" rel="noopener noreferrer" className="fnl-btn fnl-btn-xl">
             Claim My Free Profit Plan <FaArrowRight />
           </a>
           <p className="fnl-micro" style={{ color: "#8b8ba3" }}>
@@ -519,7 +537,7 @@ export default function AmazonDropshippingFunnel() {
           Or you can keep scrolling and let someone else take this month&apos;s onboarding slot. Message us —
           worst case, you get a free profit plan and walk away smarter.
         </p>
-        <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="fnl-btn fnl-btn-xl">
+        <a href={waLink(WA_MSG)} onClick={() => trackLead("final")} target="_blank" rel="noopener noreferrer" className="fnl-btn fnl-btn-xl">
           <FaWhatsapp style={{ fontSize: "20px" }} /> Start Risk-Free on WhatsApp
         </a>
         <div className="fnl-contact">
@@ -537,7 +555,7 @@ export default function AmazonDropshippingFunnel() {
       </footer>
 
       {/* ── STICKY MOBILE CTA ── */}
-      <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="fnl-sticky-cta">
+      <a href={waLink(WA_MSG)} onClick={() => trackLead("sticky_mobile")} target="_blank" rel="noopener noreferrer" className="fnl-sticky-cta">
         <FaWhatsapp style={{ fontSize: "18px" }} /> Get Free Profit Plan — $0 Upfront
       </a>
 
