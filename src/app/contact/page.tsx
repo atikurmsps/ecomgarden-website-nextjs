@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import { FaWhatsapp, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import CTASection from "@/components/home/CTASection";
 
@@ -26,18 +26,35 @@ const offices = [
 ];
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (status === "sending") return;
+
+    const form = event.currentTarget;
+    const fallback = "We couldn’t send your message. Try again or email shohel@ecomgarden.com.";
+    setStatus("sending");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(Object.fromEntries(new FormData(form))),
+        signal: AbortSignal.timeout(20_000),
+      });
+      const result = await response.json();
+      if (response.ok && result.ok === true) {
+        form.reset();
+        setStatus("sent");
+        return;
+      }
+      setError(typeof result.error === "string" ? result.error : fallback);
+    } catch {
+      setError(fallback);
+    }
+    setStatus("error");
   };
 
   return (
@@ -180,14 +197,14 @@ export default function ContactPage() {
                       Email us
                     </p>
                     <a
-                      href="mailto:info@ecomgarden.com"
+                      href="mailto:shohel@ecomgarden.com"
                       style={{
                         fontSize: "15px",
                         fontWeight: 600,
                         color: "var(--color-text)",
                       }}
                     >
-                      info@ecomgarden.com
+                      shohel@ecomgarden.com
                     </a>
                   </div>
                 </div>
@@ -230,8 +247,9 @@ export default function ContactPage() {
 
             {/* Right: Form */}
             <div>
-              {submitted && (
+              {status === "sent" && (
                 <div
+                  role="status"
                   style={{
                     padding: "12px",
                     borderRadius: "8px",
@@ -245,43 +263,57 @@ export default function ContactPage() {
                   Thank you! Your message has been sent successfully.
                 </div>
               )}
+              {status === "error" && (
+                <p role="alert" className="mb-4 text-sm text-red-700">{error}</p>
+              )}
 
-              <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+              <form onSubmit={handleSubmit} aria-busy={status === "sending"} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+                <div hidden>
+                  <label htmlFor="contact-website">Leave this field empty</label>
+                  <input id="contact-website" name="website" type="text" autoComplete="off" tabIndex={-1} />
+                </div>
                 <input
                   type="text"
+                  name="name"
+                  aria-label="Your name"
+                  autoComplete="name"
+                  maxLength={120}
                   placeholder="Your Name"
                   className="w-full border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors bg-white"
                   style={{ padding: "14px 16px", fontSize: "15px", borderRadius: "10px" }}
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 />
                 <input
                   type="email"
+                  name="email"
+                  aria-label="Email address"
+                  autoComplete="email"
+                  maxLength={254}
                   required
                   placeholder="Email Address"
                   className="w-full border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors bg-white"
                   style={{ padding: "14px 16px", fontSize: "15px", borderRadius: "10px" }}
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 />
                 <input
                   type="text"
+                  name="subject"
+                  aria-label="Subject"
+                  maxLength={160}
                   placeholder="Subject"
                   className="w-full border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors bg-white"
                   style={{ padding: "14px 16px", fontSize: "15px", borderRadius: "10px" }}
-                  value={formData.subject}
-                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                 />
                 <textarea
+                  name="message"
+                  aria-label="Your message"
+                  required
+                  maxLength={5000}
                   rows={5}
                   placeholder="Your Message"
                   className="w-full border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors resize-none bg-white"
                   style={{ padding: "14px 16px", fontSize: "15px", borderRadius: "10px" }}
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 />
-                <button type="submit" className="btn-primary" style={{ width: "100%" }}>
-                  Send Message
+                <button type="submit" disabled={status === "sending"} className="btn-primary disabled:opacity-60" style={{ width: "100%" }}>
+                  {status === "sending" ? "Sending…" : "Send Message"}
                 </button>
               </form>
             </div>

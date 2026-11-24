@@ -1,8 +1,17 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "ecomgarden-website-nextjs",
+  "main": "worker/contact.js",
   "compatibility_date": "2025-09-27",
   "assets": {
-    "directory": "./out"
-  }
+    "directory": "./out",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/contact"]
+  },
+  "send_email": [
+    { "name": "CONTACT_EMAIL", "destination_address": "shohel@ecomgarden.com" }
+  ],
+  "ratelimits": [
+    { "name": "CONTACT_RATE_LIMIT", "namespace_id": "24112401", "simple": { "limit": 5, "period": 60 } }
+  ]
 }
